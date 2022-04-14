@@ -1,10 +1,10 @@
 import "./App.css";
 import Temperature from "./components/temperatures";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 function App() {
-  const [temperature, setTemperature] = useState([]);
+  const [temperature, setTemperature] = useState([1, 2, 3]);
 
   const getTemperature = () => {
     axios
@@ -13,10 +13,9 @@ function App() {
       )
       .then((response) => response.data)
       .then((data) => {
-        setTemperature(data.data[0]);
+        setTemperature(data.data);
       });
   };
-
   return (
     <div className="App">
       <Temperature temperature={temperature} />

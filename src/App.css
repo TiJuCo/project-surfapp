@@ -3,8 +3,8 @@ body {
 }
 
 .header {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo {
@@ -13,18 +13,22 @@ body {
 }
 
 .bMenu {
-  grid-column-start: 11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3px;
 }
 
 .bMenu span {
   display: block;
   height: 5px;
   background-color: black;
+  border-radius: 20px;
 }
 
 .bMenu-top {
   width: 34px;
-  margin-top: 20px;
 }
 
 .bMenu-middle {
@@ -34,7 +38,14 @@ body {
 
 .surfSpots {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+.titleSS {
+  display: flex;
+  justify-content: space-between;
 }
 
 .SeeAll {
@@ -43,16 +54,35 @@ body {
 }
 
 .images {
-  border-radius: 20px;
-  max-width: 300px;
-  max-height: 300px;
+  border-radius: 10px;
+  width: 100%;
 }
 
-.card1 {
-  background-color: rgb(222, 220, 220);
+.card {
+  border-radius: 10px;
+  background-color: white;
+  filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
+  min-height: 400px;
 }
 
-.card2 {
-  background-color: rgb(222, 220, 220);
-  grid-column-start: 3;
+.card-title {
+  position: relative;
+}
+
+.icons {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+}
+
+.icon-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 50px;
+}
+
+.icons img {
+  width: 50px;
 }
