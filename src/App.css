@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+body {
+  margin: 0px 20px 0px 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo {
+  grid-column-start: 1;
+  grid-column-end: 10;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.bMenu {
+  grid-column-start: 11;
 }
 
-.App-link {
-  color: #61dafb;
+.bMenu span {
+  display: block;
+  height: 5px;
+  background-color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bMenu-top {
+  width: 34px;
+  margin-top: 20px;
+}
+
+.bMenu-middle {
+  width: 20px;
+  margin-top: 3px;
+}
+
+.surfSpots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.SeeAll {
+  opacity: 40%;
+  grid-column-start: 5;
+}
+
+.images {
+  border-radius: 20px;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.card1 {
+  background-color: rgb(222, 220, 220);
+}
+
+.card2 {
+  background-color: rgb(222, 220, 220);
+  grid-column-start: 3;
 }
