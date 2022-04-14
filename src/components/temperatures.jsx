@@ -24,11 +24,7 @@ const Temperature = ({ temperature }) => {
       </div>
       <section className="surfSpots">
         <div className="card">
-          <img
-            className="images"
-            src={window.location.origin + carcavelos}
-            alt="cenas"
-          />
+          <img className="images" src={carcavelos} alt="cenas" />
           <div className="icons">
             <div className="icon-item">
               <img src={sol}></img>
