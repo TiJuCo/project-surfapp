@@ -6,7 +6,7 @@ const cardNewsEvents = [
         title: "Nazaré Tow Surfing Challenge Presented By Jogos Santa Casa Called ON for Tuesday, February 11",
         date: " Monday, February 10th, 2022",
         author: "PW",
-        image: "./images/BWA18XXLWinnerKoxaByCruzHR-1.jpg",
+        image: 'src',
         text: [
                 "The World Surf League (WSL) Big Wave Tour (BWT) has issued a Green Alert for the Nazaré Tow Surfing Challenge pres. By Jogos Santa Casa at Nazaré, Portugal to run on tomorrow, February 11, 2020. The first call will be made at 8 a.m. local time (GMT) on Tuesday.",
                 "“We have been tracking this weather system for a few days and conditions seem to keep improving with very large swell and light winds,” Bill Sharp, Big Wave Tour General Manager said. “This looks to be the best opportunity in the season so we have decided to call the Green Alert.”",
