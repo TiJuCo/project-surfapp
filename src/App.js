@@ -1,14 +1,17 @@
 import './App.css';
-import CreateNewsCard from './components/news/news-components';
-import cardNewsEvents  from './components/news/news-data.jsx';
+import Carousel from './components/news/Carousel';
+import React from 'react';
 
 function App() {
   return (
     <div className="App">
-
-      {cardNewsEvents.filter((info) => info.tag ==='news').map(info => <CreateNewsCard {...info} />)} 
+     <Carousel /> 
+      
     </div>
   );
 }
 
 export default App;
+
+
+//{cardNewsEvents.filter((info) => info.tag ==='news').map(info => <CreateNewsCard {...info} />)} 

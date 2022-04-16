@@ -1,4 +1,8 @@
 import React from "react";
+import caparica from '../../images/caparica.jpg';
+import nazare from '../../images/nazare.jpg';
+import carcavelos from '../../images/carcavelos.jpg';
+
 
 const cardNewsEvents = [
     {
@@ -6,7 +10,7 @@ const cardNewsEvents = [
         title: "Nazaré Tow Surfing Challenge Presented By Jogos Santa Casa Called ON for Tuesday, February 11",
         date: " Monday, February 10th, 2022",
         author: "PW",
-        image: 'src',
+        image: nazare,
         text: [
                 "The World Surf League (WSL) Big Wave Tour (BWT) has issued a Green Alert for the Nazaré Tow Surfing Challenge pres. By Jogos Santa Casa at Nazaré, Portugal to run on tomorrow, February 11, 2020. The first call will be made at 8 a.m. local time (GMT) on Tuesday.",
                 "“We have been tracking this weather system for a few days and conditions seem to keep improving with very large swell and light winds,” Bill Sharp, Big Wave Tour General Manager said. “This looks to be the best opportunity in the season so we have decided to call the Green Alert.”",
@@ -30,7 +34,7 @@ const cardNewsEvents = [
         title: "Autumn Sessions in Carcavelos",
         date: "Tuesday, December 3rd, 2021",
         author: "Juan",
-        image: "../../images/carcavelos-750x420.jpg",
+        image: carcavelos,
         text: [
                 "The waves are fun on all seasons of the year in Portugal, but Autumn is probably the best time to be around. The big swells get more common, the winds are often off shore and the cold of Winter has yet to arrive.",
                 "Recently Carcavelos had one of those tipycal Autumn swells and the world class spot produced some amazing waves."
@@ -41,11 +45,27 @@ const cardNewsEvents = [
     },
 
     {
+        tag: "news",
+        title: "MEO Rip Curl Pro Portugal Called Off for the Day",
+        date: "Saturday, April 19th, 2022",
+        author: "JPG",
+        image: '',
+        text: [
+                "The MEO Rip Curl Pro Portugal, the penultimate stop on the 2019 World Surf League Championship Tour, has been called Off for the day as strong onshore winds rendered the Supertubos lineup un-surfable.",
+                "Event No. 9 and 10 on the Women’s and Men’s Championship Tour respectively, the MEO Rip Curl Pro Portugal has already witnessed epic performances from some of the world’s best surfers and will likely resume tomorrow, October 20.",
+                "“There’s really strong onshore winds already this morning and the swell has dropped,” Jessi Miley-Dyer, VP Tours and Competition said. “We’re not going to be On today but it looks good for tomorrow with really clean offshore winds and smaller waves.",
+                "When competition resumes, the remaining 16 surfers in both the men and women fields will battle it out at Supertubos for a spot in the Quarterfinals. The World Title race is alive and well with all male and female contenders still in the hunt in Portugal."
+        ],
+
+        gallery: []
+    },
+
+    {
         tag: "events",
         title: "Caparica Surf Fest Approaches the final rounds",
         date: "Thursday, April 18th, 2022",
         author: "Tiago",
-        image: "../../images/Luke-Dillon_DSC_9424_CSF019_Mestre.jpg",
+        image: caparica,
         text: [
             "The Caparica Surf Fest powered by Oakley concluded a fourth consecutive day of action in solid conditions that challenged most of the surfers today. The men’s QS3,000 finished the remaining heats of Round 4 and the Junior divisions advanced through three rounds to set up for the finals tomorrow.",
             "In the main event, the men’s QS3,000 division, pressure was at an all-time high as the remaining battles of Round 4, the event’s top seeded round, unfolded in tricky conditions again. With the forecast looking much better for the last two days of competition, it’s make-or-break in Round 4 and surfers fought in the unruly surf for a chance to surf good waves in the events final rounds.",

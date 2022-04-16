@@ -1,0 +1,72 @@
+.carouselNews {
+    width: 80%;
+    height: 600px;
+}
+
+.carouselInner {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.carouselInner .left {
+    flex: 7%;
+    height: 10%;
+    margin-left: 0.5rem;
+    background-color: rgb(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.carouselInner .center {
+    flex: 86%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 7fr 1fr 1fr;
+    text-align: justify;
+}
+
+.carouselInner span {
+    background-color: rgb(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+.carouselInner h1 {
+    font-size: 2rem;
+    color: #fff;
+    text-align-last: left;
+    padding-top: 10%;
+}
+
+.carouselInner h4 {
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: end;
+}
+
+.carouselInner h5 {
+    font-size: 1rem;
+    font-style: italic;
+    color: #fff;
+    text-align: end;
+
+}
+
+.carouselInner .right {
+    flex: 7%;
+    height: 10%;
+    margin-right: 0.5rem;
+    background-color: rgb(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    cursor: pointer;
+}
