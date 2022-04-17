@@ -1,13 +1,15 @@
 import React from "react";
-import carcavelos from "./carcavelos.jpg";
-import guincho from "./guincho.jpg";
-import sol from "./sol.svg";
-import waves from "./waves.svg";
-import waveDirection from "./waveDirection.svg";
-import temperaturaAgua from "./tempraturaAgua.svg";
+import {
+  carcavelos,
+  guincho,
+  sol,
+  waves,
+  waveDirection,
+  temperaturaAgua,
+} from "./images/exportImages.js";
 
-const Temperature = ({ temperature }) => {
-  console.log(temperature);
+const Temperature = ({ temperature, data }) => {
+  console.log(data);
 
   return (
     <div>
@@ -24,22 +26,22 @@ const Temperature = ({ temperature }) => {
       </div>
       <section className="surfSpots">
         <div className="card">
-          <img className="images" src={carcavelos} alt="cenas" />
+          <img className="images" src={data.image} alt="cenas" />
           <div className="icons">
             <div className="icon-item">
-              <img src={sol}></img>
+              <img src={sol} alt=""></img>
               <h4>{`${parseInt(temperature[0].sstMax)}º`}</h4>
             </div>
             <div className="icon-item">
-              <img src={waves}></img>
+              <img src={waves} alt=""></img>
               <h4>{`${temperature[0].totalSeaMin} m`}</h4>
             </div>
             <div className="icon-item">
-              <img src={temperaturaAgua}></img>
+              <img src={temperaturaAgua} alt=""></img>
               <h4>{`${temperature[0].sstMin}º`}</h4>
             </div>
             <div className="icon-item">
-              <img src={waveDirection}></img>
+              <img src={waveDirection} alt=""></img>
               <h4>{`${temperature[0].predWaveDir}`}</h4>
             </div>
           </div>
@@ -50,19 +52,19 @@ const Temperature = ({ temperature }) => {
           <div className="icons">
             <div className="icon-item">
               <h3 className="card-title">Praia de Carcavelos</h3>
-              <img src={sol}></img>
+              <img src={sol} alt=""></img>
               <h4>{`${parseInt(temperature[1].sstMax)}º`}</h4>
             </div>
             <div className="icon-item">
-              <img src={waves}></img>
+              <img src={waves} alt=""></img>
               <h4>{`${temperature[1].totalSeaMin} m`}</h4>
             </div>
             <div className="icon-item">
-              <img src={temperaturaAgua}></img>
+              <img src={temperaturaAgua} alt=""></img>
               <h4>{`${temperature[1].sstMin}º`}</h4>
             </div>
             <div className="icon-item">
-              <img src={waveDirection}></img>
+              <img src={waveDirection} alt=""></img>
               <h4>{`${temperature[1].predWaveDir}`}</h4>
             </div>
           </div>

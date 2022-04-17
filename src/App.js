@@ -2,6 +2,7 @@ import "./App.css";
 import Temperature from "./components/temperatures";
 import React, { useState } from "react";
 import axios from "axios";
+import data from "./components/data";
 
 function App() {
   const [temperature, setTemperature] = useState([1, 2, 3]);
@@ -18,7 +19,7 @@ function App() {
   };
   return (
     <div className="App">
-      <Temperature temperature={temperature} />
+      <Temperature temperature={temperature} data={data[0]} />
       <button onClick={getTemperature}>Check the weather</button>
     </div>
   );
