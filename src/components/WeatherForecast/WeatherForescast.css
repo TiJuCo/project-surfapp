@@ -5,3 +5,11 @@
   height: 98px;
   margin: 20px;
 }
+
+@media only screen and (min-width: 1024px) {
+  .weather-forecast-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template: repeat(4, 1fr);
+  }
+}

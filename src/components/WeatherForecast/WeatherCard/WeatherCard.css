@@ -1,0 +1,161 @@
+/* css for the weather card - mobile first */
+.weather-card {
+  filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
+  box-sizing: border-box;
+  width: 125px;
+}
+
+.weather-card-header img {
+  display: flex;
+  justify-self: center;
+  height: 60px;
+}
+
+.weather-card-header {
+  display: grid;
+  border-radius: 5.3px;
+  color: white;
+  background: linear-gradient(285.49deg, #6ebdf7 4.03%, #6e7bf7 102.93%);
+}
+
+.weather-card-header * {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  margin: 0;
+  height: 39px;
+}
+
+.weather-card-body {
+  background-color: white;
+  width: 100%;
+  height: 100px;
+  border-radius: 5.3px;
+}
+
+.temperature-max-min {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+
+.temperature-max-min img {
+  width: 10px;
+}
+
+.temperature-max {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.temperature-min {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.weather-day {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-day * {
+  display: flex;
+  flex-direction: column;
+  color: #6e7bf7;
+  margin: 0px 5px 5px 5px;
+}
+
+.swiper {
+  height: 5px;
+  width: 60px;
+  background-color: #6e7bf7;
+  border-radius: 5px;
+}
+
+/* weather card - Desktop version */
+@media only screen and (min-width: 1024px) {
+  .weather-card {
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
+    box-sizing: border-box;
+    width: 125px;
+  }
+
+  .weather-card-header img {
+    display: flex;
+    justify-self: center;
+    height: 60px;
+  }
+
+  .weather-card-header {
+    display: grid;
+    border-radius: 5.3px;
+    color: white;
+    background: linear-gradient(285.49deg, #6ebdf7 4.03%, #6e7bf7 102.93%);
+  }
+
+  .weather-card-header * {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    margin: 0;
+    height: 39px;
+  }
+
+  .weather-card-body {
+    background-color: white;
+    width: 100%;
+    height: 100px;
+    border-radius: 5.3px;
+  }
+
+  .temperature-max-min {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+  }
+
+  .temperature-max-min img {
+    width: 10px;
+  }
+
+  .temperature-max {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .temperature-min {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .weather-day {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .weather-day * {
+    display: flex;
+    flex-direction: column;
+    color: #6e7bf7;
+    margin: 0px 5px 5px 5px;
+  }
+
+  .swiper {
+    height: 5px;
+    width: 60px;
+    background-color: #6e7bf7;
+    border-radius: 5px;
+  }
+}
