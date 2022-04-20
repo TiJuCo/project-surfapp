@@ -1,13 +1,15 @@
 import './App.css';
-import Carousel from './components/news/Carousel';
 import React from 'react';
-import CreateCards from './components/news/News-cards';
-import CreateNewsGrid from './components/news/News-grid';
+import NewsCards from './components/news/News-Cards';
+import NewsList from './components/news/News-List';
+import NewsLatest from './components/news/News-Latest';
+import NewsSlider from './components/news/News-Latest-Mobile';
+
 
 function App() {
   return (
     <div className="App">
-      <CreateNewsGrid/>
+      <NewsSlider />
     </div>
   );
 }

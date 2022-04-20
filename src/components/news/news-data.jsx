@@ -9,6 +9,7 @@ import meoripcurl from '../../images/meoripcurl.jpg';
 
 export const ArticlesData = [
     {
+        index: 0,
         tag: "news",
         title: "Nazaré Tow Surfing Challenge Presented By Jogos Santa Casa Called ON for Tuesday, February 11",
         date: " Monday, February 10th, 2022",
@@ -33,6 +34,7 @@ export const ArticlesData = [
     },
 
     {
+        index: 1,
         tag: "news",
         title: "Autumn Sessions in Carcavelos",
         date: "Tuesday, December 3rd, 2021",
@@ -48,6 +50,7 @@ export const ArticlesData = [
     },
 
     {
+        index: 2,
         tag: "news",
         title: "MEO Rip Curl Pro Portugal Called Off for the Day",
         date: "Saturday, April 19th, 2022",
