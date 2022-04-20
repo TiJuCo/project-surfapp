@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { icons } from 'react-icons';
 import './Carousel.css';
 import { carouselImages } from './CarouselData';
 import {FaChevronLeft} from 'react-icons/fa';
