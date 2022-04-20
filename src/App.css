@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+/* ALL */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary-color: #FF776E;
+  --secondary-color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing:border-box;
+  margin: 0;
+  font-family: "Manrope";
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.button {
+  appearance: none;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding: 8px 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* TEXT */ 
+
+
+
