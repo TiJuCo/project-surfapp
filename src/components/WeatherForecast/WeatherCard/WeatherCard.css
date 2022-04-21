@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+}
+
 /* css for the weather card - mobile first */
 .weather-card {
   filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
@@ -44,18 +48,14 @@
 }
 
 .temperature-max-min img {
-  width: 10px;
+  width: 6px;
+    margin-top: 3px;
 }
 
-.temperature-max {
+.temperature {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.temperature-min {
-  display: flex;
-  flex-direction: row;
+  gap: 2px;
+  align-items: center;
   justify-content: space-around;
 }
 
@@ -120,7 +120,7 @@
   .weather-card {
     filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
     box-sizing: border-box;
-    width: 125px;
+    width: 100%;
   }
 
   .weather-card-header img {
@@ -130,18 +130,36 @@
   }
 
   .weather-card-header {
-    display: grid;
-    border-radius: 5.3px;
-    color: white;
-    background: linear-gradient(285.49deg, #6ebdf7 4.03%, #6e7bf7 102.93%);
+    align-self: center;
+    padding: 20px;
+    justify-content: space-between;
+    min-height: 100px;
+    height: unset;
   }
 
   .weather-card-header * {
     display: flex;
-    justify-self: center;
-    align-items: center;
-    margin: 0;
-    height: 39px;
+    align-items: inherit;
+    justify-self: inherit;
+    height: unset;
+  }
+
+  .weather-name, .weather-name h6 {
+    padding: 0;
+  }
+
+
+  .weather-name-temp {
+    padding: 0;
+    justify-content: space-between;
+  }
+
+  .weather-icon {
+    align-self: center;
+  }
+
+  .weather-icon img {
+    padding: 0;
   }
 
   .weather-card-body {
@@ -160,18 +178,14 @@
   }
 
   .temperature-max-min img {
-    width: 10px;
+    width: 9px;
+    margin-top: 3px;
   }
 
-  .temperature-max {
+  .temperature {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .temperature-min {
-    display: flex;
-    flex-direction: row;
+    gap: 5px;
+    align-items: center;
     justify-content: space-around;
   }
 
@@ -196,3 +210,4 @@
     border-radius: 5px;
   }
 }
+

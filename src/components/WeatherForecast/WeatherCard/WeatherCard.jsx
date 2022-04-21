@@ -25,13 +25,13 @@ const WeatherCard = ({ weatherData }) => {
       </div>
       <div className="weather-card-body">
         <div className="temperature-max-min">
-          <div className="temperature-max">
+          <div className="temperature">
             <img src={arrowUp} alt="" />
-            <h3>{`${parseInt(weatherData[0].tMax)}º`}</h3>
+            <p>{`${parseInt(weatherData[0].tMax)}º`}</p>
           </div>
-          <div className="temperature-min">
+          <div className="temperature">
             <img src={arrowDown} alt="" />
-            <h3>{`${parseInt(weatherData[0].tMin)}º`}</h3>
+            <p>{`${parseInt(weatherData[0].tMin)}º`}</p>
           </div>
         </div>
         <div className="weather-day">
