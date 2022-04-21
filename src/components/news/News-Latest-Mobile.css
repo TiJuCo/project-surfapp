@@ -29,3 +29,9 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media only screen and (min-width: 1024px) {
+  .mySwiper {
+    display: none;
+  }
+}

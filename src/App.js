@@ -9,7 +9,8 @@ import EventsLatest from './components/news/Events';
 function App() {
   return (
     <div className="App">
-      <NewsList />
+      <NewsLatest />
+      <NewsSlider />
     </div>
   );
 }
