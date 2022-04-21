@@ -13,7 +13,7 @@ const WeatherCard = ({ weatherData }) => {
         <div className="weather-name-temp">
           <div className="weather-name">
             <p>{weatherObject[3].name}</p>
-            <h6>{time > 12 ? `${time} pm` : `${time} am`}</h6>
+            <h6>{time > 12 ? `${time - 12} pm` : `${time} am`}</h6>
           </div>
           <div className="weather-temp">
             <h2>{`${parseInt(weatherData[0].tMax)}º`}</h2>
