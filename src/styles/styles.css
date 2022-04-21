@@ -1,0 +1,51 @@
+/* ALL */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary-color: #5940D6;
+  --secondary-color: #6E7BF7;
+  --terciary-color-1: #6EB5F7;
+  --terciary-color-2: #6EB5F7;
+  --accent-color: #9A6EF7;
+  /* Gradient for card background - use with "mix-blend-mode: multiply;" */
+  --gradient-figma: linear-gradient(356.63deg, rgba(57, 73, 87, 0.77) -1.67%, rgba(99, 113, 124, 0.579877) 41.82%, rgba(229, 235, 235, 0) 97.73%, rgba(255, 255, 255, 0) 97.73%);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing:border-box;
+  margin: 0;
+  font-family: "Inter";
+  scroll-behavior: smooth;
+}
+
+.App {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.button {
+  appearance: none;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding: 8px 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  color: white;
+}
