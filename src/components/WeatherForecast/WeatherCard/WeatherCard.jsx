@@ -36,7 +36,7 @@ const WeatherCard = (props) => {
         </div>
         <div className="weather-day">
           <h5>Today</h5>
-          <label className="swiper" />
+          <label className="days" />
         </div>
       </div>
     </div>
