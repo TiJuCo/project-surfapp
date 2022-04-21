@@ -15,7 +15,7 @@
   }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1280px) {
   .weather-forecast-container {
     grid-template-columns: repeat(6, 1fr);
   }

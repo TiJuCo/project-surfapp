@@ -1,14 +1,14 @@
-import "./styles/styles.css";
-import Home from "./components/Home";
 import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import NewsList from "./news/News-List";
 
 function Main() {
   return (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/news" element={<NewsList />} />
-          {/* <Route path="/beaches" element={<Beaches />} /> */}
-        </Routes>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      {/* <Route path="/news" element={<NewsList />} /> */}
+      {/* <Route path="/beaches" element={<Beaches />} /> */}
+    </Routes>
   );
 }
 
