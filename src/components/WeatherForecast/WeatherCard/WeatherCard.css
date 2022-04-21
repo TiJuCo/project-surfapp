@@ -6,7 +6,6 @@
 .weather-card {
   filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
   box-sizing: border-box;
-  width: 125px;
 }
 
 .weather-card:last-child {
@@ -21,18 +20,12 @@
 .weather-card-header {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   border-radius: 5.3px;
   color: white;
   background: linear-gradient(285.49deg, #6ebdf7 4.03%, #6e7bf7 102.93%);
-  height: 90px;
-}
-
-.weather-card-header * {
-  display: flex;
-  justify-self: center;
-  align-items: center;
-  margin: 0;
-  height: 39px;
+  min-height: 90px;
+  padding: 10px;
 }
 
 .weather-card-body {
@@ -68,31 +61,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.weather-day * {
-  display: flex;
-  flex-direction: column;
+  gap: 6px;
   color: #6e7bf7;
-  margin: 0px 5px 5px 5px;
 }
 
 .weather-name-temp {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding: 10px 7px 5px 10px;
+  justify-content: space-between;
 }
 
 .weather-name {
   display: flex;
   flex-direction: column;
-  padding-top: 30px;
 }
 
 .weather-name h6 {
-  padding-bottom: 10px;
-  align-self: flex-start;
+  font-size: 0.6rem;
+  font-weight: 300;
+  padding-top: 2px;
 }
 
 .weather-temp {
@@ -100,6 +87,8 @@
 }
 
 .weather-temp h2 {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .weather-icon {
@@ -108,8 +97,7 @@
 }
 
 .weather-icon img {
-  padding-right: 5px;
-  padding-bottom: 20px;
+  height: 36px;
 }
 
 .swiper {
@@ -173,7 +161,7 @@
   .weather-card-body {
     background-color: white;
     width: 100%;
-    height: 100px;
+    padding-bottom: 20px;
     border-radius: 5.3px;
   }
 
