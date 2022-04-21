@@ -9,6 +9,10 @@
   width: 125px;
 }
 
+.weather-card:last-child {
+  display: none;
+}
+
 .weather-card-header img {
   display: flex;
   justify-self: center;
@@ -49,7 +53,7 @@
 
 .temperature-max-min img {
   width: 6px;
-    margin-top: 3px;
+  margin-top: 3px;
 }
 
 .temperature {
@@ -123,6 +127,10 @@
     width: 100%;
   }
 
+  .weather-card:last-child {
+    display: none;
+  }
+
   .weather-card-header img {
     display: flex;
     justify-self: center;
@@ -144,10 +152,10 @@
     height: unset;
   }
 
-  .weather-name, .weather-name h6 {
+  .weather-name,
+  .weather-name h6 {
     padding: 0;
   }
-
 
   .weather-name-temp {
     padding: 0;
@@ -210,4 +218,3 @@
     border-radius: 5px;
   }
 }
-
