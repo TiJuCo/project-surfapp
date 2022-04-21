@@ -8,14 +8,15 @@
 .weather-card-header img {
   display: flex;
   justify-self: center;
-  height: 60px;
 }
 
 .weather-card-header {
-  display: grid;
+  display: flex;
+  flex-direction: row;
   border-radius: 5.3px;
   color: white;
   background: linear-gradient(285.49deg, #6ebdf7 4.03%, #6e7bf7 102.93%);
+  height: 90px;
 }
 
 .weather-card-header * {
@@ -39,6 +40,7 @@
   justify-content: space-around;
   align-items: center;
   height: 50px;
+  color: #939cf9;
 }
 
 .temperature-max-min img {
@@ -69,6 +71,41 @@
   flex-direction: column;
   color: #6e7bf7;
   margin: 0px 5px 5px 5px;
+}
+
+.weather-name-temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px 7px 5px 10px;
+}
+
+.weather-name {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.weather-name h6 {
+  padding-bottom: 10px;
+  align-self: flex-start;
+}
+
+.weather-temp {
+  align-self: flex-start;
+}
+
+.weather-temp h2 {
+}
+
+.weather-icon {
+  display: flex;
+  align-self: flex-end;
+}
+
+.weather-icon img {
+  padding-right: 5px;
+  padding-bottom: 20px;
 }
 
 .swiper {
