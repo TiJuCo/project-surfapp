@@ -19,7 +19,7 @@ function Navbar(props) {
             <nav className="navbar-desktop">
  
                     <div className="">
-                        <Link to="/index">Home</Link>
+                        <Link to="/">Home</Link>
                         <Link to="/beaches">Beaches</Link>
                         <Link to="/news">News</Link>
                         <Link to="/info">Info</Link>
@@ -29,7 +29,7 @@ function Navbar(props) {
                 <div className="bar"></div>
             </button>
             <nav className={ active ? "side-is-active , mobileNav" : "mobileNav"} >
-                <Link to="/index">Home</Link>
+                <Link to="/">Home</Link>
                 <Link to="/beaches">Beaches</Link>
                 <Link to="/news">News</Link>
                 <Link to="/info">Info</Link>

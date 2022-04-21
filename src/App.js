@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/"></Route>
+          <Route path="/" element={<Main />} />
+          <Route path="/news" element={<NewsList />} />
+          {/* <Route path="/beaches" element={<Beaches />} /> */}
         </Routes>
       </div>
-    </Router>
   );
 }
 
