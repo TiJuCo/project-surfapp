@@ -1,20 +1,13 @@
 import React from "react";
-import caparica from '../../images/caparica.jpg';
-import nazare from '../../images/nazare.jpg';
-import carcavelos from '../../images/carcavelos.jpg';
-import northdevon from '../../images/northdevon.jpg';
-import filmfestival from '../../images/filmfestival.jpg';
-import meoripcurl from '../../images/meoripcurl.jpg';
-
 
 export const ArticlesData = [
     {
         index: 0,
         tag: "news",
-        title: "Nazaré Tow Surfing Challenge Presented By Jogos Santa Casa Called ON for Tuesday, February 11",
+        title: "Nazaré Tow Surfing Challenge Called ON for February 11",
         date: " Monday, February 10th, 2022",
         author: "Tiago",
-        image: nazare,
+        image: "https://i.ibb.co/MPj4rQm/nazaregal5.jpg",
         text: [
                 "The World Surf League (WSL) Big Wave Tour (BWT) has issued a Green Alert for the Nazaré Tow Surfing Challenge pres. By Jogos Santa Casa at Nazaré, Portugal to run on tomorrow, February 11, 2020. The first call will be made at 8 a.m. local time (GMT) on Tuesday.",
                 "“We have been tracking this weather system for a few days and conditions seem to keep improving with very large swell and light winds,” Bill Sharp, Big Wave Tour General Manager said. “This looks to be the best opportunity in the season so we have decided to call the Green Alert.”",
@@ -39,7 +32,7 @@ export const ArticlesData = [
         title: "Autumn Sessions in Carcavelos",
         date: "Tuesday, December 3rd, 2021",
         author: "Juan",
-        image: carcavelos,
+        image: "https://i.ibb.co/rx007zN/Stock-Snap-E2-ZN81-PY86.jpg",
         text: [
                 "The waves are fun on all seasons of the year in Portugal, but Autumn is probably the best time to be around. The big swells get more common, the winds are often off shore and the cold of Winter has yet to arrive.",
                 "Recently Carcavelos had one of those tipycal Autumn swells and the world class spot produced some amazing waves."
@@ -55,7 +48,7 @@ export const ArticlesData = [
         title: "MEO Rip Curl Pro Portugal Called Off for the Day",
         date: "Saturday, April 19th, 2022",
         author: "JPG",
-        image: meoripcurl,
+        image: "https://i.ibb.co/PY3nVKd/Stock-Snap-VWL7-YKSXDL.jpg",
         text: [
                 "The MEO Rip Curl Pro Portugal, the penultimate stop on the 2019 World Surf League Championship Tour, has been called Off for the day as strong onshore winds rendered the Supertubos lineup un-surfable.",
                 "Event No. 9 and 10 on the Women’s and Men’s Championship Tour respectively, the MEO Rip Curl Pro Portugal has already witnessed epic performances from some of the world’s best surfers and will likely resume tomorrow, October 20.",
@@ -67,11 +60,12 @@ export const ArticlesData = [
     },
 
     {
+        index: 0,
         tag: "events",
         title: "Caparica Surf Fest Approaches the final rounds",
         date: "Thursday, April 18th, 2022",
         author: "Tiago",
-        image: caparica,
+        image: "https://i.ibb.co/4s1gfjx/caparicaevent.png",
         text: [
             "The Caparica Surf Fest powered by Oakley concluded a fourth consecutive day of action in solid conditions that challenged most of the surfers today. The men’s QS3,000 finished the remaining heats of Round 4 and the Junior divisions advanced through three rounds to set up for the finals tomorrow.",
             "In the main event, the men’s QS3,000 division, pressure was at an all-time high as the remaining battles of Round 4, the event’s top seeded round, unfolded in tricky conditions again. With the forecast looking much better for the last two days of competition, it’s make-or-break in Round 4 and surfers fought in the unruly surf for a chance to surf good waves in the events final rounds.",
@@ -87,11 +81,12 @@ export const ArticlesData = [
     },
 
     {
+        index: 1,
         tag: "events",
         title: "Busy day in pumping surf at the Caparica Surf Fest",
         date: "Monday, April 15th, 2019",
         author: "Chicote",
-        image: "../../images/Cole-Alves_DSC_7693_CSF019_Mestre.jpg",
+        image: "https://i.ibb.co/RBn29xg/Stock-Snap-SQZJCMU3-Y1.jpg",
         text: [
             "The Caparica Surf Fest powered by Oakley launched today in building surf and strong onshore winds to complete an astonishing 56 heats on two separate banks, covering men’s QS and Junior action as well as women’s QS.",
             "The surf almost doubled in size between the morning heats that unfolded in grey weather with a slight drizzle and the afternoon pumping action when the sun came out and crowds gathered to watch the battles from the beach.",
@@ -109,7 +104,7 @@ export const ArticlesData = [
         title: "NORTH DEVON IS THE 12TH WORLD SURFING RESERVE",
         date: "14/04/2022",
         author: "JPG",
-        image: northdevon
+        image: "https://i.ibb.co/PGy7YN5/northdevon.jpg"
     },
     
     {
@@ -117,6 +112,6 @@ export const ArticlesData = [
         title: "APPLICATIONS FOR THE PORTUGUESE SURF FILM FESTIVAL ARE OPEN",
         date: "31/03/2022",
         author: "Justin",
-        image: filmfestival
+        image: "https://i.ibb.co/cyZJsLV/filmfestival.jpg"
     }
 ];

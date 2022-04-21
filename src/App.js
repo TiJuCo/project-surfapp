@@ -4,12 +4,13 @@ import NewsCards from './components/news/News-Cards';
 import NewsList from './components/news/News-List';
 import NewsLatest from './components/news/News-Latest';
 import NewsSlider from './components/news/News-Latest-Mobile';
+import EventsLatest from './components/news/Events';
 
 
 function App() {
   return (
     <div className="App">
-      <NewsSlider />
+      <EventsLatest />
     </div>
   );
 }
