@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react';
 import NewsCards from './components/news/News-Cards';
 import NewsList from './components/news/News-List';
@@ -10,7 +9,7 @@ import EventsLatest from './components/news/Events';
 function App() {
   return (
     <div className="App">
-      <EventsLatest />
+      <NewsList />
     </div>
   );
 }

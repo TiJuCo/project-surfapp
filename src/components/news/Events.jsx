@@ -10,9 +10,9 @@ function EventsLatest() {
     return (
         <>
             <h1>Surf Events</h1>
-        <div className="events-latest-container">
-            {ArticlesData.filter((info) => info.tag ==='events' && info.index < 2).map((info) => <NewsCards {...info} />)} 
-        </div>
+            <div className="events-latest-container">
+                {ArticlesData.filter((info) => info.tag ==='events' && info.index < 2).map((info) => <NewsCards {...info} />)} 
+            </div>
         </>
     )
 
