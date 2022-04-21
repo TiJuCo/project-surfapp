@@ -1,0 +1,22 @@
+.weather-forecast-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  height: 98px;
+  margin: 20px;
+  align-items: center;
+}
+
+@media only screen and (min-width: 1024px) {
+  .weather-forecast-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .weather-forecast-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

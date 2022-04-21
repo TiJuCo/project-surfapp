@@ -1,21 +1,17 @@
-import React from 'react';
-import NewsCards from './components/news/News-Cards';
-import NewsList from './components/news/News-List';
-import NewsLatest from './components/news/News-Latest';
-import NewsSlider from './components/news/News-Latest-Mobile';
-import EventsLatest from './components/news/Events';
-
-
+import "./styles/styles.css";
+import Navbar from "./components/navigation/Navbar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Main from "./components/Main";
 function App() {
   return (
     <div className="App">
-      <NewsLatest />
-      <NewsSlider />
+      <Navbar />
+      <Main />
+      {/* <Footer /> */}
     </div>
   );
 }
 
 export default App;
 
-
-//{cardNewsEvents.filter((info) => info.tag ==='news').map(info => <CreateNewsCard {...info} />)} 
+//{cardNewsEvents.filter((info) => info.tag ==='news').map(info => <CreateNewsCard {...info} />)}
