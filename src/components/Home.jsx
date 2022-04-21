@@ -1,5 +1,6 @@
 import React from "react";
 import NewsLatest from "./news/News-Latest";
+import NewsSlider from "./news/News-Latest-Mobile";
 import WeatherForecast from "./WeatherForecast/WeatherForecast";
 
 function Home() {
@@ -7,6 +8,7 @@ function Home() {
     <div>
       <h1>HOMEEPAAAGGGEEEE</h1>
       <NewsLatest />
+      <NewsSlider />
       <WeatherForecast />
     </div>
   );
