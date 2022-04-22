@@ -4,6 +4,11 @@
 }
 
 .swiper-slide {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -22,6 +27,7 @@
   -webkit-align-items: center;
   align-items: center;
 }
+
 
 .swiper-slide img {
   display: block;

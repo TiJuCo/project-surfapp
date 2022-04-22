@@ -26,9 +26,9 @@ function Footer(props) {
                             </div>
                             <div class="social-grid">
                                 <p>Find us</p>
-                                <Link to="https://github.com/TiJuCo/project-surfapp">Github</Link>
-                                <Link to="https://github.com/TiJuCo/project-surfapp">Linkedin</Link>
-                                <Link to="https://github.com/TiJuCo/project-surfapp">Twitter</Link> 
+                                <a href="https://github.com/TiJuCo/project-surfapp" target="blank">Github</a>
+                                <a href="https://github.com/TiJuCo/project-surfapp" target="blank">Linkedin</a>
+                                <a href="https://github.com/TiJuCo/project-surfapp" target="blank">Twitter</a> 
                             </div>
                         </div>
 
