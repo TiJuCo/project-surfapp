@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import NewsList from "./news/News-List";
+import Home from "../home/Home";
+import NewsList from "../news/News-List";
 
 function Main() {
   return (

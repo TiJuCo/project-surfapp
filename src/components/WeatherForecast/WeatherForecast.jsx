@@ -4,7 +4,7 @@ import { CitiesWeatherData } from "./CitiesWeatherData/CitiesWeatherData";
 
 const WeatherForecast = () => {
   return (
-    <div className="weather-forecast-container">
+    <div className="weather-forecast-container container">
       {CitiesWeatherData.map((element, index) => (
         <WeatherCard {...element} key={index} />
       ))}

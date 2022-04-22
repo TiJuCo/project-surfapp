@@ -22,7 +22,9 @@
 
 .App {
   padding-top: 20px;
-  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
@@ -30,6 +32,11 @@
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.content {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 a, a:hover, a:focus, a:active {
@@ -48,4 +55,12 @@ a, a:hover, a:focus, a:active {
   font-weight: 500;
   background-color: var(--primary-color);
   color: white;
+}
+
+@media only screen and (min-width: 1024px) {
+
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
