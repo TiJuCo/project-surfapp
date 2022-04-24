@@ -6,6 +6,7 @@ export const ArticlesData = [
         tag: "news",
         title: "Nazaré Tow Surfing Challenge Called ON for February 11",
         date: " Monday, February 10th, 2022",
+        dateMobile: "10/02/22",
         author: "Tiago",
         image: "https://i.ibb.co/MPj4rQm/nazaregal5.jpg",
         text: [
@@ -31,6 +32,7 @@ export const ArticlesData = [
         tag: "news",
         title: "Autumn Sessions in Carcavelos",
         date: "Tuesday, December 3rd, 2021",
+        dateMobile: "03/12/21",
         author: "Juan",
         image: "https://i.ibb.co/rx007zN/Stock-Snap-E2-ZN81-PY86.jpg",
         text: [
@@ -47,6 +49,7 @@ export const ArticlesData = [
         tag: "news",
         title: "MEO Rip Curl Pro Portugal Called Off for the Day",
         date: "Saturday, April 19th, 2022",
+        dateMobile: "19/04/22",
         author: "JPG",
         image: "https://i.ibb.co/PY3nVKd/Stock-Snap-VWL7-YKSXDL.jpg",
         text: [
@@ -64,6 +67,7 @@ export const ArticlesData = [
         tag: "events",
         title: "Caparica Surf Fest Approaches the final rounds",
         date: "Thursday, April 18th, 2022",
+        dateMobile: "18/04/22",
         author: "Tiago",
         image: "https://i.ibb.co/4s1gfjx/caparicaevent.png",
         text: [
@@ -85,6 +89,7 @@ export const ArticlesData = [
         tag: "events",
         title: "Busy day in pumping surf at the Caparica Surf Fest",
         date: "Monday, April 15th, 2019",
+        dateMobile: "15/04/19",
         author: "Chicote",
         image: "https://i.ibb.co/RBn29xg/Stock-Snap-SQZJCMU3-Y1.jpg",
         text: [

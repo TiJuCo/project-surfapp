@@ -12,10 +12,13 @@ function Navbar(props) {
         setActive(!active)
     };
 
+    const body = document.querySelector('body');
+    active ? body.style.overflowY = "hidden" : body.style.overflowY = "initial";
+
     return (
 
         <div className="navbar-container">
-            <img id="logo" src={logo} alt="DuckDive"/>
+            <Link to="/"><img id="logo" src={logo} alt="DuckDive"/></Link>
             <nav className="navbar-desktop">
  
                     <div className="">
