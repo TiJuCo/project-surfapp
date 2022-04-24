@@ -81,7 +81,7 @@
 }
 
 .news-cards-row-1 h1 {
-    max-width: 40ch;
+    max-width: 25ch;
     font-size: 18px;
     font-weight: 600;
 }
@@ -224,7 +224,7 @@
     }
 
     .news-cards-row-1 h1 {
-        max-width: 28ch;
+        max-width: 40ch;
         font-size: 32px;
         font-weight: 600;
     }
