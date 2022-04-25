@@ -144,5 +144,19 @@ export const surfVideos = [
         tag: 'videos',
         title: 'Carcavelos surf',
         video: 'https://youtu.be/ret0l1eZRp8'
+    },
+
+    {
+        index: 4,
+        tag: 'videos',
+        title:'Ride of the Year Award Entry ',
+        video: 'https://youtu.be/NTgAqH9MEeg'
+    },
+
+    {
+        index: 5,
+        tag: 'videos',
+        title:'Ericeira - Video of the week',
+        video: 'https://youtu.be/tjRnLNrutUg'
     }
 ]

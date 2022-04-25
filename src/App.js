@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./components/Main";
 import NewsPage from "./components/news/News-Page";
 import NewsList from "./components/news/News-List";
-import VideosLatest from "./components/news/Videos";
+import VideosLatest from "./components/news/Videos-Latest";
 import Home from "./components/Home";
-
+import VideosList from "./components/news/Videos-List";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     
     <div className="App">
       <Navbar />
-      <VideosLatest />
+      <VideosList />
       {/* <Footer /> */}
     </div>
   );
