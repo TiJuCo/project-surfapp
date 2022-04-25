@@ -1,6 +1,6 @@
 import React from "react";
 import './News-List.css';
-import {ArticlesData} from './News-data';
+import {ArticlesData} from './News-Data';
 import NewsCards from './News-Cards';
 
 
