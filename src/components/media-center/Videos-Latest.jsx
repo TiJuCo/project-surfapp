@@ -1,6 +1,6 @@
 import React from "react";
 import './Videos.css';
-import {surfVideos} from './News-Data';
+import {surfVideos} from './Videos-Data';
 import VideosCards from './Videos-Cards';
 
 
