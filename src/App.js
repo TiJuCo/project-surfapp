@@ -4,6 +4,7 @@ import Footer from "./components/navigation/Footer/Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./components/main/Main";
 import VideosList from "./components/media-center/Videos-List";
+import VideosLatest from "./components/media-center/Videos-Latest";
 
 
 
@@ -11,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <VideosList />
+      <VideosLatest />
       <Footer/>
     </div>
   );

@@ -17,10 +17,7 @@ function VideosCards(props) {
             <ReactPlayer className="bg-video"
                 url={video} />
             </div>
-            <div>
-                <h1>{title}</h1>
                 <button>More videos</button>
-            </div>
         </div>
     )
 }
