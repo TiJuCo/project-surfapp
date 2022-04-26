@@ -14,7 +14,7 @@ function App() {
     
     <div className="App">
       <Navbar />
-      <VideosList />
+      <NewsPage />
       {/* <Footer /> */}
     </div>
   );

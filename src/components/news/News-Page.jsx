@@ -1,4 +1,5 @@
 import React from "react";
+import './News-List.css';
 import { ArticlesData } from './News-Data';
 import NewsCards from "./News-Cards";
 
@@ -18,7 +19,7 @@ function NewsPageCard(props) {
                     <p>{author}</p>
                 </div>
                 <div>
-                    {image}
+                    <img className="newsPageImg" src={image} alt={title} />
                 </div>
                 <div>
                     {text}
@@ -34,7 +35,7 @@ function NewsPage() {
     
     return (
         <>
-            {ArticlesData.filter((article) => article.index === NewsCards.index).map((article) => <NewsPageCard {...article} />)}
+            {ArticlesData.filter((article) => article.tag === 'news').map((article) => <NewsPageCard {...article} />)}
         </>
     )
 }        

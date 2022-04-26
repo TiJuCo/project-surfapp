@@ -60,8 +60,8 @@ export const ArticlesData = [
     },
 
     {
-        index: 0,
-        tag: "events",
+        index: 3,
+        tag: "news",
         title: "Caparica Surf Fest Approaches the final rounds",
         date: "Thursday, April 18th, 2022",
         author: "Tiago",
@@ -81,8 +81,8 @@ export const ArticlesData = [
     },
 
     {
-        index: 1,
-        tag: "events",
+        index: 4,
+        tag: "news",
         title: "Busy day in pumping surf at the Caparica Surf Fest",
         date: "Monday, April 15th, 2019",
         author: "Chicote",
@@ -100,63 +100,37 @@ export const ArticlesData = [
     },
 
     {
+        index: 5,
         tag: "news",
-        title: "NORTH DEVON IS THE 12TH WORLD SURFING RESERVE",
+        title: "North Devon is the 12th World Surfing Reserve",
         date: "14/04/2022",
         author: "JPG",
-        image: "https://i.ibb.co/PGy7YN5/northdevon.jpg"
+        image: "https://i.ibb.co/PGy7YN5/northdevon.jpg",
+        text: [
+                "North Devon has become the 12th location from around the globe to be selected as a World Surfing Reserve, an international designation that recognises and celebrates the area’s outstanding quality surfing beaches and brings together the local community and experts in actions to protect them. ",
+                "The area has been recognized not only for its high quality and diversity of surf breaks, but also for the unique natural beauty of its surroundings, its deep-rooted and historic surf culture, and its importance to the wider community.",
+                "North Devon joins an exclusive list of World Surfing Reserves that includes Malibu and Santa Cruz in California, Ericeira in Portugal, the Gold Coast, Manly and Noosa in Australia, Punta de Lobos in Chile, Huanchaco in Peru, Guarda do Embaú in Brazil, and Bahía de Todos Santos in Mexico. ",
+                "“Our core focus is looking after the quality of the waves themselves and preserving the ecosystems that produce them,” said Adam Hall, a local surfer and co-founder of the Surfing Reserve in North Devon. “Surf spots need to be celebrated, recognised and protected in the same way we protect and recognise beautiful national parks like Exmoor.”",
+                "The World Surfing Reserves (WSR) program was launched in 2009 by California-based Save The Waves Coalition, an international nonprofit organisation dedicated to protecting surf ecosystems around the globe. This pioneering model has met with proven success. ",
+                "“We are delighted to welcome North Devon as a World Surfing Reserve alongside other iconic protected surfing locations around the world,” said Nik Strong-Cvetich, CEO of Save The Waves. “We hope this designation helps give a greater voice to surfers in decisions that will impact the beautiful coastline in North Devon and protect such a diverse range of waves”.",
+                "Each Reserve establishes a Local Stewardship Council to design a plan of action – “Stewardship Plan” – which aims to improve the conservation of the coastline and waves. In North Devon, the group includes local organisations such as the North Devon UNESCO Biosphere and Area of Outstanding Natural Beauty (AONB), environmental groups like Surfers Against Sewage, local community groups, surf clubs, local beach businesses and landowners, all coming together to work towards agreed goals and shared ideals.",
+                "For the first time, the local surfing and beach-going communities will have a voice in decision-making processes that affect the North Devon coastline. "
+        ]
     },
     
     {
+        index: 6,
         tag: "news",
         title: "APPLICATIONS FOR THE PORTUGUESE SURF FILM FESTIVAL ARE OPEN",
         date: "31/03/2022",
         author: "Justin",
-        image: "https://i.ibb.co/cyZJsLV/filmfestival.jpg"
+        image: "https://i.ibb.co/cyZJsLV/filmfestival.jpg",
+        text: [
+                "The Portuguese Surf Film Festival (PSFF) returns in July with the best of international cinema and already has opened its application season for the 2022 edition to all filmmakers who wish to see their work on the big screen!",
+                "The 11th edition of the film festival, based in Ericeira, will take place between the 22nd and 31st of July and all those who want to submit their cinematographic creations will have to do so by the 10th of May.",
+                "Although the regulation is still being defined, all interested can apply for any documentary related to surfing or any water slide sport, as well as works related to skateboarding.",
+                "Submissions can be made using the form available on the PSFF’s official website."
+        ]
     }
 ];
 
-export const surfVideos = [
-
-    {
-        index: 0,
-        tag: 'videos',
-        title: 'Sebastian Steudtner . Naza Bomb Collection',
-        video: 'https://youtu.be/jerv7gy5Msg'
-    },
-
-    {
-        index: 1,
-        tag: 'videos',
-        title: 'The Best Surf Spots in Portugal',
-        video: 'https://youtu.be/fC6W471hBms'
-    },
-
-    {
-        index: 2,
-        tag: 'videos',
-        title: 'Big Wave & Dramatic Rescue Sequence - Nazare',
-        video: 'https://youtu.be/Eq-eAhiX18E'
-    },
-
-    {
-        index: 3,
-        tag: 'videos',
-        title: 'Carcavelos surf',
-        video: 'https://youtu.be/ret0l1eZRp8'
-    },
-
-    {
-        index: 4,
-        tag: 'videos',
-        title:'Ride of the Year Award Entry ',
-        video: 'https://youtu.be/NTgAqH9MEeg'
-    },
-
-    {
-        index: 5,
-        tag: 'videos',
-        title:'Ericeira - Video of the week',
-        video: 'https://youtu.be/tjRnLNrutUg'
-    }
-]
