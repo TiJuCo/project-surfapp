@@ -2,7 +2,7 @@ import React from "react";
 import "./News-List.css";
 import { ArticlesData } from "./News-Data";
 import NewsCards from "./News-Cards";
-import  { Link } from 'react-router-dom';
+
 
 function NewsLatest() {
   return (
