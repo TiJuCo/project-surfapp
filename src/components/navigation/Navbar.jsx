@@ -18,14 +18,14 @@ function Navbar(props) {
     return (
 
         <div className="navbar-container">
-            <Link to="/"><img id="logo" src={logo} onClick={handleHamburger} alt="DuckDive"/></Link>
+            <Link to="/"><img id="logo" src={logo} alt="DuckDive"/></Link>
             <nav className="navbar-desktop">
  
                     <div className="">
-                        <Link to="/" onClick={handleHamburger}>Home</Link>
-                        <Link to="/beaches" onClick={handleHamburger}>Beaches</Link>
-                        <Link to="/news" onClick={handleHamburger}>News</Link>
-                        <Link to="/info" onClick={handleHamburger}>Info</Link>
+                        <Link to="/">Home</Link>
+                        <Link to="/beaches">Beaches</Link>
+                        <Link to="/news">News</Link>
+                        <Link to="/info">Info</Link>
                     </div>        
             </nav>
             <button className={ active ? "burger-is-active , hamburger" : "hamburger"} onClick={handleHamburger}>
