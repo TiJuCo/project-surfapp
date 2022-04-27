@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import './News-List.css';
+import './News.css';
 import {FaChevronRight} from 'react-icons/fa';
-import { ArticlesData } from "./News-Data";
+import { ArticlesData } from "./NewsData";
 import { useParams } from 'react-router-dom';
 
 const gradient = "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)"

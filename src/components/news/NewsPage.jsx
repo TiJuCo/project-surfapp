@@ -1,7 +1,7 @@
 import React from "react";
-import './News-List.css';
-import { ArticlesData } from './News-Data';
-import NewsCards from "./News-Cards";
+import './News.css';
+import { ArticlesData } from './NewsData';
+import NewsCards from "./NewsCards";
 
 
 

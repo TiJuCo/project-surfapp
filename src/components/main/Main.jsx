@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../home/Home";
-import NewsList from "../news/News-List";
+import News from "../news/News";
 import PageTest from "../news/PageTest";
 
 
