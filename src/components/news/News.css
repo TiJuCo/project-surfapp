@@ -11,7 +11,8 @@
     grid-template:
         "a a a a b b" 1fr
         "a a a a c c" 1fr
-        "d d d e e e" 1fr;
+        "d d d e e e" 1fr
+        "f f g g h h" 1fr;
     height: 900px;
     margin: 1rem;
 }
@@ -46,6 +47,7 @@
     grid-area: b; 
     border-radius: 10px;
     padding: 3%;
+    font-size: 14px;
 }
 
 .news-card-container > div:nth-child(3) {
@@ -66,6 +68,23 @@
     padding: 3%;
 }
 
+.news-card-container > div:nth-child(6) {
+    grid-area: f; 
+    border-radius: 10px;
+    padding: 3%;
+}
+
+.news-card-container > div:nth-child(7) {
+    grid-area: g; 
+    border-radius: 10px;
+    padding: 3%;
+}
+
+.news-card-container > div:nth-child(8) {
+    grid-area: h; 
+    border-radius: 10px;
+    padding: 3%;
+}
 .news-header {
     align-self: flex-end;
     padding: 20px;

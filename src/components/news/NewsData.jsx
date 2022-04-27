@@ -121,7 +121,7 @@ export const ArticlesData = [
     {
         index: 6,
         tag: "news",
-        title: "APPLICATIONS FOR THE PORTUGUESE SURF FILM FESTIVAL ARE OPEN",
+        title: "Applications for the Portuguese Surf Film Festival are open",
         date: "31/03/2022",
         author: "Justin",
         image: "https://i.ibb.co/cyZJsLV/filmfestival.jpg",
@@ -130,6 +130,20 @@ export const ArticlesData = [
                 "The 11th edition of the film festival, based in Ericeira, will take place between the 22nd and 31st of July and all those who want to submit their cinematographic creations will have to do so by the 10th of May.",
                 "Although the regulation is still being defined, all interested can apply for any documentary related to surfing or any water slide sport, as well as works related to skateboarding.",
                 "Submissions can be made using the form available on the PSFF’s official website."
+        ]
+    },
+
+    {
+        index: 7,
+        tag: "news",
+        title: "Surfers take on the big waves at the Tow Surfing Challenge in Portugal",
+        date: "11/02/2022",
+        author: "JPG",
+        image: "https://i.ibb.co/pxqJQL8/towSurf.jpg",
+        text: [
+                "The World Surf League's Nazaré Tow Surfing Challenge took place on Thursday in Praia do Norte, Nazaré, Portugal. The best big wave surfers in the world took on waves of 40 to 50 feet.",
+                "Lucas Chianca (BRA) once again retained the titles of Best Male Performance and Best Team Performance, this time in partnership with Nic von Rupp (PRT).",
+                "The battle for the Best Female Performance title was tight between Des Bouillons and Maya Gabeira (BRA), but patience and experience paid off for Gabeira who took first place in the final heat of the day."
         ]
     }
 ];
