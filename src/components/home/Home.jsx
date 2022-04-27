@@ -5,6 +5,7 @@ import WeatherForecast from "../WeatherForecast/WeatherForecast";
 import "../../styles/styles.css";
 import "./home.css";
 import NewsSlider from "../news/News-Latest-Mobile";
+import BeachList from '../beaches/BeachesList/BeachList';
 
 function Home() {
   return (
@@ -15,6 +16,13 @@ function Home() {
       </div>
       <NewsLatest />
       <NewsSlider />
+      <div className="section section-2 container">
+        <h3>Popular Beaches</h3>
+        <Link to="/beaches">See all</Link>
+      </div>
+      <BeachList />
+      
+      
       <div className="section section-2 container">
         <h3>Weather Forecast</h3>
         <Link to="/beaches">See all</Link>
