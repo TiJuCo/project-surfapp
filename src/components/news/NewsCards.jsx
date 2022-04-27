@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './News.css';
 import {FaChevronRight} from 'react-icons/fa';
+import  { Link } from 'react-router-dom';
 
 const gradient = "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)"
 
@@ -23,7 +24,9 @@ function NewsCards(props) {
                     <p>{dateMobile}</p>
                     <p>{date}</p>
                     <p>Author: {author}</p>
-                    <button className="read-more-button" onMouseOver={mouseOverChevron} onMouseLeave={mouseOverChevron}>Read more <FaChevronRight className={hoverButton ? "svg-fill-white" : "null"} /></button>
+                    <Link to={`/news/${index}`}>
+                        <button className="read-more-button" onMouseOver={mouseOverChevron} onMouseLeave={mouseOverChevron}>Read more <FaChevronRight className={hoverButton ? "svg-fill-white" : "null"} /></button>
+                    </Link>
                 </div>
             </div>
         </div>
