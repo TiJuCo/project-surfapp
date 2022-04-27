@@ -1,11 +1,11 @@
 import React from "react";
-import './News-List.css';
-import {ArticlesData} from './News-data';
-import NewsCards from './News-Cards';
+import './News.css';
+import {ArticlesData} from './NewsData';
+import NewsCards from './NewsCards';
 
 
 
-function EventsLatest() {
+function Events() {
 
     return (
         <>
@@ -18,4 +18,4 @@ function EventsLatest() {
 
 }
 
-export default EventsLatest;
+export default Events;

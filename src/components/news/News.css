@@ -5,7 +5,7 @@
 }
 
 
-.newsCard-container {
+.news-card-container {
     display: grid;
     grid-gap: 10px;
     grid-template:
@@ -36,31 +36,31 @@
     height: 100%;
 }
 
-.newsCard-container > div:nth-child(1) {
+.news-card-container > div:nth-child(1) {
     grid-area: a; 
     border-radius: 10px;
     padding: 3%;
 }
 
-.newsCard-container > div:nth-child(2) {
+.news-card-container > div:nth-child(2) {
     grid-area: b; 
     border-radius: 10px;
     padding: 3%;
 }
 
-.newsCard-container > div:nth-child(3) {
+.news-card-container > div:nth-child(3) {
     grid-area: c; 
     border-radius: 10px;
     padding: 3%;
 }
 
-.newsCard-container > div:nth-child(4) {
+.news-card-container > div:nth-child(4) {
     grid-area: d; 
     border-radius: 10px;
     padding: 3%;
 }
 
-.newsCard-container > div:nth-child(5) {
+.news-card-container > div:nth-child(5) {
     grid-area: e; 
     border-radius: 10px;
     padding: 3%;

@@ -4,11 +4,11 @@ import { Pagination } from "swiper";
 import "swiper/css/pagination";
 import "swiper/css/pagination";
 import "swiper/css";
-import "./News-Latest-Mobile.css";
-import { ArticlesData } from "./News-Data";
-import NewsCards from "./News-Cards";
+import "./NewsLatestSlider.css";
+import { ArticlesData } from "./NewsData";
+import NewsCards from "./NewsCards";
 
-function NewsSlider() {
+function NewsLatestSlider() {
   return (
     <>
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
@@ -24,4 +24,4 @@ function NewsSlider() {
   );
 }
 
-export default NewsSlider;
+export default NewsLatestSlider;
