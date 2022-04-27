@@ -2,10 +2,9 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css/pagination";
-import "swiper/css/pagination";
 import 'swiper/css';
 import "./News-Latest-Mobile.css";
-import { ArticlesData } from "./News-data";
+import { ArticlesData } from "./News-Data";
 import NewsCards from "./News-Cards";
 
 

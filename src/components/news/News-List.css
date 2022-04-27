@@ -148,6 +148,10 @@
     display: flex;
 }
 
+.mySwiper {
+    height: 50vh;
+    width: 100%;
+}
 /* DESKTOP VERSION */
 
 @media only screen and (min-width: 1024px) {

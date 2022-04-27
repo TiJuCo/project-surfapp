@@ -22,7 +22,7 @@ export const ArticlesData = [
                 "Guinness World Records will potentially be broken, severe wipeouts and daring feats of water rescue. And, unique to this event, the final results will be determined by an athlete-led judging panel."
                 ],
 
-        gallery: ["../../images/20171021_1066-750x501.jpg", "../../images/Deestaque-750x502.jpg",
+        gallery: ["https://i.ibb.co/rx007zN/Stock-Snap-E2-ZN81-PY86.jpg", "https://i.ibb.co/PY3nVKd/Stock-Snap-VWL7-YKSXDL.jpg",
                      "../../images/DSC_1129Mestre-750x500.jpg", "../../images/DSC_1891Mestre-copy-750x500.jpg"]
     },
 
