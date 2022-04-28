@@ -4,20 +4,17 @@ import "./WeatherForescast.css";
 import WeatherCard from "./WeatherCard/WeatherCard";
 
 const WeatherForecast = () => {
-  const { weatherInfo } = useContext(ApiContext);
-  const { districtInfo } = useContext(ApiContext);
+  const { weatherInfo, districtInfo, setLoading } = useContext(ApiContext);
 
-  weatherInfo.map((element, index) => {
-    index > 9
-      ? weatherInfo.splice(index, 1)
-      : (element.name = districtInfo[index].name);
+  weatherInfo.forEach((element, index) => {
+    element.name = districtInfo[index].name;
   });
-  console.log(weatherInfo);
+
   return (
     <div className="weather-forecast-container container">
       {weatherInfo
         .filter(
-          (el, index) =>
+          (el) =>
             el.name === "Faro" || el.name === "Porto" || el.name === "Lisboa"
         )
         .map((element, index) => (
