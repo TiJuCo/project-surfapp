@@ -8,18 +8,19 @@ import VideosCards from './Videos-Cards';
 
 function Carousel(props) {
 
-    const [currImage, setCurrImage] = useState(0);
+    const [currVideo, setCurrVideo] = useState(0);
     const {tag, title, video} = props;
 
   return (
     <div className='carouselNews'>
         <div 
             className='carouselInner'
-            style={{ backgroundImage: <VideosCards /> }} 
+          //  style={{ background: `url(${surfVideos[currVideo].video})` }} 
          >
+           
            <div className='left' 
                 onClick={() => {
-                    currImage > 0 && setCurrImage(currImage - 1);
+                    currVideo > 0 && setCurrVideo(currVideo - 1);
                 } }
             >
                <FaChevronLeft />
@@ -27,11 +28,12 @@ function Carousel(props) {
            <div className='center'></div> 
            <div className='right'
                 onClick={() => {
-                    currImage < surfVideos.length - 1 && setCurrImage(currImage + 1);
+                    currVideo < surfVideos.length - 1 && setCurrVideo(currVideo + 1);
                     } }
             >
                <FaChevronRight />
             </div> 
+            <video src={`url(${surfVideos[currVideo].video})`}></video>
         </div>
     </div>
   )

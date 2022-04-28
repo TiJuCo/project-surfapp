@@ -6,14 +6,14 @@ export const surfVideos = [
         index: 0,
         tag: 'videos',
         title: 'Sebastian Steudtner . Naza Bomb Collection',
-        video: 'https://youtu.be/jerv7gy5Msg'
+        video: 'https://vimeo.com/2233825'
     },
 
     {
         index: 1,
         tag: 'videos',
         title: 'The Best Surf Spots in Portugal',
-        video: 'https://youtu.be/fC6W471hBms'
+        video: 'https://vimeo.com/114760348'
     },
 
     {
