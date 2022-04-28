@@ -13,7 +13,7 @@ function VideosCards(props) {
 
     return (
         <div>
-            <div>
+             <div>
             <ReactPlayer className="bg-video"
                 url={video} />
             </div>

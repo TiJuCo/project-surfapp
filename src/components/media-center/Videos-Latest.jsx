@@ -1,8 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper";
+import {Pagination } from "swiper";
 import "swiper/css";
-import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import './Videos.css';
 import {surfVideos} from './Videos-Data';
@@ -17,9 +16,9 @@ function VideosLatest() {
             <div>
                 <h1>Surf Videos</h1>
                 <Swiper 
-                    slidesPerView={2}
+                    slidesPerView={1}
                     centeredSlides={true}
-                    spaceBetween={100}
+                    spaceBetween={20}
                     pagination={true} modules={[Pagination]} className="mySwiper2">
                     {surfVideos.filter((info) => info.tag === "videos" && info.index < 6).map((info) => (
                     <SwiperSlide key={surfVideos.index}>

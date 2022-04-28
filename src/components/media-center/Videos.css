@@ -4,7 +4,10 @@
     font-family: 'Inter';
 }
 
-
+.videos-container {
+    display: flex;
+    
+}
 .bg-video {
     background-position: center !important;
     background-repeat: no-repeat !important;

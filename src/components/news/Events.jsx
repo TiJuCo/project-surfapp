@@ -1,7 +1,9 @@
 import React from "react";
 import './News-List.css';
-import {ArticlesData} from './News-data';
+import {ArticlesData} from './News-Data';
 import NewsCards from './News-Cards';
+import VideosCards from "../media-center/Videos-Cards";
+import { surfVideos } from "../media-center/Videos-Data";
 
 
 
@@ -11,7 +13,7 @@ function EventsLatest() {
         <>
             <h1>Surf Events</h1>
             <div className="events-latest-container">
-                {ArticlesData.filter((info) => info.tag ==='events' && info.index < 2).map((info) => <NewsCards {...info} />)} 
+                {surfVideos.filter((info) => info.tag ==='videos' && info.index < 2).map((info) => <VideosCards {...info} />)} 
             </div>
         </>
     )
