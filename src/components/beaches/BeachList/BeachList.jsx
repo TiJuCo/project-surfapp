@@ -4,7 +4,8 @@ import BeachCard from "../BeachCard/BeachCard";
 import ApiContext from "../../../contexts/ApiContext.js";
 
 function BeachList() {
-  const { seaInfo, beachesInfo, setLoading } = useContext(ApiContext);
+  const { seaInfo, beachesInfo, setLoading, setSeaInfo } =
+    useContext(ApiContext);
 
   seaInfo.forEach((element, index) => {
     element.name = beachesInfo[index].name;
@@ -12,8 +13,6 @@ function BeachList() {
     element.img = beachesInfo[index].img;
     element.services = beachesInfo[index].services;
   });
-
-  console.log(seaInfo, beachesInfo);
 
   return (
     <div className="container beach-list">
