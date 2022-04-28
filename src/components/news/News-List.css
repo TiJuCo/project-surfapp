@@ -162,6 +162,10 @@
     padding-left: 20px;
 }
 
+.news-latest-container > div {
+    filter:drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.3))
+}
+
 .news-latest-container > div:nth-child(1) {
     grid-area: a; 
     border-radius: 10px;
