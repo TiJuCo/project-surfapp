@@ -1,17 +1,22 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
-const ApiContext = createContext([]);
+const ApiContext = createContext({
+  weatherInfo: [],
+});
 
 export default ApiContext;
 
 export const ApiContextProvider = ({ children }) => {
-  const [state, setState] = useState([]);
+  const [weatherInfo, setWeatherInfo] = useState([]);
 
   const getWeatherInfo = () => {
     axios
       .get("https://run.mocky.io/v3/53ef2996-2447-4c63-806f-f082b0dcea7a")
-      .then((response) => getIpmaInfo(response.data.districts));
+      .then((response) => response.data.districts)
+      .then((data) => {
+        getIpmaInfo(data);
+      });
   };
 
   const getIpmaInfo = (ourApi) => {
@@ -21,12 +26,13 @@ export const ApiContextProvider = ({ children }) => {
         .get(
           `https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${x.id}.json`
         )
-        .then((response) => response.data)
+        .then((response) => response.data.data[0])
         .then((data) => {
-          results.push(data.data[0]);
+          results.push(data);
         })
     );
-    setState(results);
+    console.log(results);
+    setWeatherInfo(results);
   };
 
   useEffect(() => {
@@ -34,8 +40,6 @@ export const ApiContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ApiContext.Provider value={(state, setState)}>
-      {children}
-    </ApiContext.Provider>
+    <ApiContext.Provider value={weatherInfo}>{children}</ApiContext.Provider>
   );
 };
