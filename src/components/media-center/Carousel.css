@@ -70,3 +70,41 @@
     color: #fff;
     cursor: pointer;
 }
+
+
+.carouselVideo {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-content-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
+    background-color: white;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.carouselInner .carousel-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.react-player-duckdive {
+    width: auto !important;
+    height: auto !important;
+}
+

@@ -15,6 +15,15 @@ function Home() {
       </div>
       <NewsLatest />
       <NewsSlider />
+
+      <div className="section-2 container">
+        <h3>Weather Forecast</h3>
+        <Link to="/beaches">See all</Link>
+      </div>
+      <WeatherForecast />
+
+      {/* Replace section here */}
+
       <div className="section-2 container">
         <h3>Weather Forecast</h3>
         <Link to="/beaches">See all</Link>

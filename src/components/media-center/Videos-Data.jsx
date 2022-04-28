@@ -1,4 +1,7 @@
-import React from "react"
+import React from "react";
+import surf1 from '../../media/surf1.mp4';
+import surf2 from '../../media/surf2.mp4';
+import surf3 from '../../media/surf3.mp4';
 
 export const surfVideos = [
 
@@ -6,21 +9,21 @@ export const surfVideos = [
         index: 0,
         tag: 'videos',
         title: 'Sebastian Steudtner . Naza Bomb Collection',
-        video: 'https://vimeo.com/2233825'
+        video: surf1
     },
 
     {
         index: 1,
         tag: 'videos',
         title: 'The Best Surf Spots in Portugal',
-        video: 'https://vimeo.com/114760348'
+        video: surf2
     },
 
     {
         index: 2,
         tag: 'videos',
         title: 'Big Wave & Dramatic Rescue Sequence - Nazare',
-        video: 'https://youtu.be/Eq-eAhiX18E'
+        video: surf3
     },
 
     {
