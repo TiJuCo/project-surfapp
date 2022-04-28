@@ -47,7 +47,6 @@
     grid-area: b; 
     border-radius: 10px;
     padding: 3%;
-    font-size: 14px;
 }
 
 .news-card-container > div:nth-child(3) {
