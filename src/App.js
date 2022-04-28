@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./components/main/Main";
 import VideosList from "./components/media-center/Videos-List";
 import VideosLatest from "./components/media-center/Videos-Latest";
+import VideoCarousel from "./components/media-center/VideoCarousel";
 
 
 
@@ -12,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <VideosLatest />
+      <VideoCarousel />
       <Footer/>
     </div>
   );
