@@ -6,7 +6,7 @@
 
 .beach-popular-container {
     display: none;
-    grid-gap: 10px;
+    grid-gap: 20px;
     grid-template:
         "a a a a b b" 1fr
         "a a a a c c" 1fr

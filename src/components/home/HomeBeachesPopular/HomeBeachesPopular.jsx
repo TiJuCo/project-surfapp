@@ -4,7 +4,7 @@ import BeachCard from '../../beaches/BeachCard/BeachCard';
 
 function HomeBeachesPopular() {
   return (
-    <div className="container beach-list">
+    <div className="container home-beach-list">
       
         <BeachCard/>
         <BeachCard/>

@@ -8,6 +8,13 @@ function BeachList() {
       
         <BeachCard/>
         <BeachCard/>
+        <BeachCard/>
+        <BeachCard/>
+        <BeachCard/>
+        <BeachCard/>
+        <BeachCard/>
+        <BeachCard/>
+        
       
     </div>
   );
