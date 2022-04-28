@@ -5,21 +5,26 @@ import WeatherCard from "./WeatherCard/WeatherCard";
 
 const WeatherForecast = () => {
   const { weatherInfo } = useContext(ApiContext);
-  // console.log(weatherInfo);
+  const { districtInfo } = useContext(ApiContext);
+
+  weatherInfo.map((element, index) => {
+    index > 9
+      ? weatherInfo.splice(index, 1)
+      : (element.name = districtInfo[index].name);
+  });
+  console.log(weatherInfo);
   return (
     <div className="weather-forecast-container container">
-      {weatherInfo.map((element, index) => (
-        <WeatherCard element={element} key={index} />
-      ))}
+      {weatherInfo
+        .filter(
+          (el, index) =>
+            el.name === "Faro" || el.name === "Porto" || el.name === "Lisboa"
+        )
+        .map((element, index) => (
+          <WeatherCard element={element} key={index} />
+        ))}
     </div>
   );
 };
 
 export default WeatherForecast;
-
-// .filter(
-//   (x) =>
-//     x.latitude === "41.1580" ||
-//     x.latitude === "40.2081" ||
-//     x.latitude === "37.0146"
-// )
