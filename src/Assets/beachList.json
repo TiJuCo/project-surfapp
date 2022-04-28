@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Praia do Moledo",
-      "img": "",
+      "img": "https://i.ibb.co/5WjLPLY/Moledo.jpg",
       "county": "Caminha",
       "district": "Viana do Castelo",
       "latitude": 41.85043260992245,
@@ -25,7 +25,7 @@
     {
       "id": 2,
       "name": "Praia da Arda",
-      "img": "",
+      "img": "https://i.ibb.co/6s1Xh9H/Praia-de-Afife-Viana-do-Castelo.jpg",
       "county": "Viana do Castelo",
       "district": "Viana do Castelo",
       "latitude": 41.77579596263613,
@@ -47,7 +47,7 @@
     {
       "id": 3,
       "name": "Praia da Aguçadoura",
-      "img": "",
+      "img": "https://i.ibb.co/s2C8H0g/Agu-adoura.webp",
       "county": "Póvoa de Varzim",
       "district": "Porto",
       "latitude": 41.43329057925949,
@@ -69,7 +69,7 @@
     {
       "id": 4,
       "name": "Praia de Espinho",
-      "img": "",
+      "img": "https://i.ibb.co/pr7T2R5/Espinho.jpg",
       "county": "Espinho",
       "district": "Porto",
       "latitude": 41.01146132158348,
@@ -91,7 +91,7 @@
     {
       "id": 5,
       "name": "Praia International",
-      "img": "",
+      "img": "https://i.ibb.co/vz4N8hL/Internacional-Porto.jpg",
       "county": "Matosinhos",
       "district": "Porto",
       "latitude": 41.177116157524,
@@ -113,7 +113,7 @@
     {
       "id": 6,
       "name": "Praia da Barra",
-      "img": "",
+      "img": "https://i.ibb.co/Y82Fzv6/Praiada-Barra.jpg",
       "county": "Ílhavo",
       "district": "Aveiro",
       "latitude": 40.62949636506578,
@@ -135,7 +135,7 @@
     {
       "id": 7,
       "name": "Praia de Buarcos",
-      "img": "",
+      "img": "https://i.ibb.co/7t4xJ12/Buarcos.jpg",
       "county": "Figueira da Foz",
       "district": "Coimbra",
       "latitude": 40.16355865767512,
@@ -157,7 +157,7 @@
     {
       "id": 8,
       "name": "Praia do Cabedelo",
-      "img": "",
+      "img": "https://i.ibb.co/T16D20K/Cabedelo.jpg",
       "county": "Figueira da Foz",
       "district": "Porto",
       "latitude": 40.140898159905554,
@@ -179,7 +179,7 @@
     {
       "id": 9,
       "name": "Praia do Baleal Norte",
-      "img": "",
+      "img": "https://i.ibb.co/28G5w6D/Baleal-Norte.jpg",
       "county": "Peniche",
       "district": "Leiria",
       "latitude": 39.37389572616583,
@@ -201,7 +201,7 @@
     {
       "id": 10,
       "name": "Praia do Baleal Sul",
-      "img": "",
+      "img": "https://i.ibb.co/0QwDGKm/Cantinho-Da-Baia.webp",
       "county": "Peniche",
       "district": "Leiria",
       "latitude": 39.372248008823874,
@@ -223,7 +223,7 @@
     {
       "id": 11,
       "name": "Praia dos Supertubos",
-      "img": "",
+      "img": "https://i.ibb.co/d5FSHxs/Supertubos.jpg",
       "county": "Peniche",
       "district": "Leiria",
       "latitude": 39.345451312241515,
@@ -244,7 +244,7 @@
     {
       "id": 12,
       "name": "Praia da Areia Branca",
-      "img": "",
+      "img": "https://i.ibb.co/3kwH3Qt/Areia-Branca.webp",
       "county": "Lourinhã",
       "district": "Lisboa",
       "latitude": 39.26461668469392,
@@ -266,7 +266,7 @@
     {
       "id": 13,
       "name": "Praia de Santa Cruz",
-      "img": "",
+      "img": "https://i.ibb.co/f4RmFND/Praia-Do-Mirante.jpg",
       "county": "Torres Vedras",
       "district": "Lisboa",
       "latitude": 39.14007465863132,
@@ -288,7 +288,7 @@
     {
       "id": 14,
       "name": "Ribeira d'Ilhas",
-      "img": "",
+      "img": "https://i.ibb.co/BBG8kZz/Ribeira-Dilhas.jpg",
       "county": "Mafra",
       "district": "Lisboa",
       "latitude": 38.988396542798355,
@@ -310,7 +310,7 @@
     {
       "id": 15,
       "name": "Foz do Lizandro",
-      "img": "",
+      "img": "https://i.ibb.co/2n1kgZ5/Foz-Do-Lizandro.jpg",
       "county": "Mafra",
       "district": "Lisboa",
       "latitude": 38.9544641230886,
@@ -332,7 +332,7 @@
     {
       "id": 16,
       "name": "Praia Grande",
-      "img": "",
+      "img": "https://i.ibb.co/hfkbcrY/praia-grande-sintra-portugal.jpg",
       "county": "Sintra",
       "district": "Lisboa",
       "latitude": 38.81616016963217,
@@ -354,7 +354,7 @@
     {
       "id": 17,
       "name": "Carcavelos",
-      "img": "",
+      "img": "https://i.ibb.co/xYpLbtc/Carcavelos.jpg",
       "county": "Cascais",
       "district": "Lisboa",
       "latitude": 38.67992640723547,
@@ -377,7 +377,7 @@
     {
       "id": 18,
       "name": "Costa da Caparica",
-      "img": "",
+      "img": "https://i.ibb.co/vBpdGxf/Praia-Da-Caparica.jpg",
       "county": "Almada",
       "district": "Setúbal",
       "latitude": 38.64650689926717,
@@ -397,7 +397,7 @@
     {
       "id": 19,
       "name": "Fonte da Telha",
-      "img": "",
+      "img": "https://i.ibb.co/Mg2hdMy/playa-de-fonte-da-telha-portugal.jpg",
       "county": "Almada",
       "district": "Setúbal",
       "latitude": 38.5788878121876,
@@ -418,7 +418,7 @@
     {
       "id": 20,
       "name": "Praia de São Torpes",
-      "img": "",
+      "img": "https://i.ibb.co/jbKkTvH/sao-torpes.jpg",
       "county": "Sines",
       "district": "Setúbal",
       "latitude": 37.923420136216535,
@@ -440,7 +440,7 @@
     {
       "id": 21,
       "name": "Praia do Malhão",
-      "img": "",
+      "img": "https://i.ibb.co/xG50KtK/Malhao.jpg",
       "county": "Odemira",
       "district": "Beja",
       "latitude": 37.78659783858011,
@@ -453,7 +453,7 @@
     {
       "id": 22,
       "name": "Praia da Arrifana",
-      "img": "",
+      "img": "https://i.ibb.co/TKhTGNb/Arrifana.jpg",
       "county": "Aljezur",
       "district": "Faro",
       "latitude": 37.29457864234483,
@@ -473,7 +473,7 @@
     {
       "id": 23,
       "name": "Praia da Cordoama",
-      "img": "",
+      "img": "https://i.ibb.co/yVP88X2/Cordoama.jpg",
       "county": "Vila do Bispo",
       "district": "Faro",
       "latitude": 37.11127196885822,
@@ -495,7 +495,7 @@
     {
       "id": 24,
       "name": "Praia do Amado",
-      "img": "",
+      "img": "https://i.ibb.co/Jpm1YLk/Praiado-Amado.jpg",
       "county": "Aljezur",
       "district": "Faro",
       "latitude": 37.168180313141164,
@@ -517,7 +517,7 @@
     {
       "id": 25,
       "name": "Praia de São Pedro",
-      "img": "",
+      "img": "https://i.ibb.co/VJNzVB8/sao-pedro-beach.webp",
       "county": "Cascais",
       "district": "Lisboa",
       "latitude": 38.69375035441898,
@@ -539,7 +539,7 @@
     {
       "id": 26,
       "name": "Praia da Cresmina",
-      "img": "",
+      "img": "https://ibb.co/5vkg309",
       "county": "Cascais",
       "district": "Lisboa",
       "latitude": 38.724878906132886,
@@ -561,7 +561,7 @@
     {
       "id": 27,
       "name": "Praia Pequena",
-      "img": "",
+      "img": "https://i.ibb.co/RT3Z4v1/Praia-Pequena-Sintra.jpg",
       "county": "Sintra",
       "district": "Lisboa",
       "latitude": 38.820912338825224,
@@ -574,7 +574,7 @@
     {
       "id": 28,
       "name": "Praia da Adraga",
-      "img": "",
+      "img": "https://i.ibb.co/QpzZBJF/Praia-Adraga.jpg",
       "county": "Sintra",
       "district": "Lisboa",
       "latitude": 38.8042597947997,
@@ -595,7 +595,7 @@
     {
       "id": 29,
       "name": "Praia das Maçãs",
-      "img": "",
+      "img": "https://i.ibb.co/wpSjdhw/Praia-Macas.jpg",
       "county": "Sintra",
       "district": "Lisboa",
       "latitude": 38.825068482566905,
@@ -618,7 +618,7 @@
     {
       "id": 30,
       "name": "Praia da Cova do Vapor",
-      "img": "",
+      "img": "https://i.ibb.co/wc6kKTY/CDS.jpg",
       "county": "Almada",
       "district": "Setúbal",
       "latitude": 38.662864559147025,
@@ -637,7 +637,7 @@
     {
       "id": 31,
       "name": "Praia da Baleia",
-      "img": "",
+      "img": "https://i.ibb.co/FmkST6y/praia-da-baleia-ericeira.jpg",
       "county": "Mafra",
       "district": "Lisboa",
       "latitude": 38.95894172021705,
@@ -660,7 +660,7 @@
     {
       "id": 32,
       "name": "Praia de São Julião",
-      "img": "",
+      "img": "https://i.ibb.co/9ZCQPJB/sao-juliao-ericeira.jpg",
       "county": "Mafra",
       "district": "Lisboa",
       "latitude": 38.93348477858969,
@@ -680,7 +680,7 @@
     {
       "id": 33,
       "name": "Praia do Magoito",
-      "img": "",
+      "img": "https://i.ibb.co/tJG4G6b/praia-do-magoito.jpg",
       "county": "Sintra",
       "district": "Lisboa",
       "latitude": 38.860254157324874,
@@ -703,7 +703,7 @@
     {
       "id": 34,
       "name": "Praia do Castelejo",
-      "img": "",
+      "img": "https://i.ibb.co/QrjvtD0/Castelejo.jpg",
       "county": "Vila do Bispo",
       "district": "Faro",
       "latitude": 37.100132572697696,
@@ -726,7 +726,7 @@
     {
       "id": 35,
       "name": "Praia do Tonel",
-      "img": "",
+      "img": "https://i.ibb.co/1Z8wbd4/Praia-do-Tonel-Sagres-5930827048.jpg",
       "county": "Vila do Bispo",
       "district": "Faro",
       "latitude": 37.00618451789164,
@@ -745,7 +745,7 @@
     {
       "id": 36,
       "name": "Praia da Mareta",
-      "img": "",
+      "img": "https://i.ibb.co/2cZLF0N/Mareta-5658-P-1.jpg",
       "county": "Vila do Bispo",
       "district": "Faro",
       "latitude": 37.00553434653666,

@@ -62,7 +62,7 @@ export const ApiContextProvider = ({ children }) => {
   // const getSeaConditionsInfo = async () => {
   //   setLoading(true);
   //   const res = await axios.get(
-  //     "https://run.mocky.io/v3/529665a3-9500-4b2b-a774-88f4fba80629"
+  //     "https://run.mocky.io/v3/a2dd85a3-2760-4222-8437-3d39b0ff9777"
   //   );
   //   setBeachesInfo(res.data.districts);
   //   getStormGlassInfo(res.data.districts);
@@ -74,7 +74,7 @@ export const ApiContextProvider = ({ children }) => {
       {
         id: 1,
         name: "Praia do Moledo",
-        img: "",
+        img: "https://i.ibb.co/5WjLPLY/Moledo.jpg",
         county: "Caminha",
         district: "Viana do Castelo",
         latitude: 41.85043260992245,
@@ -97,7 +97,7 @@ export const ApiContextProvider = ({ children }) => {
       {
         id: 2,
         name: "Praia da Arda",
-        img: "",
+        img: "https://i.ibb.co/6s1Xh9H/Praia-de-Afife-Viana-do-Castelo.jpg",
         county: "Viana do Castelo",
         district: "Viana do Castelo",
         latitude: 41.77579596263613,
@@ -125,7 +125,6 @@ export const ApiContextProvider = ({ children }) => {
   };
 
   const getStormGlassInfo = async (ourApi) => {
-    console.log(ourApi);
     ourApi.map(async (beach) => {
       const res = await axios.get(
         `https://api.stormglass.io/v2/weather/point?lat=${beach.latitude}&lng=${beach.longitude}&params=${params}`,
@@ -136,9 +135,9 @@ export const ApiContextProvider = ({ children }) => {
           },
         }
       );
-      console.log(res.data.hours[0]);
+      console.log(res.data);
       setSeaInfo((state) => {
-        state = [...state, res.data.hours];
+        state = [...state, res.data];
         return state;
       });
     });
@@ -150,10 +149,13 @@ export const ApiContextProvider = ({ children }) => {
   }, []);
 
   console.log(seaInfo);
+  console.log(beachesInfo);
 
   if (loading) return "...Loading...";
   return (
-    <ApiContext.Provider value={{ weatherInfo, districtInfo }}>
+    <ApiContext.Provider
+      value={{ weatherInfo, districtInfo, seaInfo, beachesInfo }}
+    >
       {children}
     </ApiContext.Provider>
   );
