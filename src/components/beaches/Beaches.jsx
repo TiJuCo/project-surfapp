@@ -4,6 +4,7 @@ import "../../styles/styles.css";
 import BeachList from './BeachList/BeachList';
 import BeachesPopular from "./BeachPopular/BeachesPopular";
 import BeachFilters from "./BeachFilters/BeachFilters";
+import BeachesPopularMobile from "./BeachPopular/BeachPopularMobile/BeachesPopularMobile";
 
 function Beaches() {
   return (
@@ -12,6 +13,7 @@ function Beaches() {
         <h3>Popular Beaches</h3>
       </div>
       <BeachesPopular />
+      <BeachesPopularMobile/>
       
       <div className="section section-2 container">
         <h3>Search</h3>
