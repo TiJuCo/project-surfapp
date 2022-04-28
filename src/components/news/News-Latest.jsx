@@ -3,12 +3,13 @@ import "./News-List.css";
 import { ArticlesData } from "./News-Data";
 import NewsCards from "./News-Cards";
 
+
 function NewsLatest() {
   return (
     <div className="news-latest-container">
       {ArticlesData.filter((info) => info.tag === "news" && info.index < 3).map(
         (info) => (
-          <NewsCards {...info} />
+            <NewsCards {...info} />
         )
       )}
     </div>

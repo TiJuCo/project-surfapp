@@ -1,0 +1,119 @@
+
+.beach-card {
+    display: flex;
+    flex-direction: column; /* row on mobile*/
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
+    background-color: white;
+    border-radius: 10px;
+}
+
+.beach-card-row-1 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 120px;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-blend-mode: multiply; 
+    background-image: url('https://i.ibb.co/Y82Fzv6/Praiada-Barra.jpg'), linear-gradient(360deg, rgba(57, 73, 87, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+}
+
+.beach-card-row-1 div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.beach-card-row-1 div img{
+    width: 15px;
+}
+
+.beach-card-row-1 div p{
+    font-size: 12px;
+}
+
+.beach-card-row-1 h2 {
+    font-weight: 300;
+    font-size: 18px;
+    color: white;
+}
+
+.beach-card-row-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px;
+}
+
+.beach-card-row-2-row-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 15px;
+}
+
+.beach-card-row-2-row-1 > div{
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.beach-card-row-2-row-1 > div > img{
+    width: 15px;
+}
+
+.beach-card-row-2-row-1 > div > p{
+    font-size: 13px;
+}
+
+.beach-card-row-2-row-2 {
+    display: none;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+    
+
+@media only screen and (min-width: 1024px) {
+    .beach-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .beach-card-row-1 {
+        padding: 20px;
+        min-height: 200px;
+    }
+
+    .beach-card-row-1 h2 {
+        
+        font-size: 20px;
+        line-height: 1.1;
+    }
+
+    .beach-card-row-2 {
+        padding: 30px;
+    }
+
+    .beach-card-row-2-row-1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .beach-card-row-2-row-1 > div > img {
+        width: 30px;
+    }
+
+    .beach-card-row-2-row-1 > div > p{
+        font-size: 18px;
+    }
+
+    .beach-card-row-2-row-2 {
+        display: flex;
+    }
+    
+}

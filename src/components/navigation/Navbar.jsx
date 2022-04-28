@@ -12,10 +12,13 @@ function Navbar(props) {
         setActive(!active)
     };
 
+    const body = document.querySelector('body');
+    active ? body.style.overflowY = "hidden" : body.style.overflowY = "initial";
+
     return (
 
         <div className="navbar-container">
-            <img id="logo" src={logo} alt="DuckDive"/>
+            <Link to="/"><img id="logo" src={logo} alt="DuckDive"/></Link>
             <nav className="navbar-desktop">
  
                     <div className="">
@@ -29,10 +32,10 @@ function Navbar(props) {
                 <div className="bar"></div>
             </button>
             <nav className={ active ? "side-is-active , mobileNav" : "mobileNav"} >
-                <Link to="/">Home</Link>
-                <Link to="/beaches">Beaches</Link>
-                <Link to="/news">News</Link>
-                <Link to="/info">Info</Link>
+                <Link to="/" onClick={handleHamburger}>Home</Link>
+                <Link to="/beaches" onClick={handleHamburger}>Beaches</Link>
+                <Link to="/news" onClick={handleHamburger}>News</Link>
+                <Link to="/info" onClick={handleHamburger}>Info</Link>
             </nav>
         </div>
     );

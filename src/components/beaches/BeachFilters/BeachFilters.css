@@ -1,0 +1,15 @@
+.filters-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+
+
+@media only screen and (min-width: 1024px) {
+    .beach-list {
+        grid-template-columns: repeat(4, auto);
+    }
+    
+}

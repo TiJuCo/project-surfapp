@@ -14,14 +14,14 @@
 
 * {
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   box-sizing:border-box;
   margin: 0;
-  font-family: "Inter";
+  font-family: "PT Root UI";
   scroll-behavior: smooth;
 }
 
 .App {
-  padding-top: 20px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
