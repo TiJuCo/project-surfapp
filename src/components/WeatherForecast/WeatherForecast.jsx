@@ -4,12 +4,12 @@ import "./WeatherForescast.css";
 import WeatherCard from "./WeatherCard/WeatherCard";
 
 const WeatherForecast = () => {
-  const weatherInfo = useContext(ApiContext);
-  console.log(weatherInfo);
+  const { weatherInfo } = useContext(ApiContext);
+  // console.log(weatherInfo);
   return (
     <div className="weather-forecast-container container">
       {weatherInfo.map((element, index) => (
-        <WeatherCard {...element} key={index} />
+        <WeatherCard element={element} key={index} />
       ))}
     </div>
   );
@@ -17,11 +17,9 @@ const WeatherForecast = () => {
 
 export default WeatherForecast;
 
-{
-  /* .filter(
-  (x) =>
-    x.latitude === "41.158" ||
-    x.latitude === "38.766" ||
-    x.latitude === "37.0146"
-) */
-}
+// .filter(
+//   (x) =>
+//     x.latitude === "41.1580" ||
+//     x.latitude === "40.2081" ||
+//     x.latitude === "37.0146"
+// )
