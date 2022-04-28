@@ -1,0 +1,94 @@
+.carouselInnerMobile {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.carouselVideoMobile {
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+.carousel-content-container-mobile {
+    display: grid;
+    align-items: center;
+}
+
+.carouselInnerMobile .carousel-content-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 20px;
+    padding-bottom: 40px;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    z-index: 1;
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
+}
+
+.react-player-duckdive-mobile {
+    width: auto !important;
+    height: auto !important;
+}
+
+.carousel-content-1-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.carousel-content-2-mobile {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.button-left, .button-right {
+    color: var(--secondary-color);
+    appearance: none;
+    outline: none;
+    border: 2px solid var(--secondary-color);
+    background-color: transparent;
+    align-self: center;
+    justify-self: end;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 18px 20px;
+    cursor: pointer;
+}
+
+.button-left:hover, .button-right:hover {
+    opacity: 0.6;
+    transition: all 200ms ease-out;
+}
+
+.button-right {
+    color: white;
+    background-color: var(--secondary-color);
+}
+
+.chevron {
+    width: 20px;
+    height: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+    .carouselVideoMobile {
+        display: none;
+    }
+}

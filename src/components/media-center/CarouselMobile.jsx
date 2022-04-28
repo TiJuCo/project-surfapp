@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Carousel.css';
+import './CarouselMobile.css';
 import './../../styles/styles.css'
 import { surfVideos } from './Videos-Data';
 import {FaChevronLeft} from 'react-icons/fa';
@@ -8,27 +8,23 @@ import ReactPlayer from 'react-player';
 import VideosCards from './Videos-Cards';
 import { Autoplay } from 'swiper';
 
-function Carousel(props) {
+function CarouselMobile(props) {
 
     const [currVideo, setCurrVideo] = useState(0);
     const {tag, title, video} = props;
 
   return (
-    <div className='carouselVideo container'>
+    <div className='carouselVideoMobile container'>
         <div 
-            className='carouselInner'
+            className='carouselInnerMobile'
           //  style={{ background: `url(${surfVideos[currVideo].video})` }} 
          >
-            <div className='carousel-content-container'>
+            <div className='carousel-content-container-mobile'>
 
-                <ReactPlayer className='react-player-duckdive' url={surfVideos[currVideo].video} muted={true} loop={true} playing={true}/>
+               
                 {/* <video src={surfVideos[currVideo].video} autoPlay muted autoPlay="autoplay" preLoad="auto" loop></video> */}
-                <div className='carousel-content'>
-                    <div className='carousel-content-1'>
-                      <h2>Nulla porttitor massa id neque aliquam vestibulum. Est pellentesque elit ullamcorper dignissim cras.</h2>
-                      <p>Surfer: Miguel Dias</p>
-                    </div>
-                    <div className='carousel-content-2'>
+                <div className='carousel-content-mobile'>
+                    <div className='carousel-content-2-mobile'>
                       <button className='button-left' 
                             onClick={() => {
                                 currVideo > 0 && setCurrVideo(currVideo - 1);
@@ -45,12 +41,12 @@ function Carousel(props) {
                           <FaChevronRight className='chevron'/>
                       </button> 
                     </div>
-                    
                 </div>
+                <ReactPlayer className='react-player-duckdive' url={surfVideos[currVideo].video} muted={true} loop={true} playing={true}/>
             </div>
         </div>
     </div>
   )
 }
 
-export default Carousel
+export default CarouselMobile
