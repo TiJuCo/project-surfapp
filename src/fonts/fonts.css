@@ -4,7 +4,7 @@
 	src:
 		url('./PT-Root-UI/PT-Root-UI_Bold.woff2') format('woff2'),
 		url('./PT-Root-UI/PT-Root-UI_Bold.woff') format('woff');
-	font-weight: normal;
+	font-weight: 800;
 	font-style: normal;
 }
 
@@ -13,7 +13,7 @@
 	src:
 		url('./PT-Root-UI/PT-Root-UI_Light.woff2') format('woff2'),
 		url('./PT-Root-UI/PT-Root-UI_Light.woff') format('woff');
-	font-weight: normal;
+	font-weight: 100;
 	font-style: normal;
 }
 
@@ -22,7 +22,7 @@
 	src:
 		url('./PT-Root-UI/PT-Root-UI_Medium.woff2') format('woff2'),
 		url('./PT-Root-UI/PT-Root-UI_Medium.woff') format('woff');
-	font-weight: normal;
+	font-weight: 500;
 	font-style: normal;
 }
 
@@ -31,7 +31,7 @@
 	src:
 		url('./PT-Root-UI/PT-Root-UI_Regular.woff2') format('woff2'),
 		url('./PT-Root-UI/PT-Root-UI_Regular.woff') format('woff');
-	font-weight: normal;
+	font-weight: 300;
 	font-style: normal;
 }
 

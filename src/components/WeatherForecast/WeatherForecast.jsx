@@ -1,13 +1,25 @@
+import { useContext } from "react";
+import ApiContext from "../../contexts/ApiContext.js";
 import "./WeatherForescast.css";
 import WeatherCard from "./WeatherCard/WeatherCard";
-import { CitiesWeatherData } from "./CitiesWeatherData/CitiesWeatherData";
 
 const WeatherForecast = () => {
+  const { weatherInfo, districtInfo, setLoading } = useContext(ApiContext);
+
+  weatherInfo.forEach((element, index) => {
+    element.name = districtInfo[index].name;
+  });
+
   return (
     <div className="weather-forecast-container container">
-      {CitiesWeatherData.map((element, index) => (
-        <WeatherCard {...element} key={index} />
-      ))}
+      {weatherInfo
+        .filter(
+          (el) =>
+            el.name === "Faro" || el.name === "Porto" || el.name === "Lisboa"
+        )
+        .map((element, index) => (
+          <WeatherCard element={element} key={index} />
+        ))}
     </div>
   );
 };

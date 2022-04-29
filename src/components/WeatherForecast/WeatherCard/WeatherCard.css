@@ -8,9 +8,9 @@
   box-sizing: border-box;
 }
 
-.weather-card:last-child {
+/* .weather-card:last-child {
   display: none;
-}
+} */
 
 .weather-card-header img {
   display: flex;
@@ -119,9 +119,9 @@
     width: 100%;
   }
 
-  .weather-card:last-child {
+  /* .weather-card:last-child {
     display: none;
-  }
+  } */
 
   .weather-card-header img {
     display: flex;

@@ -1,15 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../home/Home";
-import News from "../news/News";
-import PageTest from "../news/PageTest";
-
-
+import Beaches from "../beaches/Beaches";
 
 function Main() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      {/* <Route path="/beaches" element={<Beaches />} /> */}
+      <Route path="/beaches" element={<Beaches />} />
     </Routes>
   );
 }

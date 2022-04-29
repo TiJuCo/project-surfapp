@@ -9,6 +9,7 @@ import NewsLatest from "../news/NewsLatest"
 import Carousel from "../media-center/Carousel";
 import CarouselMobile from "../media-center/CarouselMobile";
 
+import HomeBeachesPopular from "./HomeBeachesPopular/HomeBeachesPopular";
 
 function Home() {
   return (
@@ -20,13 +21,17 @@ function Home() {
       <NewsLatestSlider />
 
       
-      <div className="section-2 container">
+      <div className="section section-2 container">
+        <h3>Popular Beaches</h3>
+        <Link to="/beaches">See all</Link>
+      </div>
+      <HomeBeachesPopular />
+
+      <div className="section section-2 container">
         <h3>Weather Forecast</h3>
         <Link to="/beaches">See all</Link>
       </div>
       <WeatherForecast />
-
-      {/* Replace section here */}
 
       <div className="section-2 container">
         <h3>Surf Videos</h3>

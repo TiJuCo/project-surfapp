@@ -1,0 +1,90 @@
+.beach-popular-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.beach-popular-container {
+    display: none;
+    grid-gap: 20px;
+    grid-template:
+        "a a a a b b" 1fr
+        "a a a a c c" 1fr
+        "d d d e e e" 1fr;
+    min-height: 500px;
+}
+
+.beach-popular-container > div {
+    filter:drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.3))
+}
+
+.beach-popular-container > div:nth-child(1) {
+    grid-area: a; 
+    border-radius: 20px;
+}
+
+.beach-popular-container > div:nth-child(1) .beach-card-row-2 .beach-card-row-2-row-2 img{
+    width: 35px;
+}
+
+.beach-popular-container > div:nth-child(2) {
+    grid-area: b; 
+}
+
+.beach-popular-container > div:nth-child(3) {
+    grid-area: c; 
+}
+
+.beach-popular-container > div:nth-child(4) {
+    grid-area: d; 
+}
+
+.beach-popular-container > div:nth-child(5) {
+    grid-area: e; 
+}
+
+.beach-popular-container > div:nth-child(6) {
+    grid-area: f; 
+}
+
+@media only screen and (min-width: 1024px) {
+    .bg-img{
+        height: auto;
+    }
+    .beach-popular-container{
+        display: grid;
+        padding-left: 40px;
+        padding-right: 40px;
+        min-height: 500px;
+    }
+
+    .beach-popular-container > div:nth-child(1) > .beach-card-row-1 {
+        border-radius: 20px;
+        padding: 40px;
+    }     
+
+    .beach-popular-container > div:nth-child(1) > .beach-card-row-1 h2 {
+        font-size: 32px;
+        font-weight: 500;
+    }   
+
+    .beach-popular-container > div:nth-child(1) > .beach-card {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .beach-popular-container > div:nth-child(4), .beach-popular-container > div:nth-child(5) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .beach-popular-container > div:nth-child(2) > .beach-card, .beach-popular-container > div:nth-child(3) > .beach-card {
+        grid-template-columns: auto auto;
+    }   
+
+    .news-cards-row-2 p:nth-child(1) {
+        display: none;
+    }
+    .news-cards-row-2 p:nth-child(2), .news-cards-row-2 p:nth-child(3) {
+        display: block;
+    }
+
+}

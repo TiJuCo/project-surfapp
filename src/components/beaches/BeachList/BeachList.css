@@ -1,0 +1,21 @@
+.beach-list {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+}
+
+.beach-list > div {
+    grid-template-columns: unset;
+}
+
+.beach-list .beach-card-row-2 .beach-card-row-2-row-2 {
+    display: none;
+}
+
+
+@media only screen and (min-width: 1024px) {
+    .beach-list {
+        grid-template-columns: repeat(4, auto);
+    }
+    
+}

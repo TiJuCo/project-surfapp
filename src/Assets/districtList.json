@@ -1,0 +1,64 @@
+{
+  "districts": [
+    {
+      "id": 1160900,
+      "name": "Viana do Castelo",
+      "latitude": "41.6952",
+      "longitude": "-8.8365"
+    },
+    {
+      "id": 1030300,
+      "name": "Braga",
+      "latitude": "41.5475",
+      "longitude": "-8.4227"
+    },
+    {
+      "id": 1131200,
+      "name": "Porto",
+      "latitude": "41.1580",
+      "longitude": "-8.6294"
+    },
+    {
+      "id": 1010500,
+      "name": "Aveiro",
+      "latitude": "40.6413",
+      "longitude": "-8.6535"
+    },
+    {
+      "id": 1060300,
+      "name": "Coimbra",
+      "latitude": "40.2081",
+      "longitude": "-8.4194"
+    },
+    {
+      "id": 1100900,
+      "name": "Leiria",
+      "latitude": "39.7473",
+      "longitude": "-8.8069"
+    },
+    {
+      "id": 1110600,
+      "name": "Lisboa",
+      "latitude": "38.7660",
+      "longitude": "-9.1286"
+    },
+    {
+      "id": 1151200,
+      "name": "Setúbal",
+      "latitude": "38.5246",
+      "longitude": "-8.8856"
+    },
+    {
+      "id": 1020500,
+      "name": "Beja",
+      "latitude": "38.0200",
+      "longitude": "-7.8700"
+    },
+    {
+      "id": 1080500,
+      "name": "Faro",
+      "latitude": "37.0146",
+      "longitude": "-7.9331"
+    }
+  ]
+}
