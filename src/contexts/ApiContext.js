@@ -70,7 +70,6 @@ export const ApiContextProvider = ({ children }) => {
   // };
   const getSeaConditionsInfo = async () => {
     setLoading(true);
-    // const testData = [
     //   {
     //     id: 1,
     //     name: "Praia do Moledo",
@@ -145,9 +144,14 @@ export const ApiContextProvider = ({ children }) => {
     });
   };
 
+  // const stateChanges = (seaInfo) => {
+  //   console.log(seaInfo);
+  // };
+
   useEffect(() => {
     getWeatherInfo();
     getSeaConditionsInfo();
+    // stateChanges(seaInfo);
   }, []);
 
   if (loading) return "...Loading...";

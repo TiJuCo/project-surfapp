@@ -1,50 +1,56 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { logo } from '../../../media/icons/iconsData'
-import './footer.css'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { logo } from "../../../media/icons/iconsData";
+import "./footer.css";
 
 function Footer(props) {
+  return (
+    <footer className="footer-container">
+      <div className="footer-flex">
+        <div className="footer-1-flex">
+          <Link to="/">
+            <img id="footer-logo" src={logo} alt="DuckDive" />
+          </Link>
+          <span className="copyright">
+            © 2022 Duckdive, All rights reserved
+          </span>
+        </div>
 
+        <div className="footer-2-flex">
+          <div>
+            <p>Menu</p>
+            <Link to="/">Home</Link>
+            <Link to="/beaches">Beaches</Link>
+            <Link to="/news">News</Link>
+            <Link to="/info">Info</Link>
+          </div>
+          <div className="social-grid">
+            <p>Find us</p>
+            <a href="https://github.com/TiJuCo/project-surfapp" target="blank">
+              Github
+            </a>
+            <a href="https://github.com/TiJuCo/project-surfapp" target="blank">
+              Linkedin
+            </a>
+            <a href="https://github.com/TiJuCo/project-surfapp" target="blank">
+              Twitter
+            </a>
+          </div>
+        </div>
 
-    return (
+        <div className="footer-3-flex">
+          <div className="social-grid">
+            <p>Find us</p>
+            <div className="social-icons-grid"></div>
+          </div>
+        </div>
 
-        
-            <footer className="footer-container">
-                    <div class="footer-flex">
-                        <div class="footer-1-flex">
-                            <Link to="/"><img id="footer-logo" src={logo} alt="DuckDive"/></Link>
-                            <span class="copyright">© 2022 Duckdive, All rights reserved</span>
-                        </div>
-
-                        <div class="footer-2-flex">
-                            <div>
-                                <p>Menu</p>
-                                <Link to="/">Home</Link>
-                                <Link to="/beaches">Beaches</Link>
-                                <Link to="/news">News</Link>
-                                <Link to="/info">Info</Link>
-                            </div>
-                            <div class="social-grid">
-                                <p>Find us</p>
-                                <a href="https://github.com/TiJuCo/project-surfapp" target="blank">Github</a>
-                                <a href="https://github.com/TiJuCo/project-surfapp" target="blank">Linkedin</a>
-                                <a href="https://github.com/TiJuCo/project-surfapp" target="blank">Twitter</a> 
-                            </div>
-                        </div>
-
-                        <div class="footer-3-flex">
-                            <div class="social-grid">
-                                <p>Find us</p>
-                                <div class="social-icons-grid">
-                                   
-                                </div>    
-                            </div>
-                        </div>
-
-                        <span class="copyright-mobile">© 2022 Duckdive, All rights reserved</span>
-                    </div>
-            </footer>
-    );
+        <span className="copyright-mobile">
+          © 2022 Duckdive, All rights reserved
+        </span>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;
