@@ -7,7 +7,6 @@ const WeatherCard = (props) => {
   const { element, index } = props;
   const date = new Date();
   const [time] = useState(date.getHours());
-  console.log(element);
 
   return (
     <div key={index} className="weather-card">
