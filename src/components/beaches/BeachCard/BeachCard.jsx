@@ -20,48 +20,52 @@ function BeachCard(props) {
   console.log(element);
 
   return (
-    <div className="beach-card">
-      <div className="beach-card-row-1">
-        <h2>
-          Praia <br /> de Carcavelos
-        </h2>
+    element && (
+      <>
+        <div className="beach-card">
+          <div className="beach-card-row-1">
+            <h2>
+              Praia <br /> de Carcavelos
+            </h2>
 
-        <div>
-          <img src={location} alt="" />
-          <p>{element && element.name}</p>
+            <div>
+              <img src={location} alt="" />
+              <p>{element.county}</p>
+            </div>
+          </div>
+          <div className="beach-card-row-2">
+            <div className="beach-card-row-2-row-1">
+              <div>
+                <img src={sol} alt="" />
+                <p>Data</p>
+              </div>
+              <div>
+                <img src={swellDuration} alt="" />
+                <p>Data</p>
+              </div>
+              <div>
+                <img src={swellHeight} alt="" />
+                <p>Data</p>
+              </div>
+              <div>
+                <img src={wind} alt="" />
+                <p>Data</p>
+              </div>
+            </div>
+            <div className="beach-card-row-2-row-2">
+              <img src={sol} alt="" />
+              <img src={sol} alt="" />
+              <img src={sol} alt="" />
+              <img src={sol} alt="" />
+              <img src={sol} alt="" />
+              <img src={sol} alt="" />
+              <img src={sol} alt="" />
+              <img src={sol} alt="" />
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="beach-card-row-2">
-        <div className="beach-card-row-2-row-1">
-          <div>
-            <img src={sol} alt="" />
-            <p>Data</p>
-          </div>
-          <div>
-            <img src={swellDuration} alt="" />
-            <p>Data</p>
-          </div>
-          <div>
-            <img src={swellHeight} alt="" />
-            <p>Data</p>
-          </div>
-          <div>
-            <img src={wind} alt="" />
-            <p>Data</p>
-          </div>
-        </div>
-        <div className="beach-card-row-2-row-2">
-          <img src={sol} alt="" />
-          <img src={sol} alt="" />
-          <img src={sol} alt="" />
-          <img src={sol} alt="" />
-          <img src={sol} alt="" />
-          <img src={sol} alt="" />
-          <img src={sol} alt="" />
-          <img src={sol} alt="" />
-        </div>
-      </div>
-    </div>
+      </>
+    )
   );
 }
 
