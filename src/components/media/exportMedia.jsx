@@ -17,6 +17,6 @@ export const restaurants = require("./restaurants.svg");
 export const showers = require("./showers.svg");
 export const transportation = require("./transportation.svg");
 export const wc = require("./wc.svg");
-export const accessibility = require("./parking.svg");
+export const accessibility = require("./accessibility.svg");
 
 

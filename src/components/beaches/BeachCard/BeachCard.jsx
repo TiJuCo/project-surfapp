@@ -20,12 +20,10 @@ import {
 } from "../../media/exportMedia.jsx";
 
 
-const gradient =
-  "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)";
+const gradient = "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)";
 
 function BeachCard(props) {
   const { element, index } = props;
-  console.log(element)
 
   // const convertedWindDirection = "";
   // const resolveWindDirection = (convertedWindDirection) => {
@@ -65,8 +63,8 @@ function BeachCard(props) {
   return (
     element && (
       <>
-        <div className="beach-card">
-          <div className="beach-card-row-1">
+        <div className="beach-card" >
+          <div className="beach-card-row-1" style={{ backgroundImage: `url(${element.img}), ${gradient} `}}>
             <h2>
             {element.name}
             </h2>
@@ -106,7 +104,6 @@ function BeachCard(props) {
               <img className={element.services.includes('freeParking') ? 'icon-active' : 'icon-not-active'} src={freeParking} alt="" />
               <img className={element.services.includes('wc') ? 'icon-active' : 'icon-not-active'} src={wc} alt="" />
               <img className={element.services.includes('firstAid') ? 'icon-active' : 'icon-not-active'} src={firstAid} alt="" />
-              <img className={element.services.includes('freeParking') ? 'icon-active' : 'icon-not-active'} src={freeParking} alt="" />
             </div>
           </div>
         </div>

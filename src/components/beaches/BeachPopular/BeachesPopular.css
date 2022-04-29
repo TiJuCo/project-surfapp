@@ -23,6 +23,10 @@
     border-radius: 20px;
 }
 
+.beach-popular-container > div:nth-child(1) .beach-card-row-2 .beach-card-row-2-row-2 img{
+    width: 35px;
+}
+
 .beach-popular-container > div:nth-child(2) {
     grid-area: b; 
 }
