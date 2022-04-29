@@ -14,9 +14,9 @@ function Carousel(props) {
     const {tag, title, video} = props;
 
   return (
-    <div className='carouselVideo container'>
+    <div className='carouselVideo'>
         <div 
-            className='carouselInner'
+            className='carouselInner container'
           //  style={{ background: `url(${surfVideos[currVideo].video})` }} 
          >
             <div className='carousel-content-container'>

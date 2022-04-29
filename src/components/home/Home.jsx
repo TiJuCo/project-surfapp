@@ -33,7 +33,7 @@ function Home() {
       </div>
       <WeatherForecast />
 
-      <div className="section-2 container">
+      <div className="section section-2 container">
         <h3>Surf Videos</h3>
       </div>
       <Carousel />
