@@ -81,7 +81,7 @@
 .carousel-content-container {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
     background-color: white;
     align-items: center;
     border-radius: 20px;

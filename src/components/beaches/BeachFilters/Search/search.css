@@ -1,0 +1,9 @@
+input {
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    border-radius: 100px;
+    padding: 10px 12px;
+}

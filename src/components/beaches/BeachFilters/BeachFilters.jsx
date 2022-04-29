@@ -1,24 +1,12 @@
 import React from "react";
 import "./BeachFilters.css";
+import Search from "./Search/Search";
 
 function BeachFilters() {
 
-  const [searchValue, setSearchValue] = React.useState('');
-
-
-  const handleSearch = (e) => {
-    setSearchValue(e.target.value);
-  };
-
-
   return (
     <div className="container filters-container">
-      <input
-        value={searchValue}
-        type="text"
-        placeholder="Type a beach..."
-        onChange={handleSearch}
-      />
+      <Search/>
     </div>
   );
 }
