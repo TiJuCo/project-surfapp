@@ -24,8 +24,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Carousel/>
-      <CarouselMobile/>
+      <Main />
       <Footer/>
     </div>
   );

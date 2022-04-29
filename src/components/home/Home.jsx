@@ -6,6 +6,8 @@ import "../../styles/styles.css";
 import "./home.css";
 import NewsLatestSlider from "../news/NewsLatestSlider";
 import NewsLatest from "../news/NewsLatest"
+import Carousel from "../media-center/Carousel";
+import CarouselMobile from "../media-center/CarouselMobile";
 
 
 function Home() {
@@ -13,11 +15,10 @@ function Home() {
     <div className="content" style={{ minHeight: `100vh;` }}>
       <div className="section section-1 container">
         <h3>Latest News</h3>
-        
       </div>
       <NewsLatest />
       <NewsLatestSlider />
-      <div className="section section-2 container">
+
       
       <div className="section-2 container">
         <h3>Weather Forecast</h3>
@@ -28,11 +29,10 @@ function Home() {
       {/* Replace section here */}
 
       <div className="section-2 container">
-        <h3>Weather Forecast</h3>
-        <Link to="/beaches">See all</Link>
+        <h3>Surf Videos</h3>
       </div>
-      <WeatherForecast />
-    </div>
+      <Carousel />
+      <CarouselMobile />
     </div>
   );
 }
