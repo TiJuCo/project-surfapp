@@ -28,7 +28,7 @@ function BeachCard(props) {
 
         <div>
           <img src={location} alt="" />
-          <p></p>
+          <p>{element && element.name}</p>
         </div>
       </div>
       <div className="beach-card-row-2">
