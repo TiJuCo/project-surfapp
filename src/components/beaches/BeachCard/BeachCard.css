@@ -75,6 +75,14 @@
     flex-wrap: wrap;
     gap: 5px;
 }
+.icon-active {
+    width: 20px;
+}
+
+.icon-not-active {
+    opacity: 0.2;
+    width: 20px;
+}
     
 
 @media only screen and (min-width: 1024px) {
