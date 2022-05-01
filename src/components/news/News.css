@@ -90,6 +90,10 @@
     text-align: left;
 }
 
+.news-cards-row-2 a {
+    justify-self: flex-end;
+}
+
 .news-cards-row-2 p {
     font-size: 14px;
 }
@@ -165,18 +169,30 @@
     grid-area: a; 
     border-radius: 10px;
     padding: 3%;
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
+}
+
+.news-latest-container > div:nth-child(1) .news-cards-row-2 {
+    display: grid;
+    grid-template-columns: 3fr 2fr 4fr;
+}
+
+.news-latest-container > div:nth-child(1) .news-cards-row-2 a{
+    justify-self: flex-end;
 }
 
 .news-latest-container > div:nth-child(2) {
     grid-area: b; 
     border-radius: 10px;
     padding: 3%;
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
 }
 
 .news-latest-container > div:nth-child(3) {
     grid-area: c; 
     border-radius: 10px;
     padding: 3%;
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
 }
 
 /* EVENTS-LATEST */
