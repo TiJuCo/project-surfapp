@@ -9,14 +9,16 @@ export const SearchContextProvider = ({ children }) => {
     
     const [searchValue, setSearchValue] = useState('');
 
-    const handleSearch = (e) => {
-    setSearchValue(e.target.value);
-    };
+    
+
+    // useEffect(() => {
+    //     handleSearch();
+    // }, []);
 
 
   return (
     <SearchContext.Provider
-      value={{ searchValue, setSearchValue, handleSearch }}
+      value={{ searchValue, setSearchValue }}
     >
       {children}
     </SearchContext.Provider>

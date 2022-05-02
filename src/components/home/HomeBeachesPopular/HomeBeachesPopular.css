@@ -1,5 +1,13 @@
-.home-beach-list {
+.home-beaches-popular {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+
+@media only screen and (min-width: 1440px) {
+
+    .home-beaches-popular .beach-card{
+        min-height: 280px;
+    }
+}
+

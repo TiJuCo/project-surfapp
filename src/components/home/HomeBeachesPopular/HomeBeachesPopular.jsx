@@ -15,12 +15,12 @@ function HomeBeachesPopular() {
   });
 
   return (
-    <div className="container home-beach-list">
+    <div className="container home-beaches-popular">
       {seaInfo
-        .filter(
-          (el) =>
-            el.name === "Praia do Cabedelo" || el.name === "Praia International"
-        )
+        // .filter(
+        //   (el) =>
+        //     el.name === "Praia do Cabedelo" || el.name === "Praia International"
+        // )
         .map((element, index) => (
           <BeachCard element={element} key={index} />
         ))}
