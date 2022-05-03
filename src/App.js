@@ -14,13 +14,14 @@ import './fonts/PT-Root-UI/PT-Root-UI_Medium.woff'
 import './fonts/PT-Root-UI/PT-Root-UI_Medium.woff'
 import './fonts/PT-Root-UI/PT-Root-UI_Regular.woff'
 import './fonts/PT-Root-UI/PT-Root-UI_Regular.woff'
+import NewsPage from "./components/news/NewsPage";
 
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Main />
+      <NewsPage />
       <Footer/>
     </div>
   );

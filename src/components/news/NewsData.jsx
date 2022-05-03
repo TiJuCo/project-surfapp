@@ -22,8 +22,8 @@ export const ArticlesData = [
                 "Guinness World Records will potentially be broken, severe wipeouts and daring feats of water rescue. And, unique to this event, the final results will be determined by an athlete-led judging panel."
                 ],
 
-        gallery: ["../../images/20171021_1066-750x501.jpg", "../../images/Deestaque-750x502.jpg",
-                     "../../images/DSC_1129Mestre-750x500.jpg", "../../images/DSC_1891Mestre-copy-750x500.jpg"]
+        gallery: ["https://i.ibb.co/7Wynkhw/Stock-Snap-LHHXHMP77-R.jpg", "https://i.ibb.co/wwhd6fk/pexels-chedi-tanabene-1751135.jpg",
+                     "https://i.ibb.co/8xTRQRz/nazare.jpg"]
     },
 
     {
@@ -38,7 +38,7 @@ export const ArticlesData = [
                 "Recently Carcavelos had one of those tipycal Autumn swells and the world class spot produced some amazing waves."
             ],
 
-        gallery: ["../../images/DestaqueSC_2848Mestre-750x502.jpg", "../../images/diogo-pw-750x318.jpg", 
+        gallery: ["https://i.ibb.co/sPRnBrG/caparica-Fest.jpg", "https://i.ibb.co/8xTRQRz/nazare.jpg", 
                     "../../images/carcavelos-750x420.jpg"]
     },
 
@@ -56,7 +56,7 @@ export const ArticlesData = [
                 "When competition resumes, the remaining 16 surfers in both the men and women fields will battle it out at Supertubos for a spot in the Quarterfinals. The World Title race is alive and well with all male and female contenders still in the hunt in Portugal."
         ],
 
-        gallery: []
+        gallery: ["https://i.ibb.co/wwhd6fk/pexels-chedi-tanabene-1751135.jpg",]
     },
 
     {
@@ -145,5 +145,28 @@ export const ArticlesData = [
                 "Lucas Chianca (BRA) once again retained the titles of Best Male Performance and Best Team Performance, this time in partnership with Nic von Rupp (PRT).",
                 "The battle for the Best Female Performance title was tight between Des Bouillons and Maya Gabeira (BRA), but patience and experience paid off for Gabeira who took first place in the final heat of the day."
         ]
-    }
+    },
+
+    {
+        index: 8,
+        tag: "news",
+        title: "MEO Surf League 2022 will pass trough Ericeira in june",
+        date: "23/03/2022",
+        author: "JPG",
+        image: "https://i.ibb.co/c8wwrBB/Ribeira-d-Ilhas-ph-Jorge-Matreno-ANSurfistas-e1616601432173.jpg",
+        text: [
+                "The best national surfers are getting back to competition at the beginning of April, for another year of the MEO Surf League (the main surfing event in Portugal and the one that defines the titles of national champions), which will pass through Ericeira between the 10th and 12th of June with Allianz Ericeira Pro.",
+                "The calendar for this new season holds the return to the Azores as the big news, in a foray into the autonomous regions that hasn’t happened for 13 years, that is, since 2009.",
+                "MEO Surf League 2022 Calendar",
+
+                "League#1 – April 1st to 3rd – Allianz Figueira Pro",
+                "League#2 – 23rd to 25th of April – Joaquim Chaves Saúde Porto Pro",
+                "League#3 – June 10th to 12th – Allianz Ericeira Pro",
+                "League#4 – June 24th to 26th – Allianz Ribeira Grande Pro",
+                "League#5 – October 28th to 30th – Bom Petisco Peniche Pro",
+
+                "The spectacle of the best national surfing will return with Figueira da Foz opening the race for the maximum titles of Surfing in Portugal, with the Allianz Figueira Pro from 1st to 3rd of April, where the national champions in title, Vasco Ribeiro and Francisca Veselko, will wear the yellow lycras of headliners of the Go Chill Ranking."
+            ]
+        }    
+
 ];
