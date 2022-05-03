@@ -1,3 +1,41 @@
+.swiper-slide div .beach-card{
+    min-height: 240px !important;
+    margin-bottom: 40px !important;
+}
+
+.swiper-slide div .beach-card .beach-card-row-1 {
+    text-align: left;
+    min-height: 200px;
+    justify-content: flex-end;
+    padding: 30px;
+    gap: 10px;
+}
+
+.swiper-slide div .beach-card .beach-card-row-1 h2{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.swiper-slide div .beach-card .beach-card-row-1 p{
+    font-size: 1rem;
+}
+
+.swiper-slide div .beach-card .beach-card-row-2{
+    padding: 30px;
+}
+
+.swiper-slide div .beach-card .beach-card-row-2-row-1 {
+    gap: 15px;
+}
+
+.swiper-slide div .beach-card .beach-card-row-2-row-1 img {
+    width: 30px;
+}
+
+.swiper-slide div .beach-card .beach-card-row-2-row-1 p {
+    font-size: 1.1rem;
+}
+
 .beach-popular-container {
     display: grid;
     grid-template-columns: 1fr 1fr;

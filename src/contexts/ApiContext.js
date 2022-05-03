@@ -145,6 +145,8 @@ export const ApiContextProvider = ({ children }) => {
     });
   };
 
+  console.log(weatherInfo);
+
   // const stateChanges = (seaInfo) => {
   //   console.log(seaInfo);
   // };
