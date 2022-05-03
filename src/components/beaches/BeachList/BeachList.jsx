@@ -16,27 +16,19 @@ function BeachList() {
     element.services = beachesInfo[index].services;
   });
 
-  
   console.log(searchValue);
 
   return (
     <div className="container beach-list">
-      {seaInfo.map((element, index) => (
-        <BeachCard element={element} key={index} />
-      ))}
+      {seaInfo
+        .filter((val) =>
+          val.name.toLowerCase().includes(searchValue.toLowerCase())
+        )
+        .map((val, index) => (
+          <BeachCard element={val} key={index} />
+        ))}
     </div>
   );
 }
 
-// .filter((val) => val.includes(searchValue))
-
 export default BeachList;
-
-// <BeachCard />
-// <BeachCard />
-// <BeachCard />
-// <BeachCard />
-// <BeachCard />
-// <BeachCard />
-// <BeachCard />
-// <BeachCard />
