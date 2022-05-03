@@ -36,20 +36,14 @@
     font-size: 1.1rem;
 }
 
-.beach-popular-container {
+/* .beach-popular-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-}
+} */
 
 .beach-popular-container {
     display: none;
-    grid-gap: 20px;
-    grid-template:
-        "a a a a b b" 1fr
-        "a a a a c c" 1fr
-        "d d d e e e" 1fr;
-    min-height: 500px;
 }
 
 .beach-popular-container > div {
