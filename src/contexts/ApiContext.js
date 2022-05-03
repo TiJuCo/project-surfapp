@@ -137,7 +137,7 @@ export const ApiContextProvider = ({ children }) => {
           },
         }
       );
-      console.log(res);
+      // console.log(res);
       setSeaInfo((state) => {
         state = [...state, res.data.hours[15]];
         return state;

@@ -5,21 +5,10 @@ const SearchContext = createContext();
 export default SearchContext;
 
 export const SearchContextProvider = ({ children }) => {
-
-    
-    const [searchValue, setSearchValue] = useState('');
-
-    
-
-    // useEffect(() => {
-    //     handleSearch();
-    // }, []);
-
+  const [searchValue, setSearchValue] = useState("");
 
   return (
-    <SearchContext.Provider
-      value={{ searchValue, setSearchValue }}
-    >
+    <SearchContext.Provider value={{ searchValue, setSearchValue }}>
       {children}
     </SearchContext.Provider>
   );
