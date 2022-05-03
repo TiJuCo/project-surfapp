@@ -9,13 +9,12 @@ import { useParams } from "react-router-dom";
 
 
 
-function NewsPageCard(props) {
-
-    let params = useParams();
+export function NewsPageCard(props) {
+    let param = useParams();
+    
 
     const {index, title, date, author, image, text, gallery} = props;
 
-    console.log(gallery)
 
         return (
             <div className="container">
@@ -28,6 +27,8 @@ function NewsPageCard(props) {
                         <p>All news</p>
                     </div>
                 </div>
+                {ArticlesData.filter((index) => param.index === index)
+                .map((index) => (
                 <div className="news-page-container">
                     <div className="news-page-header">
                         <h1>{title}</h1>
@@ -57,7 +58,7 @@ function NewsPageCard(props) {
                     </div>
                                 
                 </div>
-                
+                ))}
             </div>
             )
         }

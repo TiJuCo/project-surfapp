@@ -7,9 +7,11 @@
 
 .news-card-container {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 20px;
     grid-template:
-        "a a a a " 1fr
+        "a a a a" 1fr
+        "a a a a" 1fr
+        "a a a a" 1fr
         "b b c c" 1fr
         "d d e e" 1fr
         "f f g g" 1fr

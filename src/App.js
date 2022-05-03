@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <NewsPage />
+      <Main />
       <Footer/>
     </div>
   );
