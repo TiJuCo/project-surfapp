@@ -16,11 +16,12 @@ function BeachList() {
     element.services = beachesInfo[index].services;
   });
 
-  console.log(searchValue);
+  console.log(seaInfo);
 
   return (
     <div className="container beach-list">
       {seaInfo
+        .map((element, index) => element)
         .filter((val) =>
           val.name.toLowerCase().includes(searchValue.toLowerCase())
         )

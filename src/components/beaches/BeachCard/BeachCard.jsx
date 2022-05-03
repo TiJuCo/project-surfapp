@@ -25,48 +25,60 @@ const gradient =
 function BeachCard(props) {
   const { element, index } = props;
 
+  const firstDay = element.filter((el, index) => index < 24);
+  const secondDay = element.filter((el, index) => index > 23 && index < 48);
+  const thirdDay = element.filter((el, index) => index > 47 && index < 72);
+  const fourthDay = element.filter((el, index) => index > 71 && index < 96);
+  const fifthDay = element.filter((el, index) => index > 95);
+
+  console.log(firstDay);
+  console.log(secondDay);
+  console.log(thirdDay);
+  console.log(fourthDay);
+  console.log(element);
+
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
-    if (element.windDirection.sg <= 22.5) {
+    if (firstDay[0].windDirection.sg <= 22.5) {
       convertedWindDirection = "N";
     } else if (
-      element.windDirection.sg > 22.5 &&
-      element.windDirection.sg <= 67.5
+      element[0].windDirection.sg > 22.5 &&
+      element[0].windDirection.sg <= 67.5
     ) {
       convertedWindDirection = "NE";
     } else if (
-      element.windDirection.sg > 67.5 &&
-      element.windDirection.sg <= 112.5
+      element[0].windDirection.sg > 67.5 &&
+      element[0].windDirection.sg <= 112.5
     ) {
       convertedWindDirection = "E";
     } else if (
-      element.windDirection.sg > 112.5 &&
-      element.windDirection.sg <= 157.5
+      element[0].windDirection.sg > 112.5 &&
+      element[0].windDirection.sg <= 157.5
     ) {
       convertedWindDirection = "SE";
     } else if (
-      element.windDirection.sg > 157.5 &&
-      element.windDirection.sg <= 202.5
+      element[0].windDirection.sg > 157.5 &&
+      element[0].windDirection.sg <= 202.5
     ) {
       convertedWindDirection = "S";
     } else if (
-      element.windDirection.sg > 202.5 &&
-      element.windDirection.sg <= 247.5
+      element[0].windDirection.sg > 202.5 &&
+      element[0].windDirection.sg <= 247.5
     ) {
       convertedWindDirection = "SW";
     } else if (
-      element.windDirection.sg > 247.5 &&
-      element.windDirection.sg <= 292.5
+      element[0].windDirection.sg > 247.5 &&
+      element[0].windDirection.sg <= 292.5
     ) {
       convertedWindDirection = "W";
     } else if (
-      element.windDirection.sg > 292.5 &&
-      element.windDirection.sg <= 337.5
+      element[0].windDirection.sg > 292.5 &&
+      element[0].windDirection.sg <= 337.5
     ) {
       return (convertedWindDirection = "NW");
     } else if (
-      element.windDirection.sg > 337.5 &&
-      element.windDirection.sg <= 360
+      element[0].windDirection.sg > 337.5 &&
+      element[0].windDirection.sg <= 360
     ) {
       convertedWindDirection = "N";
     } else {
@@ -82,6 +94,7 @@ function BeachCard(props) {
             className="beach-card-row-1"
             style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
           >
+            {console.log(element)}
             <h2>{element.name}</h2>
 
             <div>
@@ -93,20 +106,20 @@ function BeachCard(props) {
             <div className="beach-card-row-2-row-1">
               <div>
                 <img src={sol} alt="" />
-                <p>{parseInt(element.airTemperature.sg)}º</p>
+                <p>{parseInt(element[0].airTemperature.sg)}º</p>
               </div>
               <div>
                 <img src={swellDuration} alt="" />
-                <p>{element.wavePeriod.noaa}s</p>
+                <p>{element[0].wavePeriod.noaa}s</p>
               </div>
               <div>
                 <img src={swellHeight} alt="" />
-                <p>{element.waveHeight.sg}m</p>
+                <p>{element[0].waveHeight.sg}m</p>
               </div>
               <div>
                 <img src={wind} alt="" />
                 <p>
-                  {element.windSpeed.sg}kts {convertedWindDirection}
+                  {element[0].windSpeed.sg}kts {convertedWindDirection}
                 </p>
               </div>
             </div>
