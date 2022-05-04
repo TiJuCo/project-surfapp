@@ -25,41 +25,12 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
-  const {
-    seaInfo,
-    beachesInfo,
-    setLoading,
-    setSeaInfo,
-    firstDay,
-    secondDay,
-    thirdDay,
-    fourthDay,
-    fifthDay,
-  } = useContext(ApiContext);
 
-  console.log(firstDay);
-
-  // const firstDay = element.filter((el, index) => index < 24);
-  // const secondDay = element.filter((el, index) => index > 23 && index < 48);
-  // const thirdDay = element.filter((el, index) => index > 47 && index < 72);
-  // const fourthDay = element.filter((el, index) => index > 71 && index < 96);
-  // const fifthDay = element.filter((el, index) => index > 95);
-
-  // const firstDay = seaInfo.forEach((element, index) =>
-  //   element.filter((element, index) => index < 24)
-  // );
-  // const secondDay = seaInfo.forEach((element, index) =>
-  //   element.filter((element, index) => index > 23 && index < 48)
-  // );
-  // const thirdDay = seaInfo.forEach((element, index) =>
-  //   element.filter((el, index) => index > 47 && index < 72)
-  // );
-  // const fourthDay = seaInfo.forEach((element, index) =>
-  //   element.filter((el, index) => index > 71 && index < 96)
-  // );
-  // const fifthDay = seaInfo.forEach((element, index) =>
-  //   element.filter((el, index) => index > 95)
-  // );
+  const firstDay = element.filter((el, index) => index < 24);
+  const secondDay = element.filter((el, index) => index > 23 && index < 48);
+  const thirdDay = element.filter((el, index) => index > 47 && index < 72);
+  const fourthDay = element.filter((el, index) => index > 71 && index < 96);
+  const fifthDay = element.filter((el, index) => index > 95);
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
@@ -118,7 +89,6 @@ function BeachCard(props) {
             className="beach-card-row-1"
             style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
           >
-            {console.log(element)}
             <h2>{element.name}</h2>
 
             <div>
@@ -150,7 +120,7 @@ function BeachCard(props) {
             <div className="beach-card-row-2-row-2">
               <img
                 className={
-                  element.services.includes("lifeguard")
+                  element.services && element.services.includes("lifeguard")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -159,7 +129,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("equipment")
+                  element.services && element.services.includes("equipment")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -168,7 +138,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("restaurants")
+                  element.services && element.services.includes("restaurants")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -177,7 +147,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("showers")
+                  element.services && element.services.includes("showers")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -186,7 +156,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("accessibility")
+                  element.services && element.services.includes("accessibility")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -195,6 +165,7 @@ function BeachCard(props) {
               />
               <img
                 className={
+                  element.services &&
                   element.services.includes("transportation")
                     ? "icon-active"
                     : "icon-not-active"
@@ -204,7 +175,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("parking")
+                  element.services && element.services.includes("parking")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -213,7 +184,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("freeParking")
+                  element.services && element.services.includes("freeParking")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -222,7 +193,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("wc")
+                  element.services && element.services.includes("wc")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -231,7 +202,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("firstAid")
+                  element.services && element.services.includes("firstAid")
                     ? "icon-active"
                     : "icon-not-active"
                 }

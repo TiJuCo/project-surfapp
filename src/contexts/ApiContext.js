@@ -82,26 +82,13 @@ export const ApiContextProvider = ({ children }) => {
           },
         }
       );
-      console.log(res.data.hours);
-      setSeaInfo((state) => {
+      await setSeaInfo((state) => {
         state = [...state, res.data.hours.splice(0, 120)];
         console.log(state);
         return state;
       });
     });
   };
-  seaInfo.forEach((element, index) => {
-    element.name = beachesInfo[index].name;
-    element.county = beachesInfo[index].county;
-    element.img = beachesInfo[index].img;
-    element.services = beachesInfo[index].services;
-  });
-
-  // const firstDay = seaInfo.forEach((element) => {
-  //   return element.filter((el, index) => index < 24);
-  // });
-
-  // console.log(firstDay);
 
   useEffect(() => {
     getWeatherInfo();
