@@ -7,13 +7,6 @@ function BeachesPopular() {
   const { seaInfo, beachesInfo, setLoading, setSeaInfo } =
     useContext(ApiContext);
 
-  seaInfo.forEach((element, index) => {
-    element.name = beachesInfo[index].name;
-    element.county = beachesInfo[index].county;
-    element.img = beachesInfo[index].img;
-    element.services = beachesInfo[index].services;
-  });
-
   return (
     <div className="container beach-popular-container">
       {seaInfo

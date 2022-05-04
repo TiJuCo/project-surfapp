@@ -90,7 +90,18 @@ export const ApiContextProvider = ({ children }) => {
       });
     });
   };
-  console.log(seaInfo);
+  seaInfo.forEach((element, index) => {
+    element.name = beachesInfo[index].name;
+    element.county = beachesInfo[index].county;
+    element.img = beachesInfo[index].img;
+    element.services = beachesInfo[index].services;
+  });
+
+  // const firstDay = seaInfo.forEach((element) => {
+  //   return element.filter((el, index) => index < 24);
+  // });
+
+  // console.log(firstDay);
 
   useEffect(() => {
     getWeatherInfo();
@@ -100,7 +111,13 @@ export const ApiContextProvider = ({ children }) => {
   if (loading) return "...Loading...";
   return (
     <ApiContext.Provider
-      value={{ weatherInfo, districtInfo, seaInfo, setSeaInfo, beachesInfo }}
+      value={{
+        weatherInfo,
+        districtInfo,
+        seaInfo,
+        setSeaInfo,
+        beachesInfo,
+      }}
     >
       {children}
     </ApiContext.Provider>

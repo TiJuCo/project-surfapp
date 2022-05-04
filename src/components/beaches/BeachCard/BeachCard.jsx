@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import ApiContext from "../../../contexts/ApiContext.js";
 import "./BeachCard.css";
 import { FaChevronRight } from "react-icons/fa";
 import {
@@ -24,22 +25,45 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
-
-  const firstDay = element.filter((el, index) => index < 24);
-  const secondDay = element.filter((el, index) => index > 23 && index < 48);
-  const thirdDay = element.filter((el, index) => index > 47 && index < 72);
-  const fourthDay = element.filter((el, index) => index > 71 && index < 96);
-  const fifthDay = element.filter((el, index) => index > 95);
+  const {
+    seaInfo,
+    beachesInfo,
+    setLoading,
+    setSeaInfo,
+    firstDay,
+    secondDay,
+    thirdDay,
+    fourthDay,
+    fifthDay,
+  } = useContext(ApiContext);
 
   console.log(firstDay);
-  console.log(secondDay);
-  console.log(thirdDay);
-  console.log(fourthDay);
-  console.log(element);
+
+  // const firstDay = element.filter((el, index) => index < 24);
+  // const secondDay = element.filter((el, index) => index > 23 && index < 48);
+  // const thirdDay = element.filter((el, index) => index > 47 && index < 72);
+  // const fourthDay = element.filter((el, index) => index > 71 && index < 96);
+  // const fifthDay = element.filter((el, index) => index > 95);
+
+  // const firstDay = seaInfo.forEach((element, index) =>
+  //   element.filter((element, index) => index < 24)
+  // );
+  // const secondDay = seaInfo.forEach((element, index) =>
+  //   element.filter((element, index) => index > 23 && index < 48)
+  // );
+  // const thirdDay = seaInfo.forEach((element, index) =>
+  //   element.filter((el, index) => index > 47 && index < 72)
+  // );
+  // const fourthDay = seaInfo.forEach((element, index) =>
+  //   element.filter((el, index) => index > 71 && index < 96)
+  // );
+  // const fifthDay = seaInfo.forEach((element, index) =>
+  //   element.filter((el, index) => index > 95)
+  // );
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
-    if (firstDay[0].windDirection.sg <= 22.5) {
+    if (element[0].windDirection.sg <= 22.5) {
       convertedWindDirection = "N";
     } else if (
       element[0].windDirection.sg > 22.5 &&
