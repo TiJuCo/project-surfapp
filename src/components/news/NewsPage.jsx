@@ -13,8 +13,9 @@ export function NewsPageCard(props) {
     let param = useParams();
     
 
-    const {index, title, date, author, image, text, gallery} = props;
-
+    const {index, title, date, author, image, text, gallery, ArticlesData} = props;
+   
+   
 
         return (
             <div className="container">
@@ -27,22 +28,23 @@ export function NewsPageCard(props) {
                         <p>All news</p>
                     </div>
                 </div>
-                {ArticlesData.filter((index) => param.index === index)
-                .map((index) => (
+               {ArticlesData.filter((card) => card.index === +param.index).map((card) => ( 
+                   
                 <div className="news-page-container">
                     <div className="news-page-header">
-                        <h1>{title}</h1>
-                        <p>{date}</p>
-                        <p>by {author}</p>
+                        <h1>{card.title}</h1>
+                        <p>{card.date}</p>
+                        <p>by {card.author}</p>
                     </div>
                     <div className="news-page-img" >
-                        <img src={image} alt={title} />
+                        <img src={card.image} alt={card.title} />
                     </div>
                     <div className="text-container">
                         <p className="news-page-text">
-                            {text}
+                            {card.text}
                         </p>
-                        <div className="news-related">{ArticlesData.filter((info, index) => info.tag === "news" && index > 0 && index < 4).map(
+                        <div className="news-related">
+                            {ArticlesData.filter((info, index) => info.tag === "news" && card.index !== index && info.index < 4).map(
                             (info) => (
                                 <NewsCards {...info}/>
                                 )
@@ -65,7 +67,7 @@ export function NewsPageCard(props) {
 
         
         
-function NewsPage() {
+/*function NewsPage() {
     
     
     return (
@@ -75,4 +77,18 @@ function NewsPage() {
     )
 }        
 
-export default NewsPage;
+export default NewsPage; */
+
+
+ /*{ArticlesData.filter((index) => param.index === index)
+    .map((index) => (    */
+
+    // ))}
+
+
+    /*  let ArticlesData2 = ArticlesData
+
+    ArticlesData2.map((el, index) => {
+        if (ArticlesData2.length > 3 ) { ArticlesData2.splice(Math.floor(Math.random() * ArticlesData2.length - 1)) }
+    })
+    console.log(ArticlesData2) */

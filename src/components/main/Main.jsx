@@ -11,7 +11,7 @@ function Main() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/news/:index" element={<NewsPageCard {...ArticlesData} />} /> 
+      <Route path="/news/:index" element={<NewsPageCard ArticlesData={ArticlesData} />} /> 
       <Route path="/news" element={<News/>} /> 
       {/*<Route path="/news/:newsPage" element={<NewsPage/>} />*/}
       {/* <Route path="/news" element={<NewsList />} /> */}
