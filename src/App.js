@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApiContextProvider } from "./contexts/ApiContext";
 import Main from "./components/main/Main";
 import './fonts/fonts.css'
-
+import Calculator from "./components/calculator/Calculator";
 // fonts 
 import './fonts/PT-Root-UI/PT-Root-UI_Bold.woff'
 import './fonts/PT-Root-UI/PT-Root-UI_Bold.woff2'
@@ -25,9 +25,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <ApiContextProvider>
-        <Main />
-      </ApiContextProvider>
+      <Calculator />
       <Footer />
     </div>
   );
