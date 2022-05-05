@@ -4,10 +4,11 @@ import BeachCard from "../BeachCard/BeachCard";
 import ApiContext from "../../../contexts/ApiContext.js";
 import SearchContext from "../../../contexts/SearchContext";
 
+
 function BeachList() {
   const { seaInfo, beachesInfo, setLoading, setSeaInfo } =
     useContext(ApiContext);
-  const { searchValue } = useContext(SearchContext);
+  const { searchValue, filteredBeach } = useContext(SearchContext);
 
   seaInfo.map((element, index) => {
     element.name = beachesInfo[index].name;
@@ -17,7 +18,7 @@ function BeachList() {
   });
 
   console.log(seaInfo);
-
+  console.log(filteredBeach)
   return (
     <>
       <div className="container beach-list">
@@ -28,9 +29,14 @@ function BeachList() {
               val.name &&
               val.name.toLowerCase().includes(searchValue.toLowerCase())
           )
+          .filter(
+            (val) =>
+              val.name &&
+              val.name.toLowerCase().includes(filteredBeach.toLowerCase())
+          )
           .map((val, index) => (
             <BeachCard element={val} key={index} />
-          ))}
+            ))}
       </div>
     </>
   );
