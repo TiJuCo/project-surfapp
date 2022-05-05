@@ -101,6 +101,7 @@
     .beach-card-row-1 {
         padding: 20px;
         min-height: 200px;
+        height: 100%;
     }
 
     .beach-card-row-1 h2 {

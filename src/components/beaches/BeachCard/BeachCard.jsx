@@ -1,6 +1,7 @@
 import React from "react";
 import "./BeachCard.css";
 import { FaChevronRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import {
   sol,
   swellDuration,
@@ -24,6 +25,7 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
+  console.log(element.name)
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
@@ -77,18 +79,21 @@ function BeachCard(props) {
   return (
     element && (
       <>
+      
         <div className="beach-card">
-          <div
-            className="beach-card-row-1"
-            style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
-          >
-            <h2>{element.name}</h2>
+          <Link to={`/beaches/${element.name}`}>
+            <div
+              className="beach-card-row-1"
+              style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
+            >
+              <h2>{element.name}</h2>
 
-            <div>
-              <img src={location} alt="" />
-              <p>{element.county}</p>
+              <div>
+                <img src={location} alt="" />
+                <p>{element.county}</p>
+              </div>
             </div>
-          </div>
+          </Link>
           <div className="beach-card-row-2">
             <div className="beach-card-row-2-row-1">
               <div>
@@ -204,6 +209,8 @@ function BeachCard(props) {
             </div>
           </div>
         </div>
+
+        
       </>
     )
   );

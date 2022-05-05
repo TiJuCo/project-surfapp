@@ -25,7 +25,7 @@ function BeachList() {
           val.name.toLowerCase().includes(searchValue.toLowerCase())
         )
         .map((val, index) => (
-          <BeachCard element={val} key={index} />
+          <BeachCard element={val} index={index} />
         ))}
     </div>
   );
