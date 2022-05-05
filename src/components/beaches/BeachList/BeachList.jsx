@@ -9,25 +9,30 @@ function BeachList() {
     useContext(ApiContext);
   const { searchValue } = useContext(SearchContext);
 
-  seaInfo.forEach((element, index) => {
+  seaInfo.map((element, index) => {
     element.name = beachesInfo[index].name;
     element.county = beachesInfo[index].county;
     element.img = beachesInfo[index].img;
     element.services = beachesInfo[index].services;
   });
 
-  console.log(searchValue);
+  console.log(seaInfo);
 
   return (
-    <div className="container beach-list">
-      {seaInfo
-        .filter((val) =>
-          val.name.toLowerCase().includes(searchValue.toLowerCase())
-        )
-        .map((val, index) => (
-          <BeachCard element={val} index={index} />
-        ))}
-    </div>
+    <>
+      <div className="container beach-list">
+        {seaInfo
+          .map((element, index) => element)
+          .filter(
+            (val) =>
+              val.name &&
+              val.name.toLowerCase().includes(searchValue.toLowerCase())
+          )
+          .map((val, index) => (
+            <BeachCard element={val} key={index} />
+          ))}
+      </div>
+    </>
   );
 }
 
