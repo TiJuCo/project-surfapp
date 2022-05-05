@@ -1,12 +1,18 @@
-import { React } from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
+import ApiContext from "../../contexts/ApiContext";
 
 
 
 function Calculator() {
 
+    const {seaInfo, beachesInfo} = useContext(ApiContext);
     const [count, setCount] = useState(0);
-    const conditions = [
+
+    
+
+    console.log(seaInfo)
+  /*  const conditions = [
         {
             perfectWindDirectionSurf : "W",
             facingDirection : "E",
@@ -15,36 +21,17 @@ function Calculator() {
             windSpeed : 2,
             swellHeight : 2
         }
-    ]
+    ] */
 
-
-  function incrementCount() {
-    let counter = 0
     
-    if (conditions[0].windDirection === conditions[0].perfectWindDirectionSurf) {
-        counter +=2;
-    }  
-    if (conditions[0].swellPeriod > 8) {
-        counter +=1;
-       
-    }  
-    if (conditions[0].windSpeed < 5) {
-        counter +=1;
 
-    }  
-    if (conditions[0].swellHeight > 1 && conditions[0].swellHeight< 3) {
-        counter +=1;
+  const incrementCount = () => {
+      
 
-    } else {
-        console.log(conditions)
-    }
-    setCount(counter)
-    
-  }
-  console.log(count)
-  useEffect(() => {incrementCount()
-},[])}
+console.log(count)
+useEffect(() => {incrementCount()},[])
 
+}
 
 
  /* function decrementCount() {
@@ -55,3 +42,10 @@ function Calculator() {
     setCount(0); */
   
 export default Calculator;
+
+
+ /*(state) => {
+    state = [...state, counter];
+    return state;
+
+}*/

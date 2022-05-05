@@ -25,7 +25,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Calculator />
+        <ApiContextProvider>
+          <Calculator />
+        </ApiContextProvider>
       <Footer />
     </div>
   );
