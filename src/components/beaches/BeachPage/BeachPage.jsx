@@ -37,7 +37,7 @@ function BeachPage() {
 
     let params = useParams();
     
-    const { seaInfo, beachesInfo } = useContext(ApiContext);
+    const { seaInfo, beachesInfo, firstDay, secondDay, thirdDay, fourthDay, fifthDay } = useContext(ApiContext);
 
     seaInfo.forEach((element, index) => {
         element.name = beachesInfo[index].name;
@@ -175,12 +175,12 @@ function BeachPage() {
                         <h3>Current conditions</h3>
                         <div className="conditions-hour">
                             {/* <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-                                {page.map((element, index) => (
-                                <SwiperSlide key={seaInfo.index}>
-                                    <div>
-                                        Today 
-                                    </div>
-                                </SwiperSlide>
+                                {firstDay.map((element, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div>
+                                            Today 
+                                        </div>
+                                    </SwiperSlide>
                                 ))}
                             </Swiper> */}
                         </div>
