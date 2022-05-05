@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import './BeachPage.css'
 import { useParams } from "react-router-dom";
 import ApiContext from "../../../contexts/ApiContext";
+import { FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
@@ -45,6 +46,11 @@ function BeachPage() {
         element.img = beachesInfo[index].img;
         element.services = beachesInfo[index].services;
     });
+
+    
+
+    const Days = [firstDay, secondDay, thirdDay, fourthDay, fifthDay];
+    console.log(Days)
 
     const gradient = "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)";
 
@@ -126,9 +132,7 @@ function BeachPage() {
                             <img src={intermediateMobile}alt="" />
                             <img src={advancedMobile}alt="" />
                         </div>
-                          
-                        
-                        
+
                     </div>   
                     <div className="current-conditions-container">
                         <h3>Current conditions</h3>
@@ -150,23 +154,23 @@ function BeachPage() {
                                 <p>
                                 {parseFloat(page[0].windSpeed.sg).toFixed(1)}<span className="kts">kts</span> 
                                 <span className="pageObject">{page[0].windDirection.sg <= 22.5 ? " N " : 
-                                page[0].windDirection.sg > 22.5 &&
-                                page[0].windDirection.sg <= 67.5 ? " NE " :
-                                page[0].windDirection.sg > 67.5 &&
-                                page[0].windDirection.sg <= 112.5 ? " E " :
-                                page[0].windDirection.sg > 112.5 &&
-                                page[0].windDirection.sg <= 157.5 ? " SE " :
-                                page[0].windDirection.sg > 157.5 &&
-                                page[0].windDirection.sg <= 202.5 ? " S " :
-                                page[0].windDirection.sg > 202.5 &&
-                                page[0].windDirection.sg <= 247.5 ? " SW " :
-                                page[0].windDirection.sg > 247.5 &&
-                                page[0].windDirection.sg <= 292.5 ? " W " :
-                                page[0].windDirection.sg > 292.5 &&
-                                page[0].windDirection.sg <= 337.5 ? " NW " :
-                                page[0].windDirection.sg > 337.5 &&
-                                page[0].windDirection.sg <= 360 ? " N " : "null"  
-                            }</span>
+                                    page[0].windDirection.sg > 22.5 &&
+                                    page[0].windDirection.sg <= 67.5 ? " NE " :
+                                    page[0].windDirection.sg > 67.5 &&
+                                    page[0].windDirection.sg <= 112.5 ? " E " :
+                                    page[0].windDirection.sg > 112.5 &&
+                                    page[0].windDirection.sg <= 157.5 ? " SE " :
+                                    page[0].windDirection.sg > 157.5 &&
+                                    page[0].windDirection.sg <= 202.5 ? " S " :
+                                    page[0].windDirection.sg > 202.5 &&
+                                    page[0].windDirection.sg <= 247.5 ? " SW " :
+                                    page[0].windDirection.sg > 247.5 &&
+                                    page[0].windDirection.sg <= 292.5 ? " W " :
+                                    page[0].windDirection.sg > 292.5 &&
+                                    page[0].windDirection.sg <= 337.5 ? " NW " :
+                                    page[0].windDirection.sg > 337.5 &&
+                                    page[0].windDirection.sg <= 360 ? " N " : "null"  
+                                }</span>
                                 </p>
                             </div>
                         </div>
@@ -174,15 +178,27 @@ function BeachPage() {
                     <div className="conditions-hour-container">
                         <h3>Current conditions</h3>
                         <div className="conditions-hour">
-                            {/* <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-                                {firstDay.map((element, index) => (
-                                    <SwiperSlide key={index}>
-                                        <div>
-                                            Today 
-                                        </div>
-                                    </SwiperSlide>
+                            <Swiper pagination={true} className="mySwiper">
+                                {/* el = dia  */}
+                                {Days.map((el, index) => el && (
+                                    // beach = praia 
+                                    el.filter((beach, index) => page.name === beach.name)
+                                    .map((el) => (
+                                        <SwiperSlide key={index}>
+                                            <div className="day-slide">
+                                                <div>
+                                                    {console.log(el)}
+                                                    <p>Today</p> 
+                                                    <span>{day} {month}</span>
+                                                </div>
+                                                <div>
+                                                    <FaChevronRight />
+                                                </div>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))
                                 ))}
-                            </Swiper> */}
+                            </Swiper> 
                         </div>
                     </div>              
                 </div>
@@ -193,3 +209,25 @@ function BeachPage() {
 
         
 export default BeachPage;
+
+
+// {Days.map((el, index) => el[index] && (
+
+//     el[index].filter((beach, index) => el[index] && page.name === el[index].name)
+//     .map((beachDay, index) => (
+//         <SwiperSlide key={index}>
+//             <div className="day-slide">
+//                 <div>
+//                     {console.log(beachDay)}
+//                     <p>Today</p> 
+//                     <span>{day} {month}</span>
+//                 </div>
+//                 <div>
+//                     <FaChevronRight />
+//                 </div>
+//             </div>
+//         </SwiperSlide>
+//     ))
+// ))}
+
+

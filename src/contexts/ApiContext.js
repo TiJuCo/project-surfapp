@@ -90,6 +90,28 @@ export const ApiContextProvider = ({ children }) => {
     });
   };
 
+  const firstDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index < 24)
+  );
+  const secondDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index > 23 && index < 48)
+  );
+  const thirdDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index > 47 && index < 72)
+  );
+  const fourthDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index > 71 && index < 96)
+  );
+  const fifthDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index > 95)
+  );
+
+  firstDay.map((el, index) => el.name = beachesInfo[index].name);
+  secondDay.map((el, index) => el.name = beachesInfo[index].name);
+  thirdDay.map((el, index) => el.name = beachesInfo[index].name);
+  fourthDay.map((el, index) => el.name = beachesInfo[index].name);
+  fifthDay.map((el, index) => el.name = beachesInfo[index].name);
+
   useEffect(() => {
     getWeatherInfo();
     getSeaConditionsInfo();
@@ -104,6 +126,11 @@ export const ApiContextProvider = ({ children }) => {
         seaInfo,
         setSeaInfo,
         beachesInfo,
+        firstDay,
+        secondDay,
+        thirdDay,
+        fourthDay,
+        fifthDay
       }}
     >
       {children}
