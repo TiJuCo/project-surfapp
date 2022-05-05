@@ -25,7 +25,7 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
-  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay } =
+  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay, tideInfo } =
     useContext(ApiContext);
 
   let convertedWindDirection = "";

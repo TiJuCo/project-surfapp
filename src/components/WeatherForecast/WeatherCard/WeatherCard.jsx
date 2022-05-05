@@ -10,6 +10,7 @@ const WeatherCard = (props) => {
   const date = new Date();
   const [time] = useState(date.getHours());
 
+  // FINISH THIS PART!!!
   let timezone = 3600;
   let sunrise = 1651728839;
 

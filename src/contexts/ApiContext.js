@@ -13,7 +13,12 @@ export const ApiContextProvider = ({ children }) => {
   const [seaInfo, setSeaInfo] = useState([]);
   const [beachesInfo, setBeachesInfo] = useState([]);
 
+  const [tideInfo, setTideInfo] = useState([]);
+
   const [loading, setLoading] = useState(true);
+
+  const date = new Date();
+  const [time] = useState(date.getDate());
 
   const getWeatherInfo = async () => {
     setLoading(true);
@@ -89,6 +94,7 @@ export const ApiContextProvider = ({ children }) => {
 
     setBeachesInfo(res.data.beaches);
     getStormGlassInfo(res.data.beaches);
+    getTideInfo(res.data.beaches);
     setLoading(false);
   };
 
@@ -111,6 +117,26 @@ export const ApiContextProvider = ({ children }) => {
     });
   };
 
+  const getTideInfo = async (ourApi) => {
+    ourApi.map(async (beach) => {
+      const res = await axios.get(
+        `https://api.stormglass.io/v2/tide/extremes/point?lat=${beach.latitude}&lng=${beach.longitude}`,
+        {
+          headers: {
+            Authorization:
+              "307e6928-c241-11ec-ac71-0242ac130002-307e6996-c241-11ec-ac71-0242ac130002",
+          },
+        }
+      );
+      console.log(res.data.data);
+      await setTideInfo((state) => {
+        state = [...state, res.data.data.splice(0, 18)];
+        console.log(state);
+        return state;
+      });
+    });
+  };
+
   const firstDay = seaInfo.map((beach) =>
     beach.filter((el, index) => index < 24)
   );
@@ -125,6 +151,23 @@ export const ApiContextProvider = ({ children }) => {
   );
   const fifthDay = seaInfo.map((beach) =>
     beach.filter((el, index) => index > 95)
+  );
+
+  // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS
+  const firstDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => el.time.substring(9, 10) == time)
+  );
+  const secondDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => el.time.substring(9, 10) == time + 1)
+  );
+  const thirdDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => el.time.substring(9, 10) == time + 2)
+  );
+  const fourthDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => el.time.substring(9, 10) == time + 3)
+  );
+  const fifthDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => el.time.substring(9, 10) == time + 4)
   );
 
   useEffect(() => {
@@ -142,11 +185,17 @@ export const ApiContextProvider = ({ children }) => {
         setSeaInfo,
         beachesInfo,
         openWeatherInfo,
+        tideInfo,
         firstDay,
         secondDay,
         thirdDay,
         fourthDay,
         fifthDay,
+        firstDayTide,
+        secondDayTide,
+        thirdDayTide,
+        fourthDayTide,
+        fifthDayTide,
       }}
     >
       {children}
