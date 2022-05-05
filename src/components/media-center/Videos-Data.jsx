@@ -51,7 +51,7 @@ export const surfVideos = [
     {
         index: 5,
         tag: 'videos',
-        title:'',
+        title:'Top 10 waves of the swell',
         video: surf6
     },
 
