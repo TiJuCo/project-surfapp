@@ -1,18 +1,21 @@
-import React from "react"
-import { ArticlesData } from "./NewsData"
-import "./Gallery.css"
+import React from "react";
+import { ArticlesData } from "./NewsData";
+import "./Gallery.css";
 
-
-function GalleryCard(props) {
-    const {index, tag, title, gallery} = props;
-
-    return (
-        <div className="gallery-container" >
-            <img className="gallery-img" src={gallery} alt={title} />
-        </div>
-    )
+function GalleryCard(card) {
+  return (
+    <>
+      {card.gallery.map((el, index) => {
+        return (
+          <div className="gallery-container" key={index}>
+            <img className="gallery-img" src={el} alt={index} />
+          </div>
+        );
+      })}
+    </>
+  );
 }
 
-export default GalleryCard
+export default GalleryCard;
 
 

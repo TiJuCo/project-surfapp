@@ -54,7 +54,7 @@ export function NewsPageCard(props) {
                     <div>
                         <h3>Gallery</h3>
                         <div className="gallery-container">
-                            {ArticlesData.filter((info) => info.index < 3).map((info) => <GalleryCard {...info} />
+                            {ArticlesData.filter((info) => info.index === card.index).map((card) => <GalleryCard {...card} />
                             )} 
                         </div>
                     </div>
