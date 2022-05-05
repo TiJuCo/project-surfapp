@@ -4,6 +4,7 @@
     gap: 20px;
 }
 
+/* card */
 .beach-page-card {
     display: flex;
     justify-content: flex-end;
@@ -14,7 +15,7 @@
     background-blend-mode: multiply; 
     border-radius: 10px;
     gap: 10px;
-    padding: 30px;
+    padding: 20px;
     color: white;
     min-height: 180px;
     filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
@@ -32,6 +33,115 @@
 
 .beach-page-card div img {
     width: 14px;
+}
+
+/* content */ 
+.beach-page-content {
+    display: grid;
+    gap: 10px
+}
+
+/* time */
+.beach-page-time {
+    font-size: 1.4rem;
+}
+
+.beach-page-time-text {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* report */
+.beach-page-text-report {
+    line-height: 1.5;
+    font-size: 1.2rem;
+}
+
+.beach-page-text-report-tide {
+    line-height: 1.5;
+}
+
+/* calculator */
+.beach-page-calculator {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--excellent);
+    font-size: 0.9rem;
+}
+
+.beach-page-calculator > div {
+    display: flex;
+    gap: 6px;
+}
+
+.beach-page-calculator p:nth-child(1) {
+    font-weight: 600;
+}
+
+/* calculator dots */
+.calc-dots {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.calc-dots .dot-accent {
+    background-color: white;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.accent {
+    color: var(--secondary-color);
+}
+
+.dot-accent {
+    height: 6px;
+    width: 6px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    margin-left: 8px;
+    margin-right: 8px;
+    display: inline-flex;
+}
+
+/* current conditions */ 
+
+.current-conditions-container {
+    display: grid;
+    gap: 20px;
+}
+
+.current-conditions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 15px;
+    padding: 30px;
+    background-color: white;
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
+    border-radius: 10px;
+}
+
+.current-conditions > div {
+    display: flex;
+    gap: 15px;
+    font-size: 1.4rem;
+}
+
+.current-conditions > div img{
+    width: 25px;
+    height: auto;
+}
+
+
+
+.back {
+    display: flex;
+    gap: 5px;
+    color: var(--secondary-color);
 }
 
 
