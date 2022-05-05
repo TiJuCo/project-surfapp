@@ -8,6 +8,7 @@ export default ApiContext;
 export const ApiContextProvider = ({ children }) => {
   const [weatherInfo, setWeatherInfo] = useState([]);
   const [districtInfo, setdistrictInfo] = useState([]);
+  const [openWeatherInfo, setOpenWeatherInfo] = useState([]);
 
   const [seaInfo, setSeaInfo] = useState([]);
   const [beachesInfo, setBeachesInfo] = useState([]);
@@ -17,10 +18,12 @@ export const ApiContextProvider = ({ children }) => {
   const getWeatherInfo = async () => {
     setLoading(true);
     const res = await axios.get(
-      "https://run.mocky.io/v3/53ef2996-2447-4c63-806f-f082b0dcea7a"
+      "https://run.mocky.io/v3/36dcba3b-226f-48a8-bc74-872190dbe41c"
     );
     setdistrictInfo(res.data.districts);
     getIpmaInfo(res.data.districts);
+    getOpenWeatherInfo(res.data.districts);
+    console.log(res.data.districts);
     setLoading(false);
   };
 
@@ -36,6 +39,24 @@ export const ApiContextProvider = ({ children }) => {
       });
     });
   };
+  const getOpenWeatherInfo = async (ourApi) => {
+    console.log(ourApi);
+    ourApi.map(async (district) => {
+      const res = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${+district.latitude}&lon=${+district.longitude}&appid=9743ddbd55285e7028ccfe78ce525d93&units=metric`
+      );
+
+      console.log(res.data);
+      setOpenWeatherInfo((state) => {
+        state = [...state, res.data];
+        return state;
+      });
+    });
+  };
+
+  openWeatherInfo.forEach((district, index) => {
+    district.name = weatherInfo[index].name;
+  });
 
   const params = [
     "airTemperature",
@@ -90,6 +111,22 @@ export const ApiContextProvider = ({ children }) => {
     });
   };
 
+  const firstDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index < 24)
+  );
+  const secondDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index > 23 && index < 48)
+  );
+  const thirdDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index > 47 && index < 72)
+  );
+  const fourthDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index > 71 && index < 96)
+  );
+  const fifthDay = seaInfo.map((beach) =>
+    beach.filter((el, index) => index > 95)
+  );
+
   useEffect(() => {
     getWeatherInfo();
     getSeaConditionsInfo();
@@ -104,6 +141,12 @@ export const ApiContextProvider = ({ children }) => {
         seaInfo,
         setSeaInfo,
         beachesInfo,
+        openWeatherInfo,
+        firstDay,
+        secondDay,
+        thirdDay,
+        fourthDay,
+        fifthDay,
       }}
     >
       {children}

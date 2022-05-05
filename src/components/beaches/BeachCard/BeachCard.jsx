@@ -25,12 +25,8 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
-
-  const firstDay = element.filter((el, index) => index < 24);
-  const secondDay = element.filter((el, index) => index > 23 && index < 48);
-  const thirdDay = element.filter((el, index) => index > 47 && index < 72);
-  const fourthDay = element.filter((el, index) => index > 71 && index < 96);
-  const fifthDay = element.filter((el, index) => index > 95);
+  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay } =
+    useContext(ApiContext);
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
