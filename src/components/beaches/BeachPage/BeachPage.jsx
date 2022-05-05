@@ -37,7 +37,7 @@ function BeachPage() {
 
     let params = useParams();
     
-    const { seaInfo, beachesInfo } = useContext(ApiContext);
+    const { seaInfo, beachesInfo, firstDay, secondDay, thirdDay, fourthDay, fifthDay } = useContext(ApiContext);
 
     seaInfo.forEach((element, index) => {
         element.name = beachesInfo[index].name;
@@ -82,27 +82,27 @@ function BeachPage() {
                         </div>
 
                         <p className="beach-page-text-report">
-                            We register a temperature of <span className="pageObject">{page.airTemperature.sg}º</span>, <span className="pageObject">{page.windSpeed.sg} kts</span> wind from the 
+                            We register a temperature of <span className="pageObject">{page[0].airTemperature.sg}º</span>, <span className="pageObject">{page[0].windSpeed.sg} kts</span> wind from the 
 
-                            <span className="pageObject">{page.windDirection.sg <= 22.5 ? " North " : 
-                                page.windDirection.sg > 22.5 &&
-                                page.windDirection.sg <= 67.5 ? " North East " :
-                                page.windDirection.sg > 67.5 &&
-                                page.windDirection.sg <= 112.5 ? " East " :
-                                page.windDirection.sg > 112.5 &&
-                                page.windDirection.sg <= 157.5 ? " South East " :
-                                page.windDirection.sg > 157.5 &&
-                                page.windDirection.sg <= 202.5 ? " South " :
-                                page.windDirection.sg > 202.5 &&
-                                page.windDirection.sg <= 247.5 ? " South West " :
-                                page.windDirection.sg > 247.5 &&
-                                page.windDirection.sg <= 292.5 ? " West " :
-                                page.windDirection.sg > 292.5 &&
-                                page.windDirection.sg <= 337.5 ? " North West " :
-                                page.windDirection.sg > 337.5 &&
-                                page.windDirection.sg <= 360 ? " North " : "null"  
+                            <span className="pageObject">{page[0].windDirection.sg <= 22.5 ? " North " : 
+                                page[0].windDirection.sg > 22.5 &&
+                                page[0].windDirection.sg <= 67.5 ? " North East " :
+                                page[0].windDirection.sg > 67.5 &&
+                                page[0].windDirection.sg <= 112.5 ? " East " :
+                                page[0].windDirection.sg > 112.5 &&
+                                page[0].windDirection.sg <= 157.5 ? " South East " :
+                                page[0].windDirection.sg > 157.5 &&
+                                page[0].windDirection.sg <= 202.5 ? " South " :
+                                page[0].windDirection.sg > 202.5 &&
+                                page[0].windDirection.sg <= 247.5 ? " South West " :
+                                page[0].windDirection.sg > 247.5 &&
+                                page[0].windDirection.sg <= 292.5 ? " West " :
+                                page[0].windDirection.sg > 292.5 &&
+                                page[0].windDirection.sg <= 337.5 ? " North West " :
+                                page[0].windDirection.sg > 337.5 &&
+                                page[0].windDirection.sg <= 360 ? " North " : "null"  
                             }</span>
-                            , a wave height of  <span className="pageObject">{page.waveHeight.sg} m</span>, a swell interval of <span className="pageObject">{page.wavePeriod.noaa} kts</span>.
+                            , a wave height of  <span className="pageObject">{page[0].waveHeight.sg} m</span>, a swell interval of <span className="pageObject">{page[0].wavePeriod.noaa} kts</span>.
                         </p>
 
                         <p className="beach-page-text-report-tide">
@@ -135,37 +135,37 @@ function BeachPage() {
                         <div className="current-conditions">
                             <div>
                                 <img src={sol} alt="" />
-                                <p>{parseInt(page.airTemperature.sg)}º</p>
+                                <p>{parseInt(page[0].airTemperature.sg)}º</p>
                             </div>
                             <div>
                                 <img src={swellDuration} alt="" />
-                                <p>{parseFloat(page.wavePeriod.noaa).toFixed(1)}s</p>
+                                <p>{parseFloat(page[0].wavePeriod.noaa).toFixed(1)}s</p>
                             </div>
                             <div>
                                 <img src={swellHeight} alt="" />
-                                <p>{parseFloat(page.waveHeight.sg).toFixed(1)}m</p>
+                                <p>{parseFloat(page[0].waveHeight.sg).toFixed(1)}m</p>
                             </div>
                             <div>
                                 <img src={wind} alt="" />
                                 <p>
-                                {parseFloat(page.windSpeed.sg).toFixed(1)}<span className="kts">kts</span> 
-                                <span className="pageObject">{page.windDirection.sg <= 22.5 ? " N " : 
-                                page.windDirection.sg > 22.5 &&
-                                page.windDirection.sg <= 67.5 ? " NE " :
-                                page.windDirection.sg > 67.5 &&
-                                page.windDirection.sg <= 112.5 ? " E " :
-                                page.windDirection.sg > 112.5 &&
-                                page.windDirection.sg <= 157.5 ? " SE " :
-                                page.windDirection.sg > 157.5 &&
-                                page.windDirection.sg <= 202.5 ? " S " :
-                                page.windDirection.sg > 202.5 &&
-                                page.windDirection.sg <= 247.5 ? " SW " :
-                                page.windDirection.sg > 247.5 &&
-                                page.windDirection.sg <= 292.5 ? " W " :
-                                page.windDirection.sg > 292.5 &&
-                                page.windDirection.sg <= 337.5 ? " NW " :
-                                page.windDirection.sg > 337.5 &&
-                                page.windDirection.sg <= 360 ? " N " : "null"  
+                                {parseFloat(page[0].windSpeed.sg).toFixed(1)}<span className="kts">kts</span> 
+                                <span className="pageObject">{page[0].windDirection.sg <= 22.5 ? " N " : 
+                                page[0].windDirection.sg > 22.5 &&
+                                page[0].windDirection.sg <= 67.5 ? " NE " :
+                                page[0].windDirection.sg > 67.5 &&
+                                page[0].windDirection.sg <= 112.5 ? " E " :
+                                page[0].windDirection.sg > 112.5 &&
+                                page[0].windDirection.sg <= 157.5 ? " SE " :
+                                page[0].windDirection.sg > 157.5 &&
+                                page[0].windDirection.sg <= 202.5 ? " S " :
+                                page[0].windDirection.sg > 202.5 &&
+                                page[0].windDirection.sg <= 247.5 ? " SW " :
+                                page[0].windDirection.sg > 247.5 &&
+                                page[0].windDirection.sg <= 292.5 ? " W " :
+                                page[0].windDirection.sg > 292.5 &&
+                                page[0].windDirection.sg <= 337.5 ? " NW " :
+                                page[0].windDirection.sg > 337.5 &&
+                                page[0].windDirection.sg <= 360 ? " N " : "null"  
                             }</span>
                                 </p>
                             </div>
@@ -175,12 +175,12 @@ function BeachPage() {
                         <h3>Current conditions</h3>
                         <div className="conditions-hour">
                             {/* <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-                                {page.map((element, index) => (
-                                <SwiperSlide key={seaInfo.index}>
-                                    <div>
-                                        Today 
-                                    </div>
-                                </SwiperSlide>
+                                {firstDay.map((element, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div>
+                                            Today 
+                                        </div>
+                                    </SwiperSlide>
                                 ))}
                             </Swiper> */}
                         </div>

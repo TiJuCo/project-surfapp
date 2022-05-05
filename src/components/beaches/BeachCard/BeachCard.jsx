@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import ApiContext from "../../../contexts/ApiContext.js";
 import "./BeachCard.css";
 import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -27,48 +28,54 @@ function BeachCard(props) {
   const { element, index } = props;
   console.log(element.name)
 
+  const firstDay = element.filter((el, index) => index < 24);
+  const secondDay = element.filter((el, index) => index > 23 && index < 48);
+  const thirdDay = element.filter((el, index) => index > 47 && index < 72);
+  const fourthDay = element.filter((el, index) => index > 71 && index < 96);
+  const fifthDay = element.filter((el, index) => index > 95);
+
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
-    if (element.windDirection.sg <= 22.5) {
+    if (element[0].windDirection.sg <= 22.5) {
       convertedWindDirection = "N";
     } else if (
-      element.windDirection.sg > 22.5 &&
-      element.windDirection.sg <= 67.5
+      element[0].windDirection.sg > 22.5 &&
+      element[0].windDirection.sg <= 67.5
     ) {
       convertedWindDirection = "NE";
     } else if (
-      element.windDirection.sg > 67.5 &&
-      element.windDirection.sg <= 112.5
+      element[0].windDirection.sg > 67.5 &&
+      element[0].windDirection.sg <= 112.5
     ) {
       convertedWindDirection = "E";
     } else if (
-      element.windDirection.sg > 112.5 &&
-      element.windDirection.sg <= 157.5
+      element[0].windDirection.sg > 112.5 &&
+      element[0].windDirection.sg <= 157.5
     ) {
       convertedWindDirection = "SE";
     } else if (
-      element.windDirection.sg > 157.5 &&
-      element.windDirection.sg <= 202.5
+      element[0].windDirection.sg > 157.5 &&
+      element[0].windDirection.sg <= 202.5
     ) {
       convertedWindDirection = "S";
     } else if (
-      element.windDirection.sg > 202.5 &&
-      element.windDirection.sg <= 247.5
+      element[0].windDirection.sg > 202.5 &&
+      element[0].windDirection.sg <= 247.5
     ) {
       convertedWindDirection = "SW";
     } else if (
-      element.windDirection.sg > 247.5 &&
-      element.windDirection.sg <= 292.5
+      element[0].windDirection.sg > 247.5 &&
+      element[0].windDirection.sg <= 292.5
     ) {
       convertedWindDirection = "W";
     } else if (
-      element.windDirection.sg > 292.5 &&
-      element.windDirection.sg <= 337.5
+      element[0].windDirection.sg > 292.5 &&
+      element[0].windDirection.sg <= 337.5
     ) {
       return (convertedWindDirection = "NW");
     } else if (
-      element.windDirection.sg > 337.5 &&
-      element.windDirection.sg <= 360
+      element[0].windDirection.sg > 337.5 &&
+      element[0].windDirection.sg <= 360
     ) {
       convertedWindDirection = "N";
     } else {
@@ -98,27 +105,27 @@ function BeachCard(props) {
             <div className="beach-card-row-2-row-1">
               <div>
                 <img src={sol} alt="" />
-                <p>{parseInt(element.airTemperature.sg)}º</p>
+                <p>{parseInt(element[0].airTemperature.sg)}º</p>
               </div>
               <div>
                 <img src={swellDuration} alt="" />
-                <p>{parseFloat(element.wavePeriod.noaa).toFixed(1)}s</p>
+                <p>{parseFloat(element[0].wavePeriod.noaa).toFixed(1)}s</p>
               </div>
               <div>
                 <img src={swellHeight} alt="" />
-                <p>{parseFloat(element.waveHeight.sg).toFixed(1)}m</p>
+                <p>{parseFloat(element[0].waveHeight.sg).toFixed(1)}m</p>
               </div>
               <div>
                 <img src={wind} alt="" />
                 <p>
-                  {parseFloat(element.windSpeed.sg).toFixed(1)}<span className="kts">kts</span> <span className="wind-direction-span">{convertedWindDirection}</span>
+                  {parseFloat(element[0].windSpeed.sg).toFixed(1)}<span className="kts">kts</span> <span className="wind-direction-span">{convertedWindDirection}</span>
                 </p>
               </div>
             </div>
             <div className="beach-card-row-2-row-2">
               <img
                 className={
-                  element.services.includes("lifeguard")
+                  element.services && element.services.includes("lifeguard")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -127,7 +134,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("equipment")
+                  element.services && element.services.includes("equipment")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -136,7 +143,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("restaurants")
+                  element.services && element.services.includes("restaurants")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -145,7 +152,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("showers")
+                  element.services && element.services.includes("showers")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -154,7 +161,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("accessibility")
+                  element.services && element.services.includes("accessibility")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -163,6 +170,7 @@ function BeachCard(props) {
               />
               <img
                 className={
+                  element.services &&
                   element.services.includes("transportation")
                     ? "icon-active"
                     : "icon-not-active"
@@ -172,7 +180,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("parking")
+                  element.services && element.services.includes("parking")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -181,7 +189,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("freeParking")
+                  element.services && element.services.includes("freeParking")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -190,7 +198,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("wc")
+                  element.services && element.services.includes("wc")
                     ? "icon-active"
                     : "icon-not-active"
                 }
@@ -199,7 +207,7 @@ function BeachCard(props) {
               />
               <img
                 className={
-                  element.services.includes("firstAid")
+                  element.services && element.services.includes("firstAid")
                     ? "icon-active"
                     : "icon-not-active"
                 }
