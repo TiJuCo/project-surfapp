@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../home/Home";
 import News from "../news/News";
 import { ArticlesData } from "../news/NewsData";
-import NewsPage, { NewsPageCard } from "../news/NewsPage";
+import {NewsPageCard} from "../news/NewsPageCard";
 import PageTest from "../news/PageTest";
 
 
