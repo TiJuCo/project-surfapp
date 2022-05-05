@@ -25,8 +25,7 @@ function Carousel(props) {
                 {/* <video src={surfVideos[currVideo].video} autoPlay muted autoPlay="autoplay" preLoad="auto" loop></video> */}
                 <div className='carousel-content'>
                     <div className='carousel-content-1'>
-                      <h2>Nulla porttitor massa id neque aliquam vestibulum. Est pellentesque elit ullamcorper dignissim cras.</h2>
-                      <p>Surfer: Miguel Dias</p>
+                      <h2>{surfVideos[currVideo].title}</h2>
                     </div>
                     <div className='carousel-content-2'>
                       <button className='button-left' 

@@ -15,36 +15,36 @@ export const surfVideos = [
     {
         index: 0,
         tag: 'videos',
-        title: 'Sebastian Steudtner . Naza Bomb Collection',
+        title: 'Cool waves',
         video: surf1
     },
 
     {
         index: 1,
         tag: 'videos',
-        title: 'The Best Surf Spots in Portugal',
+        title: 'The Best Surf Spots around',
         video: surf2
     },
 
     {
         index: 2,
         tag: 'videos',
-        title: 'Big Wave & Dramatic Rescue Sequence - Nazare',
+        title: 'Surfing in paradise',
         video: surf3
     },
 
-
+    
     {
         index: 3,
         tag: 'videos',
-        title:'Ride of the Year Award Entry ',
+        title:'Video of the day ',
         video: surf4
     },
 
     {
         index: 4,
         tag: 'videos',
-        title:'Video of the week',
+        title:"Teahupo'o, Tahiti",
         video: surf5
     },
 
@@ -58,28 +58,28 @@ export const surfVideos = [
     {
         index: 6,
         tag: 'videos',
-        title:'',
+        title:'Uluwatu Beach, Bali',
         video: surf7
     },
 
     {
         index: 7,
         tag: 'videos',
-        title:'',
+        title:'Monster waves in Nazare',
         video: surf8
     },
 
     {
         index: 8,
         tag: 'videos',
-        title:'',
+        title:'Relax and check out this amazing waves',
         video: surf9
     },
 
     {
         index: 9,
         tag: 'videos',
-        title:'',
+        title:'Great tubes in Australia',
         video: surf10
     }
 ]
