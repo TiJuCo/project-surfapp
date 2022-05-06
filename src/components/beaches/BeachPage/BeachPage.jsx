@@ -178,27 +178,7 @@ function BeachPage() {
                     <div className="conditions-hour-container">
                         <h3>Current conditions</h3>
                         <div className="conditions-hour">
-                            <Swiper pagination={true} className="mySwiper">
-                                {/* el = dia  */}
-                                {Days.map((el, index) => el && (
-                                    // beach = praia 
-                                    el.filter((beach, index) => page.name === beach.name)
-                                    .map((el) => (
-                                        <SwiperSlide key={index}>
-                                            <div className="day-slide">
-                                                <div>
-                                                    {console.log(el)}
-                                                    <p>Today</p> 
-                                                    <span>{day} {month}</span>
-                                                </div>
-                                                <div>
-                                                    <FaChevronRight />
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                    ))
-                                ))}
-                            </Swiper> 
+                           
                         </div>
                     </div>              
                 </div>
@@ -211,23 +191,26 @@ function BeachPage() {
 export default BeachPage;
 
 
-// {Days.map((el, index) => el[index] && (
-
-//     el[index].filter((beach, index) => el[index] && page.name === el[index].name)
-//     .map((beachDay, index) => (
-//         <SwiperSlide key={index}>
-//             <div className="day-slide">
-//                 <div>
-//                     {console.log(beachDay)}
-//                     <p>Today</p> 
-//                     <span>{day} {month}</span>
-//                 </div>
-//                 <div>
-//                     <FaChevronRight />
-//                 </div>
-//             </div>
-//         </SwiperSlide>
-//     ))
-// ))}
+/* <Swiper pagination={true} className="mySwiper">
+ el = dia  }
+{Days.map((el, index) => el && (
+    beach = praia 
+    el.filter((beach, index) => page.name === beach.name)
+    .map((el) => (
+        <SwiperSlide key={index}>
+            <div className="day-slide">
+                <div>
+                    {console.log(el)}
+                    <p>Today</p> 
+                    <span>{day} {month}</span>
+                </div>
+                <div>
+                    <FaChevronRight />
+                </div>
+            </div>
+        </SwiperSlide>
+    ))
+))}
+</Swiper>  */
 
 
