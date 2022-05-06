@@ -7,23 +7,20 @@ function HomeBeachesPopular() {
   const { seaInfo, beachesInfo, setLoading, setSeaInfo } =
     useContext(ApiContext);
 
-  seaInfo.forEach((element, index) => {
+  seaInfo.map((element, index) => {
     element.name = beachesInfo[index].name;
     element.county = beachesInfo[index].county;
     element.img = beachesInfo[index].img;
     element.services = beachesInfo[index].services;
   });
 
+  console.log(seaInfo);
+
   return (
-    <div className="container home-beach-list">
-      {seaInfo
-        .filter(
-          (el) =>
-            el.name === "Praia do Cabedelo" || el.name === "Praia International"
-        )
-        .map((element, index) => (
-          <BeachCard element={element} key={index} />
-        ))}
+    <div className="container home-beaches-popular">
+      {seaInfo.map((element, index) => (
+        <BeachCard element={element} key={index} />
+      ))}
     </div>
   );
 }

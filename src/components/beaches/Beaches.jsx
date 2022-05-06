@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/styles.css";
+import "./beaches.css";
 import BeachList from './BeachList/BeachList';
 import BeachesPopular from "./BeachPopular/BeachesPopular";
 import BeachFilters from "./BeachFilters/BeachFilters";
 import BeachesPopularMobile from "./BeachPopular/BeachPopularMobile/BeachesPopularMobile";
+import { SearchContextProvider } from "../../contexts/SearchContext";
 
 function Beaches() {
   return (
@@ -15,11 +17,13 @@ function Beaches() {
       <BeachesPopular />
       <BeachesPopularMobile/>
       
-      <div className="section section-2 container">
+      <div className="section section-search container">
         <h3>Search</h3>
       </div>
-      <BeachFilters />
-      <BeachList />
+      <SearchContextProvider>
+        <BeachFilters />
+        <BeachList />
+      </SearchContextProvider>
     </div>
   );
 }

@@ -23,8 +23,8 @@ export const ArticlesData = [
                 "Guinness World Records will potentially be broken, severe wipeouts and daring feats of water rescue. And, unique to this event, the final results will be determined by an athlete-led judging panel."
                 ],
 
-        gallery: ["../../images/20171021_1066-750x501.jpg", "../../images/Deestaque-750x502.jpg",
-                     "../../images/DSC_1129Mestre-750x500.jpg", "../../images/DSC_1891Mestre-copy-750x500.jpg"]
+        gallery: ["https://i.ibb.co/7Wynkhw/Stock-Snap-LHHXHMP77-R.jpg", "https://i.ibb.co/wwhd6fk/pexels-chedi-tanabene-1751135.jpg",
+                     "https://i.ibb.co/8xTRQRz/nazare.jpg"]
     },
 
     {
@@ -40,8 +40,8 @@ export const ArticlesData = [
                 "Recently Carcavelos had one of those tipycal Autumn swells and the world class spot produced some amazing waves."
             ],
 
-        gallery: ["../../images/DestaqueSC_2848Mestre-750x502.jpg", "../../images/diogo-pw-750x318.jpg", 
-                    "../../images/carcavelos-750x420.jpg"]
+        gallery: ["https://i.ibb.co/sPRnBrG/caparica-Fest.jpg", "https://i.ibb.co/FJMrDwp/sea-g54a34baa5-1920.jpg", 
+                    "https://i.ibb.co/7kK2CFv/carcavelosgal4.jpg"]
     },
 
     {
@@ -58,8 +58,11 @@ export const ArticlesData = [
                 "“There’s really strong onshore winds already this morning and the swell has dropped,” Jessi Miley-Dyer, VP Tours and Competition said. “We’re not going to be On today but it looks good for tomorrow with really clean offshore winds and smaller waves.",
                 "When competition resumes, the remaining 16 surfers in both the men and women fields will battle it out at Supertubos for a spot in the Quarterfinals. The World Title race is alive and well with all male and female contenders still in the hunt in Portugal."
         ],
+        gallery: [
+            "https://i.ibb.co/SVc3sgq/pexels-photo-132339.jpg", "https://i.ibb.co/4JhRKhG/pexels-photo-416676.jpg", "https://i.ibb.co/k85RjsT/surfer-wave-sunset-the-indian-ocean-390051.jpg"
+            ]
 
-        gallery: []
+        
     },
 
     {
@@ -101,7 +104,7 @@ export const ArticlesData = [
             "Yesterday, the Junior Pro Espinho culminated with an impressive performance from Justin Becret (FRA), who unsurprisingly, given the opportunity to do battle with older competitors, came out firing today in the opening rounds of the QS. Becret belted his own two high-7s to take the win into Round 3, and will juggle back-and-forth between the junior and QS events in Caparica in the coming days."
             ],
 
-        gallery: ["../../images/sliveira1-copy-750x500.jpg", "../../images/20180420_2103_-750x501.jpg"]
+        gallery: ["https://i.ibb.co/sPRnBrG/caparica-Fest.jpg", "https://i.ibb.co/sHc8GqY/caparica.jpg", "https://i.ibb.co/qMQGffg/caparicapumpgal2.jpg"]
     },
 
     {
@@ -121,6 +124,9 @@ export const ArticlesData = [
                 "“We are delighted to welcome North Devon as a World Surfing Reserve alongside other iconic protected surfing locations around the world,” said Nik Strong-Cvetich, CEO of Save The Waves. “We hope this designation helps give a greater voice to surfers in decisions that will impact the beautiful coastline in North Devon and protect such a diverse range of waves”.",
                 "Each Reserve establishes a Local Stewardship Council to design a plan of action – “Stewardship Plan” – which aims to improve the conservation of the coastline and waves. In North Devon, the group includes local organisations such as the North Devon UNESCO Biosphere and Area of Outstanding Natural Beauty (AONB), environmental groups like Surfers Against Sewage, local community groups, surf clubs, local beach businesses and landowners, all coming together to work towards agreed goals and shared ideals.",
                 "For the first time, the local surfing and beach-going communities will have a voice in decision-making processes that affect the North Devon coastline. "
+        ],
+        gallery: [
+                    "https://i.ibb.co/SVc3sgq/pexels-photo-132339.jpg", "https://i.ibb.co/4JhRKhG/pexels-photo-416676.jpg", "https://i.ibb.co/k85RjsT/surfer-wave-sunset-the-indian-ocean-390051.jpg"
         ]
     },
     
@@ -137,6 +143,49 @@ export const ArticlesData = [
                 "The 11th edition of the film festival, based in Ericeira, will take place between the 22nd and 31st of July and all those who want to submit their cinematographic creations will have to do so by the 10th of May.",
                 "Although the regulation is still being defined, all interested can apply for any documentary related to surfing or any water slide sport, as well as works related to skateboarding.",
                 "Submissions can be made using the form available on the PSFF’s official website."
-        ]
-    }
+        ],
+        
+        gallery: ["https://i.ibb.co/9nz6p7y/pexels-photo-416726.jpg", "https://i.ibb.co/FJMrDwp/sea-g54a34baa5-1920.jpg", 
+                    "https://i.ibb.co/7kK2CFv/carcavelosgal4.jpg"]
+    },
+
+    {
+        index: 7,
+        tag: "news",
+        title: "Surfers take on the big waves at the Tow Surfing Challenge in Portugal",
+        date: "11/02/2022",
+        author: "JPG",
+        image: "https://i.ibb.co/pxqJQL8/towSurf.jpg",
+        text: [
+                "The World Surf League's Nazaré Tow Surfing Challenge took place on Thursday in Praia do Norte, Nazaré, Portugal. The best big wave surfers in the world took on waves of 40 to 50 feet.",
+                "Lucas Chianca (BRA) once again retained the titles of Best Male Performance and Best Team Performance, this time in partnership with Nic von Rupp (PRT).",
+                "The battle for the Best Female Performance title was tight between Des Bouillons and Maya Gabeira (BRA), but patience and experience paid off for Gabeira who took first place in the final heat of the day."
+        ],
+        gallery: ["https://i.ibb.co/7Wynkhw/Stock-Snap-LHHXHMP77-R.jpg", "https://i.ibb.co/wwhd6fk/pexels-chedi-tanabene-1751135.jpg",
+        "https://i.ibb.co/8xTRQRz/nazare.jpg"]
+    },
+
+    {
+        index: 8,
+        tag: "news",
+        title: "MEO Surf League 2022 will pass trough Ericeira in june",
+        date: "23/03/2022",
+        author: "JPG",
+        image: "https://i.ibb.co/c8wwrBB/Ribeira-d-Ilhas-ph-Jorge-Matreno-ANSurfistas-e1616601432173.jpg",
+        text: [
+                "The best national surfers are getting back to competition at the beginning of April, for another year of the MEO Surf League (the main surfing event in Portugal and the one that defines the titles of national champions), which will pass through Ericeira between the 10th and 12th of June with Allianz Ericeira Pro.",
+                "The calendar for this new season holds the return to the Azores as the big news, in a foray into the autonomous regions that hasn’t happened for 13 years, that is, since 2009.",
+                "MEO Surf League 2022 Calendar",
+
+                "League#1 – April 1st to 3rd – Allianz Figueira Pro",
+                "League#2 – 23rd to 25th of April – Joaquim Chaves Saúde Porto Pro",
+                "League#3 – June 10th to 12th – Allianz Ericeira Pro",
+                "League#4 – June 24th to 26th – Allianz Ribeira Grande Pro",
+                "League#5 – October 28th to 30th – Bom Petisco Peniche Pro",
+
+                "The spectacle of the best national surfing will return with Figueira da Foz opening the race for the maximum titles of Surfing in Portugal, with the Allianz Figueira Pro from 1st to 3rd of April, where the national champions in title, Vasco Ribeiro and Francisca Veselko, will wear the yellow lycras of headliners of the Go Chill Ranking."
+            ],
+            gallery: ["https://i.ibb.co/h82427V/pexels-photo-462024-jpeg-cs-srgb-dl-pexels-pixabay-462024.jpg", "https://i.ibb.co/DGBNSWP/pexels-photo-7899564-jpeg-cs-srgb-dl-pexels-alesia-kozik-7899564.jpg", "https://i.ibb.co/806PTW2/meoripcurl.jpg"]
+        }    
+
 ];

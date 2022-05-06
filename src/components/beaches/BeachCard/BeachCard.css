@@ -83,6 +83,14 @@
     width: 20px;
 }
     
+.kts {
+    display: none;
+}
+
+.wind-direction-span {
+    color: var(--primary-color);
+    font-weight: 500;
+}
 
 @media only screen and (min-width: 1024px) {
     .beach-card {
@@ -93,6 +101,7 @@
     .beach-card-row-1 {
         padding: 20px;
         min-height: 200px;
+        height: 100%;
     }
 
     .beach-card-row-1 h2 {
@@ -121,6 +130,11 @@
 
     .beach-card-row-2-row-2 {
         display: flex;
+    }
+
+        
+    .kts {
+        display: initial;
     }
     
 }

@@ -18,7 +18,7 @@ import './fonts/PT-Root-UI/PT-Root-UI_Regular.woff'
 import Videos from "./components/media-center/Videosl";
 import Carousel from "./components/media-center/Carousel";
 import CarouselMobile from "./components/media-center/CarouselMobile";
-
+import NewsPage from "./components/news/NewsPage";
 
 
 function App() {

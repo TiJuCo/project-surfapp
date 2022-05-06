@@ -1,17 +1,49 @@
-.beach-popular-container {
+.swiper-slide div .beach-card{
+    min-height: 240px !important;
+    margin-bottom: 40px !important;
+}
+
+.swiper-slide div .beach-card .beach-card-row-1 {
+    text-align: left;
+    min-height: 200px;
+    justify-content: flex-end;
+    padding: 30px;
+    gap: 10px;
+}
+
+.swiper-slide div .beach-card .beach-card-row-1 h2{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.swiper-slide div .beach-card .beach-card-row-1 p{
+    font-size: 1rem;
+}
+
+.swiper-slide div .beach-card .beach-card-row-2{
+    padding: 30px;
+}
+
+.swiper-slide div .beach-card .beach-card-row-2-row-1 {
+    gap: 15px;
+}
+
+.swiper-slide div .beach-card .beach-card-row-2-row-1 img {
+    width: 30px;
+}
+
+.swiper-slide div .beach-card .beach-card-row-2-row-1 p {
+    font-size: 1.1rem;
+}
+
+/* .beach-popular-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-}
+} */
 
 .beach-popular-container {
     display: none;
-    grid-gap: 20px;
-    grid-template:
-        "a a a a b b" 1fr
-        "a a a a c c" 1fr
-        "d d d e e e" 1fr;
-    min-height: 500px;
 }
 
 .beach-popular-container > div {

@@ -9,8 +9,7 @@
     grid-gap: 20px;
     grid-template:
         "a a a a b b" 1fr
-        "a a a a c c" 1fr
-        "d d d e e e" 1fr;
+        "a a a a c c" 1fr;
     min-height: 500px;
 }
 
