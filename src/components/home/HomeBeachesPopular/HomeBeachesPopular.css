@@ -4,6 +4,14 @@
     gap: 20px;
 }
 
+.home-beaches-popular > div:nth-child(n+3) {
+    display: none;
+}
+/* 
+.home-beaches-popular .beach-card:nth-child(1), .home-beaches-popular .beach-card:nth-child(2) {
+    display: grid !important;
+} */
+
 @media only screen and (min-width: 1440px) {
 
     .home-beaches-popular .beach-card{

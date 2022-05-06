@@ -29,7 +29,6 @@ function Home() {
 
       <div className="section section-2 container">
         <h3>Weather Forecast</h3>
-        <Link to="/beaches">See all</Link>
       </div>
       <WeatherForecast />
 
