@@ -12,7 +12,7 @@ export function NewsPageCard(props) {
   const { index, title, date, author, image, text, gallery, ArticlesData } =
     props;
 
-  const articlesData2 = Object.assign([], ArticlesData);
+  const articlesData2 = [...ArticlesData];
   articlesData2.splice(+param.index, 1);
 
   while (articlesData2.length > 3) {
