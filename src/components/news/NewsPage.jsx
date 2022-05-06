@@ -14,6 +14,7 @@ export function NewsPageCard(props) {
 
   const articlesData2 = [...ArticlesData];
   articlesData2.splice(+param.index, 1);
+  console.log(articlesData2)
 
   while (articlesData2.length > 3) {
     articlesData2.splice(
@@ -21,7 +22,7 @@ export function NewsPageCard(props) {
       1
     );
   }
-
+  
   return (
     <div className="container">
       <div className="">

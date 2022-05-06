@@ -83,7 +83,8 @@ export const ArticlesData = [
             "The next two heats were taken out by Frenchmen Maxime Huscenot (FRA) and Charly Martin (FRA). Miguel Blanco (PRT) and Frederico Morais (PRT) advanced as well and will join Vasco Ribeiro (PRT) in Round 5 to defend the Portuguese colors in Caparica."
             ],
 
-        gallery: ["../../images/tomane-costanova-8-750x498.jpg", "../../images/DSC_1891Mestre-copy-750x500.jpg"]
+        gallery: ["https://i.ibb.co/7Wynkhw/Stock-Snap-LHHXHMP77-R.jpg", "https://i.ibb.co/wwhd6fk/pexels-chedi-tanabene-1751135.jpg",
+            "https://i.ibb.co/8xTRQRz/nazare.jpg"]
 
     },
 
