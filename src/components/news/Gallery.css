@@ -13,6 +13,16 @@
     width: 100%;
 }
 
+.gallery-img:hover {
+    position:relative;
+    top:-25px;
+    left:-35px;
+    width:1000px;
+    height:auto;
+    display:block;
+    z-index:999;
+}
+
 @media only screen and (min-width: 1024px) {
     
     .gallery-container{
