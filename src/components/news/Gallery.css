@@ -1,8 +1,8 @@
 .gallery-container{
-    display: flex;
-    max-height: 4000px;
+    padding-top: 20px;
+    display: grid;
     width: 100%;
-    gap:10px
+    gap:10px;
 }
 
 
@@ -11,4 +11,23 @@
     border-radius: 7px;
     height: 100%;
     width: 100%;
+}
+
+.gallery-img:hover {
+    position:relative;
+    top:-25px;
+    left:-35px;
+    width:1000px;
+    height:auto;
+    display:block;
+    z-index:999;
+}
+
+@media only screen and (min-width: 1024px) {
+    
+    .gallery-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
 }

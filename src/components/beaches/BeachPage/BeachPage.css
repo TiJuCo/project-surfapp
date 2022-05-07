@@ -155,6 +155,76 @@
 }
 
 
+/* Services */
+
+.services-container {
+    display: grid;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 30px 30px;
+    background-color: #FAF9FF;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    row-gap: 20px;
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
+}
+
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+}
+
+.services > div {
+    display: flex;
+    gap: 12px;
+    font-size: 1.4rem;
+}
+
+
+.services > div img {
+    width: 40px;
+    height: auto;
+}
+
+.services > div p {
+    align-self: center;
+}
+
+/* Beach properties */
+
+.beach-properties-container {
+    display: grid;
+    gap: 20px;
+    padding: 30px 30px;
+    font-size: 1.2rem;
+    row-gap: 20px;
+    
+}
+
+.beach-properties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+    gap: 40px;
+}
+
+.beach-properties > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 30px;
+    font-size: 1.4rem;
+    background-color: #FAF9FF;
+    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
+}
+
+.beach-properties > div img {
+    width: 40px;
+    height: auto;
+}
 /* swiper */ 
 
 .conditions-hour-container {
