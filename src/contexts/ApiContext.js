@@ -54,8 +54,8 @@ export const ApiContextProvider = ({ children }) => {
       });
     });
   };
-  console.log(openWeatherInfo);
 
+  // Adds the beach name and the sunrise/sunset times
   openWeatherInfo.forEach((district, index) => {
     district.name = weatherInfo[index].name;
     district.sunrise = moment
