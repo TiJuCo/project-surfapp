@@ -108,11 +108,4 @@
         grid-template-columns: auto auto;
     }   
 
-    .news-cards-row-2 p:nth-child(1) {
-        display: none;
-    }
-    .news-cards-row-2 p:nth-child(2), .news-cards-row-2 p:nth-child(3) {
-        display: block;
-    }
-
 }
