@@ -15,6 +15,12 @@ import {
     swellHeight,
     wind,
     location,
+    facingDirection,
+    waveConsistency,
+    surfCrowd,
+    surfBreak,
+    surfingSeason,
+    perfectWindDirectionSurf,
     lifeguard,
     equipment,
     firstAid,
@@ -44,6 +50,12 @@ function BeachPage() {
         element.name = beachesInfo[index].name;
         element.county = beachesInfo[index].county;
         element.img = beachesInfo[index].img;
+        element.waveConsistency = beachesInfo[index].waveConsistency;
+        element.surfCrowd = beachesInfo[index].surfCrowd;
+        element.surfBreak = beachesInfo[index].surfBreak;
+        element.surfingSeason = beachesInfo[index].surfingSeason;
+        element.perfectWindDirectionSurf = beachesInfo[index].perfectWindDirectionSurf;
+        element.facingDirection = beachesInfo[index].facingDirection
         element.services = beachesInfo[index].services;
     });
 
@@ -180,10 +192,11 @@ function BeachPage() {
                         <div className="conditions-hour">
                            
                         </div>
-                    </div>              
-                    <div className="services-container">
+                    </div>   
+                    <div>
                         <h3>Services</h3>
-                        {console.log(page)}
+                    </div>
+                     <div className="services-container">
                         <div className="services">
                             <div>
                                 <img
@@ -307,11 +320,42 @@ function BeachPage() {
                                 <p>First aid</p>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <h3>Beach Properties</h3>
                     </div>              
                     <div className="beach-properties-container">
-                        <h3>Beach Properties</h3>
                         <div className="beach-properties">
-                           
+                            <div>
+                                <p>Best wind</p>
+                                <img src={wind} alt="" />
+                                <p>{page.perfectWindDirectionSurf}</p>
+                            </div>
+                            <div>
+                                <p>Wave consistency</p>
+                                <img src={sol} alt="" />
+                                <p>{page.waveConsistency}</p> 
+                            </div>
+                            <div>
+                                <p>Facing direction</p>
+                                <img src={sol} alt="" />
+                                <p>{page.facingDirection}</p>
+                            </div>
+                            <div>
+                                <p>Break</p>
+                                <img src={sol} alt="" />
+                                <p>{page.surfBreak}</p>
+                            </div>
+                            <div>
+                                <p>Season</p>
+                                <img src={sol} alt="" />
+                                <p>{page.surfingSeason}</p>
+                            </div>
+                            <div>
+                                <p>Surf crowd</p>
+                                <img src={sol} alt="" />
+                                <p>{page.surfCrowd}</p>
+                            </div>
                         </div>
                     </div>              
                 </div>
