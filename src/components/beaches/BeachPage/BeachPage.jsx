@@ -181,6 +181,18 @@ function BeachPage() {
                            
                         </div>
                     </div>              
+                    <div className="services-container">
+                        <h3>Services</h3>
+                        <div className="services">
+                           
+                        </div>
+                    </div>              
+                    <div className="beach-properties-container">
+                        <h3>Beach Properties</h3>
+                        <div className="beach-properties">
+                           
+                        </div>
+                    </div>              
                 </div>
             ))}
         </div>
