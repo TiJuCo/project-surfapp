@@ -17,8 +17,15 @@ export const ApiContextProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(true);
 
+  /* Fetched the current days. Apparently, this will adjust according to the number of days in the month 
+  (i.e. if day1 is the 30th of april, day2 will be the 1st of May)
+  */
   const date = new Date();
-  const [time] = useState(date.getDate());
+  const [day1] = useState(date.getDate());
+  const [day2] = useState(date.getDate() + 1);
+  const [day3] = useState(date.getDate() + 2);
+  const [day4] = useState(date.getDate() + 3);
+  const [day5] = useState(date.getDate() + 4);
 
   const getWeatherInfo = async () => {
     setLoading(true);
@@ -155,19 +162,19 @@ export const ApiContextProvider = ({ children }) => {
 
   // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS
   const firstDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => el.time.substring(9, 10) == time)
+    beach.filter((el, index) => +el.time.substring(8, 10) === day1)
   );
   const secondDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => el.time.substring(9, 10) == time + 1)
+    beach.filter((el, index) => +el.time.substring(8, 10) === day2)
   );
   const thirdDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => el.time.substring(9, 10) == time + 2)
+    beach.filter((el, index) => +el.time.substring(8, 10) === day3)
   );
   const fourthDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => el.time.substring(9, 10) == time + 3)
+    beach.filter((el, index) => +el.time.substring(8, 10) === day4)
   );
   const fifthDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => el.time.substring(9, 10) == time + 4)
+    beach.filter((el, index) => +el.time.substring(8, 10) === day5)
   );
 
   useEffect(() => {
