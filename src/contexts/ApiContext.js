@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment";
 
 const ApiContext = createContext();
 
@@ -53,9 +54,18 @@ export const ApiContextProvider = ({ children }) => {
       });
     });
   };
+  console.log(openWeatherInfo);
 
   openWeatherInfo.forEach((district, index) => {
     district.name = weatherInfo[index].name;
+    district.sunrise = moment
+      .utc(district.sys.sunrise, "X")
+      .add(district.timezone, "seconds")
+      .format("HH:mm");
+    district.sunset = moment
+      .utc(district.sys.sunset, "X")
+      .add(district.timezone, "seconds")
+      .format("HH:mm");
   });
 
   const params = [
