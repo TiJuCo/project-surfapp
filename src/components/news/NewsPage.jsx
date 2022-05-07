@@ -5,6 +5,7 @@ import NewsCards from "./NewsCards";
 import "./NewsPage.css";
 import GalleryCard from "./Gallery";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function NewsPageCard(props) {
   let param = useParams();
@@ -31,7 +32,7 @@ export function NewsPageCard(props) {
         </span>
         <div>
           <img src="" alt="" />
-          <p>All news</p>
+          <Link to="/news" className="link-all-news" >All news</Link>
         </div>
       </div>
       {ArticlesData.filter((card) => card.index === +param.index).map(

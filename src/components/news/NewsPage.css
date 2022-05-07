@@ -41,6 +41,7 @@
 .news-related {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     gap: 20px;
 }
 
@@ -50,4 +51,8 @@
 
 .text-container .news-related .bg-img {
     height: 200px;
+}
+
+.link-all-news:hover {
+    font-weight: bold;
 }

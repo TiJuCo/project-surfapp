@@ -11,4 +11,15 @@
     border-radius: 7px;
     height: 100%;
     width: 100%;
+    transition: 0.2s;
+}
+
+.gallery-img:hover {
+    position:relative;
+    top:-25px;
+    left:-35px;
+    width:1000px;
+    height:auto;
+    display:block;
+    z-index:999;
 }

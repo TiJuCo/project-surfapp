@@ -8,7 +8,7 @@ function GalleryCard(card) {
       {card.gallery.map((el, index) => {
         return (
           <div className="gallery-container" key={index}>
-            <img className="gallery-img" src={el} alt={index} />
+            <img className="gallery-img" src={el} alt={index}/>
           </div>
         );
       })}

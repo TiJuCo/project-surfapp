@@ -3,7 +3,6 @@ import Home from "../home/Home";
 import News from "../news/News";
 import { ArticlesData } from "../news/NewsData";
 import {NewsPageCard} from "../news/NewsPage";
-import PageTest from "../news/PageTest";
 
 
 
