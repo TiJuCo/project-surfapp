@@ -90,6 +90,127 @@ export const ApiContextProvider = ({ children }) => {
     });
   };
 
+  // Added the Converted Wind Direction variable assignment to the api context
+  let convertedWindDirection = "";
+  seaInfo.map((beach, index) =>
+    beach.map((hour, index) => {
+      if (hour.windDirection.sg <= 22.5) {
+        convertedWindDirection = "N";
+      } else if (
+        hour.windDirection.sg > 22.5 &&
+        hour.windDirection.sg <= 67.5
+      ) {
+        convertedWindDirection = "NE";
+      } else if (
+        hour.windDirection.sg > 67.5 &&
+        hour.windDirection.sg <= 112.5
+      ) {
+        convertedWindDirection = "E";
+      } else if (
+        hour.windDirection.sg > 112.5 &&
+        hour.windDirection.sg <= 157.5
+      ) {
+        convertedWindDirection = "SE";
+      } else if (
+        hour.windDirection.sg > 157.5 &&
+        hour.windDirection.sg <= 202.5
+      ) {
+        convertedWindDirection = "S";
+      } else if (
+        hour.windDirection.sg > 202.5 &&
+        hour.windDirection.sg <= 247.5
+      ) {
+        convertedWindDirection = "SW";
+      } else if (
+        hour.windDirection.sg > 247.5 &&
+        hour.windDirection.sg <= 292.5
+      ) {
+        convertedWindDirection = "W";
+      } else if (
+        hour.windDirection.sg > 292.5 &&
+        hour.windDirection.sg <= 337.5
+      ) {
+        return (convertedWindDirection = "NW");
+      } else if (
+        hour.windDirection.sg > 337.5 &&
+        hour.windDirection.sg <= 360
+      ) {
+        convertedWindDirection = "N";
+      } else {
+      }
+      hour.convertedWindDirection = convertedWindDirection;
+    })
+  );
+
+  // The same for Converted Swell Direction
+  let convertedSwellDirection = "";
+  seaInfo.map((beach, index) =>
+    beach.map((hour, index) => {
+      if (hour.swellDirection.sg <= 22.5) {
+        convertedSwellDirection = "N";
+      } else if (
+        hour.swellDirection.sg > 22.5 &&
+        hour.swellDirection.sg <= 67.5
+      ) {
+        convertedSwellDirection = "NE";
+      } else if (
+        hour.swellDirection.sg > 67.5 &&
+        hour.swellDirection.sg <= 112.5
+      ) {
+        convertedSwellDirection = "E";
+      } else if (
+        hour.swellDirection.sg > 112.5 &&
+        hour.swellDirection.sg <= 157.5
+      ) {
+        convertedSwellDirection = "SE";
+      } else if (
+        hour.swellDirection.sg > 157.5 &&
+        hour.swellDirection.sg <= 202.5
+      ) {
+        convertedSwellDirection = "S";
+      } else if (
+        hour.swellDirection.sg > 202.5 &&
+        hour.swellDirection.sg <= 247.5
+      ) {
+        convertedSwellDirection = "SW";
+      } else if (
+        hour.swellDirection.sg > 247.5 &&
+        hour.swellDirection.sg <= 292.5
+      ) {
+        convertedSwellDirection = "W";
+      } else if (
+        hour.swellDirection.sg > 292.5 &&
+        hour.swellDirection.sg <= 337.5
+      ) {
+        return (convertedSwellDirection = "NW");
+      } else if (
+        hour.swellDirection.sg > 337.5 &&
+        hour.swellDirection.sg <= 360
+      ) {
+        convertedSwellDirection = "N";
+      } else {
+      }
+      hour.convertedSwellDirection = convertedSwellDirection;
+    })
+  );
+
+  const calculator = () => {
+    let surfRating = 0;
+    seaInfo.map((beach, index) =>
+      beach
+        .filter(
+          (hour, index) =>
+            +hour.time.substring(11, 13) > 5 &&
+            +hour.time.substring(11, 13) < 19 &&
+            +hour.time.substring(11, 13) % 3 === 0
+        )
+        .map((surfHour, index) => {
+          surfHour.surfRating = surfRating;
+        })
+    );
+  };
+  calculator();
+
   const firstDay = seaInfo.map((beach) =>
     beach.filter((el, index) => index < 24)
   );
@@ -106,11 +227,13 @@ export const ApiContextProvider = ({ children }) => {
     beach.filter((el, index) => index > 95)
   );
 
-  firstDay.map((el, index) => el.name = beachesInfo[index].name);
-  secondDay.map((el, index) => el.name = beachesInfo[index].name);
-  thirdDay.map((el, index) => el.name = beachesInfo[index].name);
-  fourthDay.map((el, index) => el.name = beachesInfo[index].name);
-  fifthDay.map((el, index) => el.name = beachesInfo[index].name);
+  firstDay.map((el, index) => (el.name = beachesInfo[index].name));
+  secondDay.map((el, index) => (el.name = beachesInfo[index].name));
+  thirdDay.map((el, index) => (el.name = beachesInfo[index].name));
+  fourthDay.map((el, index) => (el.name = beachesInfo[index].name));
+  fifthDay.map((el, index) => (el.name = beachesInfo[index].name));
+
+  console.log(firstDay);
 
   useEffect(() => {
     getWeatherInfo();
@@ -130,7 +253,7 @@ export const ApiContextProvider = ({ children }) => {
         secondDay,
         thirdDay,
         fourthDay,
-        fifthDay
+        fifthDay,
       }}
     >
       {children}
