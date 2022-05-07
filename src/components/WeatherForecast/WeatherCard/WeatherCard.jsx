@@ -1,7 +1,6 @@
 import "./WeatherCard.css";
 import { useState, useContext } from "react";
 import ApiContext from "../../../contexts/ApiContext.js";
-import moment from "moment";
 import { sol, arrowUp, arrowDown } from "../../media/exportMedia.jsx";
 
 const WeatherCard = (props) => {
@@ -9,14 +8,6 @@ const WeatherCard = (props) => {
   const { openWeatherInfo } = useContext(ApiContext);
   const date = new Date();
   const [time] = useState(date.getHours());
-
-  // FINISH THIS PART!!!
-  let timezone = 3600;
-  let sunrise = 1651728839;
-
-  let x = moment.utc(sunrise, "X").add(timezone, "seconds").format("HH:mm a");
-
-  console.log(x);
 
   return (
     <div key={index} className="weather-card">
@@ -31,7 +22,7 @@ const WeatherCard = (props) => {
               {openWeatherInfo &&
                 openWeatherInfo
                   .filter((el) => el.name.includes(element.name))
-                  .map((el) => parseFloat(el.main.temp).toFixed(1))}
+                  .map((el) => Math.round(el.main.temp * 10) / 10)}
             </h2>
           </div>
         </div>
