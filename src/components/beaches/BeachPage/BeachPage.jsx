@@ -183,8 +183,129 @@ function BeachPage() {
                     </div>              
                     <div className="services-container">
                         <h3>Services</h3>
+                        {console.log(page)}
                         <div className="services">
-                           
+                            <div>
+                                <img
+                                    className={
+                                    page.services && page.services.includes("lifeguard")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={lifeguard}
+                                    alt="lifeguard"
+                                /> 
+                                <p>Lifeguard</p>
+                            </div>
+                            <div>
+                                <img
+                                    className={
+                                    page.services && page.services.includes("equipment")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={equipment}
+                                    alt="equipment"
+                                />
+                                <p>Equipment</p>
+                            </div>
+                            <div>
+                                <img
+                                    className={
+                                    page.services && page.services.includes("restaurants")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={restaurants}
+                                    alt=""
+                                />
+                                <p>Restaurants</p>
+                            </div>
+                            <div>
+                                <img
+                                    className={
+                                    page.services && page.services.includes("showers")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={showers}
+                                    alt=""
+                                />
+                                <p>Showers</p>
+                            </div>
+                            <div>
+                                <img
+                                    className={
+                                    page.services && page.services.includes("accessibility")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={accessibility}
+                                    alt=""
+                                />
+                                <p>Accessibility</p>
+                            </div>
+                            <div>
+                                <img
+                                    className={
+                                    page.services &&
+                                    page.services.includes("transportation")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={transportation}
+                                    alt=""
+                                />
+                                <p>Transportation</p>
+                            </div>
+                            <div>
+                                <img
+                                    className={
+                                    page.services && page.services.includes("parking")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={parking}
+                                    alt=""
+                                />
+                                <p>Parking</p>
+                            </div>
+                            <div>
+                                <img
+                                    className={
+                                    page.services && page.services.includes("freeParking")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={freeParking}
+                                    alt=""
+                                />
+                                <p>Free Parking</p>
+                            </div>
+                            <div>
+                                <img
+                                    className={
+                                    page.services && page.services.includes("wc")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={wc}
+                                    alt=""
+                                />
+                                <p>WC</p>
+                            </div>
+                            <div>
+                                <img
+                                    className={
+                                    page.services && page.services.includes("firstAid")
+                                        ? "icon-active"
+                                        : "icon-not-active"
+                                    }
+                                    src={firstAid}
+                                    alt=""
+                                />
+                                <p>First aid</p>
+                            </div>
                         </div>
                     </div>              
                     <div className="beach-properties-container">

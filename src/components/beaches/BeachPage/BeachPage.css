@@ -154,6 +154,37 @@
     font-weight: 600;
 }
 
+.services-container {
+    display: grid;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 30px 30px;
+    background-color: #FAF9FF;
+    border-radius: 10px;
+    font-size: 12px;
+    row-gap: 20px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+}
+
+.services > div {
+    display: flex;
+    gap: 12px;
+}
+
+
+.services > div img {
+    width: 40px;
+    height: auto;
+}
+
+.services > div p {
+    align-self: center;
+}
 
 /* swiper */ 
 
