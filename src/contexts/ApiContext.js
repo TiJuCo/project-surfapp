@@ -105,6 +105,8 @@ export const ApiContextProvider = ({ children }) => {
     setLoading(false);
   };
 
+  /*
+Code for requesting data from stormglass
   const getStormGlassInfo = async (ourApi) => {
     ourApi.map(async (beach) => {
       const res = await axios.get(
@@ -123,8 +125,19 @@ export const ApiContextProvider = ({ children }) => {
       });
     });
   };
+  */
 
-  const getTideInfo = async (ourApi) => {
+  const getStormGlassInfo = async (ourApi) => {
+    const res = await axios.get(
+      `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
+    );
+    await setSeaInfo(res.data);
+    console.log(res.data);
+    return res.data;
+  };
+
+  // Tide info API request
+  /*const getTideInfo = async (ourApi) => {
     ourApi.map(async (beach) => {
       const res = await axios.get(
         `https://api.stormglass.io/v2/tide/extremes/point?lat=${beach.latitude}&lng=${beach.longitude}`,
@@ -143,6 +156,16 @@ export const ApiContextProvider = ({ children }) => {
       });
     });
   };
+  */
+
+  const getTideInfo = async (ourApi) => {
+    const res = await axios.get(
+      `https://run.mocky.io/v3/476bbd4c-e97d-4ce0-b29c-f765cc725700`
+    );
+    await setTideInfo(res.data.data.splice(0, 18));
+    console.log(tideInfo);
+    return tideInfo;
+  };
 
   const firstDay = seaInfo.map((beach) =>
     beach.filter((el, index) => index < 24)
@@ -160,13 +183,11 @@ export const ApiContextProvider = ({ children }) => {
     beach.filter((el, index) => index > 95)
   );
 
-  firstDay.map((el, index) => el.name = beachesInfo[index].name);
-  secondDay.map((el, index) => el.name = beachesInfo[index].name);
-  thirdDay.map((el, index) => el.name = beachesInfo[index].name);
-  fourthDay.map((el, index) => el.name = beachesInfo[index].name);
-  fifthDay.map((el, index) => el.name = beachesInfo[index].name);
-
-  
+  firstDay.map((el, index) => (el.name = beachesInfo[index].name));
+  secondDay.map((el, index) => (el.name = beachesInfo[index].name));
+  thirdDay.map((el, index) => (el.name = beachesInfo[index].name));
+  fourthDay.map((el, index) => (el.name = beachesInfo[index].name));
+  fifthDay.map((el, index) => (el.name = beachesInfo[index].name));
 
   useEffect(() => {
     getWeatherInfo();
