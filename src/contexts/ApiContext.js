@@ -8,19 +8,34 @@ export default ApiContext;
 export const ApiContextProvider = ({ children }) => {
   const [weatherInfo, setWeatherInfo] = useState([]);
   const [districtInfo, setdistrictInfo] = useState([]);
+  const [openWeatherInfo, setOpenWeatherInfo] = useState([]);
 
   const [seaInfo, setSeaInfo] = useState([]);
   const [beachesInfo, setBeachesInfo] = useState([]);
 
+  const [tideInfo, setTideInfo] = useState([]);
+
   const [loading, setLoading] = useState(true);
+
+  /* Fetched the current days. Apparently, this will adjust according to the number of days in the month 
+  (i.e. if day1 is the 30th of april, day2 will be the 1st of May)
+  */
+  const date = new Date();
+  const [day1] = useState(date.getDate());
+  const [day2] = useState(date.getDate() + 1);
+  const [day3] = useState(date.getDate() + 2);
+  const [day4] = useState(date.getDate() + 3);
+  const [day5] = useState(date.getDate() + 4);
 
   const getWeatherInfo = async () => {
     setLoading(true);
     const res = await axios.get(
-      "https://run.mocky.io/v3/53ef2996-2447-4c63-806f-f082b0dcea7a"
+      "https://run.mocky.io/v3/36dcba3b-226f-48a8-bc74-872190dbe41c"
     );
     setdistrictInfo(res.data.districts);
     getIpmaInfo(res.data.districts);
+    getOpenWeatherInfo(res.data.districts);
+    console.log(res.data.districts);
     setLoading(false);
   };
 
@@ -36,6 +51,24 @@ export const ApiContextProvider = ({ children }) => {
       });
     });
   };
+  const getOpenWeatherInfo = async (ourApi) => {
+    console.log(ourApi);
+    ourApi.map(async (district) => {
+      const res = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${+district.latitude}&lon=${+district.longitude}&appid=9743ddbd55285e7028ccfe78ce525d93&units=metric`
+      );
+
+      console.log(res.data);
+      setOpenWeatherInfo((state) => {
+        state = [...state, res.data];
+        return state;
+      });
+    });
+  };
+
+  openWeatherInfo.forEach((district, index) => {
+    district.name = weatherInfo[index].name;
+  });
 
   const params = [
     "airTemperature",
@@ -68,6 +101,7 @@ export const ApiContextProvider = ({ children }) => {
 
     setBeachesInfo(res.data.beaches);
     getStormGlassInfo(res.data.beaches);
+    getTideInfo(res.data.beaches);
     setLoading(false);
   };
 
@@ -84,6 +118,26 @@ export const ApiContextProvider = ({ children }) => {
       );
       await setSeaInfo((state) => {
         state = [...state, res.data.hours.splice(0, 120)];
+        console.log(state);
+        return state;
+      });
+    });
+  };
+
+  const getTideInfo = async (ourApi) => {
+    ourApi.map(async (beach) => {
+      const res = await axios.get(
+        `https://api.stormglass.io/v2/tide/extremes/point?lat=${beach.latitude}&lng=${beach.longitude}`,
+        {
+          headers: {
+            Authorization:
+              "307e6928-c241-11ec-ac71-0242ac130002-307e6996-c241-11ec-ac71-0242ac130002",
+          },
+        }
+      );
+      console.log(res.data.data);
+      await setTideInfo((state) => {
+        state = [...state, res.data.data.splice(0, 18)];
         console.log(state);
         return state;
       });
@@ -112,6 +166,23 @@ export const ApiContextProvider = ({ children }) => {
   fourthDay.map((el, index) => el.name = beachesInfo[index].name);
   fifthDay.map((el, index) => el.name = beachesInfo[index].name);
 
+  // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS
+  const firstDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => +el.time.substring(8, 10) === day1)
+  );
+  const secondDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => +el.time.substring(8, 10) === day2)
+  );
+  const thirdDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => +el.time.substring(8, 10) === day3)
+  );
+  const fourthDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => +el.time.substring(8, 10) === day4)
+  );
+  const fifthDayTide = tideInfo.map((beach) =>
+    beach.filter((el, index) => +el.time.substring(8, 10) === day5)
+  );
+
   useEffect(() => {
     getWeatherInfo();
     getSeaConditionsInfo();
@@ -126,11 +197,18 @@ export const ApiContextProvider = ({ children }) => {
         seaInfo,
         setSeaInfo,
         beachesInfo,
+        openWeatherInfo,
+        tideInfo,
         firstDay,
         secondDay,
         thirdDay,
         fourthDay,
-        fifthDay
+        fifthDay,
+        firstDayTide,
+        secondDayTide,
+        thirdDayTide,
+        fourthDayTide,
+        fifthDayTide,
       }}
     >
       {children}
