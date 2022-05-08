@@ -96,7 +96,7 @@ export const ApiContextProvider = ({ children }) => {
     setLoading(true);
 
     const res = await axios.get(
-      "https://run.mocky.io/v3/9cd2f706-54d8-4853-9640-e5b422fded86"
+      "https://run.mocky.io/v3/19eafcde-9b78-464d-88e6-854eb04b084a"
     );
 
     setBeachesInfo(res.data.beaches);
