@@ -48,7 +48,7 @@ function BeachPage() {
 
     let params = useParams();
     
-    const { seaInfo, beachesInfo, firstDay, secondDay, thirdDay, fourthDay, fifthDay } = useContext(ApiContext);
+    const { seaInfo, beachesInfo, firstDay, secondDay, thirdDay, fourthDay, fifthDay, tideInfo } = useContext(ApiContext);
 
     seaInfo.forEach((element, index) => {
         element.name = beachesInfo[index].name;
@@ -62,8 +62,7 @@ function BeachPage() {
         element.facingDirection = beachesInfo[index].facingDirection
         element.services = beachesInfo[index].services;
     });
-
-    
+        
 
     const Days = [firstDay, secondDay, thirdDay, fourthDay, fifthDay];
     console.log(Days)
@@ -75,38 +74,38 @@ function BeachPage() {
     const [time] = useState(date.getHours());
     const [currentDay] = useState(date.getDate());
     const [tomorrow] = useState(date.getDate() + 1);
-
-    const [dateMonth] = useState(date.getDay());
-
-    // slider index state
-    const [sliderIndex, setSliderIndex] = useState(0);
-
-
-    // const swiper = useSwiper();
-
-    // const handleSliderIndex = (e) => {
-        
-    // };
+    const d = new Date();
+    let month = months[d.getMonth()];
+    const [day1] = useState(date.getDate());
+    const [day2] = useState(date.getDate() + 1);
+    const [day3] = useState(date.getDate() + 2);
+    const [day4] = useState(date.getDate() + 3);
+    const [day5] = useState(date.getDate() + 4);
 
 
-    // // console.log(swiper.activeIndex);
-
-
-    // const slideIndexCount = { 
-    //     on: { 
-    //       realIndexChange: (swiper) => setSliderIndex(swiper.realIndex) 
-    //     } 
-    // }
-
+    // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS // .filter((el, index) => +el.time.substring(8, 10) === day1)
+    const firstDayTide = tideInfo.filter((beach, index) => beach.name === params.beachName).map((hour) => (hour.filter((hour, index) => +hour.time.substring(8, 10) === day1)));
+    const secondDayTide = tideInfo.filter((beach, index) => beach.name === params.beachName).map((hour) => (hour.filter((hour, index) => +hour.time.substring(8, 10) === day2)));
+    const thirdDayTide = tideInfo.filter((beach, index) => beach.name === params.beachName).map((hour) => (hour.filter((hour, index) => +hour.time.substring(8, 10) === day3)));
+    const fourthDayTide = tideInfo.filter((beach, index) => beach.name === params.beachName).map((hour) => (hour.filter((hour, index) => +hour.time.substring(8, 10) === day4)));
+    const fifthDayTide = tideInfo.filter((beach, index) => beach.name === params.beachName).map((hour) => (hour.filter((hour, index) => +hour.time.substring(8, 10) === day5)));
+    fifthDayTide.map(day => ( day.push( {time:"2022-05-12T06:08:00+00:00"})));
+    fifthDayTide.map(day => ( day.push( {time:"2022-05-12T06:08:00+00:00"})));
     
-    // console.log(sliderIndex)
-
-    // // Swiper.on("transitionEnd", function(e){
-    // //     const slideIndex = Swiper.activeIndex;
-    // //     console.log("I'm on slide no: "+slideIndex);
-    // // });
     
-    // console.log(sliderIndex)
+    console.log(fifthDayTide)
+
+    const tideInfoDays = [...firstDayTide, ...secondDayTide, ...thirdDayTide, ...fourthDayTide, ...fifthDayTide]; 
+
+    // console.log(tideInfoDays)
+    // console.log(fifthDayTide[0])
+    // console.log(fifthDayTide)
+    // console.log(secondDayTide[0])
+    // console.log(secondDayTide)
+
+    tideInfo.forEach((element, index) => {
+        element.name = beachesInfo[index].name;
+    });
 
     // map first day -> put tide inside + convertedWindDirection + convertedSwellDirection
     const beachDays1 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index < 24));
@@ -115,21 +114,6 @@ function BeachPage() {
     const beachDays4 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index > 71 && index < 96))
     const beachDays5 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index > 95))
 
-    
-    // beachDays1[0].splice(time,1);
-
-    // beachDays2[0].unshift(beachDays1[0][time]);
-    // beachDays2[0].splice(time,1);
-
-    // beachDays3.splice(time,1);
-    // beachDays3[0].unshift(beachDays1[0][currentDayTime]);
-    
-
-    // beachDays4[0].unshift(beachDays1[0][time]);
-    // beachDays4[0].splice(time,1);
-
-    // beachDays5[0].unshift(beachDays1[0][time]);
-    // beachDays5[0].splice(time,1);
 
     const beachDays = [...beachDays1, ...beachDays2, ...beachDays3, ...beachDays4, ...beachDays5]; 
     
@@ -138,12 +122,9 @@ function BeachPage() {
     beachDays[2] && (beachDays[2].unshift(beachDays[2][time]))
     beachDays[3] && (beachDays[3].unshift(beachDays[3][time]))
     beachDays[4] && (beachDays[4].unshift(beachDays[4][time]))
-    // beachDays[0] && beachDays[0].splice(time,1);
+
     console.log(beachDays)
     
-
-    const d = new Date();
-    let month = months[d.getMonth()];
    
     return (
         <div className="container beach-page-container">
@@ -272,7 +253,7 @@ function BeachPage() {
                                 {beachDays.map((beachDay, index) => (
                                             
                                             <SwiperSlide key={index} >
-                                                {/* {console.log(beachDay)} */}
+                                                {console.log(beachDay)}
                                                 <div className="day-slide">
                                                     <div>
                                                         <p>{+beachDay[index].time.substring(8,10) === currentDay ? "Today" : +beachDay[index].time.substring(8,10) === tomorrow ? "Tomorrow" : month + " " +beachDay[index].time.substring(8,10)  }</p> 
@@ -346,7 +327,65 @@ function BeachPage() {
                                 ))}
                             </Swiper>
                         </div>
-                    </div>   
+                    </div> 
+
+                    <div className="conditions-hour-container">
+                        <h3>Tides Forecast</h3>
+                        <div className="conditions-hour-hour">
+                            <Swiper pagination={true} className="mySwiper">
+                                {tideInfoDays.map((tideInfoDay, tideIndex) => (
+                                            
+                                            <SwiperSlide key={tideIndex} >
+
+                                                {console.log(tideInfoDays)}
+                                                {console.log(tideInfoDay)}
+                                                {console.log(tideInfoDay[3])}
+                                                {/* {console.log(+tideInfoDay.time.substring(8,10))} */}
+                                                <div className="day-slide">
+                                                    <div>
+                                                       {/* <p>{+tideInfoDay[tideIndex] && +tideInfoDay[tideIndex].time.substring(8,10) === currentDay ? "Today" : +tideInfoDay[tideIndex] && +tideInfoDay[tideIndex].time.substring(8,10) === tomorrow ? "Tomorrow" : month + " " +tideInfoDay[tideIndex] && +tideInfoDay[tideIndex].time.substring(8,10)}</p> */}
+                                                    </div>
+                                                    <div>
+                                                        <span>Next day</span>
+                                                        <FaChevronRight />
+                                                    </div>
+                                                </div>
+
+                                                {/* <Swiper pagination={true} className="mySwiper" >
+                                                    {tideInfoDay.map((tideHour, index) => (
+                                                                
+                                                                <SwiperSlide key={index}>
+                                                                    
+                                                                    <div className="day-slide-hour">
+                                                                        <div>
+                                                                            <span>{+tideHour.time.substring(11,13) === time ? "Now" : tideHour.time.substring(11,13) + ":00"}</span>
+                                                                            <span className="line"></span>
+                                                                        </div>
+                                                                        <div>
+                                                                            <span>Next hour</span>
+                                                                            <FaChevronRight />
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="day-slide-hour-data">
+                                                                        <div>
+                                                                            
+                                                                        </div>
+                                                                        <div>
+                                                                        
+                                                                    
+                                                                        </div>
+                                                                    </div>
+                                                                </SwiperSlide>
+                                
+                                                    ))}
+                                                </Swiper> */}
+
+                                            </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div>
+                    </div>     
                     <div>
                         <h3>Services</h3>
                     </div>

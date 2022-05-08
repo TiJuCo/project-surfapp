@@ -166,22 +166,7 @@ export const ApiContextProvider = ({ children }) => {
   fourthDay.map((el, index) => el.name = beachesInfo[index].name);
   fifthDay.map((el, index) => el.name = beachesInfo[index].name);
 
-  // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS
-  const firstDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => +el.time.substring(8, 10) === day1)
-  );
-  const secondDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => +el.time.substring(8, 10) === day2)
-  );
-  const thirdDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => +el.time.substring(8, 10) === day3)
-  );
-  const fourthDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => +el.time.substring(8, 10) === day4)
-  );
-  const fifthDayTide = tideInfo.map((beach) =>
-    beach.filter((el, index) => +el.time.substring(8, 10) === day5)
-  );
+  
 
   useEffect(() => {
     getWeatherInfo();
@@ -204,11 +189,6 @@ export const ApiContextProvider = ({ children }) => {
         thirdDay,
         fourthDay,
         fifthDay,
-        firstDayTide,
-        secondDayTide,
-        thirdDayTide,
-        fourthDayTide,
-        fifthDayTide,
       }}
     >
       {children}

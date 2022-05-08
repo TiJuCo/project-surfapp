@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ApiContext from "../../../contexts/ApiContext.js";
 import "./BeachCard.css";
 import { FaChevronRight } from "react-icons/fa";
@@ -26,8 +26,10 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
-  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay, tideInfo } =
-    useContext(ApiContext);
+  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay, seaInfo } = useContext(ApiContext);
+
+  const date = new Date();
+  const [time] = useState(date.getHours());
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
@@ -78,12 +80,26 @@ function BeachCard(props) {
   };
   resolveWindDirection();
 
+  // map first day -> put tide inside + convertedWindDirection + convertedSwellDirection
+  const beachDays1 = seaInfo.filter((beach, index) => beach.name === element.name).map((hours, index) => hours.filter((hours, index) => index < 24));
+  const beachDays2 = seaInfo.filter((beach, index) => beach.name === element.name).map((hours, index) => hours.filter((hours, index) => index > 23 && index < 48));
+  const beachDays3 = seaInfo.filter((beach, index) => beach.name === element.name).map((hours, index) => hours.filter((hours, index) => index > 47 && index < 72))
+  const beachDays4 = seaInfo.filter((beach, index) => beach.name === element.name).map((hours, index) => hours.filter((hours, index) => index > 71 && index < 96))
+  const beachDays5 = seaInfo.filter((beach, index) => beach.name === element.name).map((hours, index) => hours.filter((hours, index) => index > 95))
+
+
+  const beachDays = [...beachDays1, ...beachDays2, ...beachDays3, ...beachDays4, ...beachDays5]; 
+  
+ 
+
   return (
     element && (
       <>
       
         <div className="beach-card">
           <Link to={`/beaches/${element.name}`}>
+            {console.log(element.name)}
+            {console.log(seaInfo)}
             <div
               className="beach-card-row-1"
               style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
@@ -95,27 +111,34 @@ function BeachCard(props) {
                 <p>{element.county}</p>
               </div>
             </div>
+            
           </Link>
           <div className="beach-card-row-2">
-            <div className="beach-card-row-2-row-1">
-              <div>
-                <img src={sol} alt="" />
-                <p>{parseInt(element[0].airTemperature.sg)}º</p>
+            {console.log(beachDays)}
+            <div >
+            {beachDays[0].filter((beachDay, index) => index === time).map((beachHour, index) => (
+              <div className="beach-card-row-2-row-1">
+                
+                <div>
+                  <img src={sol} alt="" />
+                  <p>{parseInt(beachHour.airTemperature.sg)}º</p>
+                </div>
+                <div>
+                  <img src={swellDuration} alt="" />
+                  <p>{parseFloat(beachHour.wavePeriod.noaa).toFixed(1)}s</p>
+                </div>
+                <div>
+                  <img src={swellHeight} alt="" />
+                  <p>{parseFloat(beachHour.waveHeight.sg).toFixed(1)}m</p>
+                </div>
+                <div>
+                  <img src={wind} alt="" />
+                  <p>
+                    {parseFloat(beachHour.windSpeed.sg).toFixed(1)}<span className="kts">kts</span> <span className="wind-direction-span">{convertedWindDirection}</span>
+                  </p>
+                </div>
               </div>
-              <div>
-                <img src={swellDuration} alt="" />
-                <p>{parseFloat(element[0].wavePeriod.noaa).toFixed(1)}s</p>
-              </div>
-              <div>
-                <img src={swellHeight} alt="" />
-                <p>{parseFloat(element[0].waveHeight.sg).toFixed(1)}m</p>
-              </div>
-              <div>
-                <img src={wind} alt="" />
-                <p>
-                  {parseFloat(element[0].windSpeed.sg).toFixed(1)}<span className="kts">kts</span> <span className="wind-direction-span">{convertedWindDirection}</span>
-                </p>
-              </div>
+              ))}
             </div>
             <div className="beach-card-row-2-row-2">
               <img
