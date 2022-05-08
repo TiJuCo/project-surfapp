@@ -303,7 +303,7 @@
 .conditions-hour .day-slide > div:nth-child(2) svg{
     width: 10px;
     color: var(--tertiary-color);
-    margin-top: 3px;
+    margin-top: 2px;
 }
 
 /* .swiper-slide > div:nth-child(1) {
@@ -344,7 +344,7 @@
 .day-slide-hour > div:nth-child(2) svg{
     width: 10px;
     color: var(--tertiary-color);
-    margin-top: 3px;
+    
 }
 
 
@@ -353,6 +353,7 @@
     grid-template-columns: 1fr 2fr;
     padding: 30px;
     padding-top: 0px;
+    background-color: white;
 }
 
 .day-slide .swiper-slide {
@@ -376,7 +377,7 @@
     padding-bottom: 12px;
     background-color: white;
     border-radius: 0px 10px 10px 0px;
-    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
+    filter: drop-shadow(4px 6px 12px rgba(200, 200, 200, 0.2));
 }
 
 .day-slide-hour-data > div:nth-child(2) > p{

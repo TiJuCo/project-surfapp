@@ -115,10 +115,31 @@ function BeachPage() {
     const beachDays4 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index > 71 && index < 96))
     const beachDays5 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index > 95))
 
-    const beachDays = [...beachDays1, ...beachDays2, ...beachDays3, ...beachDays4, ...beachDays5]; 
+    
+    // beachDays1[0].splice(time,1);
 
+    // beachDays2[0].unshift(beachDays1[0][time]);
+    // beachDays2[0].splice(time,1);
+
+    // beachDays3.splice(time,1);
+    // beachDays3[0].unshift(beachDays1[0][currentDayTime]);
+    
+
+    // beachDays4[0].unshift(beachDays1[0][time]);
+    // beachDays4[0].splice(time,1);
+
+    // beachDays5[0].unshift(beachDays1[0][time]);
+    // beachDays5[0].splice(time,1);
+
+    const beachDays = [...beachDays1, ...beachDays2, ...beachDays3, ...beachDays4, ...beachDays5]; 
+    
+    beachDays[0] && (beachDays[0].unshift(beachDays[0][time]))
+    beachDays[1] && (beachDays[1].unshift(beachDays[1][time]))
+    beachDays[2] && (beachDays[2].unshift(beachDays[2][time]))
+    beachDays[3] && (beachDays[3].unshift(beachDays[3][time]))
+    beachDays[4] && (beachDays[4].unshift(beachDays[4][time]))
+    // beachDays[0] && beachDays[0].splice(time,1);
     console.log(beachDays)
-    console.log(Days)
     
 
     const d = new Date();
@@ -145,6 +166,7 @@ function BeachPage() {
                         </div>
                     </div>
                     <div className="beach-page-content">
+                        {console.log(beachDays)}
                         <div className="beach-page-time">
                             <p className="beach-page-time-text"><span className="accent">Today</span>, {currentDay} {month} <span class="dot-accent"></span> {time > 12 ? `${time - 12} pm` : `${time} am`}</p>
                         </div>
@@ -253,7 +275,7 @@ function BeachPage() {
                                                 {/* {console.log(beachDay)} */}
                                                 <div className="day-slide">
                                                     <div>
-                                                        <p>{+beachDay[index].time.substring(8,10) === currentDay ? "Today" : +beachDay[index].time.substring(8,10) === tomorrow ? "Tomorrow" : "Day " +beachDay[index].time.substring(8,10)  }</p> 
+                                                        <p>{+beachDay[index].time.substring(8,10) === currentDay ? "Today" : +beachDay[index].time.substring(8,10) === tomorrow ? "Tomorrow" : month + " " +beachDay[index].time.substring(8,10)  }</p> 
                                                        
                                                     </div>
                                                     <div>
@@ -262,11 +284,11 @@ function BeachPage() {
                                                     </div>
                                                 </div>
 
-                                                <Swiper pagination={true} className="mySwiper" initialSlide={3}>
-                                                    {beachDay.filter((beachHour, index) => (index > 5 && index % 3 === 0) || index === time).map((beachHour, index) => (
+                                                <Swiper pagination={true} className="mySwiper" >
+                                                    {beachDay.filter((beachHour, index) =>  index === 0 || index === 7 || index === 10 || index === 13 || index === 16 || index === 19 || index === 22).map((beachHour, index) => (
                                                                 
-                                                                <SwiperSlide key={index} >
-                                                                    {/* {console.log(beachHour)} */}
+                                                                <SwiperSlide key={index}>
+                                                                    
                                                                     <div className="day-slide-hour">
                                                                         <div>
                                                                             <span>{+beachHour.time.substring(11,13) === time ? "Now" : beachHour.time.substring(11,13) + ":00"}</span>
