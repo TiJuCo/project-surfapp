@@ -1,4 +1,6 @@
 export const sol = require("./sol.svg");
+export const airTemperatureBlue = require("./airTemperatureBlue.svg");
+export const waterTemperature = require("./waterTemperature.svg");
 export const arrowUp = require("./arrowUp.svg");
 export const arrowDown = require("./arrowDown.svg");
 export const arrowFullLeft = require("./arrowFullLeft.svg");
@@ -6,6 +8,7 @@ export const chevronDown = require("./chevronDown.svg");
 export const swellDuration = require("./swellDuration.svg");
 export const swellHeight = require("./swellHeight.svg");
 export const wind = require("./wind.svg");
+export const windDirection = require("./windDirection.svg");
 export const location = require("./location.svg");
 
 

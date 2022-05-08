@@ -29,6 +29,7 @@ function Home() {
 
       <div className="section section-2 container">
         <h3>Weather Forecast</h3>
+        
       </div>
       <WeatherForecast />
 

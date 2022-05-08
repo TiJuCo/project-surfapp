@@ -4,16 +4,20 @@ import { useParams } from "react-router-dom";
 import ApiContext from "../../../contexts/ApiContext";
 import { FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper  } from "swiper/react";
+import { Virtual } from 'swiper';
 import { Pagination } from "swiper";
 import "swiper/css/pagination";
 import "swiper/css/pagination";
 import "swiper/css";
 import {
     sol,
+    airTemperatureBlue,
+    waterTemperature,
     swellDuration,
     swellHeight,
     wind,
+    windDirection,
     location,
     facingDirection,
     waveConsistency,
@@ -69,9 +73,75 @@ function BeachPage() {
     const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const date = new Date();
     const [time] = useState(date.getHours());
-    const [day] = useState(date.getDate());
+    const [currentDay] = useState(date.getDate());
+    const [tomorrow] = useState(date.getDate() + 1);
+
     const [dateMonth] = useState(date.getDay());
+
+    // slider index state
+    const [sliderIndex, setSliderIndex] = useState(0);
+
+
+    // const swiper = useSwiper();
+
+    // const handleSliderIndex = (e) => {
+        
+    // };
+
+
+    // // console.log(swiper.activeIndex);
+
+
+    // const slideIndexCount = { 
+    //     on: { 
+    //       realIndexChange: (swiper) => setSliderIndex(swiper.realIndex) 
+    //     } 
+    // }
+
     
+    // console.log(sliderIndex)
+
+    // // Swiper.on("transitionEnd", function(e){
+    // //     const slideIndex = Swiper.activeIndex;
+    // //     console.log("I'm on slide no: "+slideIndex);
+    // // });
+    
+    // console.log(sliderIndex)
+
+    // map first day -> put tide inside + convertedWindDirection + convertedSwellDirection
+    const beachDays1 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index < 24));
+    const beachDays2 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index > 23 && index < 48));
+    const beachDays3 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index > 47 && index < 72))
+    const beachDays4 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index > 71 && index < 96))
+    const beachDays5 = seaInfo.filter((beach, index) => beach.name === params.beachName).map((hours, index) => hours.filter((hours, index) => index > 95))
+
+    
+    // beachDays1[0].splice(time,1);
+
+    // beachDays2[0].unshift(beachDays1[0][time]);
+    // beachDays2[0].splice(time,1);
+
+    // beachDays3.splice(time,1);
+    // beachDays3[0].unshift(beachDays1[0][currentDayTime]);
+    
+
+    // beachDays4[0].unshift(beachDays1[0][time]);
+    // beachDays4[0].splice(time,1);
+
+    // beachDays5[0].unshift(beachDays1[0][time]);
+    // beachDays5[0].splice(time,1);
+
+    const beachDays = [...beachDays1, ...beachDays2, ...beachDays3, ...beachDays4, ...beachDays5]; 
+    
+    beachDays[0] && (beachDays[0].unshift(beachDays[0][time]))
+    beachDays[1] && (beachDays[1].unshift(beachDays[1][time]))
+    beachDays[2] && (beachDays[2].unshift(beachDays[2][time]))
+    beachDays[3] && (beachDays[3].unshift(beachDays[3][time]))
+    beachDays[4] && (beachDays[4].unshift(beachDays[4][time]))
+    // beachDays[0] && beachDays[0].splice(time,1);
+    console.log(beachDays)
+    
+
     const d = new Date();
     let month = months[d.getMonth()];
    
@@ -80,7 +150,8 @@ function BeachPage() {
 
             {seaInfo.filter((page, index) => page.name === params.beachName).map((page) => ( 
 
-                <div className="beach-page">    
+                <div className="beach-page">  
+                    {console.log(page)}  
                     <Link to={`/beaches/`}>
                         <div className="back">
                             <img src={arrowFullLeft} alt="back" />
@@ -95,34 +166,36 @@ function BeachPage() {
                         </div>
                     </div>
                     <div className="beach-page-content">
+                        {console.log(beachDays)}
                         <div className="beach-page-time">
-                            <p className="beach-page-time-text"><span className="accent">Today</span>, {day} {month} <span class="dot-accent"></span> {time > 12 ? `${time - 12} pm` : `${time} am`}</p>
+                            <p className="beach-page-time-text"><span className="accent">Today</span>, {currentDay} {month} <span class="dot-accent"></span> {time > 12 ? `${time - 12} pm` : `${time} am`}</p>
                         </div>
 
-                        <p className="beach-page-text-report">
-                            We register a temperature of <span className="pageObject">{page[0].airTemperature.sg}º</span>, <span className="pageObject">{page[0].windSpeed.sg} kts</span> wind from the 
+                        {beachDays[0].filter((beachDay, index) => index === time).map((beachHour, index) => (
+                            <p className="beach-page-text-report">
+                                We register a temperature of <span className="pageObject">{parseFloat(beachHour.airTemperature.sg).toFixed(1)} º</span>, <span className="pageObject">{parseFloat(beachHour.windSpeed.sg).toFixed(1)} kts</span> wind from the 
 
-                            <span className="pageObject">{page[0].windDirection.sg <= 22.5 ? " North " : 
-                                page[0].windDirection.sg > 22.5 &&
-                                page[0].windDirection.sg <= 67.5 ? " North East " :
-                                page[0].windDirection.sg > 67.5 &&
-                                page[0].windDirection.sg <= 112.5 ? " East " :
-                                page[0].windDirection.sg > 112.5 &&
-                                page[0].windDirection.sg <= 157.5 ? " South East " :
-                                page[0].windDirection.sg > 157.5 &&
-                                page[0].windDirection.sg <= 202.5 ? " South " :
-                                page[0].windDirection.sg > 202.5 &&
-                                page[0].windDirection.sg <= 247.5 ? " South West " :
-                                page[0].windDirection.sg > 247.5 &&
-                                page[0].windDirection.sg <= 292.5 ? " West " :
-                                page[0].windDirection.sg > 292.5 &&
-                                page[0].windDirection.sg <= 337.5 ? " North West " :
-                                page[0].windDirection.sg > 337.5 &&
-                                page[0].windDirection.sg <= 360 ? " North " : "null"  
-                            }</span>
-                            , a wave height of  <span className="pageObject">{page[0].waveHeight.sg} m</span>, a swell interval of <span className="pageObject">{page[0].wavePeriod.noaa} kts</span>.
-                        </p>
-
+                                <span className="pageObject">{beachHour.windDirection.sg <= 22.5 ? " North " : 
+                                    page[0].windDirection.sg > 22.5 &&
+                                    page[0].windDirection.sg <= 67.5 ? " North East " :
+                                    page[0].windDirection.sg > 67.5 &&
+                                    page[0].windDirection.sg <= 112.5 ? " East " :
+                                    page[0].windDirection.sg > 112.5 &&
+                                    page[0].windDirection.sg <= 157.5 ? " South East " :
+                                    page[0].windDirection.sg > 157.5 &&
+                                    page[0].windDirection.sg <= 202.5 ? " South " :
+                                    page[0].windDirection.sg > 202.5 &&
+                                    page[0].windDirection.sg <= 247.5 ? " South West " :
+                                    page[0].windDirection.sg > 247.5 &&
+                                    page[0].windDirection.sg <= 292.5 ? " West " :
+                                    page[0].windDirection.sg > 292.5 &&
+                                    page[0].windDirection.sg <= 337.5 ? " North West " :
+                                    page[0].windDirection.sg > 337.5 &&
+                                    page[0].windDirection.sg <= 360 ? " North " : "null"  
+                                }</span>
+                                , a wave height of  <span className="pageObject">{beachHour.waveHeight.sg} m</span>, a swell interval of <span className="pageObject">{parseFloat(beachHour.wavePeriod.noaa).toFixed(1)} s</span>.
+                            </p>
+                        ))}
                         <p className="beach-page-text-report-tide">
                             A preia-mar dá-se às <span className="pageObject">12:43</span>, <br/> a baixa-mar às <span className="pageObject">18:43</span>. 
                         </p>
@@ -138,7 +211,7 @@ function BeachPage() {
                                 <span class="dot-accent"></span>
                             </div> 
                         </div>
-                        <p>Today, {day} {month}</p>
+                        <p>Today, {currentDay} {month}</p>
                         <div>
                             <img src={beginnerMobile}alt="" />
                             <img src={intermediateMobile}alt="" />
@@ -147,50 +220,131 @@ function BeachPage() {
 
                     </div>   
                     <div className="current-conditions-container">
-                        <h3>Current conditions</h3>
+                        <h3>Current sea conditions</h3>
                         <div className="current-conditions">
-                            <div>
-                                <img src={sol} alt="" />
-                                <p>{parseInt(page[0].airTemperature.sg)}º</p>
-                            </div>
-                            <div>
-                                <img src={swellDuration} alt="" />
-                                <p>{parseFloat(page[0].wavePeriod.noaa).toFixed(1)}s</p>
-                            </div>
-                            <div>
-                                <img src={swellHeight} alt="" />
-                                <p>{parseFloat(page[0].waveHeight.sg).toFixed(1)}m</p>
-                            </div>
-                            <div>
-                                <img src={wind} alt="" />
-                                <p>
-                                {parseFloat(page[0].windSpeed.sg).toFixed(1)}<span className="kts">kts</span> 
-                                <span className="pageObject">{page[0].windDirection.sg <= 22.5 ? " N " : 
-                                    page[0].windDirection.sg > 22.5 &&
-                                    page[0].windDirection.sg <= 67.5 ? " NE " :
-                                    page[0].windDirection.sg > 67.5 &&
-                                    page[0].windDirection.sg <= 112.5 ? " E " :
-                                    page[0].windDirection.sg > 112.5 &&
-                                    page[0].windDirection.sg <= 157.5 ? " SE " :
-                                    page[0].windDirection.sg > 157.5 &&
-                                    page[0].windDirection.sg <= 202.5 ? " S " :
-                                    page[0].windDirection.sg > 202.5 &&
-                                    page[0].windDirection.sg <= 247.5 ? " SW " :
-                                    page[0].windDirection.sg > 247.5 &&
-                                    page[0].windDirection.sg <= 292.5 ? " W " :
-                                    page[0].windDirection.sg > 292.5 &&
-                                    page[0].windDirection.sg <= 337.5 ? " NW " :
-                                    page[0].windDirection.sg > 337.5 &&
-                                    page[0].windDirection.sg <= 360 ? " N " : "null"  
-                                }</span>
-                                </p>
-                            </div>
+                            {console.log(beachDays[0])}
+                            {beachDays[0].filter((beachDay, index) => index === time).map((beachHour, index) => (
+                                <div>
+                                    <div>
+                                        <img src={sol} alt="" />
+                                        <p>{parseInt(beachHour.airTemperature.sg)}º</p>
+                                    </div>
+                                    <div>
+                                        <img src={swellDuration} alt="" />
+                                        <p>{parseFloat(beachHour.wavePeriod.noaa).toFixed(1)}s</p>
+                                    </div>
+                                    <div>
+                                        <img src={swellHeight} alt="" />
+                                        <p>{parseFloat(beachHour.waveHeight.sg).toFixed(1)}m</p>
+                                    </div>
+                                    <div>
+                                        <img src={wind} alt="" />
+                                        <p>
+                                            {parseFloat(beachHour.windSpeed.sg).toFixed(1)}<span className="kts">kts</span> 
+                                            <span className="pageObject">{beachHour.windDirection.sg <= 22.5 ? " N " : 
+                                                beachHour.windDirection.sg > 22.5 &&
+                                                beachHour.windDirection.sg <= 67.5 ? " NE " :
+                                                beachHour.windDirection.sg > 67.5 &&
+                                                beachHour.windDirection.sg <= 112.5 ? " E " :
+                                                beachHour.windDirection.sg > 112.5 &&
+                                                beachHour.windDirection.sg <= 157.5 ? " SE " :
+                                                beachHour.windDirection.sg > 157.5 &&
+                                                beachHour.windDirection.sg <= 202.5 ? " S " :
+                                                beachHour.windDirection.sg > 202.5 &&
+                                                beachHour.windDirection.sg <= 247.5 ? " SW " :
+                                                beachHour.windDirection.sg > 247.5 &&
+                                                beachHour.windDirection.sg <= 292.5 ? " W " :
+                                                beachHour.windDirection.sg > 292.5 &&
+                                                beachHour.windDirection.sg <= 337.5 ? " NW " :
+                                                beachHour.windDirection.sg > 337.5 &&
+                                                beachHour.windDirection.sg <= 360 ? " N " : "null"  
+                                            }</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>              
                     <div className="conditions-hour-container">
-                        <h3>Current conditions</h3>
+                        <h3>Sea conditions Forecast</h3>
                         <div className="conditions-hour">
-                           
+                            <Swiper pagination={true} className="mySwiper">
+                                {beachDays.map((beachDay, index) => (
+                                            
+                                            <SwiperSlide key={index} >
+                                                {/* {console.log(beachDay)} */}
+                                                <div className="day-slide">
+                                                    <div>
+                                                        <p>{+beachDay[index].time.substring(8,10) === currentDay ? "Today" : +beachDay[index].time.substring(8,10) === tomorrow ? "Tomorrow" : month + " " +beachDay[index].time.substring(8,10)  }</p> 
+                                                       
+                                                    </div>
+                                                    <div>
+                                                        <span>Next day</span>
+                                                        <FaChevronRight />
+                                                    </div>
+                                                </div>
+
+                                                <Swiper pagination={true} className="mySwiper" >
+                                                    {beachDay.filter((beachHour, index) =>  index === 0 || index === 7 || index === 10 || index === 13 || index === 16 || index === 19 || index === 22).map((beachHour, index) => (
+                                                                
+                                                                <SwiperSlide key={index}>
+                                                                    
+                                                                    <div className="day-slide-hour">
+                                                                        <div>
+                                                                            <span>{+beachHour.time.substring(11,13) === time ? "Now" : beachHour.time.substring(11,13) + ":00"}</span>
+                                                                            <span className="line"></span>
+                                                                        </div>
+                                                                        <div>
+                                                                            <span>Next hour</span>
+                                                                            <FaChevronRight />
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="day-slide-hour-data">
+                                                                        <div>
+                                                                            <img src={airTemperatureBlue} alt="" />
+                                                                            <img src={waterTemperature} alt="" />
+                                                                            <img src={swellDuration} alt="" />
+                                                                            <img src={swellHeight} alt="" />
+                                                                            <img src={wind} alt="" />
+                                                                            <img src={windDirection} alt="" />
+                                                                        </div>
+                                                                        <div>
+                                                                            <p><span>{parseFloat(beachHour.airTemperature.sg).toFixed(1)} </span> º</p>
+                                                                            <p><span>{parseFloat(beachHour.waterTemperature.sg).toFixed(1)} </span> º</p>
+                                                                            <p><span>{parseFloat(beachHour.swellPeriod.sg).toFixed(1)}</span>s</p>
+                                                                            <p><span>{parseFloat(beachHour.swellHeight.sg).toFixed(1)}</span>m</p>
+                                                                            <p><span>{parseFloat(beachHour.windSpeed.sg).toFixed(1)}</span>kts</p>
+                                                                            <p>
+                                                                                <span className="">{beachHour.windDirection.sg <= 22.5 ? " N " : 
+                                                                                    beachHour.windDirection.sg > 22.5 &&
+                                                                                    beachHour.windDirection.sg <= 67.5 ? " NE " :
+                                                                                    beachHour.windDirection.sg > 67.5 &&
+                                                                                    beachHour.windDirection.sg <= 112.5 ? " E " :
+                                                                                    beachHour.windDirection.sg > 112.5 &&
+                                                                                    beachHour.windDirection.sg <= 157.5 ? " SE " :
+                                                                                    beachHour.windDirection.sg > 157.5 &&
+                                                                                    beachHour.windDirection.sg <= 202.5 ? " S " :
+                                                                                    beachHour.windDirection.sg > 202.5 &&
+                                                                                    beachHour.windDirection.sg <= 247.5 ? " SW " :
+                                                                                    beachHour.windDirection.sg > 247.5 &&
+                                                                                    beachHour.windDirection.sg <= 292.5 ? " W " :
+                                                                                    beachHour.windDirection.sg > 292.5 &&
+                                                                                    beachHour.windDirection.sg <= 337.5 ? " NW " :
+                                                                                    beachHour.windDirection.sg > 337.5 &&
+                                                                                    beachHour.windDirection.sg <= 360 ? " N " : "null"  
+                                                                                }</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </SwiperSlide>
+                                
+                                                    ))}
+                                                </Swiper>
+
+                                            </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </div>
                     </div>   
                     <div>
