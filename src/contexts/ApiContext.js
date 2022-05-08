@@ -207,26 +207,28 @@ Code for requesting data from stormglass
   );
 
   const calculator = () => {
-    let surfRating = 0;
-    let windSpeedRating = 0;
-    let gustSpeedRating = 0;
-    let windDirectionRating = 0;
-    let swellPeriodRating = 0;
-    let swellDirectionRating = 0;
-    let swellSizeRating = 0;
-
+    
+    //Now 6, 9, 12, 15, 18, 21
     seaInfo.map((beach, beachIndex) =>
       beach
         .filter(
           (hour) =>
-            +hour.time.substring(11, 13) > 5 &&
-            +hour.time.substring(11, 13) < 19 &&
-            +hour.time.substring(11, 13) % 3 === 0
-        )
+            +hour.time.substring(11, 13) > 4 &&
+            +hour.time.substring(11, 13) < 22 &&
+            // +hour.time.substring(11, 13) % 3 === 0 &&
+            +hour.time.substring(11, 13) < 24
+        ) 
         .map((surfHour, surfHourIndex) => {
           
+          let surfRating = 0;
+          let windSpeedRating = 0;
+          let gustSpeedRating = 0;
+          let windDirectionRating = 0;
+          let swellPeriodRating = 0;
+          let swellDirectionRating = 0;
+          let swellSizeRating = 0;
 
-          if (surfHour.windSpeed.sg <= 5) {
+          if (surfHour.windSpeed.sg <= 5) {   
             windSpeedRating += 5
           }
           else if (surfHour.windSpeed.sg > 5 && surfHour.windSpeed.sg <= 10) {
@@ -236,7 +238,7 @@ Code for requesting data from stormglass
             windSpeedRating += 1
           }
           if (surfHour.gust.sg <= 5) {
-            gustSpeedRating += 5
+            gustSpeedRating += 5          
           }
           else if (surfHour.gust.sg > 5 && surfHour.gust.sg <= 10) {
             gustSpeedRating += 3
@@ -300,13 +302,40 @@ Code for requesting data from stormglass
           surfRating += swellSizeRating;
           surfHour.surfRating = surfRating;
           console.log(surfRating)
-          console.log( beachesInfo[beachIndex].perfectWindDirectionSurf)
+          console.log(beachesInfo[beachIndex].perfectWindDirectionSurf)
           console.log(convertedWindDirection)
+          console.log(surfHour)
+
+
+
+          // Excellent = 17/20
+          // Very good = 13/16
+          // Good = 8/12
+          // Insufficient = 4/7
+          // Poor = 0/3
+
+          let finalRating = "";
+          if( surfRating >= 17 && surfRating <= 20) {
+            finalRating = "Excellent";
+          } else if ( surfRating >= 13 && surfRating <= 16) {
+            finalRating = "Very good"
+          } else if ( surfRating >= 8 && surfRating <= 12) {
+            finalRating = "Good"
+          } else if ( surfRating >= 4 && surfRating <= 7) {
+            finalRating = "Insufficient"
+          } else if ( surfRating >= 0 && surfRating <= 3) {
+            finalRating = "Poor"
+          }
+          
+          surfHour.finalRating = finalRating;
+          console.log(finalRating)
           console.log(surfHour)
         })
     );
   };
+
   calculator();
+ 
 
   const firstDay = seaInfo.map((beach) =>
     beach.filter((el, index) => index < 24)
@@ -330,11 +359,13 @@ Code for requesting data from stormglass
   fourthDay.map((el, index) => (el.name = beachesInfo[index].name));
   fifthDay.map((el, index) => (el.name = beachesInfo[index].name));
 
+
   console.log(firstDay);
 
   useEffect(() => {
     getWeatherInfo();
     getSeaConditionsInfo();
+    
   }, []);
 
   if (loading) return "...Loading...";
