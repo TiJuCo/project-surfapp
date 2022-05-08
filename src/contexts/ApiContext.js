@@ -136,7 +136,8 @@ Code for requesting data from stormglass
     return res.data;
   };
 
-  const getTideInfo = async (ourApi) => {
+  // Tide info API request
+  /*const getTideInfo = async (ourApi) => {
     ourApi.map(async (beach) => {
       const res = await axios.get(
         `https://api.stormglass.io/v2/tide/extremes/point?lat=${beach.latitude}&lng=${beach.longitude}`,
@@ -154,6 +155,16 @@ Code for requesting data from stormglass
         return state;
       });
     });
+  };
+  */
+
+  const getTideInfo = async (ourApi) => {
+    const res = await axios.get(
+      `https://run.mocky.io/v3/476bbd4c-e97d-4ce0-b29c-f765cc725700`
+    );
+    await setTideInfo(res.data.data.splice(0, 18));
+    console.log(tideInfo);
+    return tideInfo;
   };
 
   const firstDay = seaInfo.map((beach) =>
