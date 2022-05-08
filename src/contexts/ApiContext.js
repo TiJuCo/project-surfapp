@@ -105,6 +105,8 @@ export const ApiContextProvider = ({ children }) => {
     setLoading(false);
   };
 
+  /*
+Code for requesting data from stormglass
   const getStormGlassInfo = async (ourApi) => {
     ourApi.map(async (beach) => {
       const res = await axios.get(
@@ -122,6 +124,16 @@ export const ApiContextProvider = ({ children }) => {
         return state;
       });
     });
+  };
+  */
+
+  const getStormGlassInfo = async (ourApi) => {
+    const res = await axios.get(
+      `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
+    );
+    await setSeaInfo(res.data);
+    console.log(res.data);
+    return res.data;
   };
 
   const getTideInfo = async (ourApi) => {
@@ -160,13 +172,11 @@ export const ApiContextProvider = ({ children }) => {
     beach.filter((el, index) => index > 95)
   );
 
-  firstDay.map((el, index) => el.name = beachesInfo[index].name);
-  secondDay.map((el, index) => el.name = beachesInfo[index].name);
-  thirdDay.map((el, index) => el.name = beachesInfo[index].name);
-  fourthDay.map((el, index) => el.name = beachesInfo[index].name);
-  fifthDay.map((el, index) => el.name = beachesInfo[index].name);
-
-  
+  firstDay.map((el, index) => (el.name = beachesInfo[index].name));
+  secondDay.map((el, index) => (el.name = beachesInfo[index].name));
+  thirdDay.map((el, index) => (el.name = beachesInfo[index].name));
+  fourthDay.map((el, index) => (el.name = beachesInfo[index].name));
+  fifthDay.map((el, index) => (el.name = beachesInfo[index].name));
 
   useEffect(() => {
     getWeatherInfo();
