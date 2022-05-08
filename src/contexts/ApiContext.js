@@ -71,6 +71,8 @@ export const ApiContextProvider = ({ children }) => {
     setLoading(false);
   };
 
+   /*
+Code for requesting data from stormglass
   const getStormGlassInfo = async (ourApi) => {
     ourApi.map(async (beach) => {
       const res = await axios.get(
@@ -88,6 +90,16 @@ export const ApiContextProvider = ({ children }) => {
         return state;
       });
     });
+  };
+  */
+
+  const getStormGlassInfo = async (ourApi) => {
+    const res = await axios.get(
+      `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
+    );
+    await setSeaInfo(res.data);
+    console.log(res.data);
+    return res.data;
   };
 
   // Added the Converted Wind Direction variable assignment to the api context
@@ -196,16 +208,101 @@ export const ApiContextProvider = ({ children }) => {
 
   const calculator = () => {
     let surfRating = 0;
-    seaInfo.map((beach, index) =>
+    let windSpeedRating = 0;
+    let gustSpeedRating = 0;
+    let windDirectionRating = 0;
+    let swellPeriodRating = 0;
+    let swellDirectionRating = 0;
+    let swellSizeRating = 0;
+
+    seaInfo.map((beach, beachIndex) =>
       beach
         .filter(
-          (hour, index) =>
+          (hour) =>
             +hour.time.substring(11, 13) > 5 &&
             +hour.time.substring(11, 13) < 19 &&
             +hour.time.substring(11, 13) % 3 === 0
         )
-        .map((surfHour, index) => {
+        .map((surfHour, surfHourIndex) => {
+          
+
+          if (surfHour.windSpeed.sg <= 5) {
+            windSpeedRating += 5
+          }
+          else if (surfHour.windSpeed.sg > 5 && surfHour.windSpeed.sg <= 10) {
+            windSpeedRating += 3
+          }
+          else if (surfHour.windSpeed.sg < 10 && surfHour.windSpeed.sg <= 17) {
+            windSpeedRating += 1
+          }
+          if (surfHour.gust.sg <= 5) {
+            gustSpeedRating += 5
+          }
+          else if (surfHour.gust.sg > 5 && surfHour.gust.sg <= 10) {
+            gustSpeedRating += 3
+          }
+          else if (surfHour.gust.sg < 10 && surfHour.gust.sg <= 17) {
+            gustSpeedRating += 1
+          }
+          if (convertedWindDirection === beachesInfo[beachIndex].perfectWindDirectionSurf) {
+            windDirectionRating += 2
+          }
+          else if (beachesInfo[beachIndex].perfectWindDirectionSurf === "N" && convertedWindDirection.includes("N")) {
+            windDirectionRating += 1
+          }
+          else if (beachesInfo[beachIndex].perfectWindDirectionSurf === "E" && convertedWindDirection.includes("E")) {
+            windDirectionRating += 1
+          }
+          else if (beachesInfo[beachIndex].perfectWindDirectionSurf === "S" && convertedWindDirection.includes("S")) {
+            windDirectionRating += 1
+          }
+          else if (beachesInfo[beachIndex].perfectWindDirectionSurf === "W" && convertedWindDirection.includes("W")) {
+            windDirectionRating += 1
+          }
+          if (surfHour.swellPeriod.sg >= 13) {
+            swellPeriodRating += 3
+          }
+          else if (surfHour.swellPeriod.sg < 13 && surfHour.swellPeriod.sg >= 10) {
+            swellPeriodRating += 2
+          }
+          else if (surfHour.swellPeriod.sg < 10 && surfHour.swellPeriod.sg >= 8) {
+            swellPeriodRating += 1
+          }
+          if (surfHour.swellDirection.sg === beachesInfo[beachIndex].facingDirection) {
+            swellDirectionRating += 2
+          }
+          else if (beachesInfo[beachIndex].facingDirection === "N" && surfHour.convertedSwellDirection.includes("N")) {
+            swellDirectionRating += 1
+          }
+          else if (beachesInfo[beachIndex].facingDirection === "E" && surfHour.convertedSwellDirection.includes("E")) {
+            swellDirectionRating += 1
+          }
+          else if (beachesInfo[beachIndex].facingDirection === "S" && surfHour.convertedSwellDirection.includes("S")) {
+            swellDirectionRating += 1
+          }
+          else if (beachesInfo[beachIndex].facingDirection === "W" && surfHour.convertedSwellDirection.includes("W")) {
+            swellDirectionRating += 1
+          }
+          if (surfHour.swellHeight.sg >= 0.5 && surfHour.swellHeight.sg <= 0.8) {
+            swellSizeRating += 1
+          }
+          else if (surfHour.swellHeight.sg > 0.8 && surfHour.swellHeight.sg <= 1.5) {
+            swellSizeRating += 2
+          }
+          else if (surfHour.swellHeight.sg > 1.5) {
+            swellSizeRating += 3
+          }
+          surfRating += windSpeedRating;
+          surfRating += gustSpeedRating;
+          surfRating += windDirectionRating;
+          surfRating += swellPeriodRating;
+          surfRating += swellDirectionRating;
+          surfRating += swellSizeRating;
           surfHour.surfRating = surfRating;
+          console.log(surfRating)
+          console.log( beachesInfo[beachIndex].perfectWindDirectionSurf)
+          console.log(convertedWindDirection)
+          console.log(surfHour)
         })
     );
   };
