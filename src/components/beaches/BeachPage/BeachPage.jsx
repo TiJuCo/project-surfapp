@@ -94,6 +94,7 @@ function BeachPage() {
     
     
     console.log(fifthDayTide)
+    console.log(time)
 
     const tideInfoDays = [...firstDayTide, ...secondDayTide, ...thirdDayTide, ...fourthDayTide, ...fifthDayTide]; 
 
