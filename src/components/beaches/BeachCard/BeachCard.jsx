@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ApiContext from "../../../contexts/ApiContext.js";
 import "./BeachCard.css";
 import { FaChevronRight } from "react-icons/fa";
@@ -19,6 +19,9 @@ import {
   transportation,
   wc,
   accessibility,
+  beginnerMobile,
+  intermediateMobile,
+  advancedMobile
 } from "../../media/exportMedia.jsx";
 
 const gradient =
@@ -26,13 +29,26 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
-  console.log(element.name)
-
-  const firstDay = element.filter((el, index) => index < 24);
-  const secondDay = element.filter((el, index) => index > 23 && index < 48);
-  const thirdDay = element.filter((el, index) => index > 47 && index < 72);
-  const fourthDay = element.filter((el, index) => index > 71 && index < 96);
-  const fifthDay = element.filter((el, index) => index > 95);
+  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay, seaInfo } = useContext(ApiContext);
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const d = new Date();
+  let month = months[d.getMonth()];
+  const date = new Date();
+  const [currentDay] = useState(date.getDate());
+  const [time] = useState(date.getHours());
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
@@ -83,44 +99,116 @@ function BeachCard(props) {
   };
   resolveWindDirection();
 
+  // map first day -> put tide inside + convertedWindDirection + convertedSwellDirection
+  const beachDays1 = seaInfo
+    .filter((beach, index) => beach.name === element.name)
+    .map((hours, index) => hours.filter((hours, index) => index < 24));
+  const beachDays2 = seaInfo
+    .filter((beach, index) => beach.name === element.name)
+    .map((hours, index) =>
+      hours.filter((hours, index) => index > 23 && index < 48)
+    );
+  const beachDays3 = seaInfo
+    .filter((beach, index) => beach.name === element.name)
+    .map((hours, index) =>
+      hours.filter((hours, index) => index > 47 && index < 72)
+    );
+  const beachDays4 = seaInfo
+    .filter((beach, index) => beach.name === element.name)
+    .map((hours, index) =>
+      hours.filter((hours, index) => index > 71 && index < 96)
+    );
+  const beachDays5 = seaInfo
+    .filter((beach, index) => beach.name === element.name)
+    .map((hours, index) => hours.filter((hours, index) => index > 95));
+
+  const beachDays = [
+    ...beachDays1,
+    ...beachDays2,
+    ...beachDays3,
+    ...beachDays4,
+    ...beachDays5,
+  ];
+
   return (
     element && (
       <>
-      
         <div className="beach-card">
           <Link to={`/beaches/${element.name}`}>
+           
             <div
               className="beach-card-row-1"
               style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
             >
               <h2>{element.name}</h2>
-
+   
               <div>
-                <img src={location} alt="" />
-                <p>{element.county}</p>
+              {beachDays[0].filter((beachDay, index) => index === time).map((beachHour, index) => (
+                    <div className={ beachHour.finalRating == "Excellent" ? "excellent-filter , calculator-home"
+                    : beachHour.finalRating == "Very Good" ? "very-good-filter , calculator-home"
+                    : beachHour.finalRating == "Good" ? "good-filter , calculator-home"
+                    : beachHour.finalRating == "Insufficient" ? "insufficient-filter , calculator-home"
+                    : beachHour.finalRating == "Poor" ? "poor-filter , calculator-home" : "calculator-home"} >
+                          <div>
+                            <p>{beachHour.finalRating}</p>
+                            <div className={beachHour.finalRating == "Excellent" ? "excellent-dot, calc-dots"
+                                          : beachHour.finalRating == "Very good" ? "very-good-dot, calc-dots"
+                                          : beachHour.finalRating == "Good" ? "Good-dot, calc-dots"
+                                          : beachHour.finalRating == "Poor" ? "very-good-dot, calc-dots" : "calc-dots"}>
+                                <span class="dot-accent"></span>
+                                <span class="dot-accent"></span>
+                                <span class="dot-accent"></span>
+                                <span class="dot-accent"></span>
+                                <span class="dot-accent"></span>
+                            </div>
+                          </div>
+                          {/* <div>
+                              <img src={beginnerMobile}alt="" />
+                              <img src={intermediateMobile}alt="" />
+                              <img src={advancedMobile}alt="" />
+                          </div> */}
+                          <p>Today, {currentDay} {month}</p>
+                  </div>
+                 ))} 
+                <div className="location-icon">
+                  <img src={location} alt="" />
+                  <p>{element.county}</p>
+                </div>
               </div>
             </div>
           </Link>
           <div className="beach-card-row-2">
-            <div className="beach-card-row-2-row-1">
-              <div>
-                <img src={sol} alt="" />
-                <p>{parseInt(element[0].airTemperature.sg)}º</p>
-              </div>
-              <div>
-                <img src={swellDuration} alt="" />
-                <p>{parseFloat(element[0].wavePeriod.noaa).toFixed(1)}s</p>
-              </div>
-              <div>
-                <img src={swellHeight} alt="" />
-                <p>{parseFloat(element[0].waveHeight.sg).toFixed(1)}m</p>
-              </div>
-              <div>
-                <img src={wind} alt="" />
-                <p>
-                  {parseFloat(element[0].windSpeed.sg).toFixed(1)}<span className="kts">kts</span> <span className="wind-direction-span">{convertedWindDirection}</span>
-                </p>
-              </div>
+            <div>
+              {beachDays[0]
+                .filter((beachDay, index) => index === time)
+                .map((beachHour, index) => (
+                  <div className="beach-card-row-2-row-1">
+                    <div>
+                      <img src={sol} alt="" />
+                      <p>{parseInt(beachHour.airTemperature.sg)}º</p>
+                    </div>
+                    <div>
+                      <img src={swellDuration} alt="" />
+                      <p>
+                        {parseFloat(beachHour.swellPeriod.noaa).toFixed(1)}s
+                      </p>
+                    </div>
+                    <div>
+                      <img src={swellHeight} alt="" />
+                      <p>{parseFloat(beachHour.swellHeight.sg).toFixed(1)}m</p>
+                    </div>
+                    <div>
+                      <img src={wind} alt="" />
+                      <p>
+                        {parseFloat(beachHour.windSpeed.sg).toFixed(1)}
+                        <span className="kts">kts</span>{" "}
+                        <span className="wind-direction-span">
+                          {convertedWindDirection}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                ))}
             </div>
             <div className="beach-card-row-2-row-2">
               <img
@@ -217,8 +305,6 @@ function BeachCard(props) {
             </div>
           </div>
         </div>
-
-        
       </>
     )
   );

@@ -6,16 +6,36 @@
 
 .home-beaches-popular > div:nth-child(n+3) {
     display: none;
+} 
+
+.home-beaches-popular .calc-dots {
+    gap: 4px !important;
 }
-/* 
-.home-beaches-popular .beach-card:nth-child(1), .home-beaches-popular .beach-card:nth-child(2) {
-    display: grid !important;
-} */
+
+
+
+@media only screen and (min-width: 1024px) {
+
+    .home-beaches-popular .beach-card a .beach-card-row-1 {
+        padding: 20px 20px 0px 20px;
+    }
+    
+    .home-beaches-popular .beach-card a .beach-card-row-1 div {
+        justify-content: space-between;
+    }
+
+    /* .home-beaches-popular .beach-card a .beach-card-row-1 div div:nth-child(2) {
+        margin-top: 30px;
+    } */
+    
+}
 
 @media only screen and (min-width: 1440px) {
 
-    .home-beaches-popular .beach-card{
+    .beach-card{
         min-height: 280px;
     }
+
+    
 }
 

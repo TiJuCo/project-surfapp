@@ -3,7 +3,6 @@ import {linkedIn, github} from '../../media/icons/iconsData'
 import './Info.css'
 
 
-
 function Info(props) {
 
 

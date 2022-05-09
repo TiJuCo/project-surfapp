@@ -3,8 +3,8 @@ export const airTemperatureBlue = require("./airTemperatureBlue.svg");
 export const waterTemperature = require("./waterTemperature.svg");
 export const arrowUp = require("./arrowUp.svg");
 export const arrowDown = require("./arrowDown.svg");
-export const arrowFullLeft = require("./arrowFullLeft.svg");
 export const chevronDown = require("./chevronDown.svg");
+export const arrowFullLeft = require("./arrowFullLeft.svg");
 export const swellDuration = require("./swellDuration.svg");
 export const swellHeight = require("./swellHeight.svg");
 export const wind = require("./wind.svg");
@@ -29,3 +29,13 @@ export const accessibility = require("./accessibility.svg");
 export const beginnerMobile = require("./beginnerMobile.svg");
 export const intermediateMobile = require("./intermediateMobile.svg");
 export const advancedMobile = require("./advancedMobile.svg");
+
+
+//calculator
+export const optimalWind = require("./optimalWind.svg");
+export const optimalSwellHeight = require("./optimalSwellHeight.svg");
+export const beachCrowd = require("./beachCrowd.svg");
+export const beachBreak = require("./beachBreak.svg");
+export const waveConsistency = require("./waveConsistency.svg");
+export const facingDirection = require("./facingDirection.svg");
+export const season = require("./season.svg");

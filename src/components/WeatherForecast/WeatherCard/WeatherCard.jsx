@@ -5,6 +5,7 @@ import { sol, arrowUp, arrowDown } from "../../media/exportMedia.jsx";
 
 const WeatherCard = (props) => {
   const { element, index } = props;
+  const { openWeatherInfo } = useContext(ApiContext);
   const date = new Date();
   const [time] = useState(date.getHours());
 
@@ -14,10 +15,21 @@ const WeatherCard = (props) => {
         <div className="weather-name-temp">
           <div className="weather-name">
             <p>{element.name}</p>
-            <h6>{time > 12 ? `${time - 12} pm` : `${time} am`}</h6>
+            <h6>
+              {time === 0
+                ? `${time + 12} am`
+                : time > 12
+                ? `${time - 12} pm`
+                : `${time} am`}
+            </h6>
           </div>
           <div className="weather-temp">
-            <h2>{element.tMax}</h2>
+            <h2>
+              {openWeatherInfo &&
+                openWeatherInfo
+                  .filter((el) => el.name.includes(element.name))
+                  .map((el) => Math.round(el.main.temp * 10) / 10)}
+            </h2>
           </div>
         </div>
         <div className="weather-icon">

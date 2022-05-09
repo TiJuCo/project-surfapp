@@ -7,12 +7,16 @@
   --secondary-color: #939CF9;
   --tertiary-color: #6E7BF7;
   --tertiary-color-1: #6EB5F7;
-  --tertiary-color-2: #6EB5F7;
+  --tertiary-color-2: #E9EBFE;
   --accent-color: #9A6EF7;
   /* Gradient for card background - use with "mix-blend-mode: multiply;" */
   --gradient-figma: linear-gradient(356.63deg, rgba(57, 73, 87, 0.77) -1.67%, rgba(99, 113, 124, 0.579877) 41.82%, rgba(229, 235, 235, 0) 97.73%, rgba(255, 255, 255, 0) 97.73%);
 
   --excellent: #BB9EFA;
+  --very-good: #9EECE3;
+  --good: #6EB5F7;
+  --insufficient: #CBCBCB;
+  --poor: #FB8065;
 }
 
 * {

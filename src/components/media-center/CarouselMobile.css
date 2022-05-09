@@ -12,7 +12,6 @@
 .carouselVideoMobile {
     width: 100%;
     height: auto;
-    padding-bottom: 40px;
     padding-top: 40px;
 }
 
@@ -35,7 +34,6 @@ video {
     height: auto;
     border-radius: 20px;
     z-index: 1;
-    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
 }
 
 .react-player-duckdive-mobile {
@@ -91,4 +89,6 @@ video {
     .carouselVideoMobile {
         display: none;
     }
+
+    
 }

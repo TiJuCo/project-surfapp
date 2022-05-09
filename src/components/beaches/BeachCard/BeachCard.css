@@ -27,7 +27,7 @@
     gap: 10px;
 }
 
-.beach-card-row-1 div img{
+.beach-card-row-1 .location-icon img{
     width: 15px;
 }
 
@@ -74,6 +74,7 @@
     flex-wrap: wrap;
     gap: 5px;
 }
+
 .icon-active {
     width: 20px;
 }
@@ -92,16 +93,90 @@
     font-weight: 500;
 }
 
+.location-icon {
+    align-self: flex-end;
+    padding-bottom: 23px;
+    padding-right: 8px;
+}
+
+/* calculator */
+
+.calculator-home {
+    display: grid !important;
+    gap: 5px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #151515;
+    padding: 15px;
+}
+
+.calculator-home p {
+    text-align: center;
+}
+
+.calculator-home > div:nth-child(1){
+    flex-direction: column;
+}
+
+.calculator-home > div:nth-child(2) {
+    margin-top: unset;
+}
+
+
+
+.excellent-filter {
+    filter: drop-shadow(14px 24px 0px ,var(--excellent));
+}
+
+.very-good-filter {
+    filter: drop-shadow(14px 24px 0px var(--very-good));
+}
+
+.good-filter {
+    filter: drop-shadow(14px 24px 0px var(--good));
+}
+
+.insufficient-filter {
+    filter: drop-shadow(14px 24px 0px var(--insufficient));
+}
+
+.poor-filter {
+    filter: drop-shadow(14px 24px 0px var(--poor));
+}
+
+.excellent-dot {
+    background-color: var(--excellent);
+}
+
+.very-good-dot {
+    background-color: var(--very-good);
+}
+
+.good-dot {
+    background-color: var(--good);
+
+}
+
+.insufficient-dot {
+    background-color: var(--insufficient);
+}
+
+.poor-dot {
+    background-color: var(--poor);
+}
+
+
 @media only screen and (min-width: 1024px) {
     .beach-card {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        overflow: hidden;
     }
 
     .beach-card-row-1 {
         padding: 20px;
         min-height: 200px;
         height: 100%;
+        overflow: hidden;
     }
 
     .beach-card-row-1 h2 {
