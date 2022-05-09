@@ -215,7 +215,7 @@ function BeachPage() {
                     </span>{" "}
                     wind from the
                     <span className="pageObject">
-                      {beachHour.windDirection.sg <= 22.5
+                      {page[0].windDirection.sg <= 22.5
                         ? " North "
                         : page[0].windDirection.sg > 22.5 &&
                           page[0].windDirection.sg <= 67.5

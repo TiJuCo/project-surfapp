@@ -101,8 +101,7 @@ export const ApiContextProvider = ({ children }) => {
     setLoading(false);
   };
 
-  /*
-Code for requesting data from stormglass
+  // Code for requesting data from stormglass
   const getStormGlassInfo = async (ourApi) => {
     ourApi.map(async (beach) => {
       const res = await axios.get(
@@ -121,15 +120,14 @@ Code for requesting data from stormglass
       });
     });
   };
-  */
 
-  const getStormGlassInfo = async (ourApi) => {
-    const res = await axios.get(
-      `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
-    );
-    await setSeaInfo(res.data);
-    return res.data;
-  };
+  // const getStormGlassInfo = async (ourApi) => {
+  //   const res = await axios.get(
+  //     `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
+  //   );
+  //   await setSeaInfo(res.data);
+  //   return res.data;
+  // };
 
   // Tide info API request
   /*const getTideInfo = async (ourApi) => {
