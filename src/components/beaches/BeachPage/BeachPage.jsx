@@ -133,7 +133,7 @@ function BeachPage() {
   const fifthDayTide = tideInfo
     .filter((beach) => beach.name === params.beachName)
     .map((days, index) =>
-      days.filter((day) => +day.time.substring(8, 10) === day1)
+      days.filter((day) => +day.time.substring(8, 10) === day5)
     );
 
   const tideInfoDays = [
@@ -777,34 +777,33 @@ function BeachPage() {
                               <FaChevronRight />
                             </div>
                           </div>
-
-                          <Swiper pagination={true} className="mySwiper">
-                            {tideInfoDay.map((tideHour, index) => (
-                              <SwiperSlide key={index}>
-                                <div className="day-slide-hour">
-                                  <div>
-                                    <span>
-                                      {+tideHour.time.substring(11, 13) ===
-                                        time && index === 0
-                                        ? "Now"
-                                        : tideHour.time.substring(11, 13) +
-                                          ":00"}
-                                    </span>
-                                    <span className="line"></span>
-                                  </div>
-                                  <div>
-                                    <span>Next hour</span>
-                                    <FaChevronRight />
-                                  </div>
+                          {tideInfoDay.map((tideHour, index) => (
+                            <SwiperSlide key={index}>
+                              <div className="day-slide-hour">
+                                <div>
+                                  <b>
+                                    {tideHour.type.charAt(0).toUpperCase() +
+                                      tideHour.type.slice(1)}
+                                  </b>
+                                  <span>
+                                    {(
+                                      Math.round(tideHour.height + 2.1 * 100) /
+                                      100
+                                    ).toFixed(2) + "m"}
+                                  </span>
+                                  <span>{tideHour.time.substring(11, 16)}</span>
+                                  <span className="line"></span>
                                 </div>
-
-                                <div className="day-slide-hour-data">
-                                  <div></div>
-                                  <div></div>
+                                <div>
+                                  <FaChevronRight />
                                 </div>
-                              </SwiperSlide>
-                            ))}
-                          </Swiper>
+                              </div>
+                              <div className="day-slide-hour-data">
+                                <div></div>
+                                <div></div>
+                              </div>
+                            </SwiperSlide>
+                          ))}
                         </SwiperSlide>
                       ))}
                     </Swiper>
