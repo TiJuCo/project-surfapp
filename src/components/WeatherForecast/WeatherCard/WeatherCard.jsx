@@ -8,6 +8,7 @@ const WeatherCard = (props) => {
   const { openWeatherInfo } = useContext(ApiContext);
   const date = new Date();
   const [time] = useState(date.getHours());
+  console.log(time);
 
   return (
     <div key={index} className="weather-card">
