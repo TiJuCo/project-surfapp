@@ -565,7 +565,7 @@ function BeachPage() {
                           <div className="day-slide-desktop">
                             <div>
                               <div>
-                                <p>
+                                <p className="day-slide-day">
                                   {+beachDay[0].time.substring(8, 10) ===
                                   currentDay
                                     ? "Today"
@@ -632,7 +632,7 @@ function BeachPage() {
                                     <div>
                                       <div className="hour-slide-column-1">
                                         {console.log(+beachHour.time.substring(11, 13))}
-                                        {console.log(time)}
+                                        {console.log(beachHour)}
                                         <p>{
                                             +beachHour.time.substring(11, 13) === time
                                               ? "Now"
@@ -646,29 +646,29 @@ function BeachPage() {
                                         <span className="line"></span>
                                       </div>
                                       <p>
-                                        {parseFloat(
+                                        <span>{parseFloat(
                                             beachHour.airTemperature.sg
-                                          ).toFixed(1)}
+                                          ).toFixed(1)}</span> º
                                       </p>
                                       <p>
-                                        {parseFloat(
+                                        <span>{parseFloat(
                                             beachHour.waterTemperature.sg
-                                          ).toFixed(1)}
+                                          ).toFixed(1)}</span> º
                                       </p>
                                       <p>
-                                        {parseFloat(
-                                            beachHour.swellDirection.sg
-                                          ).toFixed(1)}
+                                        <span>{parseFloat(
+                                            beachHour.swellPeriod.sg
+                                          ).toFixed(1)}</span> s
                                       </p>
                                       <p>
-                                        {parseFloat(
+                                        <span>{parseFloat(
                                             beachHour.swellHeight.sg
-                                          ).toFixed(1)}
+                                          ).toFixed(1)}</span> m
                                       </p>
                                       <p>
-                                        {parseFloat(
+                                        <span>{parseFloat(
                                             beachHour.windSpeed.sg
-                                          ).toFixed(1)}
+                                          ).toFixed(1)}</span> kts
                                       </p>
                                       <p>
                                       {beachHour.windDirection.sg <= 22.5
