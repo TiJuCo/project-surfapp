@@ -1,7 +1,7 @@
 import "./WeatherCard.css";
 import { useState, useContext } from "react";
 import ApiContext from "../../../contexts/ApiContext.js";
-import { sol, arrowUp, arrowDown } from "../../media/exportMedia.jsx";
+import { sol, arrowUp, arrowDown, rain, cloudySun, clouds } from "../../media/exportMedia.jsx";
 
 const WeatherCard = (props) => {
   const { element, index } = props;
@@ -33,7 +33,30 @@ const WeatherCard = (props) => {
           </div>
         </div>
         <div className="weather-icon">
-          <img src={sol} alt="" />
+          {console.log(openWeatherInfo[0].weather[0].description)}
+           <img src={ 
+                openWeatherInfo &&
+                openWeatherInfo
+                  .filter((el) => el.name.includes(element.name))
+                  .map((el, index) => Math.round(el.weather.description)) 
+                  .includes("cloud") ? "clouds" 
+                : 
+                openWeatherInfo &&
+                openWeatherInfo
+                  .filter((el) => el.name.includes(element.name))
+                  .map((el, index) => Math.round(el.weather.description)) 
+                  .includes("clear sky") ? "sol"
+                : 
+                openWeatherInfo &&
+                openWeatherInfo
+                  .filter((el) => el.name.includes(element.name))
+                  .map((el, index) => Math.round(el[index].weather.description )) 
+                  .includes("rain") ? "rain"
+                :
+                "cloudySun"
+                }  
+                alt="" 
+          />
         </div>
       </div>
       <div className="weather-card-body">

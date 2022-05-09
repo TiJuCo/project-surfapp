@@ -1,4 +1,4 @@
-export const sol = require("./sol.svg");
+
 export const airTemperatureBlue = require("./airTemperatureBlue.svg");
 export const waterTemperature = require("./waterTemperature.svg");
 export const arrowUp = require("./arrowUp.svg");
@@ -11,6 +11,11 @@ export const wind = require("./wind.svg");
 export const windDirection = require("./windDirection.svg");
 export const location = require("./location.svg");
 
+// weather
+export const sol = require("./sol.svg");
+export const cloudySun = require("./cloudySun.svg");
+export const rain = require("./rain.svg");
+export const clouds = require("./clouds.svg");
 
 // services
 export const lifeguard = require("./lifeguard.svg");
