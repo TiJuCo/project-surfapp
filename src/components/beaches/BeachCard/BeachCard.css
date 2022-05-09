@@ -27,7 +27,7 @@
     gap: 10px;
 }
 
-.beach-card-row-1 div img{
+.beach-card-row-1 .location-icon img{
     width: 15px;
 }
 
@@ -106,12 +106,22 @@
     gap: 5px;
     border-radius: 10px 10px 0px 0px;
     background-color: #151515;
-    padding: 10px;
+    padding: 15px;
+}
+
+.calculator-home p {
+    text-align: center;
 }
 
 .calculator-home > div:nth-child(1){
     flex-direction: column;
 }
+
+.calculator-home > div:nth-child(2) {
+    margin-top: unset;
+}
+
+
 
 .excellent-filter {
     filter: drop-shadow(14px 24px 0px var(--excellent));
@@ -146,6 +156,7 @@
         padding: 20px;
         min-height: 200px;
         height: 100%;
+        overflow: hidden;
     }
 
     .beach-card-row-1 h2 {

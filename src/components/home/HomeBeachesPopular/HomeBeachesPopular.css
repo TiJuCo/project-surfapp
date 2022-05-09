@@ -4,6 +4,15 @@
     gap: 20px;
 }
 
+.home-beaches-popular > div:nth-child(n+3) {
+    display: none;
+}
+
+.home-beaches-popular .calc-dots {
+    gap: 4px !important;
+}
+
+
 
 @media only screen and (min-width: 1024px) {
 
@@ -15,9 +24,9 @@
         justify-content: space-between;
     }
 
-    .home-beaches-popular .beach-card a .beach-card-row-1 div div:nth-child(2) {
+    /* .home-beaches-popular .beach-card a .beach-card-row-1 div div:nth-child(2) {
         margin-top: 30px;
-    }
+    } */
     
 }
 

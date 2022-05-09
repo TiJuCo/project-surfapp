@@ -136,14 +136,13 @@ function BeachCard(props) {
       <>
         <div className="beach-card">
           <Link to={`/beaches/${element.name}`}>
-            {console.log(element.name)}
-            {console.log(seaInfo)}
+           
             <div
               className="beach-card-row-1"
               style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
             >
               <h2>{element.name}</h2>
-              {console.log(beachDays)}
+   
               <div>
               {beachDays[0].filter((beachDay, index) => index === time).map((beachHour, index) => (
                 <div className={ beachHour.finalRating == "Excellent" ? "excellent-filter , calculator-home" 
@@ -152,6 +151,7 @@ function BeachCard(props) {
                               : beachHour.finalRating == "Insufficient" ? "insufficient-filter , calculator-home" 
                               : beachHour.finalRating == "Poor" ? "poor-filter , calculator-home" : "calculator-home"} >
                        
+                        
                         <div>
                           <p>{beachHour.finalRating}</p>
                           {console.log(beachDays[index].finalRating)}
@@ -164,12 +164,13 @@ function BeachCard(props) {
                           </div> 
                         
                         </div>
-                          <p>Today, {currentDay} {month}</p>
-                        <div>
+                          
+                        {/* <div>
                             <img src={beginnerMobile}alt="" />
                             <img src={intermediateMobile}alt="" />
                             <img src={advancedMobile}alt="" />
-                        </div>
+                        </div> */}
+                        <p>Today, {currentDay} {month}</p>
                        
                 </div>
                  ))} 
