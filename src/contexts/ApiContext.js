@@ -72,7 +72,7 @@ export const ApiContextProvider = ({ children }) => {
   };
 
   // Code for requesting data from stormglass
-  const getStormGlassInfo = async (ourApi) => {
+/* const getStormGlassInfo = async (ourApi) => {
     ourApi.map(async (beach) => {
       const res = await axios.get(
         `https://api.stormglass.io/v2/weather/point?lat=${beach.latitude}&lng=${beach.longitude}&params=${params}`,
@@ -89,17 +89,17 @@ export const ApiContextProvider = ({ children }) => {
         return state;
       });
     });
-  };
+  };*/
 
   // Fail Safe request mocky API
-  // const getStormGlassInfo = async (ourApi) => {
-  //   const res = await axios.get(
-  //     `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
-  //   );
-  //   await setSeaInfo(res.data);
-  //   console.log(res.data);
-  //   return res.data;
-  // };
+   const getStormGlassInfo = async (ourApi) => {
+    const res = await axios.get(
+       `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
+     );
+     await setSeaInfo(res.data);
+     console.log(res.data);
+     return res.data;
+   };
 
   // Added the Converted Wind Direction variable assignment to the api context
   let convertedWindDirection = "";

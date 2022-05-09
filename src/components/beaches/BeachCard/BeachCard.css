@@ -92,6 +92,26 @@
     font-weight: 500;
 }
 
+.location-icon {
+    align-self: flex-end;
+    padding-bottom: 23px;
+    padding-right: 8px;
+}
+
+/* calculator */
+
+.calculator-home {
+    display: grid !important;
+    gap: 5px;
+    border-radius: 10px;
+    background-color: #151515;
+    padding: 10px
+}
+
+.calculator-home > div:nth-child(1){
+    flex-direction: column;
+}
+
 @media only screen and (min-width: 1024px) {
     .beach-card {
         display: grid;

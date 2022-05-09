@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ApiContext from "../../../contexts/ApiContext.js";
 import "./BeachCard.css";
 import { FaChevronRight } from "react-icons/fa";
@@ -19,6 +19,9 @@ import {
   transportation,
   wc,
   accessibility,
+  beginnerMobile,
+  intermediateMobile,
+  advancedMobile
 } from "../../media/exportMedia.jsx";
 
 const gradient =
@@ -26,9 +29,15 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
-  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay } =
+  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay,  } =
     useContext(ApiContext);
   console.log(firstDay);
+
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const date = new Date();
+  const [time] = useState(date.getHours());
+  const [day] = useState(date.getDate());
+  let month = months[date.getMonth()];
 
   return (
     element && (
@@ -40,10 +49,36 @@ function BeachCard(props) {
               style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
             >
               <h2>{element.name}</h2>
-
+              {console.log(element)}
               <div>
-                <img src={location} alt="" />
-                <p>{element.county}</p>
+                <div className="calculator-home">
+                  <div>
+                    {/*{element.filter((beachHour, index) =>
+            
+                    
+                    
+                    )}*/}
+                        <p>{element}</p>
+                        {console.log(element[108].finalRating)}
+                        <div className="calc-dots">
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                        </div> 
+                        </div>
+                          <p>Today, {day} {month}</p>
+                        <div>
+                            <img src={beginnerMobile}alt="" />
+                            <img src={intermediateMobile}alt="" />
+                            <img src={advancedMobile}alt="" />
+                        </div>
+                </div>
+                <div className="location-icon">
+                  <img src={location} alt="" />
+                  <p>{element.county}</p>
+                </div>
               </div>
             </div>
           </Link>
