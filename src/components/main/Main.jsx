@@ -6,6 +6,7 @@ import { ArticlesData } from "../news/NewsData";
 import NewsPage, { NewsPageCard } from "../news/NewsPage";
 import BeachPage from "../beaches/BeachPage/BeachPage";
 import PageTest from "../news/PageTest";
+import Info from "../Info/Info";
 
 
 
@@ -16,7 +17,8 @@ function Main() {
       <Route path="/beaches" element={<Beaches />} />
       <Route path="/beaches/:beachName" element={<BeachPage />} /> 
       <Route path="/news/:index" element={<NewsPageCard ArticlesData={ArticlesData} />} /> 
-      <Route path="/news" element={<News/>} /> 
+      <Route path="/news" element={<News />} /> 
+      <Route path="/info" element={<Info />} /> 
       {/*<Route path="/news/:newsPage" element={<NewsPage/>} />*/}
       {/* <Route path="/news" element={<NewsList />} /> */}
       {/* <Route path="/beaches" element={<Beaches />} /> */}
