@@ -224,10 +224,6 @@ export const ApiContextProvider = ({ children }) => {
 
   // Fail safe API request sea conditions
 
- 
-
-  
-
   /* 
   1st beaches URL: https://run.mocky.io/v3/2931bc42-ef0a-4e23-bb72-6901ae0f7193
   2nd beaches URL: https://run.mocky.io/v3/bd9a7f8f-b246-4915-a564-34901da92e6a
@@ -474,9 +470,9 @@ export const ApiContextProvider = ({ children }) => {
             finalRating = "Excellent";
           } else if (surfRating >= 13 && surfRating <= 16) {
             finalRating = "Very good";
-          } else if (surfRating >= 8 && surfRating <= 12) {
+          } else if (surfRating >= 9 && surfRating <= 12) {
             finalRating = "Good";
-          } else if (surfRating >= 4 && surfRating <= 7) {
+          } else if (surfRating >= 4 && surfRating <= 8) {
             finalRating = "Insufficient";
           } else if (surfRating <= 3) {
             finalRating = "Poor";
@@ -486,9 +482,7 @@ export const ApiContextProvider = ({ children }) => {
         })
     );
   };
-  
 
-  
   calculator();
 
   const firstDay = seaInfo.map((beach) =>
