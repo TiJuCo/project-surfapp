@@ -34,7 +34,28 @@ const WeatherCard = (props) => {
           </div>
         </div>
         <div className="weather-icon">
-          <img src={sol} alt="" />
+          <img src={ 
+                openWeatherInfo &&
+                openWeatherInfo
+                  .filter((el) => el.name.includes(element.name))
+                  .map((el, index) => Math.round(el.weather[index].description)) 
+                  .includes("cloud") ? "clouds" 
+                : 
+                openWeatherInfo &&
+                openWeatherInfo
+                  .filter((el) => el.name.includes(element.name))
+                  .map((el, index) => Math.round(el.weather[index].description)) 
+                  .includes("clear sky") ? "sol"
+                : 
+                openWeatherInfo &&
+                openWeatherInfo
+                  .filter((el) => el.name.includes(element.name))
+                  .map((el, index) => Math.round(el.weather[index].description )) 
+                  .includes("rain") ? "rain"
+                :
+                "cloudySun"
+                  
+          } alt="" />
         </div>
       </div>
       <div className="weather-card-body">
@@ -48,10 +69,10 @@ const WeatherCard = (props) => {
             <p>{element.tMin}</p>
           </div>
         </div>
-        <div className="weather-day">
+        {/* <div className="weather-day">
           <h5>Today</h5>
           <label className="days" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
