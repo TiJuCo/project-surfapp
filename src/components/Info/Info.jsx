@@ -20,40 +20,40 @@ function Info(props) {
                 </div>
                 <div  className='info-team-photos'>
                     <div>
-                        <div  className='profiles'>
+                        <div className='info-team-photos-1'>
                             
                         </div>
                         <div className='social-media-icon'>
                             <h3>Tiago Jacinto</h3>
                         <div className='icon'>
-                            <img src={linkedinIcon} alt="" />
-                            <img src={githubIcon} alt="" />
+                            <a href='https://www.linkedin.com/in/tiago-v-jacinto/' target="_blank" ><img src={linkedinIcon} alt="" /></a>
+                            <a href='https://github.com/TiagoJacinto92' target='_blank'><img src={githubIcon} alt="" /></a> 
                         </div>
                             
                         </div>
                     </div>
                     <div>
-                        <div  className='profiles'>
+                        <div className='info-team-photos-2'>
                             
                         </div>
                         <div className='social-media-icon'>
                             <h3>Juan Giménez</h3>
                         <div className='icon'>
-                            <img src={linkedinIcon} alt="" />
-                            <img src={githubIcon} alt="" />
+                            <a href='https://www.linkedin.com/in/juan-pablo-gim%C3%A9nez-481b83236/' target="_blank" ><img src={linkedinIcon} alt="" /></a>
+                            <a href='https://github.com/jupa248' target='_blank'><img src={githubIcon} alt="" /></a> 
                         </div>
                             
                         </div>
                     </div>
                     <div>
-                        <div  className='profiles'>
+                        <div className='info-team-photos-3'>
                             
                         </div>
                         <div className='social-media-icon'>
                             <h3>Francisco Pereira</h3>
                         <div className='icon'>
-                            <img src={linkedinIcon} alt="" />
-                            <img src={githubIcon} alt="" />
+                            <a href='https://www.linkedin.com/in/francisco-ceriaco-pereira/' target="_blank" ><img src={linkedinIcon} alt="" /></a>
+                            <a href='https://github.com/franciscocpereira' target='_blank'><img src={githubIcon} alt="" /></a> 
                         </div>
                             
                         </div>
