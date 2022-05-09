@@ -47,10 +47,10 @@ const WeatherCard = (props) => {
             <p>{element.tMin}</p>
           </div>
         </div>
-        <div className="weather-day">
+        {/* <div className="weather-day">
           <h5>Today</h5>
           <label className="days" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
