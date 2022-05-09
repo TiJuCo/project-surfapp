@@ -260,9 +260,9 @@ function BeachPage() {
                       </p>
                     ))}
                   <p className="beach-page-text-report-tide">
-                    A preia-mar dá-se às{" "}
-                    <span className="pageObject">12:43</span>, <br /> a
-                    baixa-mar às <span className="pageObject">18:43</span>.
+                    High tide happens at{" "}
+                    <span className="pageObject">12:43</span>, <br /> Low tide
+                    at <span className="pageObject">18:43</span>.
                   </p>
                 </div>
               </div>
