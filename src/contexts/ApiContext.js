@@ -194,7 +194,7 @@ Code for requesting data from stormglass
         hour.swellDirection.sg > 292.5 &&
         hour.swellDirection.sg <= 337.5
       ) {
-        return (convertedSwellDirection = "NW");
+        convertedSwellDirection = "NW";
       } else if (
         hour.swellDirection.sg > 337.5 &&
         hour.swellDirection.sg <= 360
@@ -207,13 +207,7 @@ Code for requesting data from stormglass
   );
 
   const calculator = () => {
-    let surfRating = 0;
-    let windSpeedRating = 0;
-    let gustSpeedRating = 0;
-    let windDirectionRating = 0;
-    let swellPeriodRating = 0;
-    let swellDirectionRating = 0;
-    let swellSizeRating = 0;
+    
 
     seaInfo.map((beach, beachIndex) =>
       beach
@@ -225,9 +219,16 @@ Code for requesting data from stormglass
         )
         .map((surfHour, surfHourIndex) => {
           
+          let surfRating = 0;
+          let windSpeedRating = 0;
+          let gustSpeedRating = 0;
+          let windDirectionRating = 0;
+          let swellPeriodRating = 0;
+          let swellDirectionRating = 0;
+          let swellSizeRating = 0;
 
           if (surfHour.windSpeed.sg <= 5) {
-            windSpeedRating += 5
+            windSpeedRating += 6
           }
           else if (surfHour.windSpeed.sg > 5 && surfHour.windSpeed.sg <= 10) {
             windSpeedRating += 3
@@ -236,7 +237,7 @@ Code for requesting data from stormglass
             windSpeedRating += 1
           }
           if (surfHour.gust.sg <= 5) {
-            gustSpeedRating += 5
+            gustSpeedRating += 6
           }
           else if (surfHour.gust.sg > 5 && surfHour.gust.sg <= 10) {
             gustSpeedRating += 3

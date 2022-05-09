@@ -25,3 +25,7 @@ export const accessibility = require("./accessibility.svg");
 export const beginnerMobile = require("./beginnerMobile.svg");
 export const intermediateMobile = require("./intermediateMobile.svg");
 export const advancedMobile = require("./advancedMobile.svg");
+
+//Social media
+export const linkedinIcon = require("./linkedin.svg");
+export const githubIcon = require("./github.svg");
