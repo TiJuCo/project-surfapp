@@ -44,16 +44,7 @@ import {
 function BeachPage() {
   let params = useParams();
 
-  const {
-    seaInfo,
-    beachesInfo,
-    firstDay,
-    secondDay,
-    thirdDay,
-    fourthDay,
-    fifthDay,
-    tideInfo,
-  } = useContext(ApiContext);
+  const { seaInfo, beachesInfo, tideInfo } = useContext(ApiContext);
 
   seaInfo.forEach((element, index) => {
     element.name = beachesInfo[index].name;

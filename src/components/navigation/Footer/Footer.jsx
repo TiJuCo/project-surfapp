@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { logo } from "../../../media/icons/iconsData";
 import "./footer.css";

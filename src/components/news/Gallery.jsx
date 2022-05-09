@@ -1,5 +1,4 @@
 import React from "react";
-import { ArticlesData } from "./NewsData";
 import "./Gallery.css";
 
 function GalleryCard(card) {
@@ -17,5 +16,3 @@ function GalleryCard(card) {
 }
 
 export default GalleryCard;
-
-

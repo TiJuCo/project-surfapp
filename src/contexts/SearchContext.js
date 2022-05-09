@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 
 const SearchContext = createContext();
 
@@ -9,7 +9,9 @@ export const SearchContextProvider = ({ children }) => {
   const [filteredBeach, setFilteredBeach] = useState("");
 
   return (
-    <SearchContext.Provider value={{ searchValue, setSearchValue, filteredBeach, setFilteredBeach }}>
+    <SearchContext.Provider
+      value={{ searchValue, setSearchValue, filteredBeach, setFilteredBeach }}
+    >
       {children}
     </SearchContext.Provider>
   );
