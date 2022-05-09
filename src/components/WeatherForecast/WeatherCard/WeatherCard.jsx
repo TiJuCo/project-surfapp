@@ -15,7 +15,13 @@ const WeatherCard = (props) => {
         <div className="weather-name-temp">
           <div className="weather-name">
             <p>{element.name}</p>
-            <h6>{time > 12 ? `${time - 12} pm` : `${time} am`}</h6>
+            <h6>
+              {time === 0
+                ? `${time + 12} am`
+                : time > 12
+                ? `${time - 12} pm`
+                : `${time} am`}
+            </h6>
           </div>
           <div className="weather-temp">
             <h2>

@@ -70,7 +70,6 @@ function BeachPage() {
   });
 
   const Days = [firstDay, secondDay, thirdDay, fourthDay, fifthDay];
-  console.log(Days);
 
   const gradient =
     "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)";
@@ -103,34 +102,24 @@ function BeachPage() {
 
   // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS // .filter((el, index) => +el.time.substring(8, 10) === day1)
   const firstDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day1)
-    );
-  const secondDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day2)
-    );
-  const thirdDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day3)
-    );
-  const fourthDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day4)
-    );
-  const fifthDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day5)
-    );
-  fifthDayTide.map((day) => day.push({ time: "2022-05-12T06:08:00+00:00" }));
-  fifthDayTide.map((day) => day.push({ time: "2022-05-12T06:08:00+00:00" }));
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[0]);
 
-  console.log(fifthDayTide);
+  const secondDayTide = tideInfo
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[1]);
+
+  const thirdDayTide = tideInfo
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[2]);
+
+  const fourthDayTide = tideInfo
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[3]);
+
+  const fifthDayTide = tideInfo
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[4]);
 
   const tideInfoDays = [
     ...firstDayTide,
@@ -140,21 +129,11 @@ function BeachPage() {
     ...fifthDayTide,
   ];
 
-  // console.log(tideInfoDays)
-  // console.log(fifthDayTide[0])
-  // console.log(fifthDayTide)
-  // console.log(secondDayTide[0])
-  // console.log(secondDayTide)
-
-  tideInfo.forEach((element, index) => {
-    element.name = beachesInfo[index].name;
-  });
-  console.log(tideInfo);
-
   // map first day -> put tide inside + convertedWindDirection + convertedSwellDirection
   const beachDays1 = seaInfo
     .filter((beach, index) => beach.name === params.beachName)
     .map((hours, index) => hours.filter((hours, index) => index < 24));
+
   const beachDays2 = seaInfo
     .filter((beach, index) => beach.name === params.beachName)
     .map((hours, index) =>
@@ -189,6 +168,7 @@ function BeachPage() {
   beachDays[4] && beachDays[4].unshift(beachDays[4][time]);
 
   console.log(beachDays);
+  console.log(tideInfoDays);
 
   return (
     <div className="container beach-page-container">
@@ -196,7 +176,6 @@ function BeachPage() {
         .filter((page, index) => page.name === params.beachName)
         .map((page) => (
           <div className="beach-page">
-            {console.log(page)}
             <Link to={`/beaches/`}>
               <div className="back">
                 <img src={arrowFullLeft} alt="back" />
@@ -214,7 +193,6 @@ function BeachPage() {
               </div>
             </div>
             <div className="beach-page-content">
-              {console.log(beachDays)}
               <div className="beach-page-time">
                 <p className="beach-page-time-text">
                   <span className="accent">Today</span>, {currentDay} {month}{" "}
@@ -224,7 +202,7 @@ function BeachPage() {
               </div>
 
               {beachDays[0]
-                .filter((beachDay, index) => index === time)
+                .filter((beachDay, index) => index === 0)
                 .map((beachHour, index) => (
                   <p className="beach-page-text-report">
                     We register a temperature of{" "}
@@ -304,9 +282,8 @@ function BeachPage() {
             <div className="current-conditions-container">
               <h3>Current sea conditions</h3>
               <div className="current-conditions">
-                {console.log(beachDays[0])}
                 {beachDays[0]
-                  .filter((beachDay, index) => index === time)
+                  .filter((beachDay, index) => index === 0)
                   .map((beachHour, index) => (
                     <div>
                       <div>
@@ -369,19 +346,15 @@ function BeachPage() {
                 <Swiper pagination={true} className="mySwiper">
                   {beachDays.map((beachDay, index) => (
                     <SwiperSlide key={index}>
-                      {console.log(beachDay)}
+                      {console.log(beachDay[0])}
                       <div className="day-slide">
                         <div>
                           <p>
-                            {+beachDay[index].time.substring(8, 10) ===
-                            currentDay
+                            {+beachDay[0].time.substring(8, 10) === currentDay
                               ? "Today"
-                              : +beachDay[index].time.substring(8, 10) ===
-                                tomorrow
+                              : +beachDay[0].time.substring(8, 10) === tomorrow
                               ? "Tomorrow"
-                              : month +
-                                " " +
-                                beachDay[index].time.substring(8, 10)}
+                              : month + " " + beachDay[0].time.substring(8, 10)}
                           </p>
                         </div>
                         <div>
@@ -516,15 +489,21 @@ function BeachPage() {
               <h3>Tides Forecast</h3>
               <div className="conditions-hour-hour">
                 <Swiper pagination={true} className="mySwiper">
-                  {tideInfoDays.map((tideInfoDay, tideIndex) => (
-                    <SwiperSlide key={tideIndex}>
-                      {console.log(tideInfoDays)}
-                      {console.log(tideInfoDay)}
-                      {console.log(tideInfoDay[3])}
-                      {/* {console.log(+tideInfoDay.time.substring(8,10))} */}
+                  {tideInfoDays.map((tideInfoDay, index) => (
+                    <SwiperSlide key={index}>
+                      {console.log(tideInfoDay[0])}
                       <div className="day-slide">
                         <div>
-                          {/* <p>{+tideInfoDay[tideIndex] && +tideInfoDay[tideIndex].time.substring(8,10) === currentDay ? "Today" : +tideInfoDay[tideIndex] && +tideInfoDay[tideIndex].time.substring(8,10) === tomorrow ? "Tomorrow" : month + " " +tideInfoDay[tideIndex] && +tideInfoDay[tideIndex].time.substring(8,10)}</p> */}
+                          <p>
+                            {+tideInfoDay[0].time.substring(8, 10) ===
+                            currentDay
+                              ? "Today"
+                              : +tideInfoDay[0].time.substring(8, 10) ===
+                                tomorrow
+                              ? "Tomorrow"
+                              : month + " " + tideInfoDay[0] &&
+                                +tideInfoDay[0].time.substring(8, 10)}
+                          </p>
                         </div>
                         <div>
                           <span>Next day</span>
@@ -532,35 +511,31 @@ function BeachPage() {
                         </div>
                       </div>
 
-                      {/* <Swiper pagination={true} className="mySwiper" >
-                                                    {tideInfoDay.map((tideHour, index) => (
-                                                                
-                                                                <SwiperSlide key={index}>
-                                                                    
-                                                                    <div className="day-slide-hour">
-                                                                        <div>
-                                                                            <span>{+tideHour.time.substring(11,13) === time ? "Now" : tideHour.time.substring(11,13) + ":00"}</span>
-                                                                            <span className="line"></span>
-                                                                        </div>
-                                                                        <div>
-                                                                            <span>Next hour</span>
-                                                                            <FaChevronRight />
-                                                                        </div>
-                                                                    </div>
+                      <Swiper pagination={true} className="mySwiper">
+                        {tideInfoDay.map((tideHour, index) => (
+                          <SwiperSlide key={index}>
+                            <div className="day-slide-hour">
+                              <div>
+                                <span>
+                                  {+tideHour.time.substring(11, 13) === time
+                                    ? "Now"
+                                    : tideHour.time.substring(11, 13) + ":00"}
+                                </span>
+                                <span className="line"></span>
+                              </div>
+                              <div>
+                                <span>Next hour</span>
+                                <FaChevronRight />
+                              </div>
+                            </div>
 
-                                                                    <div className="day-slide-hour-data">
-                                                                        <div>
-                                                                            
-                                                                        </div>
-                                                                        <div>
-                                                                        
-                                                                    
-                                                                        </div>
-                                                                    </div>
-                                                                </SwiperSlide>
-                                
-                                                    ))}
-                                                </Swiper> */}
+                            <div className="day-slide-hour-data">
+                              <div></div>
+                              <div></div>
+                            </div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
                     </SwiperSlide>
                   ))}
                 </Swiper>
