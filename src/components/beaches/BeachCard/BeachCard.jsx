@@ -45,7 +45,8 @@ function BeachCard(props) {
   let month = months[d.getMonth()];
   const date = new Date();
   const [currentDay] = useState(date.getDate());
-  const [time] = useState(date.getHours());
+  //const [time] = useState(date.getHours());
+  const time = 12;
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
@@ -166,19 +167,23 @@ function BeachCard(props) {
                               : beachHour.finalRating == "Very good"
                               ? "very-good-dot, calc-dots"
                               : beachHour.finalRating == "Good"
-                              ? "Good-dot, calc-dots"
+                              ? "good-dot, calc-dots"
+                              : beachHour.finalRating == "Insufficient"
+                              ? "insufficient-dot"
                               : beachHour.finalRating == "Poor"
-                              ? "very-good-dot, calc-dots"
+                              ? "poor-dot, calc-dots"
                               : "calc-dots"
                           }
                         >
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
+                          
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                          </div>
                         </div>
-                      </div>
+                      
                       {/* <div>
                               <img src={beginnerMobile}alt="" />
                               <img src={intermediateMobile}alt="" />

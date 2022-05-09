@@ -143,26 +143,79 @@
     filter: drop-shadow(14px 24px 0px var(--poor));
 }
 
-.excellent-dot {
+.excellent-dot > span {
     background-color: var(--excellent);
 }
 
-.very-good-dot {
+.dot-very-good > span {
     background-color: var(--very-good);
 }
 
+.dot-very-good > span:nth-child(5){
+    opacity: 0.3;
+  }
+
 .good-dot {
     background-color: var(--good);
+}
 
+.good-dot > span:nth-child(4) {
+    opacity: 0.3;
+}
+
+.good-dot > span:nth-child(5) {
+    opacity: 0.3;
 }
 
 .insufficient-dot {
+    display: flex;
+    align-items: center;
+    gap: 4px !important;
+    margin-top: unset !important;
+}
+.insufficient-dot > span {
     background-color: var(--insufficient);
 }
 
-.poor-dot {
+.insufficient-dot  span:nth-child(3) {
+    opacity: 0.3;
+}
+
+.insufficient-dot  span:nth-child(4) {
+    opacity: 0.3;
+}
+
+.insufficient-dot  span:nth-child(5) {
+    opacity: 0.3;
+}
+.poor-dot > span{
     background-color: var(--poor);
 }
+
+.poor-dot > span:nth-child(2) {
+    opacity: 0.3;
+}
+.poor-dot > span:nth-child(3) {
+    opacity: 0.3;
+}
+.poor-dot > span:nth-child(4) {
+    opacity: 0.3;
+}
+.poor-dot > span:nth-child(5) {
+    opacity: 0.3;
+}
+
+
+  
+  
+  
+  .dot-good > div{
+    background-color: var;
+  }
+  
+  .dot-good > div:nth-child(4), .dot-good > div:nth-child(5){
+    opacity: 0.3;
+  }
 
 
 @media only screen and (min-width: 1024px) {
