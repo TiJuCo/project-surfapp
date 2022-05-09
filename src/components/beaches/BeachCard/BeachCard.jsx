@@ -148,14 +148,16 @@ function BeachCard(props) {
                 <div className={ beachHour.finalRating == "Excellent" ? "excellent-filter , calculator-home" 
                               : beachHour.finalRating == "Very Good" ? "very-good-filter , calculator-home" 
                               : beachHour.finalRating == "Good" ? "good-filter , calculator-home" 
-                              : beachHour.finalRating == "Insufficient" ? "insufficient-filter , calculator-home" 
                               : beachHour.finalRating == "Poor" ? "poor-filter , calculator-home" : "calculator-home"} >
                        
                         
                         <div>
                           <p>{beachHour.finalRating}</p>
-                          {console.log(beachDays[index].finalRating)}
-                          <div className="calc-dots">
+                  
+                          <div className={beachHour.finalRating == "Excellent" ? "excellent-filter, calc-dots"
+                                        : beachHour.finalRating == "Very good" ? "very-good-filter, calc-dots"
+                                        : beachHour.finalRating == "Good" ? "Good-filter, calc-dots"
+                                        : beachHour.finalRating == "Poor" ? "very-good-filter, calc-dots" : "calc-dots"}>
                               <span class="dot-accent"></span>
                               <span class="dot-accent"></span>
                               <span class="dot-accent"></span>
