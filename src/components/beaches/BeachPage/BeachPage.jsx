@@ -72,7 +72,6 @@ function BeachPage() {
   });
 
   const Days = [firstDay, secondDay, thirdDay, fourthDay, fifthDay];
-  console.log(Days);
 
   const gradient =
     "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)";
@@ -105,34 +104,24 @@ function BeachPage() {
 
   // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS // .filter((el, index) => +el.time.substring(8, 10) === day1)
   const firstDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day1)
-    );
-  const secondDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day2)
-    );
-  const thirdDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day3)
-    );
-  const fourthDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day4)
-    );
-  const fifthDayTide = tideInfo
-    .filter((beach, index) => beach.name === params.beachName)
-    .map((hour) =>
-      hour.filter((hour, index) => +hour.time.substring(8, 10) === day5)
-    );
-  fifthDayTide.map((day) => day.push({ time: "2022-05-12T06:08:00+00:00" }));
-  fifthDayTide.map((day) => day.push({ time: "2022-05-12T06:08:00+00:00" }));
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[0]);
 
-  console.log(fifthDayTide);
+  const secondDayTide = tideInfo
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[1]);
+
+  const thirdDayTide = tideInfo
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[2]);
+
+  const fourthDayTide = tideInfo
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[3]);
+
+  const fifthDayTide = tideInfo
+    .filter((beach) => beach.name === params.beachName)
+    .map((day) => day[4]);
 
   const tideInfoDays = [
     ...firstDayTide,
@@ -142,21 +131,11 @@ function BeachPage() {
     ...fifthDayTide,
   ];
 
-  // console.log(tideInfoDays)
-  // console.log(fifthDayTide[0])
-  // console.log(fifthDayTide)
-  // console.log(secondDayTide[0])
-  // console.log(secondDayTide)
-
-  tideInfo.forEach((element, index) => {
-    element.name = beachesInfo[index].name;
-  });
-  console.log(tideInfo);
-
   // map first day -> put tide inside + convertedWindDirection + convertedSwellDirection
   const beachDays1 = seaInfo
     .filter((beach, index) => beach.name === params.beachName)
     .map((hours, index) => hours.filter((hours, index) => index < 24));
+
   const beachDays2 = seaInfo
     .filter((beach, index) => beach.name === params.beachName)
     .map((hours, index) =>
@@ -191,6 +170,7 @@ function BeachPage() {
   beachDays[4] && beachDays[4].unshift(beachDays[4][time]);
 
   console.log(beachDays);
+  console.log(tideInfoDays);
 
   return (
     <div className="container beach-page-container">
@@ -227,7 +207,7 @@ function BeachPage() {
                 </div>
                 <div>
                   {beachDays[0]
-                    .filter((beachDay, index) => index === time)
+                    .filter((beachDay, index) => index === 0)
                     .map((beachHour, index) => (
                       <p className="beach-page-text-report">
                         We register a temperature of{" "}
@@ -240,7 +220,7 @@ function BeachPage() {
                         </span>{" "}
                         wind from the
                         <span className="pageObject">
-                          {beachHour.windDirection.sg <= 22.5
+                          {page[0].windDirection.sg <= 22.5
                             ? " North "
                             : page[0].windDirection.sg > 22.5 &&
                               page[0].windDirection.sg <= 67.5
@@ -346,7 +326,7 @@ function BeachPage() {
                   <div className="current-conditions">
                     {console.log(beachDays[0])}
                     {beachDays[0]
-                      .filter((beachDay, index) => index === time)
+                      .filter((beachDay, index) => index === 0)
                       .map((beachHour, index) => (
                         <div>
                           <div>
@@ -419,15 +399,15 @@ function BeachPage() {
                           <div className="day-slide">
                             <div>
                               <p>
-                                {+beachDay[index].time.substring(8, 10) ===
+                                {+beachDay[0].time.substring(8, 10) ===
                                 currentDay
                                   ? "Today"
-                                  : +beachDay[index].time.substring(8, 10) ===
+                                  : +beachDay[0].time.substring(8, 10) ===
                                     tomorrow
                                   ? "Tomorrow"
                                   : month +
                                     " " +
-                                    beachDay[index].time.substring(8, 10)}
+                                    beachDay[0].time.substring(8, 10)}
                               </p>
                             </div>
                             <div>

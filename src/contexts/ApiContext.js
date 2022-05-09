@@ -35,7 +35,6 @@ export const ApiContextProvider = ({ children }) => {
     setdistrictInfo(res.data.districts);
     getIpmaInfo(res.data.districts);
     getOpenWeatherInfo(res.data.districts);
-    console.log(res.data.districts);
     setLoading(false);
   };
 
@@ -52,13 +51,10 @@ export const ApiContextProvider = ({ children }) => {
     });
   };
   const getOpenWeatherInfo = async (ourApi) => {
-    console.log(ourApi);
     ourApi.map(async (district) => {
       const res = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${+district.latitude}&lon=${+district.longitude}&appid=9743ddbd55285e7028ccfe78ce525d93&units=metric`
       );
-
-      console.log(res.data);
       setOpenWeatherInfo((state) => {
         state = [...state, res.data];
         return state;
@@ -105,8 +101,7 @@ export const ApiContextProvider = ({ children }) => {
     setLoading(false);
   };
 
-  /*
-Code for requesting data from stormglass
+  // Code for requesting data from stormglass
   const getStormGlassInfo = async (ourApi) => {
     ourApi.map(async (beach) => {
       const res = await axios.get(
@@ -125,16 +120,14 @@ Code for requesting data from stormglass
       });
     });
   };
-  */
 
-  const getStormGlassInfo = async (ourApi) => {
-    const res = await axios.get(
-      `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
-    );
-    await setSeaInfo(res.data);
-    console.log(res.data);
-    return res.data;
-  };
+  // const getStormGlassInfo = async (ourApi) => {
+  //   const res = await axios.get(
+  //     `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
+  //   );
+  //   await setSeaInfo(res.data);
+  //   return res.data;
+  // };
 
   // Tide info API request
   /*const getTideInfo = async (ourApi) => {
@@ -162,10 +155,15 @@ Code for requesting data from stormglass
     const res = await axios.get(
       `https://run.mocky.io/v3/476bbd4c-e97d-4ce0-b29c-f765cc725700`
     );
-    await setTideInfo(res.data.data.splice(0, 18));
-    console.log(tideInfo);
+    setTideInfo(res.data.splice(0, 18));
     return tideInfo;
   };
+
+  tideInfo.forEach((element, index) => {
+    element.name = beachesInfo[index].name;
+  });
+
+  console.log(tideInfo);
 
   const firstDay = seaInfo.map((beach) =>
     beach.filter((el, index) => index < 24)
