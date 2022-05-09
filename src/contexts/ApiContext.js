@@ -97,29 +97,38 @@ export const ApiContextProvider = ({ children }) => {
 
     setBeachesInfo(res.data.beaches);
     getStormGlassInfo(res.data.beaches);
-    getTideInfo(res.data.beaches);
     setLoading(false);
   };
 
+   // Fail Safe request mocky API
+   const getStormGlassInfo = async (ourApi) => {
+    const res = await axios.get(
+       `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
+     );
+     await setSeaInfo(res.data);
+     console.log(res.data);
+     return res.data;
+   };
+
   // Code for requesting data from stormglass
-  const getStormGlassInfo = async (ourApi) => {
-    ourApi.map(async (beach) => {
-      const res = await axios.get(
-        `https://api.stormglass.io/v2/weather/point?lat=${beach.latitude}&lng=${beach.longitude}&params=${params}`,
-        {
-          headers: {
-            Authorization:
-              "307e6928-c241-11ec-ac71-0242ac130002-307e6996-c241-11ec-ac71-0242ac130002",
-          },
-        }
-      );
-      await setSeaInfo((state) => {
-        state = [...state, res.data.hours.splice(0, 120)];
-        console.log(state);
-        return state;
-      });
-    });
-  };
+  // const getStormGlassInfo = async (ourApi) => {
+  //   ourApi.map(async (beach) => {
+  //     const res = await axios.get(
+  //       `https://api.stormglass.io/v2/weather/point?lat=${beach.latitude}&lng=${beach.longitude}&params=${params}`,
+  //       {
+  //         headers: {
+  //           Authorization:
+  //             "307e6928-c241-11ec-ac71-0242ac130002-307e6996-c241-11ec-ac71-0242ac130002",
+  //         },
+  //       }
+  //     );
+  //     await setSeaInfo((state) => {
+  //       state = [...state, res.data.hours.splice(0, 120)];
+  //       console.log(state);
+  //       return state;
+  //     });
+  //   });
+  // };
 
   // const getStormGlassInfo = async (ourApi) => {
   //   const res = await axios.get(
@@ -151,19 +160,21 @@ export const ApiContextProvider = ({ children }) => {
   };
   */
 
-  const getTideInfo = async (ourApi) => {
-    const res = await axios.get(
-      `https://run.mocky.io/v3/476bbd4c-e97d-4ce0-b29c-f765cc725700`
-    );
-    setTideInfo(res.data.splice(0, 18));
-    return tideInfo;
-  };
+  // TIDE INFO
 
-  tideInfo.forEach((element, index) => {
-    element.name = beachesInfo[index].name;
-  });
+  // const getTideInfo = async (ourApi) => {
+  //   const res = await axios.get(
+  //     `https://run.mocky.io/v3/476bbd4c-e97d-4ce0-b29c-f765cc725700`
+  //   );
+  //   setTideInfo(res.data.splice(0, 18));
+  //   return tideInfo;
+  // };
 
-  console.log(tideInfo);
+  // tideInfo.forEach((element, index) => {
+  //   element.name = beachesInfo[index].name;
+  // });
+
+  // console.log(tideInfo);
 
   const firstDay = seaInfo.map((beach) =>
     beach.filter((el, index) => index < 24)

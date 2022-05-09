@@ -5,9 +5,10 @@ import ApiContext from "../../../contexts/ApiContext";
 import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Navigation } from "swiper";
 import { Virtual } from "swiper";
 import { Pagination } from "swiper";
-import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css";
 import {
@@ -328,7 +329,7 @@ function BeachPage() {
                     {beachDays[0]
                       .filter((beachDay, index) => index === 0)
                       .map((beachHour, index) => (
-                        <div>
+                        <div> 
                           <div>
                             <img src={sol} alt="" />
                             <p>{parseInt(beachHour.airTemperature.sg)}º</p>
@@ -391,8 +392,8 @@ function BeachPage() {
               <div className="beach-page-main-container-2">
                 <div className="conditions-hour-container">
                   <h3>Sea conditions Forecast</h3>
-                  <div className="conditions-hour">
-                    <Swiper pagination={true} className="mySwiper">
+                  <div className="conditions-hour-mobile">
+                    <Swiper pagination={true} className="conditions-swiper-mobile">
                       {beachDays.map((beachDay, index) => (
                         <SwiperSlide key={index}>
                           {console.log(beachDay)}
@@ -416,7 +417,7 @@ function BeachPage() {
                             </div>
                           </div>
 
-                          <Swiper pagination={true} className="mySwiper">
+                          <Swiper pagination={true} className="conditions-swiper-mobile">
                             {beachDay
                               .filter(
                                 (beachHour, index) =>
@@ -547,6 +548,177 @@ function BeachPage() {
                                 </SwiperSlide>
                               ))}
                           </Swiper>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                </div>
+                <div className="conditions-hour-container-desktop">
+                  <h3>Sea conditions Forecast</h3>
+                  <div className="conditions-hour-desktop">
+                    <Swiper pagination={true} navigation={true} modules={[Navigation]} className="conditions-swiper-desktop">
+                      {beachDays.map((beachDay, index) => (
+                        <SwiperSlide key={index}>
+                          {console.log(beachDay)}
+                          <div className="day-slide-desktop">
+                            <div>
+                              <div>
+                                <p>
+                                  {+beachDay[0].time.substring(8, 10) ===
+                                  currentDay
+                                    ? "Today"
+                                    : +beachDay[0].time.substring(8, 10) ===
+                                      tomorrow
+                                    ? "Tomorrow"
+                                    : month +
+                                      " " +
+                                      beachDay[0].time.substring(8, 10)}
+                                </p>
+                              </div>
+                              <div>
+                                <span>Next day</span>
+                                <FaChevronRight />
+                              </div>
+                            </div>
+                            <div className="hour-slide-desktop">
+                              
+                              <div className="hour-slide-description-column">
+                                
+                                <div>
+                                    <p>Conditions</p>
+                                    <span className="line"></span>
+                                </div>
+                                <div>
+                                  <img src={airTemperatureBlue} alt="" />
+                                  <p>Temperature</p>
+                                </div>
+                                <div>
+                                  <img src={waterTemperature} alt="" />
+                                  <p>Water temperature</p>
+                                </div>
+                                <div>
+                                  <img src={swellDuration} alt="" />
+                                  <p>Swell duration</p>
+                                </div>
+                                <div>
+                                  <img src={swellHeight} alt="" />
+                                  <p>Swell height</p>
+                                </div>
+                                <div>
+                                  <img src={wind} alt="" />
+                                  <p>Wind speed</p>
+                                </div>
+                                <div>
+                                <img src={windDirection} alt="" />
+                                  <p>Temperature</p>
+                                </div>
+                              </div>
+                              {beachDay
+                              .filter(
+                                (beachHour, index) =>
+                                  index === 0 ||
+                                  index === 7 ||
+                                  index === 10 ||
+                                  index === 13 ||
+                                  index === 16 ||
+                                  index === 19 ||
+                                  index === 22
+                              )
+                              .map((beachHour, index) => (
+                                <div className="hour-slide-column">
+                                    
+                                    <div>
+                                      <div className="hour-slide-column-1">
+                                        {console.log(+beachHour.time.substring(11, 13))}
+                                        {console.log(time)}
+                                        <p>{
+                                            +beachHour.time.substring(11, 13) === time
+                                              ? "Now"
+                                              : beachHour.time.substring(11, 13) +
+                                                ":00"
+                                              // ? +beachHour.time.substring(11, 13) === time 
+                                              // : beachHour.time.substring(11, 13) +
+                                              // ":00"
+                                            }
+                                        </p>
+                                        <span className="line"></span>
+                                      </div>
+                                      <p>
+                                        {parseFloat(
+                                            beachHour.airTemperature.sg
+                                          ).toFixed(1)}
+                                      </p>
+                                      <p>
+                                        {parseFloat(
+                                            beachHour.waterTemperature.sg
+                                          ).toFixed(1)}
+                                      </p>
+                                      <p>
+                                        {parseFloat(
+                                            beachHour.swellDirection.sg
+                                          ).toFixed(1)}
+                                      </p>
+                                      <p>
+                                        {parseFloat(
+                                            beachHour.swellHeight.sg
+                                          ).toFixed(1)}
+                                      </p>
+                                      <p>
+                                        {parseFloat(
+                                            beachHour.windSpeed.sg
+                                          ).toFixed(1)}
+                                      </p>
+                                      <p>
+                                      {beachHour.windDirection.sg <= 22.5
+                                            ? " N "
+                                            : beachHour.windDirection.sg >
+                                                22.5 &&
+                                              beachHour.windDirection.sg <= 67.5
+                                            ? " NE "
+                                            : beachHour.windDirection.sg >
+                                                67.5 &&
+                                              beachHour.windDirection.sg <=
+                                                112.5
+                                            ? " E "
+                                            : beachHour.windDirection.sg >
+                                                112.5 &&
+                                              beachHour.windDirection.sg <=
+                                                157.5
+                                            ? " SE "
+                                            : beachHour.windDirection.sg >
+                                                157.5 &&
+                                              beachHour.windDirection.sg <=
+                                                202.5
+                                            ? " S "
+                                            : beachHour.windDirection.sg >
+                                                202.5 &&
+                                              beachHour.windDirection.sg <=
+                                                247.5
+                                            ? " SW "
+                                            : beachHour.windDirection.sg >
+                                                247.5 &&
+                                              beachHour.windDirection.sg <=
+                                                292.5
+                                            ? " W "
+                                            : beachHour.windDirection.sg >
+                                                292.5 &&
+                                              beachHour.windDirection.sg <=
+                                                337.5
+                                            ? " NW "
+                                            : beachHour.windDirection.sg >
+                                                337.5 &&
+                                              beachHour.windDirection.sg <= 360
+                                            ? " N "
+                                            : "null"}
+                                      </p>
+                                      
+                                    </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          
                         </SwiperSlide>
                       ))}
                     </Swiper>
