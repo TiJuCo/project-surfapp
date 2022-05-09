@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import ApiContext from '../../../contexts/ApiContext';
 import SearchContext from '../../../contexts/SearchContext';
+import './Search/search.css'
+
 
 
 function DropDownFilter() {
@@ -17,7 +19,7 @@ function DropDownFilter() {
 
     return (
         <div>
-            <select onChange={handleFilter}>
+            <select className='select-css' onChange={handleFilter}>
                 <option>
                     All beaches
                 </option>

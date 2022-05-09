@@ -103,6 +103,8 @@ function BeachPage() {
   const [day4] = useState(date.getDate() + 3);
   const [day5] = useState(date.getDate() + 4);
 
+  const [currentTime, setCurrentTime] = useState(false);
+
   // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS // .filter((el, index) => +el.time.substring(8, 10) === day1)
   const firstDayTide = tideInfo
     .filter((beach) => beach.name === params.beachName)
@@ -261,9 +263,9 @@ function BeachPage() {
                       </p>
                     ))}
                   <p className="beach-page-text-report-tide">
-                    A preia-mar dá-se às{" "}
-                    <span className="pageObject">12:43</span>, <br /> a
-                    baixa-mar às <span className="pageObject">18:43</span>.
+                    High tide happens at{" "}
+                    <span className="pageObject">12:43</span>, <br /> Low tide
+                    at <span className="pageObject">18:43</span>.
                   </p>
                 </div>
               </div>
@@ -622,7 +624,7 @@ function BeachPage() {
                                   index === 7 ||
                                   index === 10 ||
                                   index === 13 ||
-                                  index === 16 ||
+                                  index === 17 ||
                                   index === 19 ||
                                   index === 22
                               )
@@ -638,9 +640,9 @@ function BeachPage() {
                                               ? "Now"
                                               : beachHour.time.substring(11, 13) +
                                                 ":00"
-                                              // ? +beachHour.time.substring(11, 13) === time 
-                                              // : beachHour.time.substring(11, 13) +
-                                              // ":00"
+                                                ? +beachHour.time.substring(11, 13) === time 
+                                                : beachHour.time.substring(11, 13) +
+                                                ":00"
                                             }
                                         </p>
                                         <span className="line"></span>

@@ -51,6 +51,10 @@
   grid-area: f;
 }
 
+.beach-popular-container div:nth-child(n+4) {
+  display: none;
+}
+
 @media only screen and (min-width: 1024px) {
   .bg-img {
     height: auto;
