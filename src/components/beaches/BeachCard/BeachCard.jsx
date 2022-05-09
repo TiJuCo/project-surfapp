@@ -55,11 +55,11 @@ function BeachCard(props) {
               </div>
               <div>
                 <img src={swellDuration} alt="" />
-                <p>{parseFloat(element[0].wavePeriod.noaa).toFixed(1)}s</p>
+                <p>{parseFloat(element[0].swellPeriod.noaa).toFixed(1)}s</p>
               </div>
               <div>
                 <img src={swellHeight} alt="" />
-                <p>{parseFloat(element[0].waveHeight.sg).toFixed(1)}m</p>
+                <p>{parseFloat(element[0].swellHeight.sg).toFixed(1)}m</p>
               </div>
               <div>
                 <img src={wind} alt="" />
