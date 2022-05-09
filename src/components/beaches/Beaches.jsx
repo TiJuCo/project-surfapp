@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../../styles/styles.css";
 import "./beaches.css";
-import BeachList from './BeachList/BeachList';
+import BeachList from "./BeachList/BeachList";
 import BeachesPopular from "./BeachPopular/BeachesPopular";
 import BeachFilters from "./BeachFilters/BeachFilters";
 import BeachesPopularMobile from "./BeachPopular/BeachPopularMobile/BeachesPopularMobile";
@@ -15,8 +14,8 @@ function Beaches() {
         <h3>Popular Beaches</h3>
       </div>
       <BeachesPopular />
-      <BeachesPopularMobile/>
-      
+      <BeachesPopularMobile />
+
       <div className="section section-search container">
         <h3>Search</h3>
       </div>

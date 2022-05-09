@@ -4,8 +4,7 @@ import BeachCard from "../BeachCard/BeachCard";
 import ApiContext from "../../../contexts/ApiContext.js";
 
 function BeachesPopular() {
-  const { seaInfo, beachesInfo, setLoading, setSeaInfo } =
-    useContext(ApiContext);
+  const { seaInfo } = useContext(ApiContext);
 
   return (
     <div className="container beach-popular-container">

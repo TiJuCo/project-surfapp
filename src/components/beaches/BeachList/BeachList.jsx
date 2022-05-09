@@ -1,13 +1,12 @@
+/* eslint-disable array-callback-return */
 import React, { useContext } from "react";
 import "./BeachList.css";
 import BeachCard from "../BeachCard/BeachCard";
 import ApiContext from "../../../contexts/ApiContext.js";
 import SearchContext from "../../../contexts/SearchContext";
 
-
 function BeachList() {
-  const { seaInfo, beachesInfo, setLoading, setSeaInfo } =
-    useContext(ApiContext);
+  const { seaInfo, beachesInfo } = useContext(ApiContext);
   const { searchValue, filteredBeach } = useContext(SearchContext);
 
   seaInfo.map((element, index) => {
@@ -18,7 +17,7 @@ function BeachList() {
   });
 
   console.log(seaInfo);
-  console.log(filteredBeach)
+  console.log(filteredBeach);
   return (
     <>
       <div className="container beach-list">
@@ -36,7 +35,7 @@ function BeachList() {
           )
           .map((val, index) => (
             <BeachCard element={val} key={index} />
-            ))}
+          ))}
       </div>
     </>
   );

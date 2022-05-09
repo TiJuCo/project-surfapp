@@ -4,10 +4,8 @@ import { useParams } from "react-router-dom";
 import ApiContext from "../../../contexts/ApiContext";
 import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import { Virtual } from "swiper";
-import { Pagination } from "swiper";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css";
@@ -25,7 +23,6 @@ import {
   beachCrowd,
   beachBreak,
   season,
-  perfectWindDirectionSurf,
   lifeguard,
   equipment,
   firstAid,
@@ -72,8 +69,6 @@ function BeachPage() {
     element.services = beachesInfo[index].services;
   });
 
-  const Days = [firstDay, secondDay, thirdDay, fourthDay, fifthDay];
-
   const gradient =
     "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)";
 
@@ -103,8 +98,6 @@ function BeachPage() {
   const [day4] = useState(date.getDate() + 3);
   const [day5] = useState(date.getDate() + 4);
 
-  const [currentTime, setCurrentTime] = useState(false);
-
   // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS // .filter((el, index) => +el.time.substring(8, 10) === day1)
   const firstDayTide = tideInfo
     .filter((beach) => beach.name === params.beachName)
@@ -133,7 +126,7 @@ function BeachPage() {
   const fifthDayTide = tideInfo
     .filter((beach) => beach.name === params.beachName)
     .map((days, index) =>
-      days.filter((day) => +day.time.substring(8, 10) === day1)
+      days.filter((day) => +day.time.substring(8, 10) === day5)
     );
 
   const tideInfoDays = [

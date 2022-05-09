@@ -1,11 +1,11 @@
+/* eslint-disable array-callback-return */
 import React, { useContext } from "react";
 import "./HomeBeachesPopular.css";
 import BeachCard from "../../beaches/BeachCard/BeachCard";
 import ApiContext from "../../../contexts/ApiContext.js";
 
 function HomeBeachesPopular() {
-  const { seaInfo, beachesInfo, setLoading, setSeaInfo } =
-    useContext(ApiContext);
+  const { seaInfo, beachesInfo } = useContext(ApiContext);
 
   seaInfo.map((element, index) => {
     element.name = beachesInfo[index].name;

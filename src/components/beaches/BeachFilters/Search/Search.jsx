@@ -1,11 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from "react";
 import "./search.css";
 import SearchContext from "../../../../contexts/SearchContext";
 
 function Search(props) {
-
   const { searchValue, setSearchValue } = useContext(SearchContext);
-  
+
   const handleSearch = (e) => {
     setSearchValue(e.target.value);
   };

@@ -1,7 +1,7 @@
+/* eslint-disable eqeqeq */
 import React, { useContext, useState } from "react";
 import ApiContext from "../../../contexts/ApiContext.js";
 import "./BeachCard.css";
-import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import {
   sol,
@@ -19,17 +19,14 @@ import {
   transportation,
   wc,
   accessibility,
-  beginnerMobile,
-  intermediateMobile,
-  advancedMobile
 } from "../../media/exportMedia.jsx";
 
 const gradient =
   "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)";
 
 function BeachCard(props) {
-  const { element, index } = props;
-  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay, seaInfo } = useContext(ApiContext);
+  const { element } = props;
+  const { seaInfo } = useContext(ApiContext);
   const months = [
     "January",
     "February",
@@ -135,41 +132,63 @@ function BeachCard(props) {
       <>
         <div className="beach-card">
           <Link to={`/beaches/${element.name}`}>
-           
             <div
               className="beach-card-row-1"
               style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
             >
               <h2>{element.name}</h2>
-   
+
               <div>
-              {beachDays[0].filter((beachDay, index) => index === time).map((beachHour, index) => (
-                    <div className={ beachHour.finalRating == "Excellent" ? "excellent-filter , calculator-home"
-                    : beachHour.finalRating == "Very Good" ? "very-good-filter , calculator-home"
-                    : beachHour.finalRating == "Good" ? "good-filter , calculator-home"
-                    : beachHour.finalRating == "Insufficient" ? "insufficient-filter , calculator-home"
-                    : beachHour.finalRating == "Poor" ? "poor-filter , calculator-home" : "calculator-home"} >
-                          <div>
-                            <p>{beachHour.finalRating}</p>
-                            <div className={beachHour.finalRating == "Excellent" ? "excellent-dot, calc-dots"
-                                          : beachHour.finalRating == "Very good" ? "very-good-dot, calc-dots"
-                                          : beachHour.finalRating == "Good" ? "Good-dot, calc-dots"
-                                          : beachHour.finalRating == "Poor" ? "very-good-dot, calc-dots" : "calc-dots"}>
-                                <span class="dot-accent"></span>
-                                <span class="dot-accent"></span>
-                                <span class="dot-accent"></span>
-                                <span class="dot-accent"></span>
-                                <span class="dot-accent"></span>
-                            </div>
-                          </div>
-                          {/* <div>
+                {beachDays[0]
+                  .filter((beachDay, index) => index === time)
+                  .map((beachHour, index) => (
+                    <div
+                      className={
+                        beachHour.finalRating == "Excellent"
+                          ? "excellent-filter , calculator-home"
+                          : beachHour.finalRating == "Very Good"
+                          ? "very-good-filter , calculator-home"
+                          : beachHour.finalRating == "Good"
+                          ? "good-filter , calculator-home"
+                          : beachHour.finalRating == "Insufficient"
+                          ? "insufficient-filter , calculator-home"
+                          : beachHour.finalRating == "Poor"
+                          ? "poor-filter , calculator-home"
+                          : "calculator-home"
+                      }
+                    >
+                      <div>
+                        <p>{beachHour.finalRating}</p>
+                        <div
+                          className={
+                            beachHour.finalRating == "Excellent"
+                              ? "excellent-dot, calc-dots"
+                              : beachHour.finalRating == "Very good"
+                              ? "very-good-dot, calc-dots"
+                              : beachHour.finalRating == "Good"
+                              ? "Good-dot, calc-dots"
+                              : beachHour.finalRating == "Poor"
+                              ? "very-good-dot, calc-dots"
+                              : "calc-dots"
+                          }
+                        >
+                          <span class="dot-accent"></span>
+                          <span class="dot-accent"></span>
+                          <span class="dot-accent"></span>
+                          <span class="dot-accent"></span>
+                          <span class="dot-accent"></span>
+                        </div>
+                      </div>
+                      {/* <div>
                               <img src={beginnerMobile}alt="" />
                               <img src={intermediateMobile}alt="" />
                               <img src={advancedMobile}alt="" />
                           </div> */}
-                          <p>Today, {currentDay} {month}</p>
-                  </div>
-                 ))} 
+                      <p>
+                        Today, {currentDay} {month}
+                      </p>
+                    </div>
+                  ))}
                 <div className="location-icon">
                   <img src={location} alt="" />
                   <p>{element.county}</p>

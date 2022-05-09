@@ -1,11 +1,10 @@
 import React from "react";
-import News from "../news/News";
 import { Link } from "react-router-dom";
 import WeatherForecast from "../WeatherForecast/WeatherForecast";
 import "../../styles/styles.css";
 import "./home.css";
 import NewsLatestSlider from "../news/NewsLatestSlider";
-import NewsLatest from "../news/NewsLatest"
+import NewsLatest from "../news/NewsLatest";
 import Carousel from "../media-center/Carousel";
 import CarouselMobile from "../media-center/CarouselMobile";
 
@@ -20,7 +19,6 @@ function Home() {
       <NewsLatest />
       <NewsLatestSlider />
 
-      
       <div className="section section-2 container">
         <h3>Popular Beaches</h3>
         <Link to="/beaches">See all</Link>
@@ -29,7 +27,6 @@ function Home() {
 
       <div className="section section-2 container">
         <h3>Weather Forecast</h3>
-        
       </div>
       <WeatherForecast />
 
@@ -43,5 +40,3 @@ function Home() {
 }
 
 export default Home;
-
- 

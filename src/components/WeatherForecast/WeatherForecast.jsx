@@ -4,7 +4,7 @@ import "./WeatherForescast.css";
 import WeatherCard from "./WeatherCard/WeatherCard";
 
 const WeatherForecast = () => {
-  const { weatherInfo, districtInfo, setLoading } = useContext(ApiContext);
+  const { weatherInfo, districtInfo } = useContext(ApiContext);
 
   weatherInfo.forEach((element, index) => {
     element.name = districtInfo[index].name;

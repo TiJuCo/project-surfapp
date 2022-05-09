@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable eqeqeq */
+/* eslint-disable array-callback-return */
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
@@ -60,6 +63,7 @@ export const ApiContextProvider = ({ children }) => {
     district.name = weatherInfo[index].name;
   });
 
+  // eslint-disable-next-line no-unused-vars
   const params = [
     "airTemperature",
     "cloudCover",
@@ -320,8 +324,6 @@ export const ApiContextProvider = ({ children }) => {
   });
 
   console.log(tideInfo);
-
-  
 
   const calculator = () => {
     //Now 6, 9, 12, 15, 18, 21
