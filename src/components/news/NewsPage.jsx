@@ -5,6 +5,8 @@ import NewsCards from "./NewsCards";
 import "./NewsPage.css";
 import GalleryCard from "./Gallery";
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { arrowFullLeft } from "../media/exportMedia";
 
 export function NewsPageCard(props) {
   let param = useParams();
@@ -25,13 +27,12 @@ export function NewsPageCard(props) {
   return (
     <div className="container">
       <div className="">
-        <span>
-          News / <span>{index}</span>
-        </span>
-        <div>
-          <img src="" alt="" />
-          <p>All news</p>
-        </div>
+          <Link to={`/news/`}>
+              <div className="back">
+                  <img src={arrowFullLeft} alt="back" />
+                  <p>All News</p>
+              </div>
+          </Link>
       </div>
       {ArticlesData.filter((card) => card.index === +param.index).map(
         (card) => (
@@ -69,26 +70,3 @@ export function NewsPageCard(props) {
   );
 }
 
-/*function NewsPage() {
-    
-    
-    return (
-        <>
-            {ArticlesData.filter((article) => article.tag === 'news' && article.index < 1).map((article) => <NewsPageCard {...article} />)}
-        </>
-    )
-}        
-
-export default NewsPage; */
-
-/*{ArticlesData.filter((index) => param.index === index)
-    .map((index) => (    */
-
-// ))}
-
-/*  let ArticlesData2 = ArticlesData
-
-    ArticlesData2.map((el, index) => {
-        if (ArticlesData2.length > 3 ) { ArticlesData2.splice(Math.floor(Math.random() * ArticlesData2.length - 1)) }
-    })
-    console.log(ArticlesData2) */

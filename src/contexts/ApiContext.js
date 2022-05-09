@@ -8,19 +8,27 @@ export default ApiContext;
 export const ApiContextProvider = ({ children }) => {
   const [weatherInfo, setWeatherInfo] = useState([]);
   const [districtInfo, setdistrictInfo] = useState([]);
+  const [openWeatherInfo, setOpenWeatherInfo] = useState([]);
 
   const [seaInfo, setSeaInfo] = useState([]);
   const [beachesInfo, setBeachesInfo] = useState([]);
 
+  const [tideInfo, setTideInfo] = useState([]);
+
   const [loading, setLoading] = useState(true);
+
+  /* Fetched the current days. Apparently, this will adjust according to the number of days in the month 
+  (i.e. if day1 is the 30th of april, day2 will be the 1st of May)
+  */
 
   const getWeatherInfo = async () => {
     setLoading(true);
     const res = await axios.get(
-      "https://run.mocky.io/v3/53ef2996-2447-4c63-806f-f082b0dcea7a"
+      "https://run.mocky.io/v3/36dcba3b-226f-48a8-bc74-872190dbe41c"
     );
     setdistrictInfo(res.data.districts);
     getIpmaInfo(res.data.districts);
+    getOpenWeatherInfo(res.data.districts);
     setLoading(false);
   };
 
@@ -36,25 +44,31 @@ export const ApiContextProvider = ({ children }) => {
       });
     });
   };
+  const getOpenWeatherInfo = async (ourApi) => {
+    ourApi.map(async (district) => {
+      const res = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${+district.latitude}&lon=${+district.longitude}&appid=9743ddbd55285e7028ccfe78ce525d93&units=metric`
+      );
+      setOpenWeatherInfo((state) => {
+        state = [...state, res.data];
+        return state;
+      });
+    });
+  };
+
+  openWeatherInfo.forEach((district, index) => {
+    district.name = weatherInfo[index].name;
+  });
 
   const params = [
     "airTemperature",
     "cloudCover",
-    "currentDirection",
-    "currentSpeed",
     "gust",
     "precipitation",
-    "seaLevel",
     "swellDirection",
     "swellHeight",
     "swellPeriod",
     "waterTemperature",
-    "waveDirection",
-    "waveHeight",
-    "wavePeriod",
-    "windWaveDirection",
-    "windWaveHeight",
-    "windWavePeriod",
     "windDirection",
     "windSpeed",
   ];
@@ -71,27 +85,7 @@ export const ApiContextProvider = ({ children }) => {
     setLoading(false);
   };
 
-  // Code for requesting data from stormglass
-/* const getStormGlassInfo = async (ourApi) => {
-    ourApi.map(async (beach) => {
-      const res = await axios.get(
-        `https://api.stormglass.io/v2/weather/point?lat=${beach.latitude}&lng=${beach.longitude}&params=${params}`,
-        {
-          headers: {
-            Authorization:
-              "307e6928-c241-11ec-ac71-0242ac130002-307e6996-c241-11ec-ac71-0242ac130002",
-          },
-        }
-      );
-      await setSeaInfo((state) => {
-        state = [...state, res.data.hours.splice(0, 120)];
-        console.log(state);
-        return state;
-      });
-    });
-  };*/
-
-  // Fail Safe request mocky API
+   // Fail Safe request mocky API
    const getStormGlassInfo = async (ourApi) => {
     const res = await axios.get(
        `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
@@ -100,6 +94,9 @@ export const ApiContextProvider = ({ children }) => {
      console.log(res.data);
      return res.data;
    };
+
+ 
+  
 
   // Added the Converted Wind Direction variable assignment to the api context
   let convertedWindDirection = "";
@@ -367,7 +364,9 @@ export const ApiContextProvider = ({ children }) => {
         })
     );
   };
+  
 
+  
   calculator();
 
   const firstDay = seaInfo.map((beach) =>
@@ -392,8 +391,6 @@ export const ApiContextProvider = ({ children }) => {
   fourthDay.map((el, index) => (el.name = beachesInfo[index].name));
   fifthDay.map((el, index) => (el.name = beachesInfo[index].name));
 
-  console.log(firstDay);
-
   useEffect(() => {
     getWeatherInfo();
     getSeaConditionsInfo();
@@ -408,6 +405,8 @@ export const ApiContextProvider = ({ children }) => {
         seaInfo,
         setSeaInfo,
         beachesInfo,
+        openWeatherInfo,
+        tideInfo,
         firstDay,
         secondDay,
         thirdDay,
