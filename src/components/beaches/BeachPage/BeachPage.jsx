@@ -10,35 +10,35 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css";
 import {
-  sol,
-  airTemperatureBlue,
-  waterTemperature,
-  swellDuration,
-  swellHeight,
-  wind,
-  windDirection,
-  location,
-  facingDirection,
-  waveConsistency,
-  beachCrowd,
-  beachBreak,
-  season,
-  lifeguard,
-  equipment,
-  firstAid,
-  parking,
-  freeParking,
-  restaurants,
-  showers,
-  transportation,
-  wc,
-  accessibility,
-  arrowFullLeft,
-  beginnerMobile,
-  intermediateMobile,
-  advancedMobile,
-  optimalWind,
-  optimalSwellHeight,
+  Sol,
+  AirTemperatureBlue,
+  WaterTemperature,
+  SwellDuration,
+  SwellHeight,
+  Wind,
+  WindDirection,
+  Location,
+  FacingDirection,
+  WaveConsistency,
+  BeachCrowd,
+  BeachBreak,
+  Season,
+  Lifeguard,
+  Equipment,
+  FirstAid,
+  Parking,
+  FreeParking,
+  Restaurants,
+  Showers,
+  Transportation,
+  Wc,
+  Accessibility,
+  ArrowFullLeft,
+  BeginnerMobile,
+  IntermediateMobile,
+  AdvancedMobile,
+  OptimalWind,
+  OptimalSwellHeight,
 } from "../../media/exportMedia";
 
 function BeachPage() {
@@ -173,7 +173,7 @@ function BeachPage() {
     <div className="container beach-page-container">
       <Link to={`/beaches/`}>
         <div className="back">
-          <img src={arrowFullLeft} alt="back" />
+          <ArrowFullLeft />
           <p>All beaches</p>
         </div>
       </Link>
@@ -188,7 +188,7 @@ function BeachPage() {
               >
                 <h1>{page.name}</h1>
                 <div>
-                  <img src={location} alt="" />
+                  <Location />
                   <p>{page.county}</p>
                 </div>
               </div>
@@ -283,9 +283,9 @@ function BeachPage() {
                         Today, {currentDay} {month}
                       </p>
                       <div>
-                        <img src={beginnerMobile} alt="" />
-                        <img src={intermediateMobile} alt="" />
-                        <img src={advancedMobile} alt="" />
+                        <BeginnerMobile />
+                        <IntermediateMobile />
+                        <AdvancedMobile />
                       </div>
                     </div>
                     <div className="desktop">
@@ -301,16 +301,16 @@ function BeachPage() {
                           </div>
                         </div>
                         <div>
-                          <img src={optimalWind} alt="" />
-                          <img src={optimalSwellHeight} alt="" />
+                          <OptimalWind />
+                          <OptimalSwellHeight />
                         </div>
                       </div>
                       <div>
                         <p>Suitable for:</p>
                         <div>
-                          <img src={beginnerMobile} alt="" />
-                          <img src={intermediateMobile} alt="" />
-                          <img src={advancedMobile} alt="" />
+                          <BeginnerMobile />
+                          <IntermediateMobile />
+                          <AdvancedMobile />
                         </div>
                       </div>
                     </div>
@@ -324,11 +324,11 @@ function BeachPage() {
                       .map((beachHour, index) => (
                         <div>
                           <div>
-                            <img src={sol} alt="" />
+                            <Sol />
                             <p>{parseInt(beachHour.airTemperature.sg)}º</p>
                           </div>
                           <div>
-                            <img src={swellDuration} alt="" />
+                            <SwellDuration />
                             <p>
                               {parseFloat(beachHour.swellPeriod.noaa).toFixed(
                                 1
@@ -337,13 +337,13 @@ function BeachPage() {
                             </p>
                           </div>
                           <div>
-                            <img src={swellHeight} alt="" />
+                            <SwellHeight />
                             <p>
                               {parseFloat(beachHour.swellHeight.sg).toFixed(1)}m
                             </p>
                           </div>
                           <div>
-                            <img src={wind} alt="" />
+                            <Wind />
                             <p>
                               {parseFloat(beachHour.windSpeed.sg).toFixed(1)}
                               <span className="kts">kts</span>
@@ -450,12 +450,12 @@ function BeachPage() {
 
                                   <div className="day-slide-hour-data">
                                     <div>
-                                      <img src={airTemperatureBlue} alt="" />
-                                      <img src={waterTemperature} alt="" />
-                                      <img src={swellDuration} alt="" />
-                                      <img src={swellHeight} alt="" />
-                                      <img src={wind} alt="" />
-                                      <img src={windDirection} alt="" />
+                                      <AirTemperatureBlue />
+                                      <WaterTemperature />
+                                      <SwellDuration />
+                                      <SwellHeight />
+                                      <Wind />
+                                      <WindDirection />
                                     </div>
                                     <div>
                                       <p>
@@ -591,27 +591,27 @@ function BeachPage() {
                                   <span className="line"></span>
                                 </div>
                                 <div>
-                                  <img src={airTemperatureBlue} alt="" />
+                                  <AirTemperatureBlue />
                                   <p>Temperature</p>
                                 </div>
                                 <div>
-                                  <img src={waterTemperature} alt="" />
+                                  <WaterTemperature />
                                   <p>Water temperature</p>
                                 </div>
                                 <div>
-                                  <img src={swellDuration} alt="" />
+                                  <SwellDuration />
                                   <p>Swell duration</p>
                                 </div>
                                 <div>
-                                  <img src={swellHeight} alt="" />
+                                  <SwellHeight />
                                   <p>Swell height</p>
                                 </div>
                                 <div>
-                                  <img src={wind} alt="" />
+                                  <Wind />
                                   <p>Wind speed</p>
                                 </div>
                                 <div>
-                                  <img src={windDirection} alt="" />
+                                  <WindDirection />
                                   <p>Temperature</p>
                                 </div>
                               </div>
@@ -801,126 +801,106 @@ function BeachPage() {
                   <div className="services-container">
                     <div className="services">
                       <div>
-                        <img
+                        <Lifeguard
                           className={
                             page.services && page.services.includes("lifeguard")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={lifeguard}
-                          alt="lifeguard"
                         />
                         <p>Lifeguard</p>
                       </div>
                       <div>
-                        <img
+                        <Equipment
                           className={
                             page.services && page.services.includes("equipment")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={equipment}
-                          alt="equipment"
                         />
                         <p>Equipment</p>
                       </div>
                       <div>
-                        <img
+                        <Restaurants
                           className={
                             page.services &&
                             page.services.includes("restaurants")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={restaurants}
-                          alt=""
                         />
                         <p>Restaurants</p>
                       </div>
                       <div>
-                        <img
+                        <Showers
                           className={
                             page.services && page.services.includes("showers")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={showers}
-                          alt=""
                         />
                         <p>Showers</p>
                       </div>
                       <div>
-                        <img
+                        <Accessibility
                           className={
                             page.services &&
                             page.services.includes("accessibility")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={accessibility}
-                          alt=""
                         />
                         <p>Accessibility</p>
                       </div>
                       <div>
-                        <img
+                        <Transportation
                           className={
                             page.services &&
                             page.services.includes("transportation")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={transportation}
-                          alt=""
                         />
                         <p>Transportation</p>
                       </div>
                       <div>
-                        <img
+                        <Parking
                           className={
                             page.services && page.services.includes("parking")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={parking}
-                          alt=""
                         />
                         <p>Parking</p>
                       </div>
                       <div>
-                        <img
+                        <FreeParking
                           className={
                             page.services &&
                             page.services.includes("freeParking")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={freeParking}
-                          alt=""
                         />
                         <p>Free Parking</p>
                       </div>
                       <div>
-                        <img
+                        <Wc
                           className={
                             page.services && page.services.includes("wc")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={wc}
-                          alt=""
                         />
                         <p>WC</p>
                       </div>
                       <div>
-                        <img
+                        <FirstAid
                           className={
                             page.services && page.services.includes("firstAid")
                               ? "icon-active"
                               : "icon-not-active"
                           }
-                          src={firstAid}
-                          alt=""
                         />
                         <p>First aid</p>
                       </div>
@@ -937,32 +917,32 @@ function BeachPage() {
                 <div className="beach-properties">
                   <div>
                     <p>Best wind</p>
-                    <img src={wind} alt="" />
+                    <Wind />
                     <p>{page.perfectWindDirectionSurf}</p>
                   </div>
                   <div>
                     <p>Wave consistency</p>
-                    <img src={waveConsistency} alt="" />
+                    <WaveConsistency />
                     <p>{page.waveConsistency}</p>
                   </div>
                   <div>
                     <p>Facing direction</p>
-                    <img src={facingDirection} alt="" />
+                    <FacingDirection />
                     <p>{page.facingDirection}</p>
                   </div>
                   <div>
                     <p>Break</p>
-                    <img src={beachBreak} alt="" />
+                    <BeachBreak />
                     <p>{page.surfBreak}</p>
                   </div>
                   <div>
                     <p>Season</p>
-                    <img src={season} alt="" />
+                    <Season />
                     <p>{page.surfingSeason}</p>
                   </div>
                   <div>
                     <p>Surf crowd</p>
-                    <img src={beachCrowd} alt="" />
+                    <BeachCrowd />
                     <p>{page.surfCrowd}</p>
                   </div>
                 </div>

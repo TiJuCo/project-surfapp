@@ -5,7 +5,7 @@ import "./NewsPage.css";
 import GalleryCard from "./Gallery";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { arrowFullLeft } from "../media/exportMedia";
+import { ArrowFullLeft } from "../media/exportMedia";
 
 export function NewsPageCard(props) {
   let param = useParams();
@@ -28,7 +28,7 @@ export function NewsPageCard(props) {
       <div className="">
         <Link to={`/news/`}>
           <div className="back">
-            <img src={arrowFullLeft} alt="back" />
+            <ArrowFullLeft />
             <p>All News</p>
           </div>
         </Link>

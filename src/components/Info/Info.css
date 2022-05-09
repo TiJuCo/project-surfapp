@@ -87,7 +87,7 @@
     .info-team-photos {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    .info-team-photos-1 {
+    .info-team-photos-1, .info-team-photos-2, .info-team-photos-3 {
         height: 180px;
     }
 
