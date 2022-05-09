@@ -29,7 +29,7 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
-  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay,  } =
+  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay, beachDay  } =
     useContext(ApiContext);
   console.log(firstDay);
 
@@ -49,24 +49,22 @@ function BeachCard(props) {
               style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
             >
               <h2>{element.name}</h2>
-              {console.log(element)}
+              {console.log(beachDay)}
               <div>
+              {beachDay[0].filter((beachDay, index) => index === time).map((beachHour, index) => (
                 <div className="calculator-home">
-                  <div>
-                    {/*{element.filter((beachHour, index) =>
-            
-                    
-                    
-                    )}*/}
-                        <p>{element}</p>
-                        {console.log(element[108].finalRating)}
-                        <div className="calc-dots">
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                        </div> 
+                       
+                        <div>
+                          <p>{beachDay[index].finalRating}</p>
+                          {console.log(beachDay[index].finalRating)}
+                          <div className="calc-dots">
+                              <span class="dot-accent"></span>
+                              <span class="dot-accent"></span>
+                              <span class="dot-accent"></span>
+                              <span class="dot-accent"></span>
+                              <span class="dot-accent"></span>
+                          </div> 
+                        
                         </div>
                           <p>Today, {day} {month}</p>
                         <div>
@@ -74,7 +72,9 @@ function BeachCard(props) {
                             <img src={intermediateMobile}alt="" />
                             <img src={advancedMobile}alt="" />
                         </div>
+                       
                 </div>
+                 ))} 
                 <div className="location-icon">
                   <img src={location} alt="" />
                   <p>{element.county}</p>
