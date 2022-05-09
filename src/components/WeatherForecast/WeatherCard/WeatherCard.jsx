@@ -8,7 +8,7 @@ const WeatherCard = (props) => {
   const { openWeatherInfo } = useContext(ApiContext);
   const date = new Date();
   const [time] = useState(date.getHours());
-  console.log(time);
+  console.log(openWeatherInfo);
 
   return (
     <div key={index} className="weather-card">
@@ -26,36 +26,35 @@ const WeatherCard = (props) => {
           </div>
           <div className="weather-temp">
             <h2>
-              {openWeatherInfo &&
-                openWeatherInfo
-                  .filter((el) => el.name.includes(element.name))
-                  .map((el) => Math.round(el.main.temp * 10) / 10)}
+              {openWeatherInfo
+                .filter((el) => el.name === element.name)
+                .map((el) => Math.round(el.main.temp * 10) / 10)}
             </h2>
           </div>
         </div>
         <div className="weather-icon">
-          <img src={ 
-                openWeatherInfo &&
-                openWeatherInfo
-                  .filter((el) => el.name.includes(element.name))
-                  .map((el, index) => Math.round(el.weather[index].description)) 
-                  .includes("cloud") ? "clouds" 
-                : 
-                openWeatherInfo &&
-                openWeatherInfo
-                  .filter((el) => el.name.includes(element.name))
-                  .map((el, index) => Math.round(el.weather[index].description)) 
-                  .includes("clear sky") ? "sol"
-                : 
-                openWeatherInfo &&
-                openWeatherInfo
-                  .filter((el) => el.name.includes(element.name))
-                  .map((el, index) => Math.round(el.weather[index].description )) 
-                  .includes("rain") ? "rain"
-                :
-                "cloudySun"
-                  
-          } alt="" />
+          <img
+            src={
+              openWeatherInfo
+                .filter((el) => el.name === element.name)
+                .map((el, index) => el.weather[0].description.includes("cloud"))
+                ? sol
+                : openWeatherInfo
+                    .filter((el) => el.name === element.name)
+                    .map((el, index) =>
+                      el.weather[index].description.includes("clear sky")
+                    )
+                ? sol
+                : openWeatherInfo
+                    .filter((el) => el.name.includes(element.name))
+                    .map((el, index) =>
+                      el.weather[index].description.includes("rain")
+                    )
+                ? sol
+                : "cenas"
+            }
+            alt=""
+          />
         </div>
       </div>
       <div className="weather-card-body">
