@@ -4,9 +4,9 @@
     gap: 20px;
 }
 
-/* .home-beaches-popular > div:nth-child(n+3) {
+.home-beaches-popular > div:nth-child(n+3) {
     display: none;
-} */
+} 
 
 .home-beaches-popular .calc-dots {
     gap: 4px !important;
