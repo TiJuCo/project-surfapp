@@ -103,6 +103,8 @@ function BeachPage() {
   const [day4] = useState(date.getDate() + 3);
   const [day5] = useState(date.getDate() + 4);
 
+  const [currentTime, setCurrentTime] = useState(false);
+
   // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS // .filter((el, index) => +el.time.substring(8, 10) === day1)
   const firstDayTide = tideInfo
     .filter((beach) => beach.name === params.beachName)
@@ -261,9 +263,9 @@ function BeachPage() {
                       </p>
                     ))}
                   <p className="beach-page-text-report-tide">
-                    A preia-mar dá-se às{" "}
-                    <span className="pageObject">12:43</span>, <br /> a
-                    baixa-mar às <span className="pageObject">18:43</span>.
+                    High tide happens at{" "}
+                    <span className="pageObject">12:43</span>, <br /> Low tide
+                    at <span className="pageObject">18:43</span>.
                   </p>
                 </div>
               </div>
@@ -565,7 +567,7 @@ function BeachPage() {
                           <div className="day-slide-desktop">
                             <div>
                               <div>
-                                <p>
+                                <p className="day-slide-day">
                                   {+beachDay[0].time.substring(8, 10) ===
                                   currentDay
                                     ? "Today"
@@ -622,7 +624,7 @@ function BeachPage() {
                                   index === 7 ||
                                   index === 10 ||
                                   index === 13 ||
-                                  index === 16 ||
+                                  index === 17 ||
                                   index === 19 ||
                                   index === 22
                               )
@@ -632,43 +634,43 @@ function BeachPage() {
                                     <div>
                                       <div className="hour-slide-column-1">
                                         {console.log(+beachHour.time.substring(11, 13))}
-                                        {console.log(time)}
+                                        {console.log(beachHour)}
                                         <p>{
                                             +beachHour.time.substring(11, 13) === time
                                               ? "Now"
                                               : beachHour.time.substring(11, 13) +
                                                 ":00"
-                                              // ? +beachHour.time.substring(11, 13) === time 
-                                              // : beachHour.time.substring(11, 13) +
-                                              // ":00"
+                                                ? +beachHour.time.substring(11, 13) === time 
+                                                : beachHour.time.substring(11, 13) +
+                                                ":00"
                                             }
                                         </p>
                                         <span className="line"></span>
                                       </div>
                                       <p>
-                                        {parseFloat(
+                                        <span>{parseFloat(
                                             beachHour.airTemperature.sg
-                                          ).toFixed(1)}
+                                          ).toFixed(1)}</span> º
                                       </p>
                                       <p>
-                                        {parseFloat(
+                                        <span>{parseFloat(
                                             beachHour.waterTemperature.sg
-                                          ).toFixed(1)}
+                                          ).toFixed(1)}</span> º
                                       </p>
                                       <p>
-                                        {parseFloat(
-                                            beachHour.swellDirection.sg
-                                          ).toFixed(1)}
+                                        <span>{parseFloat(
+                                            beachHour.swellPeriod.sg
+                                          ).toFixed(1)}</span> s
                                       </p>
                                       <p>
-                                        {parseFloat(
+                                        <span>{parseFloat(
                                             beachHour.swellHeight.sg
-                                          ).toFixed(1)}
+                                          ).toFixed(1)}</span> m
                                       </p>
                                       <p>
-                                        {parseFloat(
+                                        <span>{parseFloat(
                                             beachHour.windSpeed.sg
-                                          ).toFixed(1)}
+                                          ).toFixed(1)}</span> kts
                                       </p>
                                       <p>
                                       {beachHour.windDirection.sg <= 22.5

@@ -408,6 +408,12 @@
   padding: 50px;
 }
 
+.day-slide-day {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+
 .day-slide-desktop > div:nth-child(1)  {
   display: flex;
   gap: 10px;
@@ -488,11 +494,11 @@
 }
 
 .hour-slide-column:nth-child(odd) {
-  background-color: var(--tertiary-color-2);
+  background-color:#FBFBFB;
 }
 
 .hour-slide-column:nth-child(even) {
-  background-color:#FBFBFB;
+  
 }
 
 .hour-slide-column > div{
