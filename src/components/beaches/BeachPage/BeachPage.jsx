@@ -251,11 +251,11 @@ function BeachPage() {
                         </span>
                         , a wave height of{" "}
                         <span className="pageObject">
-                          {beachHour.waveHeight.sg} m
+                          {beachHour.swellHeight.sg} m
                         </span>
                         , a swell interval of{" "}
                         <span className="pageObject">
-                          {parseFloat(beachHour.wavePeriod.noaa).toFixed(1)} s
+                          {parseFloat(beachHour.swellPeriod.noaa).toFixed(1)} s
                         </span>
                         .
                       </p>
@@ -337,14 +337,16 @@ function BeachPage() {
                           <div>
                             <img src={swellDuration} alt="" />
                             <p>
-                              {parseFloat(beachHour.wavePeriod.noaa).toFixed(1)}
+                              {parseFloat(beachHour.swellPeriod.noaa).toFixed(
+                                1
+                              )}
                               s
                             </p>
                           </div>
                           <div>
                             <img src={swellHeight} alt="" />
                             <p>
-                              {parseFloat(beachHour.waveHeight.sg).toFixed(1)}m
+                              {parseFloat(beachHour.swellHeight.sg).toFixed(1)}m
                             </p>
                           </div>
                           <div>
