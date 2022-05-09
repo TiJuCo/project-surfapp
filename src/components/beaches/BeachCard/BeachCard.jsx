@@ -46,8 +46,8 @@ function BeachCard(props) {
   ];
   const d = new Date();
   let month = months[d.getMonth()];
-  const [currentDay] = useState(date.getDate());
   const date = new Date();
+  const [currentDay] = useState(date.getDate());
   const [time] = useState(date.getHours());
   console.log(time)
 
@@ -127,10 +127,14 @@ function BeachCard(props) {
               {console.log(beachDays)}
               <div>
               {beachDays[0].filter((beachDay, index) => index === time).map((beachHour, index) => (
-                <div className="calculator-home">
+                <div className={ beachHour.finalRating == "Excellent" ? "excellent-filter , calculator-home" 
+                              : beachHour.finalRating == "Very Good" ? "very-good-filter , calculator-home" 
+                              : beachHour.finalRating == "Good" ? "good-filter , calculator-home" 
+                              : beachHour.finalRating == "Insufficient" ? "insufficient-filter , calculator-home" 
+                              : beachHour.finalRating == "Poor" ? "poor-filter , calculator-home" : "calculator-home"} >
                        
                         <div>
-                          <p>{beachDays[index].finalRating}</p>
+                          <p>{beachHour.finalRating}</p>
                           {console.log(beachDays[index].finalRating)}
                           <div className="calc-dots">
                               <span class="dot-accent"></span>

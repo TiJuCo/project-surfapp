@@ -104,19 +104,42 @@
 .calculator-home {
     display: grid !important;
     gap: 5px;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
     background-color: #151515;
-    padding: 10px
+    padding: 10px;
 }
 
 .calculator-home > div:nth-child(1){
     flex-direction: column;
 }
 
+.excellent-filter {
+    filter: drop-shadow(14px 24px 0px var(--excellent));
+}
+
+.very-good-filter {
+    filter: drop-shadow(14px 24px 0px blue);
+}
+
+.good-filter {
+    filter: drop-shadow(14px 24px 0px lightblue);
+}
+
+.insufficient-filter {
+    filter: drop-shadow(14px 24px 0px lightgrey);
+}
+
+.poor-filter {
+    filter: drop-shadow(14px 24px 0px orange);
+}
+
+
+
 @media only screen and (min-width: 1024px) {
     .beach-card {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        overflow: hidden;
     }
 
     .beach-card-row-1 {

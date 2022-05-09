@@ -29,13 +29,8 @@ export const beginnerMobile = require("./beginnerMobile.svg");
 export const intermediateMobile = require("./intermediateMobile.svg");
 export const advancedMobile = require("./advancedMobile.svg");
 
-<<<<<<< HEAD
-//Social media
-export const linkedinIcon = require("./linkedin.svg");
-export const githubIcon = require("./github.svg");
-=======
 
 //calculator
 export const optimalWind = require("./optimalWind.svg");
 export const optimalSwellHeight = require("./optimalSwellHeight.svg");
->>>>>>> beaches-2
+
