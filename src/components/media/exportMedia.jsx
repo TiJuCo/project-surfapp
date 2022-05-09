@@ -34,3 +34,8 @@ export const advancedMobile = require("./advancedMobile.svg");
 //calculator
 export const optimalWind = require("./optimalWind.svg");
 export const optimalSwellHeight = require("./optimalSwellHeight.svg");
+export const beachCrowd = require("./beachCrowd.svg");
+export const beachBreak = require("./beachBreak.svg");
+export const waveConsistency = require("./waveConsistency.svg");
+export const facingDirection = require("./facingDirection.svg");
+export const season = require("./season.svg");

@@ -22,9 +22,9 @@ import {
   location,
   facingDirection,
   waveConsistency,
-  surfCrowd,
-  surfBreak,
-  surfingSeason,
+  beachCrowd,
+  beachBreak,
+  season,
   perfectWindDirectionSurf,
   lifeguard,
   equipment,
@@ -930,27 +930,27 @@ function BeachPage() {
                   </div>
                   <div>
                     <p>Wave consistency</p>
-                    <img src={sol} alt="" />
+                    <img src={waveConsistency} alt="" />
                     <p>{page.waveConsistency}</p>
                   </div>
                   <div>
                     <p>Facing direction</p>
-                    <img src={sol} alt="" />
+                    <img src={facingDirection} alt="" />
                     <p>{page.facingDirection}</p>
                   </div>
                   <div>
                     <p>Break</p>
-                    <img src={sol} alt="" />
+                    <img src={beachBreak} alt="" />
                     <p>{page.surfBreak}</p>
                   </div>
                   <div>
                     <p>Season</p>
-                    <img src={sol} alt="" />
+                    <img src={season} alt="" />
                     <p>{page.surfingSeason}</p>
                   </div>
                   <div>
                     <p>Surf crowd</p>
-                    <img src={sol} alt="" />
+                    <img src={beachCrowd} alt="" />
                     <p>{page.surfCrowd}</p>
                   </div>
                 </div>
