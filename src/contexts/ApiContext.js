@@ -106,10 +106,7 @@ export const ApiContextProvider = ({ children }) => {
   //   });
   // };
 
-  // console.log(seaInfo);
-
-  // Fail safe API request sea conditions
-
+  // API request fail safe
   const getStormGlassInfo = async () => {
     const first6Beaches = await axios.get(
       `https://run.mocky.io/v3/2931bc42-ef0a-4e23-bb72-6901ae0f7193`
@@ -164,6 +161,120 @@ export const ApiContextProvider = ({ children }) => {
 
   console.log(seaInfo);
 
+  // Fail Safe request mocky API
+  // const getStormGlassInfo = async (ourApi) => {
+  //   const res = await axios.get(
+  //     `https://run.mocky.io/v3/a831d043-946f-480f-acee-747c6aea7a5b`
+  //   );
+  //   await setSeaInfo(res.data);
+  //   console.log(res.data);
+  //   return res.data;
+  // };
+
+  // Added the Converted Wind Direction variable assignment to the api context
+  let convertedWindDirection = "";
+  seaInfo.map((beach, index) =>
+    beach.map((hour, index) => {
+      if (hour.windDirection.sg <= 22.5) {
+        convertedWindDirection = "N";
+      } else if (
+        hour.windDirection.sg > 22.5 &&
+        hour.windDirection.sg <= 67.5
+      ) {
+        convertedWindDirection = "NE";
+      } else if (
+        hour.windDirection.sg > 67.5 &&
+        hour.windDirection.sg <= 112.5
+      ) {
+        convertedWindDirection = "E";
+      } else if (
+        hour.windDirection.sg > 112.5 &&
+        hour.windDirection.sg <= 157.5
+      ) {
+        convertedWindDirection = "SE";
+      } else if (
+        hour.windDirection.sg > 157.5 &&
+        hour.windDirection.sg <= 202.5
+      ) {
+        convertedWindDirection = "S";
+      } else if (
+        hour.windDirection.sg > 202.5 &&
+        hour.windDirection.sg <= 247.5
+      ) {
+        convertedWindDirection = "SW";
+      } else if (
+        hour.windDirection.sg > 247.5 &&
+        hour.windDirection.sg <= 292.5
+      ) {
+        convertedWindDirection = "W";
+      } else if (
+        hour.windDirection.sg > 292.5 &&
+        hour.windDirection.sg <= 337.5
+      ) {
+        return (convertedWindDirection = "NW");
+      } else if (
+        hour.windDirection.sg > 337.5 &&
+        hour.windDirection.sg <= 360
+      ) {
+        convertedWindDirection = "N";
+      }
+      hour.convertedWindDirection = convertedWindDirection;
+    })
+  );
+
+  let convertedSwellDirection = "";
+  seaInfo.map((beach, index) =>
+    beach.map((hour, index) => {
+      if (hour.swellDirection.sg <= 22.5) {
+        convertedSwellDirection = "N";
+      } else if (
+        hour.swellDirection.sg > 22.5 &&
+        hour.swellDirection.sg <= 67.5
+      ) {
+        convertedSwellDirection = "NE";
+      } else if (
+        hour.swellDirection.sg > 67.5 &&
+        hour.swellDirection.sg <= 112.5
+      ) {
+        convertedSwellDirection = "E";
+      } else if (
+        hour.swellDirection.sg > 112.5 &&
+        hour.swellDirection.sg <= 157.5
+      ) {
+        convertedSwellDirection = "SE";
+      } else if (
+        hour.swellDirection.sg > 157.5 &&
+        hour.swellDirection.sg <= 202.5
+      ) {
+        convertedSwellDirection = "S";
+      } else if (
+        hour.swellDirection.sg > 202.5 &&
+        hour.swellDirection.sg <= 247.5
+      ) {
+        convertedSwellDirection = "SW";
+      } else if (
+        hour.swellDirection.sg > 247.5 &&
+        hour.swellDirection.sg <= 292.5
+      ) {
+        convertedSwellDirection = "W";
+      } else if (
+        hour.swellDirection.sg > 292.5 &&
+        hour.swellDirection.sg <= 337.5
+      ) {
+        convertedSwellDirection = "NW";
+      } else if (
+        hour.swellDirection.sg > 337.5 &&
+        hour.swellDirection.sg <= 360
+      ) {
+        convertedSwellDirection = "N";
+      }
+      hour.convertedSwellDirection = convertedSwellDirection;
+    })
+  );
+  // console.log(seaInfo);
+
+  // Fail safe API request sea conditions
+
   /* 
   1st beaches URL: https://run.mocky.io/v3/2931bc42-ef0a-4e23-bb72-6901ae0f7193
   2nd beaches URL: https://run.mocky.io/v3/bd9a7f8f-b246-4915-a564-34901da92e6a
@@ -209,6 +320,209 @@ export const ApiContextProvider = ({ children }) => {
   });
 
   console.log(tideInfo);
+
+  
+
+  const calculator = () => {
+    //Now 6, 9, 12, 15, 18, 21
+    seaInfo.map((beach, beachIndex) =>
+      beach
+        .filter(
+          (hour) =>
+            +hour.time.substring(11, 13) > 4 &&
+            +hour.time.substring(11, 13) < 22 &&
+            // +hour.time.substring(11, 13) % 3 === 0 &&
+            +hour.time.substring(11, 13) < 24
+        )
+        .map((surfHour, surfHourIndex) => {
+          let surfRating = 0;
+          let windSpeedRating = 0;
+          let gustSpeedRating = 0;
+          let windDirectionRating = 0;
+          let swellPeriodRating = 0;
+          let swellDirectionRating = 0;
+          let swellSizeRating = 0;
+
+          if (surfHour.windSpeed.sg <= 5) {
+            windSpeedRating += 3;
+          } else if (surfHour.windSpeed.sg > 5 && surfHour.windSpeed.sg <= 10) {
+            windSpeedRating += 2;
+          } else if (
+            surfHour.windSpeed.sg < 10 &&
+            surfHour.windSpeed.sg <= 17
+          ) {
+            windSpeedRating += 1;
+          } else {
+            windSpeedRating -= -5;
+          }
+          console.log(windSpeedRating);
+
+          if (surfHour.gust.sg > 16) {
+            gustSpeedRating += -5;
+          }
+          console.log(gustSpeedRating);
+          console.log(beachesInfo);
+
+          if (
+            beachesInfo[beachIndex].perfectWindDirectionSurf.includes(
+              surfHour.convertedWindDirection
+            )
+          ) {
+            windDirectionRating += 2;
+          } else if (
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "N" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NE" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NW") &&
+            surfHour.convertedWindDirection.substring(0, 1).includes("N")
+          ) {
+            windDirectionRating += 1;
+          } else if (
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "E" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NE" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SE") &&
+            surfHour.convertedWindDirection.substring(1, 2).includes("E")
+          ) {
+            windDirectionRating += 1;
+          } else if (
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "S" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SE" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SW") &&
+            surfHour.convertedWindDirection.substring(0, 1).includes("S")
+          ) {
+            windDirectionRating += 1;
+          } else if (
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "W" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SW" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NW") &&
+            surfHour.convertedWindDirection.substring(1, 2).includes("W")
+          ) {
+            windDirectionRating += 1;
+          }
+          console.log(windDirectionRating);
+
+          if (surfHour.swellPeriod.sg >= 13) {
+            swellPeriodRating += 3;
+          } else if (
+            surfHour.swellPeriod.sg < 13 &&
+            surfHour.swellPeriod.sg >= 10
+          ) {
+            swellPeriodRating += 2;
+          } else if (
+            surfHour.swellPeriod.sg < 10 &&
+            surfHour.swellPeriod.sg >= 8
+          ) {
+            swellPeriodRating += 1;
+          } else {
+            swellPeriodRating -= 1;
+          }
+          console.log(swellPeriodRating);
+
+          if (
+            beachesInfo[beachIndex].facingDirection.includes(
+              surfHour.convertedSwellDirection
+            )
+          ) {
+            swellDirectionRating += 5;
+            console.log("perfect");
+          } else if (
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "N" ||
+              beachesInfo[beachIndex].facingDirection == "NE" ||
+              beachesInfo[beachIndex].facingDirection == "NW") &&
+            surfHour.convertedSwellDirection.substring(0, 1).includes("N")
+          ) {
+            swellDirectionRating += 3;
+          } else if (
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "E" ||
+              beachesInfo[beachIndex].facingDirection == "NE" ||
+              beachesInfo[beachIndex].facingDirection == "SE") &&
+            surfHour.convertedSwellDirection.substring(1, 2).includes("E")
+          ) {
+            swellDirectionRating += 3;
+          } else if (
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "S" ||
+              beachesInfo[beachIndex].facingDirection == "SE" ||
+              beachesInfo[beachIndex].facingDirection == "SW") &&
+            surfHour.convertedSwellDirection.substring(0, 1).includes("S")
+          ) {
+            swellDirectionRating += 3;
+          } else if (
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "W" ||
+              beachesInfo[beachIndex].facingDirection == "NW" ||
+              beachesInfo[beachIndex].facingDirection == "NE") &&
+            surfHour.convertedSwellDirection.substring(1, 2).includes("W")
+          ) {
+            swellDirectionRating += 3;
+          } else {
+            swellDirectionRating -= 5;
+          }
+          console.log(swellDirectionRating);
+
+          if (
+            surfHour.swellHeight.sg >= 0.5 &&
+            surfHour.swellHeight.sg <= 0.8
+          ) {
+            swellSizeRating += 1;
+          } else if (
+            surfHour.swellHeight.sg > 0.8 &&
+            surfHour.swellHeight.sg <= 1.5
+          ) {
+            swellSizeRating += 3;
+          } else if (surfHour.swellHeight.sg > 1.5) {
+            swellSizeRating += 4;
+          }
+          console.log(swellSizeRating);
+
+          surfRating += windSpeedRating;
+          surfRating += gustSpeedRating;
+          surfRating += windDirectionRating;
+          surfRating += swellPeriodRating;
+          surfRating += swellDirectionRating;
+          surfRating += swellSizeRating;
+
+          surfHour.surfRating = surfRating;
+          surfHour.windSpeedRating = windSpeedRating;
+          surfHour.gustSpeedRating = gustSpeedRating;
+          surfHour.windDirectionRating = windDirectionRating;
+          surfHour.swellPeriodRating = swellPeriodRating;
+          surfHour.swellDirectionRating = swellDirectionRating;
+          surfHour.swellSizeRating = swellSizeRating;
+
+          console.log(surfRating);
+          console.log(surfHour);
+
+          // Excellent = 17/20
+          // Very good = 13/16
+          // Good = 8/12
+          // Insufficient = 4/7
+          // Poor = 0/3
+
+          let finalRating = "";
+          if (surfRating >= 17 && surfRating <= 20) {
+            finalRating = "Excellent";
+          } else if (surfRating >= 13 && surfRating <= 16) {
+            finalRating = "Very good";
+          } else if (surfRating >= 9 && surfRating <= 12) {
+            finalRating = "Good";
+          } else if (surfRating >= 4 && surfRating <= 8) {
+            finalRating = "Insufficient";
+          } else if (surfRating <= 3) {
+            finalRating = "Poor";
+          }
+
+          surfHour.finalRating = finalRating;
+        })
+    );
+  };
+
+  calculator();
 
   const firstDay = seaInfo.map((beach) =>
     beach.filter((el, index) => index < 24)

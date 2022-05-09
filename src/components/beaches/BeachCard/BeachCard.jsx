@@ -19,6 +19,9 @@ import {
   transportation,
   wc,
   accessibility,
+  beginnerMobile,
+  intermediateMobile,
+  advancedMobile
 } from "../../media/exportMedia.jsx";
 
 const gradient =
@@ -26,10 +29,25 @@ const gradient =
 
 function BeachCard(props) {
   const { element, index } = props;
-  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay, seaInfo } =
-    useContext(ApiContext);
-
+  const { firstDay, secondDay, thirdDay, fourthDay, fifthDay, seaInfo } = useContext(ApiContext);
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const d = new Date();
+  let month = months[d.getMonth()];
   const date = new Date();
+  const [currentDay] = useState(date.getDate());
   const [time] = useState(date.getHours());
 
   let convertedWindDirection = "";
@@ -117,15 +135,45 @@ function BeachCard(props) {
       <>
         <div className="beach-card">
           <Link to={`/beaches/${element.name}`}>
+           
             <div
               className="beach-card-row-1"
               style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
             >
               <h2>{element.name}</h2>
-
+   
               <div>
-                <img src={location} alt="" />
-                <p>{element.county}</p>
+              {beachDays[0].filter((beachDay, index) => index === time).map((beachHour, index) => (
+                    <div className={ beachHour.finalRating == "Excellent" ? "excellent-filter , calculator-home"
+                    : beachHour.finalRating == "Very Good" ? "very-good-filter , calculator-home"
+                    : beachHour.finalRating == "Good" ? "good-filter , calculator-home"
+                    : beachHour.finalRating == "Insufficient" ? "insufficient-filter , calculator-home"
+                    : beachHour.finalRating == "Poor" ? "poor-filter , calculator-home" : "calculator-home"} >
+                          <div>
+                            <p>{beachHour.finalRating}</p>
+                            <div className={beachHour.finalRating == "Excellent" ? "excellent-dot, calc-dots"
+                                          : beachHour.finalRating == "Very good" ? "very-good-dot, calc-dots"
+                                          : beachHour.finalRating == "Good" ? "Good-dot, calc-dots"
+                                          : beachHour.finalRating == "Poor" ? "very-good-dot, calc-dots" : "calc-dots"}>
+                                <span class="dot-accent"></span>
+                                <span class="dot-accent"></span>
+                                <span class="dot-accent"></span>
+                                <span class="dot-accent"></span>
+                                <span class="dot-accent"></span>
+                            </div>
+                          </div>
+                          {/* <div>
+                              <img src={beginnerMobile}alt="" />
+                              <img src={intermediateMobile}alt="" />
+                              <img src={advancedMobile}alt="" />
+                          </div> */}
+                          <p>Today, {currentDay} {month}</p>
+                  </div>
+                 ))} 
+                <div className="location-icon">
+                  <img src={location} alt="" />
+                  <p>{element.county}</p>
+                </div>
               </div>
             </div>
           </Link>

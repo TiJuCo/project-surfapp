@@ -131,6 +131,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  margin-top: unset !important;
 }
 
 .calc-dots .dot-accent {
