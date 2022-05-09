@@ -187,7 +187,6 @@ function BeachPage() {
         .filter((page, index) => page.name === params.beachName)
         .map((page) => (
           <div className="beach-page">
-            {console.log(page)}
             <div className="beach-page-card-container">
               <div
                 className="beach-page-card"
@@ -200,7 +199,6 @@ function BeachPage() {
                 </div>
               </div>
               <div className="beach-page-content">
-                {console.log(beachDays)}
                 <div className="beach-page-time">
                   <p className="beach-page-time-text">
                     <span className="accent">Today</span>, {currentDay} {month}{" "}
@@ -327,11 +325,10 @@ function BeachPage() {
                 <div className="current-conditions-container">
                   <h3>Current sea conditions</h3>
                   <div className="current-conditions">
-                    {console.log(beachDays[0])}
                     {beachDays[0]
                       .filter((beachDay, index) => index === 0)
                       .map((beachHour, index) => (
-                        <div> 
+                        <div>
                           <div>
                             <img src={sol} alt="" />
                             <p>{parseInt(beachHour.airTemperature.sg)}º</p>
@@ -397,10 +394,12 @@ function BeachPage() {
                 <div className="conditions-hour-container">
                   <h3>Sea conditions Forecast</h3>
                   <div className="conditions-hour-mobile">
-                    <Swiper pagination={true} className="conditions-swiper-mobile">
+                    <Swiper
+                      pagination={true}
+                      className="conditions-swiper-mobile"
+                    >
                       {beachDays.map((beachDay, index) => (
                         <SwiperSlide key={index}>
-                          {console.log(beachDay)}
                           <div className="day-slide">
                             <div>
                               <p>
@@ -421,7 +420,10 @@ function BeachPage() {
                             </div>
                           </div>
 
-                          <Swiper pagination={true} className="conditions-swiper-mobile">
+                          <Swiper
+                            pagination={true}
+                            className="conditions-swiper-mobile"
+                          >
                             {beachDay
                               .filter(
                                 (beachHour, index) =>
@@ -560,10 +562,14 @@ function BeachPage() {
                 <div className="conditions-hour-container-desktop">
                   <h3>Sea conditions Forecast</h3>
                   <div className="conditions-hour-desktop">
-                    <Swiper pagination={true} navigation={true} modules={[Navigation]} className="conditions-swiper-desktop">
+                    <Swiper
+                      pagination={true}
+                      navigation={true}
+                      modules={[Navigation]}
+                      className="conditions-swiper-desktop"
+                    >
                       {beachDays.map((beachDay, index) => (
                         <SwiperSlide key={index}>
-                          {console.log(beachDay)}
                           <div className="day-slide-desktop">
                             <div>
                               <div>
@@ -585,12 +591,10 @@ function BeachPage() {
                               </div>
                             </div>
                             <div className="hour-slide-desktop">
-                              
                               <div className="hour-slide-description-column">
-                                
                                 <div>
-                                    <p>Conditions</p>
-                                    <span className="line"></span>
+                                  <p>Conditions</p>
+                                  <span className="line"></span>
                                 </div>
                                 <div>
                                   <img src={airTemperatureBlue} alt="" />
@@ -613,65 +617,77 @@ function BeachPage() {
                                   <p>Wind speed</p>
                                 </div>
                                 <div>
-                                <img src={windDirection} alt="" />
+                                  <img src={windDirection} alt="" />
                                   <p>Temperature</p>
                                 </div>
                               </div>
                               {beachDay
-                              .filter(
-                                (beachHour, index) =>
-                                  index === 0 ||
-                                  index === 7 ||
-                                  index === 10 ||
-                                  index === 13 ||
-                                  index === 17 ||
-                                  index === 19 ||
-                                  index === 22
-                              )
-                              .map((beachHour, index) => (
-                                <div className="hour-slide-column">
-                                    
+                                .filter(
+                                  (beachHour, index) =>
+                                    index === 0 ||
+                                    index === 7 ||
+                                    index === 10 ||
+                                    index === 13 ||
+                                    index === 17 ||
+                                    index === 19 ||
+                                    index === 22
+                                )
+                                .map((beachHour, index) => (
+                                  <div className="hour-slide-column">
                                     <div>
                                       <div className="hour-slide-column-1">
-                                        {console.log(+beachHour.time.substring(11, 13))}
-                                        {console.log(beachHour)}
-                                        <p>{
-                                            +beachHour.time.substring(11, 13) === time && index === 0
-                                              ? "Now"
-                                              : beachHour.time.substring(11, 13) +
-                                                ":00"
-                                                
-                                            }
+                                        <p>
+                                          {+beachHour.time.substring(11, 13) ===
+                                            time && index === 0
+                                            ? "Now"
+                                            : beachHour.time.substring(11, 13) +
+                                              ":00"}
                                         </p>
                                         <span className="line"></span>
                                       </div>
                                       <p>
-                                        <span className="data-object">{parseFloat(
+                                        <span className="data-object">
+                                          {parseFloat(
                                             beachHour.airTemperature.sg
-                                          ).toFixed(1)}</span> º
+                                          ).toFixed(1)}
+                                        </span>{" "}
+                                        º
                                       </p>
                                       <p>
-                                        <span className="data-object">{parseFloat(
+                                        <span className="data-object">
+                                          {parseFloat(
                                             beachHour.waterTemperature.sg
-                                          ).toFixed(1)}</span> º
+                                          ).toFixed(1)}
+                                        </span>{" "}
+                                        º
                                       </p>
                                       <p>
-                                        <span className="data-object">{parseFloat(
+                                        <span className="data-object">
+                                          {parseFloat(
                                             beachHour.swellPeriod.sg
-                                          ).toFixed(1)}</span> s
+                                          ).toFixed(1)}
+                                        </span>{" "}
+                                        s
                                       </p>
                                       <p>
-                                        <span className="data-object">{parseFloat(
+                                        <span className="data-object">
+                                          {parseFloat(
                                             beachHour.swellHeight.sg
-                                          ).toFixed(1)}</span> m
+                                          ).toFixed(1)}
+                                        </span>{" "}
+                                        m
                                       </p>
                                       <p>
-                                        <span className="data-object">{parseFloat(
+                                        <span className="data-object">
+                                          {parseFloat(
                                             beachHour.windSpeed.sg
-                                          ).toFixed(1)}</span> kts
+                                          ).toFixed(1)}
+                                        </span>{" "}
+                                        kts
                                       </p>
                                       <p>
-                                      <span className="data-object">{beachHour.windDirection.sg <= 22.5
+                                        <span className="data-object">
+                                          {beachHour.windDirection.sg <= 22.5
                                             ? " N "
                                             : beachHour.windDirection.sg >
                                                 22.5 &&
@@ -711,16 +727,14 @@ function BeachPage() {
                                                 337.5 &&
                                               beachHour.windDirection.sg <= 360
                                             ? " N "
-                                            : "null"}</span>
+                                            : "null"}
+                                        </span>
                                       </p>
-                                      
                                     </div>
-                                </div>
-                              ))}
+                                  </div>
+                                ))}
                             </div>
                           </div>
-
-                          
                         </SwiperSlide>
                       ))}
                     </Swiper>
@@ -735,8 +749,6 @@ function BeachPage() {
                       {tideInfoDays.map((tideInfoDay, tideIndex) => (
                         <SwiperSlide key={tideIndex}>
                           {console.log(tideInfoDays)}
-                          {console.log(tideInfoDay)}
-                          {console.log(tideInfoDay[3])}
                           {/* {console.log(+tideInfoDay.time.substring(8,10))} */}
                           <div className="day-slide">
                             <div>

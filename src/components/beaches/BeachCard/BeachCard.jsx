@@ -31,7 +31,6 @@ function BeachCard(props) {
 
   const date = new Date();
   const [time] = useState(date.getHours());
-  console.log(time);
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
@@ -118,8 +117,6 @@ function BeachCard(props) {
       <>
         <div className="beach-card">
           <Link to={`/beaches/${element.name}`}>
-            {console.log(element.name)}
-            {console.log(seaInfo)}
             <div
               className="beach-card-row-1"
               style={{ backgroundImage: `url(${element.img}), ${gradient} ` }}
@@ -133,7 +130,6 @@ function BeachCard(props) {
             </div>
           </Link>
           <div className="beach-card-row-2">
-            {console.log(beachDays)}
             <div>
               {beachDays[0]
                 .filter((beachDay, index) => index === time)
