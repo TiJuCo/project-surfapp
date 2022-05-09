@@ -603,6 +603,94 @@
   left: 20px !important;
 }
 
+
+
+/* tides swiper */
+
+.tides-swiper-container {
+  /* width: calc(100vw - 40px); */
+}
+
+.tides-swiper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
+  border-radius: 10px;
+}
+
+.tides-swiper .day-slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+}
+
+.tides-swiper .day-slide > div:nth-child(2){
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.tides-swiper .day-slide > div:nth-child(2) svg{
+  display: flex;
+  align-self: center;
+  width: 10px;
+  color: var(--tertiary-color);
+}
+
+.tides-swiper .swiper-slide {
+  padding-left: unset;
+  padding-right: unset;
+}
+
+.tides-by-hour {
+  height: 100%;
+  
+}
+
+
+.tide-hours {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px;
+  gap: 20px;
+}
+
+.tide-hour {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tide-hour .line{
+  width: 100%;
+  background-color: var(--tertiary-color);
+  height: 3px;
+  border-radius: 30px;
+}
+
+.hour {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.services-container-outer {
+  display: grid;
+  gap: 20px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tide-hours {
+    padding: 80px;
+  }
+
+  .hour {
+    font-size: 1.6rem;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .beach-page-card-container {
     display: grid;
@@ -716,5 +804,11 @@
 
   .beach-properties {
     grid-template-columns: repeat(auto-fill, 170px);
+  }
+
+  /* tides */ 
+
+  .tides-swiper {
+    max-width: 50vw;
   }
 }

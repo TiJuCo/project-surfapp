@@ -92,7 +92,7 @@ function BeachPage() {
     "December",
   ];
   const date = new Date();
-  const [time] = useState(date.getHours());
+  // const [time] = useState(date.getHours());
   const [currentDay] = useState(date.getDate());
   const [tomorrow] = useState(date.getDate() + 1);
   const d = new Date();
@@ -102,6 +102,8 @@ function BeachPage() {
   const [day3] = useState(date.getDate() + 2);
   const [day4] = useState(date.getDate() + 3);
   const [day5] = useState(date.getDate() + 4);
+
+  const [time] = 11;
 
   const [currentTime, setCurrentTime] = useState(false);
 
@@ -752,10 +754,10 @@ function BeachPage() {
                 </div>
               </div>
               <div className="beach-page-main-container-3">
-                <div className="conditions-hour-container">
+                <div className="tides-swiper-container">
                   <h3>Tides Forecast</h3>
-                  <div className="conditions-hour-hour">
-                    <Swiper pagination={true} className="mySwiper">
+                  <div className="tides-by-hour">
+                    <Swiper pagination={true} className="tides-swiper">
                       {tideInfoDays.map((tideInfoDay, tideIndex) => (
                         <SwiperSlide key={tideIndex}>
                           <div className="day-slide">
@@ -775,41 +777,36 @@ function BeachPage() {
                             <div>
                               <span>Next day</span>
                               <FaChevronRight />
+                              {/* {tideInfoDay[tideIndex].type.charAt(0).toUpperCase() +
+                                      tideInfoDay[tideIndex].type.slice(1)} */}
+                              
                             </div>
                           </div>
-                          {tideInfoDay.map((tideHour, index) => (
-                            <SwiperSlide key={index}>
-                              <div className="day-slide-hour">
-                                <div>
-                                  <b>
-                                    {tideHour.type.charAt(0).toUpperCase() +
-                                      tideHour.type.slice(1)}
-                                  </b>
-                                  <span>
-                                    {(
-                                      Math.round(tideHour.height + 2.1 * 100) /
-                                      100
-                                    ).toFixed(2) + "m"}
-                                  </span>
-                                  <span>{tideHour.time.substring(11, 16)}</span>
-                                  <span className="line"></span>
-                                </div>
-                                <div>
-                                  <FaChevronRight />
-                                </div>
-                              </div>
-                              <div className="day-slide-hour-data">
-                                <div></div>
-                                <div></div>
-                              </div>
-                            </SwiperSlide>
-                          ))}
+                          <div className="tide-hours">
+                            {tideInfoDay.map((tideHour, index) => (      
+                                  <div className="tide-hour">
+                                    <b className="high-low">
+                                      {tideHour.type.charAt(0).toUpperCase() +
+                                        tideHour.type.slice(1)}
+                                    </b>
+                                    <span className="line"></span>
+                                    <span className="height">
+                                      {(
+                                        Math.round(tideHour.height + 2.1 * 100) /
+                                        100
+                                      ).toFixed(2) + "m"}
+                                    </span>
+                                    <span className="hour">{tideHour.time.substring(11, 16)}</span>
+                                   
+                                  </div>
+                            ))}
+                          </div>
                         </SwiperSlide>
                       ))}
                     </Swiper>
                   </div>
                 </div>
-                <div>
+                <div className="services-container-outer"> 
                   <div>
                     <h3>Services</h3>
                   </div>
