@@ -28,3 +28,8 @@ export const accessibility = require("./accessibility.svg");
 export const beginnerMobile = require("./beginnerMobile.svg");
 export const intermediateMobile = require("./intermediateMobile.svg");
 export const advancedMobile = require("./advancedMobile.svg");
+
+
+//calculator
+export const optimalWind = require("./optimalWind.svg");
+export const optimalSwellHeight = require("./optimalSwellHeight.svg");
