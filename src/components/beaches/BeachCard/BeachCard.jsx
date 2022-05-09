@@ -30,6 +30,7 @@ function BeachCard(props) {
 
   const date = new Date();
   const [time] = useState(date.getHours());
+  console.log(time)
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
@@ -90,7 +91,7 @@ function BeachCard(props) {
 
   const beachDays = [...beachDays1, ...beachDays2, ...beachDays3, ...beachDays4, ...beachDays5]; 
   
- 
+  
 
   return (
     element && (
