@@ -63,7 +63,7 @@ export const ApiContextProvider = ({ children }) => {
     setLoading(true);
 
     const res = await axios.get(
-      "https://run.mocky.io/v3/19eafcde-9b78-464d-88e6-854eb04b084a"
+      "https://run.mocky.io/v3/f39bbc3c-1b8e-486f-96c9-bb32929afbbf"
     );
 
     setBeachesInfo(res.data.beaches);
@@ -72,24 +72,79 @@ export const ApiContextProvider = ({ children }) => {
   };
 
   // Code for requesting data from stormglass
-  const getStormGlassInfo = async (ourApi) => {
-    ourApi.map(async (beach) => {
-      const res = await axios.get(
-        `https://api.stormglass.io/v2/weather/point?lat=${beach.latitude}&lng=${beach.longitude}&params=${params}`,
-        {
-          headers: {
-            Authorization:
-              "307e6928-c241-11ec-ac71-0242ac130002-307e6996-c241-11ec-ac71-0242ac130002",
-          },
-        }
-      );
-      await setSeaInfo((state) => {
-        state = [...state, res.data.hours.splice(0, 120)];
-        console.log(state);
-        return state;
-      });
+  // const getStormGlassInfo = async (ourApi) => {
+  //   ourApi.map(async (beach) => {
+  //     const res = await axios.get(
+  //       `https://api.stormglass.io/v2/weather/point?lat=${beach.latitude}&lng=${beach.longitude}&params=${params}`,
+  //       {
+  //         headers: {
+  //           Authorization:
+  //             "307e6928-c241-11ec-ac71-0242ac130002-307e6996-c241-11ec-ac71-0242ac130002",
+  //         },
+  //       }
+  //     );
+  //     await setSeaInfo((state) => {
+  //       state = [...state, res.data.hours.splice(0, 120)];
+  //       console.log(state);
+  //       return state;
+  //     });
+  //   });
+  // };
+
+  // API request fail safe
+  const getStormGlassInfo = async () => {
+    const first6Beaches = await axios.get(
+      `https://run.mocky.io/v3/2931bc42-ef0a-4e23-bb72-6901ae0f7193`
+    );
+    console.log(first6Beaches.data);
+    setSeaInfo((state) => {
+      state = [...state, ...first6Beaches.data];
+      console.log(state);
+      return state;
+    });
+    const second6Beaches = await axios.get(
+      `https://run.mocky.io/v3/bd9a7f8f-b246-4915-a564-34901da92e6a`
+    );
+    setSeaInfo((state) => {
+      state = [...state, ...second6Beaches.data];
+      console.log(state);
+      return state;
+    });
+    const third6Beaches = await axios.get(
+      `https://run.mocky.io/v3/3c164eb9-6ad7-41c9-a4a1-2dae1d636c23`
+    );
+    setSeaInfo((state) => {
+      state = [...state, ...third6Beaches.data];
+      console.log(state);
+      return state;
+    });
+    const fourth6Beaches = await axios.get(
+      `https://run.mocky.io/v3/89d2610f-f184-4ce6-a73f-0abd1a86a73c`
+    );
+    setSeaInfo((state) => {
+      state = [...state, ...fourth6Beaches.data];
+      console.log(state);
+      return state;
+    });
+    const fifth6Beaches = await axios.get(
+      `https://run.mocky.io/v3/eaf1386e-b2c9-4786-b57f-daa280cd2a15`
+    );
+    setSeaInfo((state) => {
+      state = [...state, ...fifth6Beaches.data];
+      console.log(state);
+      return state;
+    });
+    const sixth6Beaches = await axios.get(
+      `https://run.mocky.io/v3/124e541d-82a3-425f-a180-9bce71d7cbc6`
+    );
+    setSeaInfo((state) => {
+      state = [...state, ...sixth6Beaches.data];
+      console.log(state);
+      return state;
     });
   };
+
+  console.log(seaInfo);
 
   // Fail Safe request mocky API
   // const getStormGlassInfo = async (ourApi) => {
@@ -241,30 +296,44 @@ export const ApiContextProvider = ({ children }) => {
             gustSpeedRating += -5;
           }
           console.log(gustSpeedRating);
+          console.log(beachesInfo);
 
           if (
-            surfHour.convertedWindDirection ==
-            beachesInfo[beachIndex].perfectWindDirectionSurf
+            beachesInfo[beachIndex].perfectWindDirectionSurf.includes(
+              surfHour.convertedWindDirection
+            )
           ) {
             windDirectionRating += 2;
           } else if (
-            beachesInfo[beachIndex].perfectWindDirectionSurf === "N" &&
-            surfHour.convertedWindDirection.includes("N")
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "N" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NE" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NW") &&
+            surfHour.convertedWindDirection.substring(0, 1).includes("N")
           ) {
             windDirectionRating += 1;
           } else if (
-            beachesInfo[beachIndex].perfectWindDirectionSurf === "E" &&
-            surfHour.convertedWindDirection.includes("E")
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "E" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NE" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SE") &&
+            surfHour.convertedWindDirection.substring(1, 2).includes("E")
           ) {
             windDirectionRating += 1;
           } else if (
-            beachesInfo[beachIndex].perfectWindDirectionSurf === "S" &&
-            surfHour.convertedWindDirection.includes("S")
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "S" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SE" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SW") &&
+            surfHour.convertedWindDirection.substring(0, 1).includes("S")
           ) {
             windDirectionRating += 1;
           } else if (
-            beachesInfo[beachIndex].perfectWindDirectionSurf === "W" &&
-            surfHour.convertedWindDirection.includes("W")
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "W" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SW" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NW") &&
+            surfHour.convertedWindDirection.substring(1, 2).includes("W")
           ) {
             windDirectionRating += 1;
           }
@@ -288,30 +357,44 @@ export const ApiContextProvider = ({ children }) => {
           console.log(swellPeriodRating);
 
           if (
-            surfHour.convertedSwellDirection ==
-            beachesInfo[beachIndex].facingDirection
+            beachesInfo[beachIndex].facingDirection.includes(
+              surfHour.convertedSwellDirection
+            )
           ) {
-            swellDirectionRating += 2;
+            swellDirectionRating += 5;
+            console.log("perfect");
           } else if (
-            beachesInfo[beachIndex].facingDirection === "N" &&
-            surfHour.convertedSwellDirection.includes("N")
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "N" ||
+              beachesInfo[beachIndex].facingDirection == "NE" ||
+              beachesInfo[beachIndex].facingDirection == "NW") &&
+            surfHour.convertedSwellDirection.substring(0, 1).includes("N")
           ) {
-            swellDirectionRating += 1;
+            swellDirectionRating += 3;
           } else if (
-            beachesInfo[beachIndex].facingDirection === "E" &&
-            surfHour.convertedSwellDirection.includes("E")
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "E" ||
+              beachesInfo[beachIndex].facingDirection == "NE" ||
+              beachesInfo[beachIndex].facingDirection == "SE") &&
+            surfHour.convertedSwellDirection.substring(1, 2).includes("E")
           ) {
-            swellDirectionRating += 1;
+            swellDirectionRating += 3;
           } else if (
-            beachesInfo[beachIndex].facingDirection === "S" &&
-            surfHour.convertedSwellDirection.includes("S")
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "S" ||
+              beachesInfo[beachIndex].facingDirection == "SE" ||
+              beachesInfo[beachIndex].facingDirection == "SW") &&
+            surfHour.convertedSwellDirection.substring(0, 1).includes("S")
           ) {
-            swellDirectionRating += 1;
+            swellDirectionRating += 3;
           } else if (
-            beachesInfo[beachIndex].facingDirection === "W" &&
-            surfHour.convertedSwellDirection.includes("W")
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "W" ||
+              beachesInfo[beachIndex].facingDirection == "NW" ||
+              beachesInfo[beachIndex].facingDirection == "NE") &&
+            surfHour.convertedSwellDirection.substring(1, 2).includes("W")
           ) {
-            swellDirectionRating += 1;
+            swellDirectionRating += 3;
           } else {
             swellDirectionRating -= 5;
           }
@@ -340,6 +423,12 @@ export const ApiContextProvider = ({ children }) => {
           surfRating += swellSizeRating;
 
           surfHour.surfRating = surfRating;
+          surfHour.windSpeedRating = windSpeedRating;
+          surfHour.gustSpeedRating = gustSpeedRating;
+          surfHour.windDirectionRating = windDirectionRating;
+          surfHour.swellPeriodRating = swellPeriodRating;
+          surfHour.swellDirectionRating = swellDirectionRating;
+          surfHour.swellSizeRating = swellSizeRating;
 
           console.log(surfRating);
           console.log(surfHour);
