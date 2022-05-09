@@ -299,28 +299,41 @@ export const ApiContextProvider = ({ children }) => {
           console.log(beachesInfo);
 
           if (
-            surfHour.convertedWindDirection ==
-            beachesInfo[beachIndex].perfectWindDirectionSurf
+            beachesInfo[beachIndex].perfectWindDirectionSurf.includes(
+              surfHour.convertedWindDirection
+            )
           ) {
             windDirectionRating += 2;
           } else if (
-            beachesInfo[beachIndex].perfectWindDirectionSurf === "N" &&
-            surfHour.convertedWindDirection.includes("N")
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "N" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NE" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NW") &&
+            surfHour.convertedWindDirection.substring(0, 1).includes("N")
           ) {
             windDirectionRating += 1;
           } else if (
-            beachesInfo[beachIndex].perfectWindDirectionSurf === "E" &&
-            surfHour.convertedWindDirection.includes("E")
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "E" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NE" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SE") &&
+            surfHour.convertedWindDirection.substring(1, 2).includes("E")
           ) {
             windDirectionRating += 1;
           } else if (
-            beachesInfo[beachIndex].perfectWindDirectionSurf === "S" &&
-            surfHour.convertedWindDirection.includes("S")
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "S" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SE" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SW") &&
+            surfHour.convertedWindDirection.substring(0, 1).includes("S")
           ) {
             windDirectionRating += 1;
           } else if (
-            beachesInfo[beachIndex].perfectWindDirectionSurf === "W" &&
-            surfHour.convertedWindDirection.includes("W")
+            surfHour.convertedWindDirection &&
+            (beachesInfo[beachIndex].perfectWindDirectionSurf == "W" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "SW" ||
+              beachesInfo[beachIndex].perfectWindDirectionSurf == "NW") &&
+            surfHour.convertedWindDirection.substring(1, 2).includes("W")
           ) {
             windDirectionRating += 1;
           }
@@ -344,28 +357,42 @@ export const ApiContextProvider = ({ children }) => {
           console.log(swellPeriodRating);
 
           if (
-            surfHour.convertedSwellDirection ==
-            beachesInfo[beachIndex].facingDirection
+            beachesInfo[beachIndex].facingDirection.includes(
+              surfHour.convertedSwellDirection
+            )
           ) {
             swellDirectionRating += 5;
+            console.log("perfect");
           } else if (
-            beachesInfo[beachIndex].facingDirection === "N" &&
-            surfHour.convertedSwellDirection.includes("N")
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "N" ||
+              beachesInfo[beachIndex].facingDirection == "NE" ||
+              beachesInfo[beachIndex].facingDirection == "NW") &&
+            surfHour.convertedSwellDirection.substring(0, 1).includes("N")
           ) {
             swellDirectionRating += 3;
           } else if (
-            beachesInfo[beachIndex].facingDirection === "E" &&
-            surfHour.convertedSwellDirection.includes("E")
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "E" ||
+              beachesInfo[beachIndex].facingDirection == "NE" ||
+              beachesInfo[beachIndex].facingDirection == "SE") &&
+            surfHour.convertedSwellDirection.substring(1, 2).includes("E")
           ) {
             swellDirectionRating += 3;
           } else if (
-            beachesInfo[beachIndex].facingDirection === "S" &&
-            surfHour.convertedSwellDirection.includes("S")
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "S" ||
+              beachesInfo[beachIndex].facingDirection == "SE" ||
+              beachesInfo[beachIndex].facingDirection == "SW") &&
+            surfHour.convertedSwellDirection.substring(0, 1).includes("S")
           ) {
             swellDirectionRating += 3;
           } else if (
-            beachesInfo[beachIndex].facingDirection === "W" &&
-            surfHour.convertedSwellDirection.includes("W")
+            surfHour.convertedSwellDirection &&
+            (beachesInfo[beachIndex].facingDirection == "W" ||
+              beachesInfo[beachIndex].facingDirection == "NW" ||
+              beachesInfo[beachIndex].facingDirection == "NE") &&
+            surfHour.convertedSwellDirection.substring(1, 2).includes("W")
           ) {
             swellDirectionRating += 3;
           } else {
