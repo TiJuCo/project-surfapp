@@ -12,7 +12,6 @@
 .carouselVideoMobile {
     width: 100%;
     height: auto;
-    padding-bottom: 40px;
     padding-top: 40px;
 }
 
@@ -27,7 +26,6 @@
     justify-content: space-between;
     background-color: white;
     border-radius: 20px;
-    padding-bottom: 40px;
     height: 100%;
 }
 
@@ -36,7 +34,6 @@ video {
     height: auto;
     border-radius: 20px;
     z-index: 1;
-    filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
 }
 
 .react-player-duckdive-mobile {
@@ -54,6 +51,7 @@ video {
     display: flex;
     gap: 20px;
     justify-content: flex-end;
+    margin-top: -100px;
 }
 
 .button-left, .button-right {
@@ -91,4 +89,6 @@ video {
     .carouselVideoMobile {
         display: none;
     }
+
+    
 }

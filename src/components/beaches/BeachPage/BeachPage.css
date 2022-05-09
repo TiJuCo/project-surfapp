@@ -23,7 +23,6 @@
   padding: 20px;
   color: white;
   min-height: 180px;
-  filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.2));
 }
 
 .beach-page-card h1 {
@@ -42,14 +41,15 @@
 
 /* content */
 .beach-page-content {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 18px;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 /* time */
 .beach-page-time {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .beach-page-time-text {
@@ -59,8 +59,8 @@
 
 /* report */
 .beach-page-text-report {
-  line-height: 1.5;
-  font-size: 1.2rem;
+  line-height: 1.6;
+  font-size: 1.4rem;
   max-width: 24ch;
 }
 
@@ -86,7 +86,6 @@
 
 .beach-page-main-container-2 {
   display: grid;
-  gap: 20px;
 }
 
 .beach-page-main-container-3 {
@@ -525,9 +524,6 @@
   background-color: var(--secondary-color);
 }
 
-
-
-
 .day-slide-hour-data {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -594,6 +590,19 @@
   justify-self: center;
 }
 
+.data-object {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.swiper-button-next {
+  right: 20px !important;
+}
+
+.swiper-button-prev {
+  left: 20px !important;
+}
+
 @media only screen and (min-width: 1024px) {
   .beach-page-card-container {
     display: grid;
@@ -610,6 +619,11 @@
   .beach-page-card h1 {
     font-weight: 500;
     font-size: 1.8rem;
+  }
+
+  .beach-page-content {
+    padding-left: 40px;
+    padding-top: 0px;
   }
 
   /* beach page main */

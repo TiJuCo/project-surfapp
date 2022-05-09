@@ -636,44 +636,42 @@ function BeachPage() {
                                         {console.log(+beachHour.time.substring(11, 13))}
                                         {console.log(beachHour)}
                                         <p>{
-                                            +beachHour.time.substring(11, 13) === time
+                                            +beachHour.time.substring(11, 13) === time && index === 0
                                               ? "Now"
                                               : beachHour.time.substring(11, 13) +
                                                 ":00"
-                                                ? +beachHour.time.substring(11, 13) === time 
-                                                : beachHour.time.substring(11, 13) +
-                                                ":00"
+                                                
                                             }
                                         </p>
                                         <span className="line"></span>
                                       </div>
                                       <p>
-                                        <span>{parseFloat(
+                                        <span className="data-object">{parseFloat(
                                             beachHour.airTemperature.sg
                                           ).toFixed(1)}</span> º
                                       </p>
                                       <p>
-                                        <span>{parseFloat(
+                                        <span className="data-object">{parseFloat(
                                             beachHour.waterTemperature.sg
                                           ).toFixed(1)}</span> º
                                       </p>
                                       <p>
-                                        <span>{parseFloat(
+                                        <span className="data-object">{parseFloat(
                                             beachHour.swellPeriod.sg
                                           ).toFixed(1)}</span> s
                                       </p>
                                       <p>
-                                        <span>{parseFloat(
+                                        <span className="data-object">{parseFloat(
                                             beachHour.swellHeight.sg
                                           ).toFixed(1)}</span> m
                                       </p>
                                       <p>
-                                        <span>{parseFloat(
+                                        <span className="data-object">{parseFloat(
                                             beachHour.windSpeed.sg
                                           ).toFixed(1)}</span> kts
                                       </p>
                                       <p>
-                                      {beachHour.windDirection.sg <= 22.5
+                                      <span className="data-object">{beachHour.windDirection.sg <= 22.5
                                             ? " N "
                                             : beachHour.windDirection.sg >
                                                 22.5 &&
@@ -713,7 +711,7 @@ function BeachPage() {
                                                 337.5 &&
                                               beachHour.windDirection.sg <= 360
                                             ? " N "
-                                            : "null"}
+                                            : "null"}</span>
                                       </p>
                                       
                                     </div>

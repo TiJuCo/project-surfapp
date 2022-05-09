@@ -4,6 +4,10 @@
     gap: 20px;
 }
 
+.home-beaches-popular > div:nth-child(n+3) {
+    display: none;
+}
+
 @media only screen and (min-width: 1440px) {
 
     .home-beaches-popular .beach-card{
