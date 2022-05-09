@@ -40,7 +40,7 @@ import {
   intermediateMobile,
   advancedMobile,
   optimalWind,
-  optimalSwellHeight
+  optimalSwellHeight,
 } from "../../media/exportMedia";
 
 function BeachPage() {
@@ -329,7 +329,6 @@ function BeachPage() {
                           <img src={optimalWind} alt="" />
                           <img src={optimalSwellHeight} alt="" />
                         </div>
-
                       </div>
                       <div>
                         <p>Suitable for:</p>
@@ -339,8 +338,6 @@ function BeachPage() {
                           <img src={advancedMobile} alt="" />
                         </div>
                       </div>
-                  
-                      
                     </div>
                   </div>
                 </div>
@@ -410,8 +407,7 @@ function BeachPage() {
                   </div>
                 </div>
               </div>
-            
-              
+
               <div className="beach-page-main-container-2">
                 <div className="conditions-hour-container">
                   <h3>Sea conditions Forecast</h3>
@@ -525,31 +521,39 @@ function BeachPage() {
                                         <span className="">
                                           {beachHour.windDirection.sg <= 22.5
                                             ? " N "
-                                            : beachHour.windDirection.sg > 22.5 &&
+                                            : beachHour.windDirection.sg >
+                                                22.5 &&
                                               beachHour.windDirection.sg <= 67.5
                                             ? " NE "
-                                            : beachHour.windDirection.sg > 67.5 &&
-                                              beachHour.windDirection.sg <= 112.5
+                                            : beachHour.windDirection.sg >
+                                                67.5 &&
+                                              beachHour.windDirection.sg <=
+                                                112.5
                                             ? " E "
                                             : beachHour.windDirection.sg >
                                                 112.5 &&
-                                              beachHour.windDirection.sg <= 157.5
+                                              beachHour.windDirection.sg <=
+                                                157.5
                                             ? " SE "
                                             : beachHour.windDirection.sg >
                                                 157.5 &&
-                                              beachHour.windDirection.sg <= 202.5
+                                              beachHour.windDirection.sg <=
+                                                202.5
                                             ? " S "
                                             : beachHour.windDirection.sg >
                                                 202.5 &&
-                                              beachHour.windDirection.sg <= 247.5
+                                              beachHour.windDirection.sg <=
+                                                247.5
                                             ? " SW "
                                             : beachHour.windDirection.sg >
                                                 247.5 &&
-                                              beachHour.windDirection.sg <= 292.5
+                                              beachHour.windDirection.sg <=
+                                                292.5
                                             ? " W "
                                             : beachHour.windDirection.sg >
                                                 292.5 &&
-                                              beachHour.windDirection.sg <= 337.5
+                                              beachHour.windDirection.sg <=
+                                                337.5
                                             ? " NW "
                                             : beachHour.windDirection.sg >
                                                 337.5 &&
@@ -626,7 +630,7 @@ function BeachPage() {
                 </div>
                 <div>
                   <div>
-                      <h3>Services</h3>
+                    <h3>Services</h3>
                   </div>
                   <div className="services-container">
                     <div className="services">
@@ -657,7 +661,8 @@ function BeachPage() {
                       <div>
                         <img
                           className={
-                            page.services && page.services.includes("restaurants")
+                            page.services &&
+                            page.services.includes("restaurants")
                               ? "icon-active"
                               : "icon-not-active"
                           }
@@ -719,7 +724,8 @@ function BeachPage() {
                       <div>
                         <img
                           className={
-                            page.services && page.services.includes("freeParking")
+                            page.services &&
+                            page.services.includes("freeParking")
                               ? "icon-active"
                               : "icon-not-active"
                           }
@@ -755,13 +761,12 @@ function BeachPage() {
                     </div>
                   </div>
                 </div>
-                
               </div>
 
               <div>
                 <h3>Beach Properties</h3>
               </div>
-              
+
               <div className="beach-properties-container">
                 <div className="beach-properties">
                   <div>
@@ -796,7 +801,6 @@ function BeachPage() {
                   </div>
                 </div>
               </div>
-              
             </div>
           </div>
         ))}
