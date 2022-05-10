@@ -18,8 +18,8 @@ footer {
     padding: 40px;
 }
 
-#footer-logo{
-    width: 120px;
+.footer-logo svg{
+    width: 200px;
 }
 
 .footer-flex {

@@ -5,7 +5,7 @@ import "./Info.css";
 
 function Info(props) {
   return (
-    <div className="info-container">
+    <div className="info-container container">
       <div className="info-text">
         <h2>Duck Dive</h2>
         <p>
