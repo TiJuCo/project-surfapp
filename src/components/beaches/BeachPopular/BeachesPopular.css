@@ -51,13 +51,10 @@
   grid-area: f;
 }
 
-.beach-popular-container div:nth-child(n+4) {
+.beach-popular-container > div:nth-child(n+4) {
   display: none;
 }
 
-.beach-popular-container div:nth-child(n+4) {
-    display: none;
-}
 
 @media only screen and (min-width: 1024px) {
   .bg-img {
@@ -70,9 +67,18 @@
     min-height: 500px;
   }
 
-  .beach-popular-container > div:nth-child(1) > .beach-card-row-1 {
+  .beach-popular-container > div:nth-child(1) > .beach-card-row-1{
     border-radius: 20px;
+    justify-content: space-between !important;
     padding: 40px;
+  }
+
+  .beach-popular-container .beach-card a .beach-card-row-1 div {
+    justify-content: space-between !important;
+  }
+
+  .beach-popular-container .calculator-beach-container {
+    justify-content: space-between !important;
   }
 
   .beach-popular-container > div:nth-child(1) > .beach-card-row-1 h2 {

@@ -8,7 +8,7 @@ function Footer(props) {
       <div className="footer-flex">
         <div className="footer-1-flex">
           <Link to="/">
-            <Logo />
+            <div className='footer-logo'><Logo /></div>
           </Link>
           <span className="copyright">
             © 2022 Duckdive, All rights reserved

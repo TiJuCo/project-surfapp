@@ -17,5 +17,13 @@
     .beach-list {
         grid-template-columns: repeat(4, auto);
     }
+
+    .beach-list .beach-card .beach-card-row-1 .calculator-container-desktop .calculator-home{
+        display: none !important;
+    }
+
+    .beach-list .calculator-home-mobile {
+        display: initial !important;
+    }
     
 }
