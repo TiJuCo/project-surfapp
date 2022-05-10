@@ -623,7 +623,7 @@ function BeachPage() {
                                 </div>
                                 <div>
                                   <WindDirection />
-                                  <p>Temperature</p>
+                                  <p>Wind direction</p>
                                 </div>
                               </div>
                               {beachDay

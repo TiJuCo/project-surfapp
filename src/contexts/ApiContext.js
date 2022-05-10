@@ -459,7 +459,7 @@ export const ApiContextProvider = ({ children }) => {
           ) {
             swellSizeRating += 1;
           } else if (
-            surfHour.swellHeight.sg > 0.8 &&
+            surfHour.swellHeight.sg > 1 &&
             surfHour.swellHeight.sg <= 1.5
           ) {
             swellSizeRating += 3;
