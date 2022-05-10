@@ -281,7 +281,7 @@ function BeachPage() {
                   <div className="beach-page-calculator">
                     <div className="mobile">
                       <div>
-                        <p>Excellent</p>
+                        <p>Poor</p>
                         <div className="calc-dots">
                           <span class="dot-accent"></span>
                           <span class="dot-accent"></span>
@@ -302,28 +302,53 @@ function BeachPage() {
                     <div className="desktop">
                       <div>
                         <div>
-                          <p>Excellent</p>
-                          <div className="calc-dots">
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                          </div>
+                          {beachDays[0]
+                            .filter((beachDay, index) => index === time)
+                            .map((beachHour, index) => (
+                              <div>
+                                <div>
+                                  <p>{beachHour.finalRating}</p>
+                                  <div
+                                    className={
+                                      beachHour.finalRating == "Excellent"
+                                        ? "excellent-dot"
+                                        : beachHour.finalRating == "Very good"
+                                        ? "very-good-dot"
+                                        : beachHour.finalRating == "Good"
+                                        ? "good-dot"
+                                        : beachHour.finalRating ==
+                                          "Insufficient"
+                                        ? "insufficient-dot"
+                                        : beachHour.finalRating == "Poor"
+                                        ? "poor-dot"
+                                        : "calc-dots"
+                                    }
+                                  >
+                                    <span class="dot-accent"></span>
+                                    <span class="dot-accent"></span>
+                                    <span class="dot-accent"></span>
+                                    <span class="dot-accent"></span>
+                                    <span class="dot-accent"></span>
+                                  </div>
+                                </div>
+
+                                {/* <div>
+                                      <img src={beginnerMobile}alt="" />
+                                      <img src={intermediateMobile}alt="" />
+                                      <img src={advancedMobile}alt="" />
+                                  </div> */}
+                                <p>
+                                  Today, {currentDay} {month}
+                                </p>
+                              </div>
+                            ))}
                         </div>
                         <div>
                           <OptimalWind />
                           <OptimalSwellHeight />
                         </div>
                       </div>
-                      <div>
-                        <p>Suitable for:</p>
-                        <div>
-                          <BeginnerMobile />
-                          <IntermediateMobile />
-                          <AdvancedMobile />
-                        </div>
-                      </div>
+                      <div></div>
                     </div>
                   </div>
                 </div>

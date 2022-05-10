@@ -163,27 +163,26 @@ function BeachCard(props) {
                         <div
                           className={
                             beachHour.finalRating == "Excellent"
-                              ? "excellent-dot, calc-dots"
+                              ? "excellent-dot"
                               : beachHour.finalRating == "Very good"
-                              ? "very-good-dot, calc-dots"
+                              ? "very-good-dot"
                               : beachHour.finalRating == "Good"
-                              ? "good-dot, calc-dots"
+                              ? "good-dot"
                               : beachHour.finalRating == "Insufficient"
                               ? "insufficient-dot"
                               : beachHour.finalRating == "Poor"
-                              ? "poor-dot, calc-dots"
+                              ? "poor-dot"
                               : "calc-dots"
                           }
                         >
-                          
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                          </div>
+                          <span class="dot-accent"></span>
+                          <span class="dot-accent"></span>
+                          <span class="dot-accent"></span>
+                          <span class="dot-accent"></span>
+                          <span class="dot-accent"></span>
                         </div>
-                      
+                      </div>
+
                       {/* <div>
                               <img src={beginnerMobile}alt="" />
                               <img src={intermediateMobile}alt="" />
@@ -309,41 +308,37 @@ function BeachCard(props) {
             </div>
           </div>
           <div className="calculator-home-mobile">
-                {beachDays[0]
-                  .filter((beachDay, index) => index === time)
-                  .map((beachHour, index) => (
-                    <div>
-                      <div>
-                        <p>{beachHour.finalRating}</p>
-                        <div
-                          className={
-                            beachHour.finalRating == "Excellent"
-                              ? "excellent-dot"
-                              : beachHour.finalRating == "Very good"
-                              ? "very-good-dot"
-                              : beachHour.finalRating == "Good"
-                              ? "good-dot"
-                              : beachHour.finalRating == "Insufficient"
-                              ? "insufficient-dot"
-                              : beachHour.finalRating == "Poor"
-                              ? "poor-dot"
-                              : "calc-dots"
-                          }
-                        >
-                          
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                            <span class="dot-accent"></span>
-                          </div>
-                        </div>
-                      
-
-                     
+            {beachDays[0]
+              .filter((beachDay, index) => index === time)
+              .map((beachHour, index) => (
+                <div>
+                  <div>
+                    <p>{beachHour.finalRating}</p>
+                    <div
+                      className={
+                        beachHour.finalRating == "Excellent"
+                          ? "excellent-dot"
+                          : beachHour.finalRating == "Very good"
+                          ? "very-good-dot"
+                          : beachHour.finalRating == "Good"
+                          ? "good-dot"
+                          : beachHour.finalRating == "Insufficient"
+                          ? "insufficient-dot"
+                          : beachHour.finalRating == "Poor"
+                          ? "poor-dot"
+                          : "calc-dots"
+                      }
+                    >
+                      <span class="dot-accent"></span>
+                      <span class="dot-accent"></span>
+                      <span class="dot-accent"></span>
+                      <span class="dot-accent"></span>
+                      <span class="dot-accent"></span>
                     </div>
-                  ))}
-              </div>
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
       </>
     )
