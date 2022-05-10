@@ -115,10 +115,8 @@ export const ApiContextProvider = ({ children }) => {
     const first6Beaches = await axios.get(
       `https://run.mocky.io/v3/2931bc42-ef0a-4e23-bb72-6901ae0f7193`
     );
-    console.log(first6Beaches.data);
     setSeaInfo((state) => {
       state = [...state, ...first6Beaches.data];
-      console.log(state);
       return state;
     });
     const second6Beaches = await axios.get(
@@ -126,7 +124,6 @@ export const ApiContextProvider = ({ children }) => {
     );
     setSeaInfo((state) => {
       state = [...state, ...second6Beaches.data];
-      console.log(state);
       return state;
     });
     const third6Beaches = await axios.get(
@@ -134,7 +131,6 @@ export const ApiContextProvider = ({ children }) => {
     );
     setSeaInfo((state) => {
       state = [...state, ...third6Beaches.data];
-      console.log(state);
       return state;
     });
     const fourth6Beaches = await axios.get(
@@ -142,7 +138,6 @@ export const ApiContextProvider = ({ children }) => {
     );
     setSeaInfo((state) => {
       state = [...state, ...fourth6Beaches.data];
-      console.log(state);
       return state;
     });
     const fifth6Beaches = await axios.get(
@@ -150,7 +145,6 @@ export const ApiContextProvider = ({ children }) => {
     );
     setSeaInfo((state) => {
       state = [...state, ...fifth6Beaches.data];
-      console.log(state);
       return state;
     });
     const sixth6Beaches = await axios.get(
@@ -158,7 +152,6 @@ export const ApiContextProvider = ({ children }) => {
     );
     setSeaInfo((state) => {
       state = [...state, ...sixth6Beaches.data];
-      console.log(state);
       return state;
     });
   };
@@ -323,8 +316,6 @@ export const ApiContextProvider = ({ children }) => {
     element.name = beachesInfo[index].name;
   });
 
-  console.log(tideInfo);
-
   const calculator = () => {
     //Now 6, 9, 12, 15, 18, 21
     seaInfo.map((beach, beachIndex) =>
@@ -357,13 +348,10 @@ export const ApiContextProvider = ({ children }) => {
           } else {
             windSpeedRating -= -5;
           }
-          console.log(windSpeedRating);
 
           if (surfHour.gust.sg > 16) {
             gustSpeedRating += -5;
           }
-          console.log(gustSpeedRating);
-          console.log(beachesInfo);
 
           if (
             beachesInfo[beachIndex].perfectWindDirectionSurf.includes(
@@ -404,7 +392,6 @@ export const ApiContextProvider = ({ children }) => {
           ) {
             windDirectionRating += 1;
           }
-          console.log(windDirectionRating);
 
           if (surfHour.swellPeriod.sg >= 13) {
             swellPeriodRating += 3;
@@ -421,7 +408,6 @@ export const ApiContextProvider = ({ children }) => {
           } else {
             swellPeriodRating -= 1;
           }
-          console.log(swellPeriodRating);
 
           if (
             beachesInfo[beachIndex].facingDirection.includes(
@@ -429,7 +415,6 @@ export const ApiContextProvider = ({ children }) => {
             )
           ) {
             swellDirectionRating += 5;
-            console.log("perfect");
           } else if (
             surfHour.convertedSwellDirection &&
             (beachesInfo[beachIndex].facingDirection == "N" ||
@@ -465,7 +450,6 @@ export const ApiContextProvider = ({ children }) => {
           } else {
             swellDirectionRating -= 5;
           }
-          console.log(swellDirectionRating);
 
           if (
             surfHour.swellHeight.sg >= 0.5 &&
@@ -480,7 +464,6 @@ export const ApiContextProvider = ({ children }) => {
           } else if (surfHour.swellHeight.sg > 1.5) {
             swellSizeRating += 4;
           }
-          console.log(swellSizeRating);
 
           surfRating += windSpeedRating;
           surfRating += gustSpeedRating;
@@ -496,9 +479,6 @@ export const ApiContextProvider = ({ children }) => {
           surfHour.swellPeriodRating = swellPeriodRating;
           surfHour.swellDirectionRating = swellDirectionRating;
           surfHour.swellSizeRating = swellSizeRating;
-
-          console.log(surfRating);
-          console.log(surfHour);
 
           // Excellent = 17/20
           // Very good = 13/16

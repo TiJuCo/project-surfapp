@@ -14,8 +14,6 @@ function HomeBeachesPopular() {
     element.services = beachesInfo[index].services;
   });
 
-  console.log(seaInfo);
-
   return (
     <div className="container home-beaches-popular">
       {seaInfo.map((element, index) => (
