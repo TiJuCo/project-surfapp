@@ -8,9 +8,7 @@ import "./BeachesPopularMobile.css";
 import BeachCard from "../../BeachCard/BeachCard";
 import ApiContext from "../../../../contexts/ApiContext.js";
 
-
 function BeachesPopularMobile() {
-
   const { seaInfo, beachesInfo } = useContext(ApiContext);
 
   seaInfo.forEach((element, index) => {
@@ -19,15 +17,25 @@ function BeachesPopularMobile() {
     element.img = beachesInfo[index].img;
     element.services = beachesInfo[index].services;
   });
-    
+
   return (
     <>
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-        {seaInfo.map((element, index) => (
-          <SwiperSlide key={seaInfo.index}>
-            <div>{<BeachCard element={element} key={index}/>} </div>
-          </SwiperSlide>
-        ))}
+        {seaInfo
+          .filter(
+            (element) =>
+              element.name === "Praia Grande" ||
+              element.name === "Praia dos Supertubos" ||
+              element.name === "Praia do Amado" ||
+              element.name === "Praia da Cresmina" ||
+              element.name === "Foz do Lizandro" ||
+              element.name === "Costa da Caparica"
+          )
+          .map((element, index) => (
+            <SwiperSlide key={seaInfo.index}>
+              <div>{<BeachCard element={element} key={index} />} </div>
+            </SwiperSlide>
+          ))}
       </Swiper>
     </>
   );
