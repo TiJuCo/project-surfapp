@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import "./WeatherCard.css";
 import { useState, useContext } from "react";
 import ApiContext from "../../../contexts/ApiContext.js";

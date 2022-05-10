@@ -166,6 +166,8 @@ function BeachPage() {
   beachDays[3] && beachDays[3].unshift(beachDays[3][time]);
   beachDays[4] && beachDays[4].unshift(beachDays[4][time]);
 
+  tideInfoDays.pop();
+
   console.log(beachDays);
   console.log(tideInfoDays);
 
@@ -743,6 +745,8 @@ function BeachPage() {
                       {tideInfoDays.map((tideInfoDay, tideIndex) => (
                         <SwiperSlide key={tideIndex}>
                           <div className="day-slide">
+                            {console.log(tideInfoDay)}
+                            {console.log(tideInfoDays)}
                             <div>
                               <p>
                                 {+tideInfoDay[0].time.substring(8, 10) ===
