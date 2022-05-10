@@ -446,7 +446,7 @@ function BeachPage() {
                                     <div>
                                       <span>
                                         {+beachHour.time.substring(11, 13) ===
-                                        time
+                                          time && index === 0
                                           ? "Now"
                                           : beachHour.time.substring(11, 13) +
                                             ":00"}
@@ -580,7 +580,7 @@ function BeachPage() {
                               <div>
                                 <p className="day-slide-day">
                                   {+beachDay[0].time.substring(8, 10) ===
-                                    currentDay && index === 0
+                                  currentDay
                                     ? "Today"
                                     : +beachDay[0].time.substring(8, 10) ===
                                       tomorrow
