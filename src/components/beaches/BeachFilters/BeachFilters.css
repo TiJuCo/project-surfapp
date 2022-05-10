@@ -15,5 +15,9 @@
     .beach-list {
         grid-template-columns: repeat(4, 1fr);
     }
+
+    .filters-container > div {
+        width: 400px;
+    }
     
 }

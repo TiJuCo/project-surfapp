@@ -18,7 +18,7 @@ function Navbar(props) {
     return (
 
         <div className="navbar-container">
-            <Link to="/"><Logo /></Link>
+            <Link to="/"><div className='logo'><Logo /></div></Link>
             <nav className="navbar-desktop">
  
                     <div className="">
