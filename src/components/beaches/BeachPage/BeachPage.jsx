@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useContext, useState } from "react";
 import "./BeachPage.css";
 import { useParams } from "react-router-dom";
@@ -34,9 +35,6 @@ import {
   Wc,
   Accessibility,
   ArrowFullLeft,
-  BeginnerMobile,
-  IntermediateMobile,
-  AdvancedMobile,
   OptimalWind,
   OptimalSwellHeight,
 } from "../../media/exportMedia";
