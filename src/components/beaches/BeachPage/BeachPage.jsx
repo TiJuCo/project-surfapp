@@ -170,6 +170,9 @@ function BeachPage() {
   beachDays[3] && beachDays[3].unshift(beachDays[3][time]);
   beachDays[4] && beachDays[4].unshift(beachDays[4][time]);
 
+  console.log(tideInfoDays);
+  console.log(beachDays);
+
   return (
     <div className="container beach-page-container">
       <Link to={`/beaches/`}>
@@ -577,7 +580,7 @@ function BeachPage() {
                               <div>
                                 <p className="day-slide-day">
                                   {+beachDay[0].time.substring(8, 10) ===
-                                  currentDay
+                                    currentDay && index === 0
                                     ? "Today"
                                     : +beachDay[0].time.substring(8, 10) ===
                                       tomorrow
