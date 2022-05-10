@@ -32,30 +32,7 @@ const WeatherCard = (props) => {
             </h2>
           </div>
         </div>
-        <div className="weather-icon">
-          <img
-            src={
-              openWeatherInfo
-                .filter((el) => el.name === element.name)
-                .map((el, index) => el.weather[0].description.includes("cloud"))
-                ? Sol
-                : openWeatherInfo
-                    .filter((el) => el.name === element.name)
-                    .map((el, index) =>
-                      el.weather[index].description.includes("clear sky")
-                    )
-                ? Sol
-                : openWeatherInfo
-                    .filter((el) => el.name.includes(element.name))
-                    .map((el, index) =>
-                      el.weather[index].description.includes("rain")
-                    )
-                ? Sol
-                : "cenas"
-            }
-            alt=""
-          />
-        </div>
+        <div className="weather-icon"></div>
       </div>
       <div className="weather-card-body">
         <div className="temperature-max-min">
@@ -78,3 +55,26 @@ const WeatherCard = (props) => {
 };
 
 export default WeatherCard;
+
+/* <img
+  src={
+    openWeatherInfo
+      .filter((el) => el.name === element.name)
+      .map((el, index) => el.weather[0].description.includes("cloud"))
+      ? "cloud"
+      : openWeatherInfo
+          .filter((el) => el.name === element.name)
+          .map((el, index) =>
+            el.weather[index].description.includes("clear sky")
+          )
+      ? "sol"
+      : openWeatherInfo
+          .filter((el) => el.name.includes(element.name))
+          .map((el, index) =>
+            el.weather[index].description.includes("rain")
+          )
+      ? "rainy"
+      : "sol"
+  }
+  alt=""
+/> */
