@@ -32,7 +32,9 @@ const WeatherCard = (props) => {
             </h2>
           </div>
         </div>
-        <div className="weather-icon"></div>
+        <div className="weather-icon">
+          <Sol />
+        </div>
       </div>
       <div className="weather-card-body">
         <div className="temperature-max-min">

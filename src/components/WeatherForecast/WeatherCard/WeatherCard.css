@@ -100,8 +100,9 @@
   align-self: flex-end;
 }
 
-.weather-icon img {
+.weather-icon svg {
   height: 36px;
+  width: auto;
 }
 
 .days {

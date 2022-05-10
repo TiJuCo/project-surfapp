@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable eqeqeq */
 import React, { useContext, useState } from "react";
 import "./BeachPage.css";
@@ -263,6 +264,7 @@ function BeachPage() {
                   </p>
                   <div>
                     <a
+                      target="_blank"
                       href={`https://www.google.com/maps/place/${currentBeach.latitude},${currentBeach.longitude}`}
                     >
                       <button className="get-directions">Get directions</button>
