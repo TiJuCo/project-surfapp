@@ -139,7 +139,7 @@ function BeachCard(props) {
             >
               <h2>{element.name}</h2>
 
-              <div>
+              <div className="calculator-container-desktop">
                 {beachDays[0]
                   .filter((beachDay, index) => index === time)
                   .map((beachHour, index) => (
@@ -308,6 +308,42 @@ function BeachCard(props) {
               />
             </div>
           </div>
+          <div className="calculator-home-mobile">
+                {beachDays[0]
+                  .filter((beachDay, index) => index === time)
+                  .map((beachHour, index) => (
+                    <div>
+                      <div>
+                        <p>{beachHour.finalRating}</p>
+                        <div
+                          className={
+                            beachHour.finalRating == "Excellent"
+                              ? "excellent-dot"
+                              : beachHour.finalRating == "Very good"
+                              ? "very-good-dot"
+                              : beachHour.finalRating == "Good"
+                              ? "good-dot"
+                              : beachHour.finalRating == "Insufficient"
+                              ? "insufficient-dot"
+                              : beachHour.finalRating == "Poor"
+                              ? "poor-dot"
+                              : "calc-dots"
+                          }
+                        >
+                          
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                          </div>
+                        </div>
+                      
+
+                     
+                    </div>
+                  ))}
+              </div>
         </div>
       </>
     )

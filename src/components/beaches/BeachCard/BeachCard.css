@@ -95,19 +95,48 @@
 
 .location-icon {
     align-self: flex-end;
-    padding-bottom: 23px;
     padding-right: 8px;
 }
 
 /* calculator */
 
+.excellent-filter, .very-good-filter, .good-filter, .poor-filter, .insufficient-filter{
+    display: none;
+}
+
+
 .calculator-home {
-    display: grid !important;
+    display: none !important;
     gap: 5px;
     border-radius: 10px 10px 0px 0px;
     background-color: #151515;
     padding: 15px;
+    width: 100px;
 }
+
+.calculator-home-mobile {
+    display: flex;
+    gap: 5px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #151515;
+    padding: 10px 15px 10px 15px;
+    color: white;
+    width: 100%;
+}
+
+.calculator-home-mobile > div div {
+    display: flex;
+    font-size: 0.8rem;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.calculator-home-mobile p {
+    text-align: center;
+    color: white !important;
+}
+
+
 
 .calculator-home p {
     text-align: center;
@@ -120,6 +149,8 @@
 .calculator-home > div:nth-child(2) {
     margin-top: unset;
 }
+
+
 
 
 
@@ -143,19 +174,35 @@
     filter: drop-shadow(14px 24px 0px var(--poor));
 }
 
+
+/* dots */
+
+.excellent-dot, .very-good-dot, .good-dot, .insufficient-dot, .poor-dot{
+    display: flex;
+    align-items: center;
+    gap: 4px !important;
+    margin-top: unset !important;
+}
+
+
 .excellent-dot > span {
     background-color: var(--excellent);
 }
 
-.dot-very-good > span {
+
+
+.very-good-dot > span {
     background-color: var(--very-good);
 }
 
-.dot-very-good > span:nth-child(5){
+.very-good-dot > span:nth-child(5){
     opacity: 0.3;
-  }
+}
 
-.good-dot {
+
+
+
+.good-dot > span {
     background-color: var(--good);
 }
 
@@ -167,12 +214,9 @@
     opacity: 0.3;
 }
 
-.insufficient-dot {
-    display: flex;
-    align-items: center;
-    gap: 4px !important;
-    margin-top: unset !important;
-}
+
+
+
 .insufficient-dot > span {
     background-color: var(--insufficient);
 }
@@ -188,6 +232,9 @@
 .insufficient-dot  span:nth-child(5) {
     opacity: 0.3;
 }
+
+
+
 .poor-dot > span{
     background-color: var(--poor);
 }
@@ -205,18 +252,58 @@
     opacity: 0.3;
 }
 
+/* mobiles */ 
+
+.excellent-filter-mobile {
+    background-color: var(--excellent)
+}
+
+.very-good-filter-mobile {
+    background-color: var(--very-good);
+}
+
+.good-filter-mobile {
+    background-color: var(--good);
+}
+
+.insufficient-filter-mobile {
+    background-color: var(--insufficient);
+}
+
+.poor-filter-mobile {
+    background-color: var(--poor);
+}
 
   
   
   
-  .dot-good > div{
+.dot-good > div{
     background-color: var;
-  }
-  
-  .dot-good > div:nth-child(4), .dot-good > div:nth-child(5){
-    opacity: 0.3;
-  }
+}
 
+.dot-good > div:nth-child(4), .dot-good > div:nth-child(5){
+    opacity: 0.3;
+}
+
+
+@media only screen and (min-width: 1024px) {
+    .excellent-filter, .very-good-filter, .good-filter, .poor-filter, .insufficient-filter{
+        display: initial;
+    }
+    .calculator-home {
+        display: grid !important;
+    }
+
+    .calculator-home-mobile {
+        display: none !important;
+    }
+
+    .location-icon {
+        padding-bottom: 23px;
+    }
+    
+    
+}
 
 @media only screen and (min-width: 1024px) {
     .beach-card {
@@ -226,7 +313,7 @@
     }
 
     .beach-card-row-1 {
-        padding: 20px;
+        padding: 20px 20px 0px 20px;
         min-height: 200px;
         height: 100%;
         overflow: hidden;

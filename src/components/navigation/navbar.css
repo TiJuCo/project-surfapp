@@ -1,6 +1,6 @@
 /* NAVIGATION */ 
 
-#logo {
+.logo svg{
     width:160px;
 }
 
@@ -130,7 +130,7 @@ nav a:hover {
         padding-right: 40px;
     }
 
-    #logo {
+    .logo svg {
         width:220px;
     }
 
