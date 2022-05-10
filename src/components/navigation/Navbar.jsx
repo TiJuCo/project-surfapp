@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { logo } from '../../media/icons/iconsData'
+import { Logo } from '../../media/icons/iconsData'
 import './navbar.css'
 
 function Navbar(props) {
@@ -18,7 +18,7 @@ function Navbar(props) {
     return (
 
         <div className="navbar-container">
-            <Link to="/"><img id="logo" src={logo} alt="DuckDive"/></Link>
+            <Link to="/"><Logo /></Link>
             <nav className="navbar-desktop">
  
                     <div className="">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { logo } from "../../../media/icons/iconsData";
+import { Logo } from "../../../media/icons/iconsData";
 import "./footer.css";
 
 function Footer(props) {
@@ -8,7 +8,7 @@ function Footer(props) {
       <div className="footer-flex">
         <div className="footer-1-flex">
           <Link to="/">
-            <img id="footer-logo" src={logo} alt="DuckDive" />
+            <Logo />
           </Link>
           <span className="copyright">
             © 2022 Duckdive, All rights reserved

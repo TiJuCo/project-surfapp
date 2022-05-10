@@ -4,22 +4,22 @@ import ApiContext from "../../../contexts/ApiContext.js";
 import "./BeachCard.css";
 import { Link } from "react-router-dom";
 import {
-  sol,
-  swellDuration,
-  swellHeight,
-  wind,
-  location,
-  lifeguard,
-  equipment,
-  firstAid,
-  parking,
-  freeParking,
-  restaurants,
-  showers,
-  transportation,
-  wc,
-  accessibility,
-} from "../../media/exportMedia.jsx";
+  Sol,
+  SwellDuration,
+  SwellHeight,
+  Wind,
+  Location,
+  Lifeguard,
+  Equipment,
+  FirstAid,
+  Parking,
+  FreeParking,
+  Restaurants,
+  Showers,
+  Transportation,
+  Wc,
+  Accessibility,
+} from "../../media/exportMedia";
 
 const gradient =
   "linear-gradient(360deg, rgba(57, 73, 87, 0.9) 0%, rgba(255, 255, 255, 0) 100%)";
@@ -45,7 +45,8 @@ function BeachCard(props) {
   let month = months[d.getMonth()];
   const date = new Date();
   const [currentDay] = useState(date.getDate());
-  const [time] = useState(date.getHours());
+  //const [time] = useState(date.getHours());
+  const time = 12;
 
   let convertedWindDirection = "";
   const resolveWindDirection = () => {
@@ -166,19 +167,23 @@ function BeachCard(props) {
                               : beachHour.finalRating == "Very good"
                               ? "very-good-dot, calc-dots"
                               : beachHour.finalRating == "Good"
-                              ? "Good-dot, calc-dots"
+                              ? "good-dot, calc-dots"
+                              : beachHour.finalRating == "Insufficient"
+                              ? "insufficient-dot"
                               : beachHour.finalRating == "Poor"
-                              ? "very-good-dot, calc-dots"
+                              ? "poor-dot, calc-dots"
                               : "calc-dots"
                           }
                         >
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
+                          
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                            <span class="dot-accent"></span>
+                          </div>
                         </div>
-                      </div>
+                      
                       {/* <div>
                               <img src={beginnerMobile}alt="" />
                               <img src={intermediateMobile}alt="" />
@@ -190,7 +195,7 @@ function BeachCard(props) {
                     </div>
                   ))}
                 <div className="location-icon">
-                  <img src={location} alt="" />
+                  <Location />
                   <p>{element.county}</p>
                 </div>
               </div>
@@ -203,21 +208,21 @@ function BeachCard(props) {
                 .map((beachHour, index) => (
                   <div className="beach-card-row-2-row-1">
                     <div>
-                      <img src={sol} alt="" />
+                      <Sol />
                       <p>{parseInt(beachHour.airTemperature.sg)}º</p>
                     </div>
                     <div>
-                      <img src={swellDuration} alt="" />
+                      <SwellDuration />
                       <p>
                         {parseFloat(beachHour.swellPeriod.noaa).toFixed(1)}s
                       </p>
                     </div>
                     <div>
-                      <img src={swellHeight} alt="" />
+                      <SwellHeight />
                       <p>{parseFloat(beachHour.swellHeight.sg).toFixed(1)}m</p>
                     </div>
                     <div>
-                      <img src={wind} alt="" />
+                      <Wind />
                       <p>
                         {parseFloat(beachHour.windSpeed.sg).toFixed(1)}
                         <span className="kts">kts</span>{" "}
@@ -230,96 +235,76 @@ function BeachCard(props) {
                 ))}
             </div>
             <div className="beach-card-row-2-row-2">
-              <img
+              <Lifeguard
                 className={
                   element.services && element.services.includes("lifeguard")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={lifeguard}
-                alt="lifeguard"
               />
-              <img
+              <Equipment
                 className={
                   element.services && element.services.includes("equipment")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={equipment}
-                alt="equipment"
               />
-              <img
+              <Restaurants
                 className={
                   element.services && element.services.includes("restaurants")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={restaurants}
-                alt=""
               />
-              <img
+              <Showers
                 className={
                   element.services && element.services.includes("showers")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={showers}
-                alt=""
               />
-              <img
+              <Accessibility
                 className={
                   element.services && element.services.includes("accessibility")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={accessibility}
-                alt=""
               />
-              <img
+              <Transportation
                 className={
                   element.services &&
                   element.services.includes("transportation")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={transportation}
-                alt=""
               />
-              <img
+              <Parking
                 className={
                   element.services && element.services.includes("parking")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={parking}
-                alt=""
               />
-              <img
+              <FreeParking
                 className={
                   element.services && element.services.includes("freeParking")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={freeParking}
-                alt=""
               />
-              <img
+              <Wc
                 className={
                   element.services && element.services.includes("wc")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={wc}
-                alt=""
               />
-              <img
+              <FirstAid
                 className={
                   element.services && element.services.includes("firstAid")
                     ? "icon-active"
                     : "icon-not-active"
                 }
-                src={firstAid}
-                alt=""
               />
             </div>
           </div>

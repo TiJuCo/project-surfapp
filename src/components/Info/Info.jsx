@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react";
-import { linkedIn, github } from "../../media/icons/iconsData";
+import { LinkedIn, Github } from "../media/exportMedia";
 import "./Info.css";
 
 function Info(props) {
@@ -32,14 +32,14 @@ function Info(props) {
                   href="https://www.linkedin.com/in/tiago-v-jacinto/"
                   target="_blank"
                 >
-                  <img src={linkedIn} alt="" />
+                  <LinkedIn />
                 </a>
                 <a
                   href="https://github.com/TiagoJacinto92"
                   rel="owner"
                   target="_blank"
                 >
-                  <img src={github} alt="" />
+                  <Github />
                 </a>
               </div>
             </div>
@@ -53,10 +53,10 @@ function Info(props) {
                   href="https://www.linkedin.com/in/juan-pablo-gim%C3%A9nez-481b83236/"
                   target="_blank"
                 >
-                  <img src={linkedIn} alt="" />
+                  <LinkedIn />
                 </a>
                 <a href="https://github.com/jupa248" target="_blank">
-                  <img src={github} alt="" />
+                  <Github />
                 </a>
               </div>
             </div>
@@ -70,10 +70,10 @@ function Info(props) {
                   href="https://www.linkedin.com/in/francisco-ceriaco-pereira/"
                   target="_blank"
                 >
-                  <img src={linkedIn} alt="" />
+                  <LinkedIn />
                 </a>
                 <a href="https://github.com/franciscocpereira" target="_blank">
-                  <img src={github} alt="" />
+                  <Github />
                 </a>
               </div>
             </div>

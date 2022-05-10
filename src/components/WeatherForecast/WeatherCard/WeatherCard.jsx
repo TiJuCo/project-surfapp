@@ -1,7 +1,7 @@
 import "./WeatherCard.css";
 import { useState, useContext } from "react";
 import ApiContext from "../../../contexts/ApiContext.js";
-import { sol, arrowUp, arrowDown } from "../../media/exportMedia.jsx";
+import { Sol, ArrowUp, ArrowDown } from "../../media/exportMedia";
 
 const WeatherCard = (props) => {
   const { element, index } = props;
@@ -33,38 +33,39 @@ const WeatherCard = (props) => {
           </div>
         </div>
         <div className="weather-icon">
-          <img
+          <Sol />
+          {/* <img
             src={
               openWeatherInfo
                 .filter((el) => el.name === element.name)
                 .map((el, index) => el.weather[0].description.includes("cloud"))
-                ? sol
+                ? "cloud"
                 : openWeatherInfo
                     .filter((el) => el.name === element.name)
                     .map((el, index) =>
                       el.weather[index].description.includes("clear sky")
                     )
-                ? sol
+                ? "sol"
                 : openWeatherInfo
                     .filter((el) => el.name.includes(element.name))
                     .map((el, index) =>
                       el.weather[index].description.includes("rain")
                     )
-                ? sol
-                : "cenas"
+                ? "rainy"
+                : "sol"
             }
             alt=""
-          />
+          /> */}
         </div>
       </div>
       <div className="weather-card-body">
         <div className="temperature-max-min">
           <div className="temperature">
-            <img src={arrowUp} alt="" />
+            <ArrowUp />
             <p>{element.tMax}</p>
           </div>
           <div className="temperature">
-            <img src={arrowDown} alt="" />
+            <ArrowDown />
             <p>{element.tMin}</p>
           </div>
         </div>
