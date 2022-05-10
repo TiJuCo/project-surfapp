@@ -16,9 +16,19 @@ function HomeBeachesPopular() {
 
   return (
     <div className="container home-beaches-popular">
-      {seaInfo.map((element, index) => (
-        <BeachCard element={element} key={index} />
-      ))}
+      {seaInfo
+        .filter(
+          (element) =>
+            element.name === "Praia Grande" ||
+            element.name === "Praia dos Supertubos" ||
+            element.name === "Praia do Amado" ||
+            element.name === "Praia da Cresmina" ||
+            element.name === "Foz do Lizandro" ||
+            element.name === "Costa da Caparica"
+        )
+        .map((element, index) => (
+          <BeachCard element={element} key={index} />
+        ))}
     </div>
   );
 }
