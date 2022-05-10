@@ -113,42 +113,42 @@ export const ApiContextProvider = ({ children }) => {
   // API request fail safe
   const getStormGlassInfo = async () => {
     const first6Beaches = await axios.get(
-      `https://run.mocky.io/v3/2931bc42-ef0a-4e23-bb72-6901ae0f7193`
+      `https://run.mocky.io/v3/4e63ff39-a15f-4be0-8678-c9bf11264c64`
     );
     setSeaInfo((state) => {
       state = [...state, ...first6Beaches.data];
       return state;
     });
     const second6Beaches = await axios.get(
-      `https://run.mocky.io/v3/bd9a7f8f-b246-4915-a564-34901da92e6a`
+      `https://run.mocky.io/v3/06fb368d-0a58-43b4-bd20-63672e25bac6`
     );
     setSeaInfo((state) => {
       state = [...state, ...second6Beaches.data];
       return state;
     });
     const third6Beaches = await axios.get(
-      `https://run.mocky.io/v3/3c164eb9-6ad7-41c9-a4a1-2dae1d636c23`
+      `https://run.mocky.io/v3/cc89bc79-0e9a-40bc-9dbe-56a286165b4a`
     );
     setSeaInfo((state) => {
       state = [...state, ...third6Beaches.data];
       return state;
     });
     const fourth6Beaches = await axios.get(
-      `https://run.mocky.io/v3/89d2610f-f184-4ce6-a73f-0abd1a86a73c`
+      `https://run.mocky.io/v3/81af2777-8912-48f5-a74e-f6ca056f4b66`
     );
     setSeaInfo((state) => {
       state = [...state, ...fourth6Beaches.data];
       return state;
     });
     const fifth6Beaches = await axios.get(
-      `https://run.mocky.io/v3/eaf1386e-b2c9-4786-b57f-daa280cd2a15`
+      `https://run.mocky.io/v3/4a8234aa-c47f-4379-91b8-d3979921e6b9`
     );
     setSeaInfo((state) => {
       state = [...state, ...fifth6Beaches.data];
       return state;
     });
     const sixth6Beaches = await axios.get(
-      `https://run.mocky.io/v3/124e541d-82a3-425f-a180-9bce71d7cbc6`
+      `https://run.mocky.io/v3/00741a24-edd3-4450-a713-9c1d4f68b25b`
     );
     setSeaInfo((state) => {
       state = [...state, ...sixth6Beaches.data];
@@ -167,6 +167,55 @@ export const ApiContextProvider = ({ children }) => {
   //   console.log(res.data);
   //   return res.data;
   // };
+
+  // Fail safe API request sea conditions
+
+  /* 
+  1st beaches URL: https://run.mocky.io/v3/4e63ff39-a15f-4be0-8678-c9bf11264c64
+  2nd beaches URL: https://run.mocky.io/v3/06fb368d-0a58-43b4-bd20-63672e25bac6
+  3rd beaches URL: https://run.mocky.io/v3/cc89bc79-0e9a-40bc-9dbe-56a286165b4a
+  4th beaches URL: https://run.mocky.io/v3/81af2777-8912-48f5-a74e-f6ca056f4b66
+  5th beaches URL: https://run.mocky.io/v3/4a8234aa-c47f-4379-91b8-d3979921e6b9
+  6th beaches URL: https://run.mocky.io/v3/00741a24-edd3-4450-a713-9c1d4f68b25b
+
+  */
+  // console.log(seaInfo);
+
+  //  Tide info API request
+  // const getTideInfo = async (ourApi) => {
+  //   ourApi.map(async (beach) => {
+  //     const res = await axios.get(
+  //       `https://api.stormglass.io/v2/tide/extremes/point?lat=${beach.latitude}&lng=${beach.longitude}`,
+  //       {
+  //         headers: {
+  //           Authorization:
+  //             "307e6928-c241-11ec-ac71-0242ac130002-307e6996-c241-11ec-ac71-0242ac130002",
+  //         },
+  //       }
+  //     );
+  //     console.log(res.data.data);
+  //     await setTideInfo((state) => {
+  //       state = [...state, res.data.data.splice(0, 18)];
+  //       return state;
+  //     });
+  //   });
+  // };
+
+  console.log(tideInfo);
+
+  // Tide info request FAIL SAFE
+
+  const getTideInfo = async (ourApi) => {
+    const res = await axios.get(
+      `https://run.mocky.io/v3/2cb7dc25-70ba-42d7-addc-90091b37c84f`
+    );
+    setTideInfo(res.data);
+    return tideInfo;
+  };
+
+  tideInfo.forEach((element, index) => {
+    element.name = beachesInfo[index].name;
+  });
 
   // Added the Converted Wind Direction variable assignment to the api context
   let convertedWindDirection = "";
@@ -268,53 +317,6 @@ export const ApiContextProvider = ({ children }) => {
       hour.convertedSwellDirection = convertedSwellDirection;
     })
   );
-  // console.log(seaInfo);
-
-  // Fail safe API request sea conditions
-
-  /* 
-  1st beaches URL: https://run.mocky.io/v3/2931bc42-ef0a-4e23-bb72-6901ae0f7193
-  2nd beaches URL: https://run.mocky.io/v3/bd9a7f8f-b246-4915-a564-34901da92e6a
-  3rd beaches URL: https://run.mocky.io/v3/3c164eb9-6ad7-41c9-a4a1-2dae1d636c23
-  4th beaches URL: https://run.mocky.io/v3/89d2610f-f184-4ce6-a73f-0abd1a86a73c
-  5th beaches URL: https://run.mocky.io/v3/eaf1386e-b2c9-4786-b57f-daa280cd2a15
-  6th beaches URL: https://run.mocky.io/v3/124e541d-82a3-425f-a180-9bce71d7cbc6
-  */
-
-  // Tide info API request
-  // const getTideInfo = async (ourApi) => {
-  //   ourApi.map(async (beach) => {
-  //     const res = await axios.get(
-  //       `https://api.stormglass.io/v2/tide/extremes/point?lat=${beach.latitude}&lng=${beach.longitude}`,
-  //       {
-  //         headers: {
-  //           Authorization:
-  //             "307e6928-c241-11ec-ac71-0242ac130002-307e6996-c241-11ec-ac71-0242ac130002",
-  //         },
-  //       }
-  //     );
-  //     console.log(res.data.data);
-  //     await setTideInfo((state) => {
-  //       state = [...state, res.data.data.splice(0, 18)];
-  //       console.log(state);
-  //       return state;
-  //     });
-  //   });
-  // };
-
-  // Tide info request FAIL SAFE
-
-  const getTideInfo = async (ourApi) => {
-    const res = await axios.get(
-      `https://run.mocky.io/v3/fd97ea75-1ad0-4b93-b297-64a3ad965ba0`
-    );
-    setTideInfo(res.data);
-    return tideInfo;
-  };
-
-  tideInfo.forEach((element, index) => {
-    element.name = beachesInfo[index].name;
-  });
 
   const calculator = () => {
     //Now 6, 9, 12, 15, 18, 21

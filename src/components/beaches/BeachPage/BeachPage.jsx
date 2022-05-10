@@ -88,8 +88,10 @@ function BeachPage() {
   const [day3] = useState(date.getDate() + 2);
   const [day4] = useState(date.getDate() + 3);
   const [day5] = useState(date.getDate() + 4);
-  const currentBeach = beachesInfo.filter(beach => beach.name === params.beachName)[0]
-  console.log(currentBeach)
+  const currentBeach = beachesInfo.filter(
+    (beach) => beach.name === params.beachName
+  )[0];
+  console.log(currentBeach);
 
   // AUMENTAR OS VALORES DAS TIDES POR 1 OU 2 METROS // .filter((el, index) => +el.time.substring(8, 10) === day1)
   const firstDayTide = tideInfo
@@ -168,11 +170,6 @@ function BeachPage() {
   beachDays[3] && beachDays[3].unshift(beachDays[3][time]);
   beachDays[4] && beachDays[4].unshift(beachDays[4][time]);
 
-  tideInfoDays.pop();
-
-  console.log(beachDays);
-  console.log(tideInfoDays);
-  tideInfoDays.pop();
   return (
     <div className="container beach-page-container">
       <Link to={`/beaches/`}>
@@ -264,7 +261,9 @@ function BeachPage() {
                     at <span className="pageObject">18:43</span>.
                   </p>
                   <div>
-                    <a href={`https://www.google.com/maps/place/${currentBeach.latitude},${currentBeach.longitude}`}>
+                    <a
+                      href={`https://www.google.com/maps/place/${currentBeach.latitude},${currentBeach.longitude}`}
+                    >
                       <button>Get directions</button>
                     </a>
                   </div>
