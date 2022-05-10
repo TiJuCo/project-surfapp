@@ -267,7 +267,7 @@ function BeachPage() {
                     <a
                       href={`https://www.google.com/maps/place/${currentBeach.latitude},${currentBeach.longitude}`}
                     >
-                      <button>Get directions</button>
+                      <button className="get-directions">Get directions</button>
                     </a>
                   </div>
                 </div>
@@ -281,22 +281,45 @@ function BeachPage() {
                   <div className="beach-page-calculator">
                     <div className="mobile">
                       <div>
-                        <p>Poor</p>
-                        <div className="calc-dots">
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                          <span class="dot-accent"></span>
-                        </div>
-                      </div>
-                      <p>
-                        Today, {currentDay} {month}
-                      </p>
-                      <div>
-                        <BeginnerMobile />
-                        <IntermediateMobile />
-                        <AdvancedMobile />
+                        {beachDays[0]
+                          .filter((beachDay, index) => index === time)
+                          .map((beachHour, index) => (
+                            <div>
+                              <div>
+                                <p>{beachHour.finalRating}</p>
+                                <div
+                                  className={
+                                    beachHour.finalRating == "Excellent"
+                                      ? "excellent-dot"
+                                      : beachHour.finalRating == "Very good"
+                                      ? "very-good-dot"
+                                      : beachHour.finalRating == "Good"
+                                      ? "good-dot"
+                                      : beachHour.finalRating == "Insufficient"
+                                      ? "insufficient-dot"
+                                      : beachHour.finalRating == "Poor"
+                                      ? "poor-dot"
+                                      : "calc-dots"
+                                  }
+                                >
+                                  <span class="dot-accent"></span>
+                                  <span class="dot-accent"></span>
+                                  <span class="dot-accent"></span>
+                                  <span class="dot-accent"></span>
+                                  <span class="dot-accent"></span>
+                                </div>
+                              </div>
+
+                              {/* <div>
+                                      <img src={beginnerMobile}alt="" />
+                                      <img src={intermediateMobile}alt="" />
+                                      <img src={advancedMobile}alt="" />
+                                  </div> */}
+                              <p>
+                                Today, {currentDay} {month}
+                              </p>
+                            </div>
+                          ))}
                       </div>
                     </div>
                     <div className="desktop">
@@ -772,7 +795,7 @@ function BeachPage() {
                 </div>
               </div>
               <div className="beach-page-main-container-3">
-                <div className="conditions-hour-container">
+                {/* <div className="conditions-hour-container">
                   <h3>Tides Forecast</h3>
                   <div className="conditions-hour-hour">
                     <Swiper pagination={true} className="mySwiper">
@@ -831,7 +854,7 @@ function BeachPage() {
                       ))}
                     </Swiper>
                   </div>
-                </div>
+                </div> */}
                 <div>
                   <div>
                     <h3>Services</h3>

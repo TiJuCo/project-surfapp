@@ -98,6 +98,23 @@
   gap: 20px;
 }
 
+.get-directions {
+  color: #6e7bf7;
+  appearance: none;
+  outline: none;
+  border: 2px solid #6e7bf7;
+  border-radius: 7px;
+  padding: 10px 12px;
+  background-color: transparent;
+  align-self: center;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
 /* calculator */
 .beach-page-calculator {
   display: flex;
@@ -105,7 +122,8 @@
   gap: 10px;
   padding: 10px 20px;
   border-radius: 10px;
-  background-color: var(--excellent);
+  background-color: white;
+  filter: drop-shadow(4px 10px 15px rgba(137, 137, 137, 0.1));
   font-size: 0.9rem;
 }
 
